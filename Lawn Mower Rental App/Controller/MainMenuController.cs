@@ -25,23 +25,28 @@ namespace Lawn_Mower_Rental_App.Controller
                             Console.WriteLine("Going to CurrentInventory..."); //REPLACE WITH A CALL FOR THE METHOD
                             break;
                         case 4:
-                            Console.WriteLine("Going to NewCustomer..."); //REPLACE WITH A CALL FOR THE METHOD
+                            NewCustomerForm newCustomerForm4 = new NewCustomerForm();
+                            CustomerManager customerManager4 = new CustomerManager();
+                            customerManager4.RegisterNewCustomer(newCustomerForm4.CustomerForm());
                             break;
                         case 5:
-                            Console.WriteLine("Going to CustomerList..."); //REPLACE WITH A CALL FOR THE METHOD
+                            CustomerManager customerManager5 = new CustomerManager();
+                            customerManager5.ViewListOfCustomers();
                             break;
                         case 6:
                             Console.WriteLine("Exiting the app...");
                             return;
                         default: 
                             Main.MainMenu();
-                            break;
+
+                        break;
                     }
                 }
                 else 
                 { 
-                    Main.MainMenu();                
-                }
+                    Main.MainMenu();
+
+            }
         }
     }
 }
