@@ -33,6 +33,9 @@ namespace Lawn_Mower_Rental_App.Controller
                         case 6:
                             Console.WriteLine("Exiting the app...");
                             return;
+                        default: 
+                            Main.MainMenu();
+                            break;
                     }
                 }
                 else 
