@@ -2,5 +2,6 @@
 
 using Lawn_Mower_Rental_App.View;
 
+
 Main.MainMenu();
 Console.ReadKey();

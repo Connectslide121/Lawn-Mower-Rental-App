@@ -1,3 +1,16 @@
 [
-  
+  {
+    "CustomerId": 1,
+    "FirstName": "Jon",
+    "LastName": "Mendizabal",
+    "ContactNumber": 123512614,
+    "Address": "sagasgadfgadf"
+  },
+  {
+    "CustomerId": 2,
+    "FirstName": "sd\u00F1lf",
+    "LastName": "sadgasdg",
+    "ContactNumber": 12351235,
+    "Address": "asfgbafdha"
+  }
 ]

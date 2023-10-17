@@ -19,7 +19,7 @@ public class CustomerManager
     {
         customers.Add(customer);
         SaveCustomersToJson(customers);
-        Console.WriteLine("Customer registered successfully. Press any key to go back to the Main Menu");
+        Console.WriteLine("Customer registered successfully. Press any key to go back to the Main Menu");//**THIS SHOULD CALL A METHOD IN VIEW FOLDER WITH THE RIGHT FORMATTING
         Console.ReadKey();
         Main.MainMenu();
     }
@@ -29,19 +29,19 @@ public class CustomerManager
         if (customers.Count == 0)
         {
             Console.Clear();
-            Console.WriteLine("No customers registered yet.");
+            Console.WriteLine("No customers registered yet.");//**THIS SHOULD CALL A METHOD IN VIEW FOLDER WITH THE RIGHT FORMATTING
         }
 
         else
         {
-            Console.WriteLine("List of registered customers:"); //**********************SHOULD THIS CALL A METHOD IN VIEW FOLDER? WITH THE RIGHT FORMATTING??
+            Console.WriteLine("List of registered customers:"); //**THIS SHOULD CALL A METHOD IN VIEW FOLDER WITH THE RIGHT FORMATTING
             foreach (var customer in customers)
             {
                 Console.WriteLine(customer);
             }
         }
         Console.WriteLine();
-        Console.WriteLine("Press any key to go back to the Main Menu");
+        Console.WriteLine("Press any key to go back to the Main Menu");//**THIS SHOULD CALL A METHOD IN VIEW FOLDER WITH THE RIGHT FORMATTING
         Console.ReadKey();
         Main.MainMenu();
     }
