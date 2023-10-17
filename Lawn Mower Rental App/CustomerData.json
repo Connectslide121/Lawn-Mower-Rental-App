@@ -1,1 +1,9 @@
-[]
+[
+  {
+    "CustomerId": 1,
+    "FirstName": "JON",
+    "LastName": "MENDI",
+    "ContactNumber": 1,
+    "Address": "SFDHZDFH"
+  }
+]

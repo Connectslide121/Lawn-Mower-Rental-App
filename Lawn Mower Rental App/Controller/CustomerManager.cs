@@ -49,8 +49,8 @@ public class CustomerManager
         int initialCount = customers.Count;
 
         customers.RemoveAll(customer =>
-            customer.FirstName == firstName && 
-            customer.LastName == lastName && 
+            customer.FirstName.ToLower() == firstName && 
+            customer.LastName.ToLower() == lastName && 
             customer.CustomerId == customerId
             );
 
