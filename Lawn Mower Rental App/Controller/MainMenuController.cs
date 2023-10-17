@@ -12,8 +12,9 @@ namespace Lawn_Mower_Rental_App.Controller
         
         public static void MenuController(string userInput)
         {
-            NewCustomerForm newCustomerForm = new NewCustomerForm();
             CustomerManager customerManager = new CustomerManager();
+            NewCustomerForm newCustomerForm = new NewCustomerForm();
+            DeleteCustomerForm deleteCustomerForm = new DeleteCustomerForm();
 
             if (int.TryParse(userInput, out int userInputInt))
                 {
@@ -35,6 +36,9 @@ namespace Lawn_Mower_Rental_App.Controller
                             customerManager.ViewListOfCustomers();
                             break;
                         case 6:
+                            deleteCustomerForm.DeleteCustomerForm_();
+                            break;
+                        case 7:
                             Console.WriteLine("Exiting the app...");
                             return;
                         default: 

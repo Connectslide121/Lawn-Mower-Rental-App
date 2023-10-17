@@ -41,10 +41,29 @@ public class CustomerManager
 
         return highestID + 1;
     }
+ 
 
-    public void DeleteCustomer(string userInput)
+    public void DeleteCustomer(string firstName, string lastName, int customerId)
     {
+        DeleteCustomerForm deleteCustomerForm = new DeleteCustomerForm();
+        int initialCount = customers.Count;
 
+        customers.RemoveAll(customer =>
+            customer.FirstName == firstName && 
+            customer.LastName == lastName && 
+            customer.CustomerId == customerId
+            );
+
+        if (customers.Count == initialCount)
+        {
+            deleteCustomerForm.CustomerNotFoundMessage(firstName, lastName, customerId);
+        }
+        else
+        {
+            SaveCustomersToJson(customers);
+            deleteCustomerForm.CustomerDeletedMessage(firstName, lastName, customerId);
+            
+        }
     }
 
     public void ViewListOfCustomers()
