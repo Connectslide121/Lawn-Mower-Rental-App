@@ -19,9 +19,32 @@ public class CustomerManager
     {
         customers.Add(customer);
         SaveCustomersToJson(customers);
-        Console.WriteLine("Customer registered successfully. Press any key to go back to the Main Menu");//**THIS SHOULD CALL A METHOD IN VIEW FOLDER WITH THE RIGHT FORMATTING
-        Console.ReadKey();
-        Main.MainMenu();
+        
+    }
+
+    public int GetCustomerId()
+    {
+        if (customers.Count == 0)
+        {
+            return 1;
+        }
+
+        int highestID = customers.Max(customer => customer.CustomerId);
+
+        for (int i = 1; i <= highestID + 1; i++)
+        {
+            if (!customers.Any(customer => customer.CustomerId == i))
+            {
+                return i;
+            }
+        }
+
+        return highestID + 1;
+    }
+
+    public void DeleteCustomer(string userInput)
+    {
+
     }
 
     public void ViewListOfCustomers()
@@ -43,7 +66,7 @@ public class CustomerManager
         Console.WriteLine();
         Console.WriteLine("Press any key to go back to the Main Menu");//**THIS SHOULD CALL A METHOD IN VIEW FOLDER WITH THE RIGHT FORMATTING
         Console.ReadKey();
-        Main.MainMenu();
+        MainMenu.MainMenu_();
     }
 
     private List<Customer> LoadCustomersFromJson()
@@ -69,23 +92,4 @@ public class CustomerManager
         File.WriteAllText(relativePath, jsonData);
     }
 
-    public int GetCustomerId()
-    {
-        if (customers.Count == 0)
-        {
-            return 1;
-        }
-
-        int highestID = customers.Max(customer => customer.CustomerId);
-
-        for (int i = 1; i <= highestID + 1; i++)
-        {
-            if (!customers.Any(customer => customer.CustomerId == i))
-            {
-                return i;
-            }
-        }
-
-        return highestID + 1;
-    }
 }

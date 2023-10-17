@@ -10,7 +10,7 @@ namespace Lawn_Mower_Rental_App.View
 {
     public class NewCustomerForm
     {
-        public Customer CustomerForm()
+        public void NewCustomerForm_()
         {
             CustomerManager customerManager = new CustomerManager();
             Customer customer = new Customer(customerManager.GetCustomerId());
@@ -181,8 +181,10 @@ namespace Lawn_Mower_Rental_App.View
             Console.WriteLine("|\t\t\t\t\t\t\t\t\t\t\t\t\t|");
             Console.WriteLine("|*******************************************************************************************************|");
             Console.WriteLine();
-
-            return customer;
+            customerManager.RegisterNewCustomer(customer);
+            Console.WriteLine("Customer registered successfully. Press any key to go back to the Main Menu");//**THIS SHOULD CALL A METHOD IN VIEW FOLDER WITH THE RIGHT FORMATTING
+            Console.ReadKey();
+            MainMenu.MainMenu_();
         }
     }
 }

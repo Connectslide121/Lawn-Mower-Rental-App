@@ -64,5 +64,9 @@ namespace Lawn_Mower_Rental_App.Controller
 
             return highestID + 1;
         }
+        public void DeleteLawnMower()
+        {
+
+        }
     }
 }

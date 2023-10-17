@@ -7,9 +7,9 @@ using System.Threading.Tasks;
 
 namespace Lawn_Mower_Rental_App.View
 {
-    public class Main
+    public class MainMenu
     {
-        public static void MainMenu()
+        public static void MainMenu_()
         {
             Console.Clear();
             Console.WriteLine("|***************************************** LAWN MOWER RENTAL (TM) **************************************|");
