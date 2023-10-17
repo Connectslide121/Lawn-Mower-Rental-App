@@ -9,9 +9,13 @@ namespace Lawn_Mower_Rental_App.Controller
 {
     public class MainMenuController
     {
+        
         public static void MenuController(string userInput)
         {
-                if (int.TryParse(userInput, out int userInputInt))
+            NewCustomerForm newCustomerForm = new NewCustomerForm();
+            CustomerManager customerManager = new CustomerManager();
+
+            if (int.TryParse(userInput, out int userInputInt))
                 {
                     switch (userInputInt)
                     {
@@ -25,13 +29,10 @@ namespace Lawn_Mower_Rental_App.Controller
                             Console.WriteLine("Going to CurrentInventory..."); //REPLACE WITH A CALL FOR THE METHOD
                             break;
                         case 4:
-                            NewCustomerForm newCustomerForm4 = new NewCustomerForm();
-                            CustomerManager customerManager4 = new CustomerManager();
-                            customerManager4.RegisterNewCustomer(newCustomerForm4.CustomerForm());
+                            customerManager.RegisterNewCustomer(newCustomerForm.CustomerForm());
                             break;
                         case 5:
-                            CustomerManager customerManager5 = new CustomerManager();
-                            customerManager5.ViewListOfCustomers();
+                            customerManager.ViewListOfCustomers();
                             break;
                         case 6:
                             Console.WriteLine("Exiting the app...");

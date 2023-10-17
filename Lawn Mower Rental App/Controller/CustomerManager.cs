@@ -47,6 +47,7 @@ public class CustomerManager
 
     private List<Customer> LoadCustomersFromJson()
     {
+
         if (File.Exists(relativePath))
         {
             string jsonData = File.ReadAllText(relativePath);
@@ -63,4 +64,23 @@ public class CustomerManager
         File.WriteAllText(relativePath, jsonData);
     }
 
+    public int GetCustomerId()
+    {
+        if (customers.Count == 0)
+        {
+            return 1;
+        }
+
+        int highestID = customers.Max(customer => customer.CustomerId);
+
+        for (int i = 1; i <= highestID + 1; i++)
+        {
+            if (!customers.Any(customer => customer.CustomerId == i))
+            {
+                return i;
+            }
+        }
+
+        return highestID + 1;
+    }
 }

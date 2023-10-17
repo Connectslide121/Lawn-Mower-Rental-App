@@ -181,18 +181,6 @@ namespace Lawn_Mower_Rental_App.View
             Console.WriteLine("|*******************************************************************************************************|");
             Console.WriteLine();
 
-
-
-
-
-
-
-
-
-
-
-
-
             return customer;
         }
     }
