@@ -14,6 +14,7 @@ public class CustomerManager
         customers = LoadCustomersFromJson();
     }
     // Just setting up so we can interact with the json file.
+
     public void RegisterNewCustomer(Customer customer)
     {
         customers.Add(customer);
@@ -33,7 +34,7 @@ public class CustomerManager
 
         else
         {
-            Console.WriteLine("List of registered customers:"); //**********************SHOULD THIS CALL A METHOD IN A VIEW FOLDER? WITH THE RIGHT FORMATTING??
+            Console.WriteLine("List of registered customers:"); //**********************SHOULD THIS CALL A METHOD IN VIEW FOLDER? WITH THE RIGHT FORMATTING??
             foreach (var customer in customers)
             {
                 Console.WriteLine(customer);
@@ -47,14 +48,18 @@ public class CustomerManager
 
     private List<Customer> LoadCustomersFromJson()
     {
-
-        if (File.Exists(relativePath))
+        try
         {
-            string jsonData = File.ReadAllText(relativePath);
-            return JsonSerializer.Deserialize<List<Customer>>(jsonData);
+            if (File.Exists(relativePath))
+            {
+                string jsonData = File.ReadAllText(relativePath);
+                return JsonSerializer.Deserialize<List<Customer>>(jsonData);
+            }
         }
-        return new List<Customer>();
+        catch (Exception) { ErrorsExceptions.CustomerFileNotFoundException(); }
+        return customers;
     }
+
     private void SaveCustomersToJson(List<Customer> customers)
     {
         string jsonData = JsonSerializer.Serialize(customers, typeof(List<Customer>), new JsonSerializerOptions

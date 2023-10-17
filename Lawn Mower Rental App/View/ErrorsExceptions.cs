@@ -8,9 +8,14 @@ namespace Lawn_Mower_Rental_App.View
 {
     public class ErrorsExceptions
     {
-        public static void FileNotFoundException()
+        public static void CustomerFileNotFoundException()
         {
-            Console.WriteLine("File not found");
+            Console.WriteLine("Customer file not found");
+        }
+
+        public static void LawnMowerFileNotFoundException()
+        {
+            Console.WriteLine("Lawn Mower file not found");
         }
     }
 }

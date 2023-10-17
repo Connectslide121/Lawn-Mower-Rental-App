@@ -6,8 +6,10 @@ using System.Threading.Tasks;
 
 namespace Lawn_Mower_Rental_App.Model
 {
+    
     public class Customer
     {
+        
         public int CustomerId { get; set; }
         public string FirstName { get; set; }
         public string LastName { get; set; }
@@ -15,15 +17,14 @@ namespace Lawn_Mower_Rental_App.Model
         public string Address { get; set; }
         // We can add more if we need it
 
-        public Customer() 
+        public Customer(int customerId) 
         {
-            CustomerManager customerManager = new CustomerManager();
-            CustomerId = customerManager.GetCustomerId();
+            CustomerId = customerId;
         }
 
         public override string ToString()
         {
-            return $"{FirstName} {LastName} - Contact: {ContactNumber}, Address: {Address}, Customer ID:";
+            return $"{FirstName} {LastName} - Contact: {ContactNumber}, Address: {Address}, Customer ID: {CustomerId}";
         }
     }
 

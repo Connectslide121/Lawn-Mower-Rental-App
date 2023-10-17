@@ -10,7 +10,7 @@ namespace Lawn_Mower_Rental_App.Model
 {
     public class LawnMower
     {
-        public int Id { get; }
+        public int LawnMowerId { get; }
         public string Model { get; } = "HUSQVARNA LB 448S KLIPPO";
         public bool IsAvailable { get; set; } = true;
         public DateTime? LastMaintenance { get; set; }
@@ -20,10 +20,9 @@ namespace Lawn_Mower_Rental_App.Model
             get { return IsAvailable ? "Available" : "In Use"; }
         }
 
-        public LawnMower(DateTime? lastMaintenance)
+        public LawnMower(int lawnMowerId, DateTime? lastMaintenance)
         {
-            LawnMowerManager lawnMowerManager = new LawnMowerManager();
-            Id = lawnMowerManager.GetId();
+            LawnMowerId = lawnMowerId;
             LastMaintenance = lastMaintenance;
         }
 

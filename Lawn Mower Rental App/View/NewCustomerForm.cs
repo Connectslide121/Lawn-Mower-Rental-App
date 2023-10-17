@@ -12,7 +12,8 @@ namespace Lawn_Mower_Rental_App.View
     {
         public Customer CustomerForm()
         {
-            Customer customer = new Customer();
+            CustomerManager customerManager = new CustomerManager();
+            Customer customer = new Customer(customerManager.GetCustomerId());
 
             Console.Clear();
             Console.WriteLine("|***************************************** LAWN MOWER RENTAL (TM) **************************************|");

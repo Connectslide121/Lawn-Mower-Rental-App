@@ -36,27 +36,27 @@ namespace Lawn_Mower_Rental_App.Controller
                             bool isAvailable = bool.Parse(parts[2]);
                             DateTime? lastMaintenance = string.IsNullOrEmpty(parts[3]) ? (DateTime?)null : DateTime.Parse(parts[3]);
                             decimal pricePerDay = decimal.Parse(parts[4], CultureInfo.InvariantCulture);
-                            lawnMowers.Add(new LawnMower(lastMaintenance));
+                            lawnMowers.Add(new LawnMower(id, lastMaintenance));
                         }
                     }
                 }
             }
-            catch (Exception){ ErrorsExceptions.FileNotFoundException(); }
+            catch (Exception){ ErrorsExceptions.LawnMowerFileNotFoundException(); }
             return lawnMowers;
         }
 
-        public int GetId()
+        public int GetLawnMowerId() //WE NEED TO CALL THIS METHOD WHENEVER CREATING A NEW INSTANCE OF LAWN MOWER: LawnMower lawnMower = new LawnMower(GetLawnMowerId(), LastMaintenance DateTime)
         {
             if (lawnMowers.Count == 0)
             {
                 return 1;
             }
 
-            int highestID = lawnMowers.Max(mower => mower.Id);
+            int highestID = lawnMowers.Max(mower => mower.LawnMowerId);
 
             for (int i = 1; i<= highestID +1; i++)
             {
-                if(!lawnMowers.Any(mower => mower.Id == i))
+                if(!lawnMowers.Any(mower => mower.LawnMowerId == i))
                 {
                     return i;
                 }
