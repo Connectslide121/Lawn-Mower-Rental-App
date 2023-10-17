@@ -64,6 +64,14 @@ namespace Lawn_Mower_Rental_App.Controller
 
             return highestID + 1;
         }
+        public void RentLawnMower()
+        {
+            // Adding Rent and Return here as place holders for now as i think this is where we do them. 
+        }
+        public void ReturnLawnMower()
+        {
+
+        }
         public void DeleteLawnMower()
         {
 
