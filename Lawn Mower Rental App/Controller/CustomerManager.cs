@@ -1,6 +1,6 @@
 ﻿using Lawn_Mower_Rental_App.Model;
 using Lawn_Mower_Rental_App.View;
-using Lawn_Mower_Rental_App.View.Lawn_Mower_Rental_App.View;
+using Lawn_Mower_Rental_App.View;
 using System.Text.Json;
 using System.Xml;
 
