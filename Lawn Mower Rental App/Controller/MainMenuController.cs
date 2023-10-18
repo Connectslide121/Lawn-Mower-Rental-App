@@ -12,35 +12,70 @@ namespace Lawn_Mower_Rental_App.Controller
         
         public static void MenuController(string userInput)
         {
-            CustomerManager customerManager = new CustomerManager();
+
+
+
+            NewLawnMowerForm newLawnMowerForm = new NewLawnMowerForm();
+            DeleteLawnMowerForm deleteLawnMowerForm = new DeleteLawnMowerForm();
+            LawnMowerManager lawnMowerManager = new LawnMowerManager();
+
             NewCustomerForm newCustomerForm = new NewCustomerForm();
             DeleteCustomerForm deleteCustomerForm = new DeleteCustomerForm();
+            CustomerManager customerManager = new CustomerManager();
+
+
 
             if (int.TryParse(userInput, out int userInputInt))
                 {
                     switch (userInputInt)
                     {
                         case 1:
-                            Console.WriteLine("Going to RentLawnMower..."); //REPLACE WITH A CALL FOR THE METHOD
+                            Console.WriteLine("Going to ..."); //REPLACE WITH A CALL FOR THE METHOD
                             break;
                         case 2:
-                            Console.WriteLine("Going to ReturnLawnMower..."); //REPLACE WITH A CALL FOR THE METHOD
+                            Console.WriteLine("Going to ..."); //REPLACE WITH A CALL FOR THE METHOD
                             break;
                         case 3:
-                            Console.WriteLine("Going to CurrentInventory..."); //REPLACE WITH A CALL FOR THE METHOD
+                            Console.WriteLine("Going to ..."); //REPLACE WITH A CALL FOR THE METHOD
                             break;
                         case 4:
-                            newCustomerForm.NewCustomerForm_();
+                            Console.WriteLine("Going to ..."); //REPLACE WITH A CALL FOR THE METHOD
                             break;
+
+
                         case 5:
-                            customerManager.ViewListOfCustomers();
+                            newLawnMowerForm.NewLawnMowerForm_();
                             break;
                         case 6:
-                            deleteCustomerForm.DeleteCustomerForm_();
+                            deleteLawnMowerForm.DeleteLawnMowerForm_();
                             break;
                         case 7:
-                            Console.WriteLine("Exiting the app...");
+                            lawnMowerManager.ViewListOfLawnMowers();
+                            break;
+                        case 8:
+                            Console.WriteLine("Going to ..."); //REPLACE WITH A CALL FOR THE METHOD
+                            break;
+
+
+
+                        case 9:
+                            newCustomerForm.NewCustomerForm_();
+                            break;
+                        case 10:
+                            deleteCustomerForm.DeleteCustomerForm_();
+                            break;
+                        case 11:
+                            customerManager.ViewListOfCustomers();
+                            break;
+                        case 12:
+                            Console.WriteLine("Going to..."); //REPLACE WITH A CALL FOR THE METHOD
+                            break;
+
+
+                        case 13:
+                            Console.WriteLine("Exiting the app..."); //REPLACE WITH A CALL FOR THE METHOD
                             return;
+
                         default: 
                             MainMenu.MainMenu_();
 
