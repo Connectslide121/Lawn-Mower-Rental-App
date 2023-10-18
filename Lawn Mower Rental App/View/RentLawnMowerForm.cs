@@ -1,4 +1,5 @@
 ﻿using Lawn_Mower_Rental_App.Controller;
+using Lawn_Mower_Rental_App.Model;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -11,6 +12,10 @@ namespace Lawn_Mower_Rental_App.View
     {
         public void RentLawnMowerForm_()
         {
+            RentalManager rentalManager = new RentalManager();
+            CustomerManager customerManager = new CustomerManager();
+            
+
             Console.Clear();
             Console.WriteLine("|***************************************** LAWN MOWER RENTAL (TM) **************************************|");
             Console.WriteLine("|\t\t\t\t\t\t\t\t\t\t\t\t\t|");
@@ -18,35 +23,113 @@ namespace Lawn_Mower_Rental_App.View
             Console.WriteLine("|\t\t\t\t\t\t\t\t\t\t\t\t\t|");
             Console.WriteLine("|\t\t\t\t\t    RENT A LAWN MOWER \t\t\t\t\t\t|");
             Console.WriteLine("|\t\t\t\t\t\t\t\t\t\t\t\t\t|");
-            Console.WriteLine("|\t\t\t Please enter the lawn mower information as requested: \t\t\t\t|");
+            Console.WriteLine("|\t\t\t\t Please enter information as requested: \t\t\t\t|");
             Console.WriteLine("|\t\t\t\t\t\t\t\t\t\t\t\t\t|");
-            Console.WriteLine("|\t\t\t\t\t Lawn Mower ID: \t\t\t\t\t\t\t|");
+            Console.WriteLine("|\t\t\t\t\t Customer ID: \t\t\t\t\t\t\t|");
             Console.WriteLine("|\t\t\t\t\t\t\t\t\t\t\t\t\t|");
+            Console.WriteLine("|\t\t\t\t\t Rental Date: \t\t\t\t\t\t\t|");
             Console.WriteLine("|\t\t\t\t\t\t\t\t\t\t\t\t\t|");
-            Console.WriteLine("|\t\t\t\t\t\t\t\t\t\t\t\t\t|");
-            Console.WriteLine("|\t\t\t\t\t\t\t\t\t\t\t\t\t|");
-            Console.WriteLine("|\t\t\t\t\t\t\t\t\t\t\t\t\t|");
-            Console.WriteLine("|\t\t\t\t\t\t\t\t\t\t\t\t\t|");
-            Console.WriteLine("|\t\t\t\t\t\t\t\t\t\t\t\t\t|");
-            Console.WriteLine("|\t\t\t\t\t\t\t\t\t\t\t\t\t|");
-            Console.WriteLine("|\t\t\t\t\t\t\t\t\t\t\t\t\t|");
-            Console.WriteLine("|\t\t\t\t\t\t\t\t\t\t\t\t\t|");
-            Console.WriteLine("|\t\t\t\t\t\t\t\t\t\t\t\t\t|");
-            Console.WriteLine("|\t\t\t\t\t\t\t\t\t\t\t\t\t|");
-            Console.WriteLine("|\t\t\t\t\t\t\t\t\t\t\t\t\t|");
-            Console.WriteLine("|\t\t\t\t\t\t\t\t\t\t\t\t\t|");
+            Console.WriteLine("|\t\t\t\t\t Return Date: \t\t\t\t\t\t\t|");
             Console.WriteLine("|\t\t\t\t\t\t\t\t\t\t\t\t\t|");
             Console.WriteLine("|\t\t\t\t\t\t\t\t\t\t\t\t\t|");
             Console.WriteLine("|*******************************************************************************************************|");
             Console.WriteLine();
-            Console.WriteLine("Please enter lawn mower ID:");
-            string lawnMowerId = Console.ReadLine();
-            // We can add further things here if needed
-            // Im postponing on adding the method because i am a bit unsure how to work with it, just writing this for now as an starting point as i am a bit lost on how to proceed from here.
-            //LawnMowerManager.RentLawnMower(lawnMowerId);
-            Console.WriteLine("Lawn mower rented successfully. Press any key to go back to the Main Menu.");
+
+            string customerId;
+            int customerIdInt;
+
+            do
+            {
+                Console.WriteLine("Please enter customer ID:");
+                customerId = Console.ReadLine();
+            }
+            while (!int.TryParse(customerId, out customerIdInt));
+
+            Customer customerToRent = customerManager.FindCustomerById(customerIdInt);
+
+            Console.Clear();
+            Console.WriteLine("|***************************************** LAWN MOWER RENTAL (TM) **************************************|");
+            Console.WriteLine("|\t\t\t\t\t\t\t\t\t\t\t\t\t|");
+            Console.WriteLine("|\t\t\t\t\t\t\t\t\t\t\t\t\t|");
+            Console.WriteLine("|\t\t\t\t\t\t\t\t\t\t\t\t\t|");
+            Console.WriteLine("|\t\t\t\t\t    RENT A LAWN MOWER \t\t\t\t\t\t|");
+            Console.WriteLine("|\t\t\t\t\t\t\t\t\t\t\t\t\t|");
+            Console.WriteLine("|\t\t\t\t Please enter information as requested: \t\t\t\t|");
+            Console.WriteLine("|\t\t\t\t\t\t\t\t\t\t\t\t\t|");
+            Console.WriteLine($"|\t\t\t\t\t Customer ID: {customerIdInt}\t\t\t\t\t\t\t|");
+            Console.WriteLine("|\t\t\t\t\t\t\t\t\t\t\t\t\t|");
+            Console.WriteLine("|\t\t\t\t\t Rental Date: \t\t\t\t\t\t\t|");
+            Console.WriteLine("|\t\t\t\t\t\t\t\t\t\t\t\t\t|");
+            Console.WriteLine("|\t\t\t\t\t Return Date: \t\t\t\t\t\t\t|");
+            Console.WriteLine("|\t\t\t\t\t\t\t\t\t\t\t\t\t|");
+            Console.WriteLine("|\t\t\t\t\t\t\t\t\t\t\t\t\t|");
+            Console.WriteLine("|*******************************************************************************************************|");
+            Console.WriteLine();
+
+            string rentalDate;
+            DateTime rentalDateValid;
+
+            do
+            {
+                Console.WriteLine("Please enter rental date (YYYY-MM-DD hh:mm:ss):");
+                rentalDate = Console.ReadLine();
+            }
+            while (!DateTime.TryParse(rentalDate, out rentalDateValid));
+
+            Console.Clear();
+            Console.WriteLine("|***************************************** LAWN MOWER RENTAL (TM) **************************************|");
+            Console.WriteLine("|\t\t\t\t\t\t\t\t\t\t\t\t\t|");
+            Console.WriteLine("|\t\t\t\t\t\t\t\t\t\t\t\t\t|");
+            Console.WriteLine("|\t\t\t\t\t\t\t\t\t\t\t\t\t|");
+            Console.WriteLine("|\t\t\t\t\t    RENT A LAWN MOWER \t\t\t\t\t\t|");
+            Console.WriteLine("|\t\t\t\t\t\t\t\t\t\t\t\t\t|");
+            Console.WriteLine("|\t\t\t\t Please enter information as requested: \t\t\t\t|");
+            Console.WriteLine("|\t\t\t\t\t\t\t\t\t\t\t\t\t|");
+            Console.WriteLine($"|\t\t\t\t\t Customer ID: {customerIdInt}\t\t\t\t\t\t\t|");
+            Console.WriteLine("|\t\t\t\t\t\t\t\t\t\t\t\t\t|");
+            Console.WriteLine($"|\t\t\t\t\t Rental Date: {rentalDateValid.ToString("d")}\t\t\t\t\t|");
+            Console.WriteLine("|\t\t\t\t\t\t\t\t\t\t\t\t\t|");
+            Console.WriteLine("|\t\t\t\t\t Return Date: \t\t\t\t\t\t\t|");
+            Console.WriteLine("|\t\t\t\t\t\t\t\t\t\t\t\t\t|");
+            Console.WriteLine("|\t\t\t\t\t\t\t\t\t\t\t\t\t|");
+            Console.WriteLine("|*******************************************************************************************************|");
+            Console.WriteLine();
+
+            string returnDate;
+            DateTime returnDateValid;
+
+            do
+            {
+                Console.WriteLine("Please enter return date (YYYY-MM-DD hh:mm:ss):");
+                returnDate = Console.ReadLine();
+            }
+            while (!DateTime.TryParse(returnDate, out returnDateValid));
+
+            rentalManager.RentLawnMower(customerToRent, rentalDateValid, returnDateValid);
+
+            Console.Clear();
+            Console.WriteLine("|***************************************** LAWN MOWER RENTAL (TM) **************************************|");
+            Console.WriteLine("|\t\t\t\t\t\t\t\t\t\t\t\t\t|");
+            Console.WriteLine("|\t\t\t\t\t\t\t\t\t\t\t\t\t|");
+            Console.WriteLine("|\t\t\t\t\t\t\t\t\t\t\t\t\t|");
+            Console.WriteLine("|\t\t\t\t\t    RENT A LAWN MOWER \t\t\t\t\t\t|");
+            Console.WriteLine("|\t\t\t\t\t\t\t\t\t\t\t\t\t|");
+            Console.WriteLine("|\t\t\t\t Please enter information as requested: \t\t\t\t|");
+            Console.WriteLine("|\t\t\t\t\t\t\t\t\t\t\t\t\t|");
+            Console.WriteLine($"|\t\t\t\t\t Customer ID: {customerIdInt}\t\t\t\t\t\t\t|");
+            Console.WriteLine("|\t\t\t\t\t\t\t\t\t\t\t\t\t|");
+            Console.WriteLine($"|\t\t\t\t\t Rental Date: {rentalDateValid.ToString("d")}\t\t\t\t\t|");
+            Console.WriteLine("|\t\t\t\t\t\t\t\t\t\t\t\t\t|");
+            Console.WriteLine($"|\t\t\t\t\t Return Date: {returnDateValid.ToString("d")}\t\t\t\t\t|");
+            Console.WriteLine("|\t\t\t\t\t\t\t\t\t\t\t\t\t|");
+            Console.WriteLine("|\t\t\t\t   Rental registered successfully!\t\t\t\t\t|");
+            Console.WriteLine("|\t\t\t\t\t\t\t\t\t\t\t\t\t|");
+            Console.WriteLine("|\t\t\t\t\t\t\t\t\t\t\t\t\t|");
+            Console.WriteLine("|*******************************************************************************************************|");
+            Console.WriteLine();
+            Console.WriteLine("Press any key to go back to Main Menu");
             Console.ReadKey();
-            MainMenu.MainMenu_(); // This is just me copying to try to stay consistent with the other forms.
+            MainMenu.MainMenu_();
         }
     }
 }

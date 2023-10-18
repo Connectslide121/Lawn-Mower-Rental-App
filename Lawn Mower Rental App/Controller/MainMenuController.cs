@@ -12,7 +12,7 @@ namespace Lawn_Mower_Rental_App.Controller
         
         public static void MenuController(string userInput)
         {
-
+            RentLawnMowerForm rentLawnMowerForm = new RentLawnMowerForm();
 
 
             NewLawnMowerForm newLawnMowerForm = new NewLawnMowerForm();
@@ -30,7 +30,7 @@ namespace Lawn_Mower_Rental_App.Controller
                     switch (userInputInt)
                     {
                         case 1:
-                            Console.WriteLine("Going to ..."); //REPLACE WITH A CALL FOR THE METHOD
+                            rentLawnMowerForm.RentLawnMowerForm_();
                             break;
                         case 2:
                             Console.WriteLine("Going to ..."); //REPLACE WITH A CALL FOR THE METHOD

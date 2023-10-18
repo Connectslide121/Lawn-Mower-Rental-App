@@ -14,7 +14,7 @@ namespace Lawn_Mower_Rental_App.Model
         public int LawnMowerId { get; set; }
         public string Model { get; set;  } = "HUSQVARNA LB 448S KLIPPO";
         public bool IsAvailable { get; set; } = true;
-        public DateTime? LastMaintenance { get; set; } = DateTime.Now;
+        public DateTime LastMaintenance { get; set; } = DateTime.Now;
         public decimal PricePerDay { get; set; } = 99.95M;
         public string AvailabilityStatus
         {
@@ -27,7 +27,7 @@ namespace Lawn_Mower_Rental_App.Model
         }
         public override string ToString()
         {
-            return $"ID: {LawnMowerId}, {Model}, {AvailabilityStatus}, Maintenance: {LastMaintenance}, {PricePerDay} SEK/day";
+            return $"ID: {LawnMowerId}, {Model}, {AvailabilityStatus}, Maintenance: {LastMaintenance.ToString("d")}, {PricePerDay} SEK/day";
         }
 
 

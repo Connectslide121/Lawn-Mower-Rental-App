@@ -27,7 +27,7 @@ namespace Lawn_Mower_Rental_App.View
             {
                 foreach (var lawnMower in lawnMowers)
                 {
-                    Console.WriteLine($"|\t{lawnMower}\t|");
+                    Console.WriteLine($"|\t{lawnMower}\t\t|");
                 }
             }
 

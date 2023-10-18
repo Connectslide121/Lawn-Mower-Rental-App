@@ -97,6 +97,14 @@ namespace Lawn_Mower_Rental_App.Controller
         {
             LawnMowerListView.LawnMowerListView_(lawnMowers);
         }
+
+        public LawnMower FindLawnMowerById()
+        {
+            int rentedMowerId = lawnMowers.FindIndex(m => m.IsAvailable == true);
+            
+            LawnMower selectedMower = lawnMowers[rentedMowerId];
+            return selectedMower;
+        }
     }
 
 
