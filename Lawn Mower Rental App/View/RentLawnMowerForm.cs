@@ -43,7 +43,7 @@ namespace Lawn_Mower_Rental_App.View
             string lawnMowerId = Console.ReadLine();
             // We can add further things here if needed
             // Im postponing on adding the method because i am a bit unsure how to work with it, just writing this for now as an starting point as i am a bit lost on how to proceed from here.
-            LawnMowerManager.RentLawnMower(lawnMowerId);
+            //LawnMowerManager.RentLawnMower(lawnMowerId);
             Console.WriteLine("Lawn mower rented successfully. Press any key to go back to the Main Menu.");
             Console.ReadKey();
             MainMenu.MainMenu_(); // This is just me copying to try to stay consistent with the other forms.

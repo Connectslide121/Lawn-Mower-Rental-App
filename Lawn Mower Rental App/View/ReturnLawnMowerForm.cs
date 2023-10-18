@@ -28,7 +28,7 @@ namespace Lawn_Mower_Rental_App.View
             Console.WriteLine("Please enter lawn mower ID:");
             string lawnMowerId = Console.ReadLine();
 
-            LawnMowerManager.ReturnLawnMower(lawnMowerId);
+            //LawnMowerManager.ReturnLawnMower(lawnMowerId);
             Console.WriteLine("Lawn mower returned successfully. Press any key to go back to the Main Menu.");
             Console.ReadKey();
             MainMenu.MainMenu_();

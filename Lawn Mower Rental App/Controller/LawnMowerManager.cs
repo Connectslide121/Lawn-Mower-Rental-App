@@ -12,7 +12,7 @@ namespace Lawn_Mower_Rental_App.Controller
 {
     public class LawnMowerManager
     {
-        List<LawnMower> lawnMowers;
+        private List<LawnMower> lawnMowers;
         string relativePath = Path.Combine(Path.GetFullPath(Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "..", "..", "..")), "InventoryData.json");
 
         public LawnMowerManager()
@@ -75,7 +75,7 @@ namespace Lawn_Mower_Rental_App.Controller
             }
             catch (Exception ex)
             {
-                Console.WriteLine("Error saving lawn mowers to JSON: " + ex.Message);
+                Console.WriteLine("Error saving lawn mowers to JSON: " + ex.Message);//**THIS SHOULD CALL A METHOD IN VIEW FOLDER (ErrorsExceotions class) WITH THE RIGHT FORMATTING
             }
         }
 
