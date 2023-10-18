@@ -49,17 +49,22 @@ namespace Lawn_Mower_Rental_App.Controller
                     return JsonSerializer.Deserialize<List<Rental>>(jsonData);
                 }
             }
-            catch (Exception) { ErrorsExceptions.CustomerFileNotFoundException(); }
+            catch (Exception) { ErrorsExceptions.CustomerFileNotFoundException(); }    //Create a specific RentalFileNotFoundException view
             return rentals;
         }
 
         private void SaveRentalsToJson(List<Rental> rentals)
         {
-            string jsonData = JsonSerializer.Serialize(rentals, typeof(List<Rental>), new JsonSerializerOptions
+            try
             {
-                WriteIndented = true
-            });
-            File.WriteAllText(relativePath, jsonData);
+                string jsonData = JsonSerializer.Serialize(rentals, typeof(List<Rental>), new JsonSerializerOptions
+                {
+                    WriteIndented = true
+                });
+                File.WriteAllText(relativePath, jsonData);
+            }
+            catch { ErrorsExceptions.CustomerFileNotFoundException(); } //Create a specific RentalFileNotFoundException view
+
         }
 
     }

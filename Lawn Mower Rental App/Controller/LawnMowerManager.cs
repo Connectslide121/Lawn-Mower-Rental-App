@@ -6,6 +6,7 @@ using System.Globalization;
 using System.Linq;
 using System.Reflection;
 using System.Text;
+using System.Text.Json;
 using System.Threading.Tasks;
 
 namespace Lawn_Mower_Rental_App.Controller
@@ -13,7 +14,7 @@ namespace Lawn_Mower_Rental_App.Controller
     public class LawnMowerManager
     {
         private List<LawnMower> lawnMowers;
-        string relativePath = Path.Combine(Path.GetFullPath(Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "..", "..", "..")), "InventoryData.json");
+        string relativePath = Path.Combine(Path.GetFullPath(Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "..", "..", "..")), "LawnMowerData.json");
 
         public LawnMowerManager()
         {
@@ -64,101 +65,25 @@ namespace Lawn_Mower_Rental_App.Controller
 
             return highestID + 1;
         }
-        public void SaveLawnMowersToJson()
+
+        public void SaveLawnMowersToJson(List<LawnMower> lawnMowers)
         {
             try
             {
-                string json = SerializeToJson(lawnMowers);
+                string jsonData = JsonSerializer.Serialize(lawnMowers, typeof(List<LawnMower>), new JsonSerializerOptions
+                {
+                    WriteIndented = true
+                });
 
-                // Write the JSON string to the inventory file
-                File.WriteAllText(relativePath, json);
+                File.WriteAllText(relativePath, jsonData);
             }
-            catch (Exception ex)
-            {
-                Console.WriteLine("Error saving lawn mowers to JSON: " + ex.Message);//**THIS SHOULD CALL A METHOD IN VIEW FOLDER (ErrorsExceotions class) WITH THE RIGHT FORMATTING
-            }
+            catch { ErrorsExceptions.LawnMowerFileNotFoundException(); }
         }
 
-        private string SerializeToJson(List<LawnMower> lawnMowerList)
+        public void RegisterNewLawnMower(LawnMower lawnMower)
         {
-            StringBuilder jsonBuilder = new StringBuilder();
-            jsonBuilder.Append("[");
-
-            foreach (var mower in lawnMowerList)
-            {
-                jsonBuilder.Append("{");
-                jsonBuilder.AppendFormat("\"LawnMowerId\": {0},", mower.LawnMowerId);
-                jsonBuilder.AppendFormat("\"Model\": \"{0}\",", mower.Model);
-                jsonBuilder.AppendFormat("\"IsAvailable\": {0},", mower.IsAvailable.ToString().ToLower());
-                jsonBuilder.AppendFormat("\"LastMaintenance\": \"{0}\",", mower.LastMaintenance.HasValue ? mower.LastMaintenance.Value.ToString("yyyy-MM-dd") : "");
-                jsonBuilder.AppendFormat("\"PricePerDay\": {0}", mower.PricePerDay.ToString(CultureInfo.InvariantCulture));
-                jsonBuilder.Append("},");
-            }
-
-            if (lawnMowerList.Count > 0)
-            {
-
-                jsonBuilder.Remove(jsonBuilder.Length - 1, 1);
-            }
-
-            jsonBuilder.Append("]");
-
-            return jsonBuilder.ToString();
-        }
-        public void ReturnLawnMower()
-        {
-            Console.WriteLine("Please enter the lawn mower ID to return:");
-            if (int.TryParse(Console.ReadLine(), out int lawnMowerId))
-        {
-            LawnMower lawnMower = lawnMowers.FirstOrDefault(mower => mower.LawnMowerId == lawnMowerId);
-
-            if (lawnMower != null)
-                {
-                    lawnMower.IsAvailable = true;
-                    SaveLawnMowersToJson();
-                    Console.WriteLine("Lawn mower returned successfully.");
-                }
-                else
-                {
-                    Console.WriteLine("Lawn mower not found with the specified ID.");
-                }
-            }
-            else
-            {
-                Console.WriteLine("Invalid input. Please enter a valid integer ID.");
-            }
-        }
-
-        public void RentLawnMower()
-        {
-            Console.WriteLine("Please enter the lawn mower ID to rent:");
-            if (int.TryParse(Console.ReadLine(), out int lawnMowerId))
-            {
-            LawnMower lawnMower = lawnMowers.FirstOrDefault(mower => mower.LawnMowerId == lawnMowerId);
-
-            if (lawnMower != null)
-        {
-                if (lawnMower.IsAvailable)
-            {
-                        lawnMower.IsAvailable = false;
-                    SaveLawnMowersToJson();
-                    Console.WriteLine("Lawn mower rented successfully.");
-                }
-                else
-                {
-                    Console.WriteLine("Lawn mower with ID " + lawnMowerId + " is not available for rent.");
-                }
-            }
-            else
-            {
-                Console.WriteLine("Lawn mower not found with the specified ID.");
-            }
-            }
-            else
-            {
-                Console.WriteLine("Invalid input. Please enter a valid integer ID.");
-            }  
-               // A if and else method felt like it made the most sense to do here. 
+            lawnMowers.Add(lawnMower);
+            SaveLawnMowersToJson(lawnMowers);
         }
 
         public void DeleteLawnMower()
@@ -166,4 +91,99 @@ namespace Lawn_Mower_Rental_App.Controller
 
         }
     }
+
+
+
+
+
+
+
+
+
+    //private string SerializeToJson(List<LawnMower> lawnMowerList) //****** IS THIS A CUSTOM JSON SERIALIZER???????????? 
+    //{
+    //    StringBuilder jsonBuilder = new StringBuilder();
+    //    jsonBuilder.Append("[");
+
+    //    foreach (var mower in lawnMowerList)
+    //    {
+    //        jsonBuilder.Append("{");
+    //        jsonBuilder.AppendFormat("\"LawnMowerId\": {0},", mower.LawnMowerId);
+    //        jsonBuilder.AppendFormat("\"Model\": \"{0}\",", mower.Model);
+    //        jsonBuilder.AppendFormat("\"IsAvailable\": {0},", mower.IsAvailable.ToString().ToLower());
+    //        jsonBuilder.AppendFormat("\"LastMaintenance\": \"{0}\",", mower.LastMaintenance.HasValue ? mower.LastMaintenance.Value.ToString("yyyy-MM-dd") : "");
+    //        jsonBuilder.AppendFormat("\"PricePerDay\": {0}", mower.PricePerDay.ToString(CultureInfo.InvariantCulture));
+    //        jsonBuilder.Append("},");
+    //    }
+
+    //    if (lawnMowerList.Count > 0)
+    //    {
+
+    //        jsonBuilder.Remove(jsonBuilder.Length - 1, 1);
+    //    }
+
+    //    jsonBuilder.Append("]");
+
+    //    return jsonBuilder.ToString();
+    //}
+
+    //public void ReturnLawnMower()
+    //{
+    //    Console.WriteLine("Please enter the lawn mower ID to return:");
+    //    if (int.TryParse(Console.ReadLine(), out int lawnMowerId))
+    //{
+    //    LawnMower lawnMower = lawnMowers.FirstOrDefault(mower => mower.LawnMowerId == lawnMowerId);
+
+    //    if (lawnMower != null)
+    //        {
+    //            lawnMower.IsAvailable = true;
+    //            SaveLawnMowersToJson();
+    //            Console.WriteLine("Lawn mower returned successfully.");
+    //        }
+    //        else
+    //        {
+    //            Console.WriteLine("Lawn mower not found with the specified ID.");
+    //        }
+    //    }
+    //    else
+    //    {
+    //        Console.WriteLine("Invalid input. Please enter a valid integer ID.");
+    //    }
+    //}
+
+
+
+    //public void RentLawnMower()
+    //{
+    //    Console.WriteLine("Please enter the lawn mower ID to rent:");
+    //    if (int.TryParse(Console.ReadLine(), out int lawnMowerId))
+    //    {
+    //    LawnMower lawnMower = lawnMowers.FirstOrDefault(mower => mower.LawnMowerId == lawnMowerId);
+
+    //    if (lawnMower != null)
+    //{
+    //        if (lawnMower.IsAvailable)
+    //    {
+    //                lawnMower.IsAvailable = false;
+    //            SaveLawnMowersToJson();
+    //            Console.WriteLine("Lawn mower rented successfully.");
+    //        }
+    //        else
+    //        {
+    //            Console.WriteLine("Lawn mower with ID " + lawnMowerId + " is not available for rent.");
+    //        }
+    //    }
+    //    else
+    //    {
+    //        Console.WriteLine("Lawn mower not found with the specified ID.");
+    //    }
+    //    }
+    //    else
+    //    {
+    //        Console.WriteLine("Invalid input. Please enter a valid integer ID.");
+    //    }  
+    //       // A if and else method felt like it made the most sense to do here. 
+    //}
+
+
 }

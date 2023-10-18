@@ -19,7 +19,6 @@ public class CustomerManager
     {
         customers.Add(customer);
         SaveCustomersToJson(customers);
-        
     }
 
     public int GetCustomerId()
