@@ -23,16 +23,16 @@ namespace Lawn_Mower_Rental_App.Controller
        
         private List<LawnMower> LoadLawnMowersFromJson()
         {
-            //try
-           // {
-               // if (File.Exists(relativePath))
-               // {
+            try
+            {
+                if (File.Exists(relativePath))
+                {
                     string jsonData = File.ReadAllText(relativePath);
                     return JsonSerializer.Deserialize<List<LawnMower>>(jsonData);
-               // }
-            //}
-           // catch (Exception){ ErrorsExceptions.LawnMowerFileNotFoundException(); }
-            //return lawnMowers;
+                }
+            }
+            catch (Exception) { ErrorsExceptions.LawnMowerFileNotFoundException(); }
+            return lawnMowers;
         }
 
         public int GetLawnMowerId() //WE NEED TO CALL THIS METHOD WHENEVER CREATING A NEW INSTANCE OF LAWN MOWER: LawnMower lawnMower = new LawnMower(GetLawnMowerId(), LastMaintenance DateTime)
@@ -69,15 +69,28 @@ namespace Lawn_Mower_Rental_App.Controller
             catch { ErrorsExceptions.LawnMowerFileNotFoundException(); }
         }
 
-        public void RegisterNewLawnMower(LawnMower lawnMower) //FORM TO BE DONE
+        public void RegisterNewLawnMower(LawnMower lawnMower)
         {
             lawnMowers.Add(lawnMower);
             SaveLawnMowersToJson(lawnMowers);
         }
 
-        public void DeleteLawnMower() //FORM TO BE DONE
+        public void DeleteLawnMower(int userInput)
         {
+            DeleteLawnMowerForm deleteLawnMowerForm = new DeleteLawnMowerForm();
+            int initialCount = lawnMowers.Count;
 
+            lawnMowers.RemoveAll(lawnMower => lawnMower.LawnMowerId == userInput);
+            SaveLawnMowersToJson(lawnMowers);
+
+            if (lawnMowers.Count == initialCount)
+            {
+                deleteLawnMowerForm.LawnMowerNotFoundMessage(userInput);
+            }
+            else
+            {
+                deleteLawnMowerForm.LawnMowerDeletedMessage(userInput);
+            }
         }
     }
 

@@ -55,16 +55,15 @@ namespace Lawn_Mower_Rental_App.Controller
                 customer.LastName.ToLower() == lastName &&
                 customer.CustomerId == customerId
                 );
+            SaveCustomersToJson(customers);
 
-        if (customers.Count == initialCount)
+            if (customers.Count == initialCount)
         {
             deleteCustomerForm.CustomerNotFoundMessage(firstName, lastName, customerId);
         }
         else
         {
-            SaveCustomersToJson(customers);
             deleteCustomerForm.CustomerDeletedMessage(firstName, lastName, customerId);
-            
         }
     }
 
