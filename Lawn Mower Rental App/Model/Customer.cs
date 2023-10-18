@@ -15,6 +15,7 @@ namespace Lawn_Mower_Rental_App.Model
         public string LastName { get; set; }
         public int ContactNumber { get; set; }
         public string Address { get; set; }
+        public DateTime DateOfRegistry { get; set; } = DateTime.Now;
         // We can add more if we need it
 
         public Customer(int customerId) 

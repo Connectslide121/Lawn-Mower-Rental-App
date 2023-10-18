@@ -20,11 +20,10 @@ namespace Lawn_Mower_Rental_App.View
                 Console.WriteLine("|\t\t\t\t\t    CUSTOMER LIST \t\t\t\t\t\t|");
                 Console.WriteLine("|\t\t\t\t\t\t\t\t\t\t\t\t\t|");
                 Console.WriteLine("|\t\t\t---------------------------------------------\t\t\t\t\t|");
-                Console.WriteLine();
 
                 if (customers.Count == 0)
                 {
-                    Console.WriteLine("No customers registered yet.");
+                    Console.WriteLine("|\t\t\tNo customers registered yet.\t\t\t|");
                 }
                 else
                 {

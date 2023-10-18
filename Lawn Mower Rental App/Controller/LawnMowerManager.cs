@@ -92,6 +92,11 @@ namespace Lawn_Mower_Rental_App.Controller
                 deleteLawnMowerForm.LawnMowerDeletedMessage(userInput);
             }
         }
+
+        public void ViewListOfLawnMowers()
+        {
+            LawnMowerListView.LawnMowerListView_(lawnMowers);
+        }
     }
 
 

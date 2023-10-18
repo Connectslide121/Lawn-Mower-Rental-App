@@ -86,22 +86,22 @@ namespace Lawn_Mower_Rental_App.Controller
 
         public void ViewListOfCustomers()
         {
-            if (customers.Count != 0)
-            {
+            //if (customers.Count != 0)
+            //{
                 CustomerListView.DisplayCustomerList(customers);
-            }
-            else
-            {
-                Console.WriteLine("List of registered customers:"); // THIS PART OF THE METHOD NEEDS TO BE FIXED, NOT DOING ANYTHING NOW
-                foreach (var customer in customers)
-                {
-                    Console.WriteLine(customer);
-                }
-                Console.WriteLine();
-                Console.WriteLine("Press any key to go back to the Main Menu");
-                Console.ReadKey();
-                MainMenu.MainMenu_();  // Rewrote the method, have the old version saved incase we need to rollback / Daniel. 
-            }
+            //}
+            //else  
+            //{
+            //    Console.WriteLine("List of registered customers:"); 
+            //    foreach (var customer in customers)
+            //    {
+            //        Console.WriteLine(customer);                          *************NO NEED FOR THIS, IT'S BEING HANDLED ON THE VIEW SIDE*************
+            //    }
+            //    Console.WriteLine();
+            //    Console.WriteLine("Press any key to go back to the Main Menu");
+            //    Console.ReadKey();
+            //    MainMenu.MainMenu_();  // Rewrote the method, have the old version saved incase we need to rollback / Daniel. 
+            //}
         }
 
         private List<Customer> LoadCustomersFromJson()

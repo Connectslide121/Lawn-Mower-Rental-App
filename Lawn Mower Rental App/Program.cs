@@ -10,8 +10,11 @@ using Lawn_Mower_Rental_App.View;
 //DeleteLawnMowerForm deleteLawnMowerForm = new DeleteLawnMowerForm();
 //deleteLawnMowerForm.DeleteLawnMowerForm_();
 
-NewCustomerForm newCustomerForm = new NewCustomerForm();
-newCustomerForm.NewCustomerForm_();
+//NewCustomerForm newCustomerForm = new NewCustomerForm();
+//newCustomerForm.NewCustomerForm_();
+
+LawnMowerManager lawnMowerManager = new LawnMowerManager();
+lawnMowerManager.ViewListOfLawnMowers();
 
 //MainMenu.MainMenu_();
 Console.ReadKey();

@@ -2,6 +2,7 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Net;
 using System.Security.Claims;
 using System.Text;
 using System.Threading.Tasks;
@@ -24,8 +25,13 @@ namespace Lawn_Mower_Rental_App.Model
         {
             LawnMowerId = lawnMowerId;
         }
+        public override string ToString()
+        {
+            return $"ID: {LawnMowerId}, {Model}, {AvailabilityStatus}, Last Maintenance: {LastMaintenance.ToShortDateString()}, {PricePerDay}SEK/day";
+        }
 
-       
+
+
 
     }
 }
