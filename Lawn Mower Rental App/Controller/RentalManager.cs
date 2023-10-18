@@ -12,7 +12,7 @@ namespace Lawn_Mower_Rental_App.Controller
     public class RentalManager
     {
         private List<Rental> rentals;
-        string relativePath = Path.Combine(Path.GetFullPath(Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "..", "..", "..")), "RentalData.json");
+        string relativePath = Path.Combine(Path.GetFullPath(Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "..", "..", "..", "Data")), "RentalData.json");
 
         public RentalManager() 
         {

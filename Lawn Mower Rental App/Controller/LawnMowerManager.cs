@@ -14,7 +14,7 @@ namespace Lawn_Mower_Rental_App.Controller
     public class LawnMowerManager
     {
         private List<LawnMower> lawnMowers;
-        string relativePath = Path.Combine(Path.GetFullPath(Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "..", "..", "..")), "LawnMowerData.json");
+        string relativePath = Path.Combine(Path.GetFullPath(Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "..", "..", "..", "Data")), "LawnMowerData.json");
 
         public LawnMowerManager()
         {
@@ -23,27 +23,16 @@ namespace Lawn_Mower_Rental_App.Controller
        
         private List<LawnMower> LoadLawnMowersFromJson()
         {
-            try
-            {
-                if (File.Exists(relativePath))
-                {
-                    foreach (var line in File.ReadLines(relativePath))
-                    {
-                        string[] parts = line.Split(',');
-                        if (parts.Length == 5)
-                        {
-                            int id = int.Parse(parts[0]);
-                            string model = parts[1];
-                            bool isAvailable = bool.Parse(parts[2]);
-                            DateTime? lastMaintenance = string.IsNullOrEmpty(parts[3]) ? (DateTime?)null : DateTime.Parse(parts[3]);
-                            decimal pricePerDay = decimal.Parse(parts[4], CultureInfo.InvariantCulture);
-                            lawnMowers.Add(new LawnMower(id, lastMaintenance));
-                        }
-                    }
-                }
-            }
-            catch (Exception){ ErrorsExceptions.LawnMowerFileNotFoundException(); }
-            return lawnMowers;
+            //try
+           // {
+               // if (File.Exists(relativePath))
+               // {
+                    string jsonData = File.ReadAllText(relativePath);
+                    return JsonSerializer.Deserialize<List<LawnMower>>(jsonData);
+               // }
+            //}
+           // catch (Exception){ ErrorsExceptions.LawnMowerFileNotFoundException(); }
+            //return lawnMowers;
         }
 
         public int GetLawnMowerId() //WE NEED TO CALL THIS METHOD WHENEVER CREATING A NEW INSTANCE OF LAWN MOWER: LawnMower lawnMower = new LawnMower(GetLawnMowerId(), LastMaintenance DateTime)
@@ -80,13 +69,13 @@ namespace Lawn_Mower_Rental_App.Controller
             catch { ErrorsExceptions.LawnMowerFileNotFoundException(); }
         }
 
-        public void RegisterNewLawnMower(LawnMower lawnMower)
+        public void RegisterNewLawnMower(LawnMower lawnMower) //FORM TO BE DONE
         {
             lawnMowers.Add(lawnMower);
             SaveLawnMowersToJson(lawnMowers);
         }
 
-        public void DeleteLawnMower()
+        public void DeleteLawnMower() //FORM TO BE DONE
         {
 
         }

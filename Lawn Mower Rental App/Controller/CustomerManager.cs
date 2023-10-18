@@ -3,111 +3,114 @@ using Lawn_Mower_Rental_App.View;
 using System.Text.Json;
 using System.Xml;
 
-public class CustomerManager
+namespace Lawn_Mower_Rental_App.Controller
 {
-    private List<Customer> customers;
-    string relativePath = Path.Combine(Path.GetFullPath(Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "..", "..", "..")), "CustomerData.json");
-
-
-    public CustomerManager()
+    public class CustomerManager
     {
-        customers = LoadCustomersFromJson();
-    }
-    // Just setting up so we can interact with the json file.
+        private List<Customer> customers;
+        string relativePath = Path.Combine(Path.GetFullPath(Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "..", "..", "..", "Data")), "CustomerData.json");
 
-    public void RegisterNewCustomer(Customer customer)
-    {
-        customers.Add(customer);
-        SaveCustomersToJson(customers);
-    }
 
-    public int GetCustomerId()
-    {
-        if (customers.Count == 0)
+        public CustomerManager()
         {
-            return 1;
+            customers = LoadCustomersFromJson();
         }
+        // Just setting up so we can interact with the json file.
 
-        int highestID = customers.Max(customer => customer.CustomerId);
-
-        for (int i = 1; i <= highestID + 1; i++)
+        public void RegisterNewCustomer(Customer customer)
         {
-            if (!customers.Any(customer => customer.CustomerId == i))
-            {
-                return i;
-            }
-        }
-
-        return highestID + 1;
-    }
- 
-
-    public void DeleteCustomer(string firstName, string lastName, int customerId)
-    {
-        DeleteCustomerForm deleteCustomerForm = new DeleteCustomerForm();
-        int initialCount = customers.Count;
-
-        customers.RemoveAll(customer =>
-            customer.FirstName.ToLower() == firstName && 
-            customer.LastName.ToLower() == lastName && 
-            customer.CustomerId == customerId
-            );
-
-        if (customers.Count == initialCount)
-        {
-            deleteCustomerForm.CustomerNotFoundMessage(firstName, lastName, customerId);
-        }
-        else
-        {
+            customers.Add(customer);
             SaveCustomersToJson(customers);
-            deleteCustomerForm.CustomerDeletedMessage(firstName, lastName, customerId);
-            
-        }
-    }
-
-    public void ViewListOfCustomers()
-    {
-        if (customers.Count == 0)
-        {
-            Console.Clear();
-            Console.WriteLine("No customers registered yet.");//**THIS SHOULD CALL A METHOD IN VIEW FOLDER WITH THE RIGHT FORMATTING
         }
 
-        else
+        public int GetCustomerId()
         {
-            Console.WriteLine("List of registered customers:"); //**THIS SHOULD CALL A METHOD IN VIEW FOLDER WITH THE RIGHT FORMATTING
-            foreach (var customer in customers)
+            if (customers.Count == 0)
             {
-                Console.WriteLine(customer);
+                return 1;
+            }
+
+            int highestID = customers.Max(customer => customer.CustomerId);
+
+            for (int i = 1; i <= highestID + 1; i++)
+            {
+                if (!customers.Any(customer => customer.CustomerId == i))
+                {
+                    return i;
+                }
+            }
+
+            return highestID + 1;
+        }
+
+
+        public void DeleteCustomer(string firstName, string lastName, int customerId)
+        {
+            DeleteCustomerForm deleteCustomerForm = new DeleteCustomerForm();
+            int initialCount = customers.Count;
+
+            customers.RemoveAll(customer =>
+                customer.FirstName.ToLower() == firstName &&
+                customer.LastName.ToLower() == lastName &&
+                customer.CustomerId == customerId
+                );
+
+            if (customers.Count == initialCount)
+            {
+                deleteCustomerForm.CustomerNotFoundMessage(firstName, lastName, customerId);
+            }
+            else
+            {
+                SaveCustomersToJson(customers);
+                deleteCustomerForm.CustomerDeletedMessage(firstName, lastName, customerId);
+
             }
         }
-        Console.WriteLine();
-        Console.WriteLine("Press any key to go back to the Main Menu");//**THIS SHOULD CALL A METHOD IN VIEW FOLDER WITH THE RIGHT FORMATTING
-        Console.ReadKey();
-        MainMenu.MainMenu_();
-    }
 
-    private List<Customer> LoadCustomersFromJson()
-    {
-        try
+        public void ViewListOfCustomers()
         {
-            if (File.Exists(relativePath))
+            if (customers.Count == 0)
             {
-                string jsonData = File.ReadAllText(relativePath);
-                return JsonSerializer.Deserialize<List<Customer>>(jsonData);
+                Console.Clear();
+                Console.WriteLine("No customers registered yet.");//**THIS SHOULD CALL A METHOD IN VIEW FOLDER WITH THE RIGHT FORMATTING
             }
+
+            else
+            {
+                Console.WriteLine("List of registered customers:"); //**THIS SHOULD CALL A METHOD IN VIEW FOLDER WITH THE RIGHT FORMATTING
+                foreach (var customer in customers)
+                {
+                    Console.WriteLine(customer);
+                }
+            }
+            Console.WriteLine();
+            Console.WriteLine("Press any key to go back to the Main Menu");//**THIS SHOULD CALL A METHOD IN VIEW FOLDER WITH THE RIGHT FORMATTING
+            Console.ReadKey();
+            MainMenu.MainMenu_();
         }
-        catch (Exception) { ErrorsExceptions.CustomerFileNotFoundException(); }
-        return customers;
-    }
 
-    private void SaveCustomersToJson(List<Customer> customers)
-    {
-        string jsonData = JsonSerializer.Serialize(customers, typeof(List<Customer>), new JsonSerializerOptions
+        private List<Customer> LoadCustomersFromJson()
         {
-            WriteIndented = true
-        });
-        File.WriteAllText(relativePath, jsonData);
-    }
+            try
+            {
+                if (File.Exists(relativePath))
+                {
+                    string jsonData = File.ReadAllText(relativePath);
+                    return JsonSerializer.Deserialize<List<Customer>>(jsonData);
+                }
+            }
+            catch (Exception) { ErrorsExceptions.CustomerFileNotFoundException(); }
+            return customers;
+        }
 
+        private void SaveCustomersToJson(List<Customer> customers)
+        {
+            string jsonData = JsonSerializer.Serialize(customers, typeof(List<Customer>), new JsonSerializerOptions
+            {
+                WriteIndented = true
+            });
+            File.WriteAllText(relativePath, jsonData);
+        }
+
+    }
 }

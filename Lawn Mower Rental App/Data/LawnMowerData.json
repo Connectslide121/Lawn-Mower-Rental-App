@@ -1,10 +1,50 @@
-{
-  "exclude": [
-    "**/bin",
-    "**/bower_components",
-    "**/jspm_packages",
-    "**/node_modules",
-    "**/obj",
-    "**/platforms"
-  ]
-}
+[
+  {
+    "LawnMowerId": 1,
+    "Model": "\u0022HUSQVARNA LB 448S KLIPPO\u0022",
+    "IsAvailable": true,
+    "LastMaintenance": "2023-10-18T11:11:05.1045107+02:00",
+    "PricePerDay": 99.95,
+    "AvailabilityStatus": "Available"
+  },
+  {
+    "LawnMowerId": 2,
+    "Model": "\u0022HUSQVARNA LB 448S KLIPPO\u0022",
+    "IsAvailable": true,
+    "LastMaintenance": "2023-10-18T11:11:20.2137784+02:00",
+    "PricePerDay": 99.95,
+    "AvailabilityStatus": "Available"
+  },
+  {
+    "LawnMowerId": 3,
+    "Model": "\u0022HUSQVARNA LB 448S KLIPPO\u0022",
+    "IsAvailable": true,
+    "LastMaintenance": "2023-10-18T11:11:34.1733287+02:00",
+    "PricePerDay": 99.95,
+    "AvailabilityStatus": "Available"
+  },
+  {
+    "LawnMowerId": 4,
+    "Model": "\u0022HUSQVARNA LB 448S KLIPPO\u0022",
+    "IsAvailable": true,
+    "LastMaintenance": "2023-10-18T11:11:54.916561+02:00",
+    "PricePerDay": 99.95,
+    "AvailabilityStatus": "Available"
+  },
+  {
+    "LawnMowerId": 5,
+    "Model": "\u0022HUSQVARNA LB 448S KLIPPO\u0022",
+    "IsAvailable": true,
+    "LastMaintenance": "2023-10-18T11:12:25.6544573+02:00",
+    "PricePerDay": 99.95,
+    "AvailabilityStatus": "Available"
+  },
+  {
+    "LawnMowerId": 6,
+    "Model": "\u0022HUSQVARNA LB 448S KLIPPO\u0022",
+    "IsAvailable": true,
+    "LastMaintenance": "2023-10-18T12:04:05.270154+02:00",
+    "PricePerDay": 99.95,
+    "AvailabilityStatus": "Available"
+  }
+]

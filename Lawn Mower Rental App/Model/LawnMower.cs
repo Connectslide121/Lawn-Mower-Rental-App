@@ -10,20 +10,19 @@ namespace Lawn_Mower_Rental_App.Model
 {
     public class LawnMower
     {
-        public int LawnMowerId { get; }
-        public string Model { get; } = "HUSQVARNA LB 448S KLIPPO";
+        public int LawnMowerId { get; set; }
+        public string Model { get; set;  } = "HUSQVARNA LB 448S KLIPPO";
         public bool IsAvailable { get; set; } = true;
-        public DateTime? LastMaintenance { get; set; }
-        public decimal PricePerDay { get; } = 99.95M;
+        public DateTime? LastMaintenance { get; set; } = DateTime.Now;
+        public decimal PricePerDay { get; set; } = 99.95M;
         public string AvailabilityStatus
         {
             get { return IsAvailable ? "Available" : "In Use"; }
         }
 
-        public LawnMower(int lawnMowerId, DateTime? lastMaintenance)
+        public LawnMower(int lawnMowerId)
         {
             LawnMowerId = lawnMowerId;
-            LastMaintenance = lastMaintenance;
         }
 
        
