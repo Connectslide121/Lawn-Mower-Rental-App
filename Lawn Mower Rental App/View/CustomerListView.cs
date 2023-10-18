@@ -29,7 +29,7 @@ namespace Lawn_Mower_Rental_App.View
                 {
                     foreach (var customer in customers)
                     {
-                        Console.WriteLine($"|\t\t\t{customer}\t\t\t|");
+                        Console.WriteLine($"|\t{customer}\t|");
                     }
                 }
 

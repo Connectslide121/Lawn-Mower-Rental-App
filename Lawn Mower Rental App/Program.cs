@@ -13,6 +13,9 @@ using Lawn_Mower_Rental_App.View;
 //NewCustomerForm newCustomerForm = new NewCustomerForm();
 //newCustomerForm.NewCustomerForm_();
 
+//CustomerManager customerManager = new CustomerManager();
+//customerManager.ViewListOfCustomers();
+
 LawnMowerManager lawnMowerManager = new LawnMowerManager();
 lawnMowerManager.ViewListOfLawnMowers();
 

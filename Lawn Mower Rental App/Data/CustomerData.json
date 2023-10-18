@@ -1,3 +1,34 @@
 [
-
+  {
+    "CustomerId": 1,
+    "FirstName": "jon",
+    "LastName": "mendi",
+    "ContactNumber": 605996536,
+    "Address": "asfafdsafgasdfasf",
+    "DateOfRegistry": "2023-10-18T14:09:56.6813438+02:00"
+  },
+  {
+    "CustomerId": 2,
+    "FirstName": "juan",
+    "LastName": "antonio",
+    "ContactNumber": 2315,
+    "Address": "dgsfdhg",
+    "DateOfRegistry": "2023-10-18T14:10:28.9388551+02:00"
+  },
+  {
+    "CustomerId": 3,
+    "FirstName": "jason",
+    "LastName": "aurelio",
+    "ContactNumber": 3,
+    "Address": "dfg",
+    "DateOfRegistry": "2023-10-18T14:10:46.4636855+02:00"
+  },
+  {
+    "CustomerId": 4,
+    "FirstName": "as\u00F1flj",
+    "LastName": "sfdgasgfda",
+    "ContactNumber": 235,
+    "Address": "dfhsdfh",
+    "DateOfRegistry": "2023-10-18T14:11:21.7988893+02:00"
+  }
 ]

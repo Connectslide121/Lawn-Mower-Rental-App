@@ -25,7 +25,7 @@ namespace Lawn_Mower_Rental_App.Model
 
         public override string ToString()
         {
-            return $"{FirstName} {LastName} - Contact: {ContactNumber}, Address: {Address}, Customer ID: {CustomerId}";
+            return $"ID: {CustomerId}, {FirstName} {LastName} - Contact: {ContactNumber}, Address: {Address},  {DateOfRegistry}";
         }
     }
 

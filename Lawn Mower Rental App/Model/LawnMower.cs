@@ -27,7 +27,7 @@ namespace Lawn_Mower_Rental_App.Model
         }
         public override string ToString()
         {
-            return $"ID: {LawnMowerId}, {Model}, {AvailabilityStatus}, Last Maintenance: {LastMaintenance.ToShortDateString()}, {PricePerDay}SEK/day";
+            return $"ID: {LawnMowerId}, {Model}, {AvailabilityStatus}, Maintenance: {LastMaintenance}, {PricePerDay} SEK/day";
         }
 
 
