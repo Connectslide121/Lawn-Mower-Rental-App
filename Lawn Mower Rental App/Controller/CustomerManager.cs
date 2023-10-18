@@ -84,41 +84,39 @@ namespace Lawn_Mower_Rental_App.Controller
         }
     }
 
-    public void ViewListOfCustomers()
-    {
-        if (customers.Count == 0)
+        public void ViewListOfCustomers()
         {
-            Console.Clear();
-            Console.WriteLine("No customers registered yet.");//**THIS SHOULD CALL A METHOD IN VIEW FOLDER WITH THE RIGHT FORMATTING
-        }
-
-        else
-        {
-            Console.WriteLine("List of registered customers:"); //**THIS SHOULD CALL A METHOD IN VIEW FOLDER WITH THE RIGHT FORMATTING
-            foreach (var customer in customers)
+            if (customers.Count != 0)
             {
-                Console.WriteLine(customer);
+                CustomerListView.DisplayCustomerList(customers);
+            }
+            else
+            {
+                Console.WriteLine("List of registered customers:"); // THIS PART OF THE METHOD NEEDS TO BE FIXED, NOT DOING ANYTHING NOW
+                foreach (var customer in customers)
+                {
+                    Console.WriteLine(customer);
+                }
+                Console.WriteLine();
+                Console.WriteLine("Press any key to go back to the Main Menu");
+                Console.ReadKey();
+                MainMenu.MainMenu_();  // Rewrote the method, have the old version saved incase we need to rollback / Daniel. 
             }
         }
-        Console.WriteLine();
-        Console.WriteLine("Press any key to go back to the Main Menu");//**THIS SHOULD CALL A METHOD IN VIEW FOLDER WITH THE RIGHT FORMATTING
-        Console.ReadKey();
-        MainMenu.MainMenu_();
-    }
 
-    private List<Customer> LoadCustomersFromJson()
-    {
-        try
+        private List<Customer> LoadCustomersFromJson()
         {
-            if (File.Exists(relativePath))
+            try
             {
-                string jsonData = File.ReadAllText(relativePath);
-                return JsonSerializer.Deserialize<List<Customer>>(jsonData);
+                if (File.Exists(relativePath))
+                {
+                    string jsonData = File.ReadAllText(relativePath);
+                    return JsonSerializer.Deserialize<List<Customer>>(jsonData);
+                }
             }
+            catch (Exception) { ErrorsExceptions.CustomerFileNotFoundException(); }
+            return customers;
         }
-        catch (Exception) { ErrorsExceptions.CustomerFileNotFoundException(); }
-        return customers;
-    }
 
         private void SaveCustomersToJson(List<Customer> customers)
         {
