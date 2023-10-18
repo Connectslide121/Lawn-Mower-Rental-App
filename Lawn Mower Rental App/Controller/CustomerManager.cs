@@ -127,5 +127,11 @@ namespace Lawn_Mower_Rental_App.Controller
             File.WriteAllText(relativePath, jsonData);
         }
 
+        public Customer FindCustomerById(int customerId)
+        {
+            Customer foundCustomer = customers.Find(customer => customer.CustomerId == customerId);
+            return foundCustomer;
+        }
+
     }
 }

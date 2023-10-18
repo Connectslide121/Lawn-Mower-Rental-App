@@ -67,6 +67,21 @@ namespace Lawn_Mower_Rental_App.Controller
 
         }
 
+        public void RentLawnMower(Customer customer, DateTime rentalDate, DateTime returnDate)
+        {
+            LawnMowerManager lawnMowerManager = new LawnMowerManager();
+
+            Rental rental = new Rental(GetRentalId());
+            rental.Customer = customer;
+            rental.RentalDate = rentalDate;
+            rental.ReturnDate = returnDate;
+            rental.LawnMower = lawnMowerManager.FindLawnMowerById();            
+
+            rentals.Add(rental);
+
+            SaveRentalsToJson(rentals);            
+        }
+
     }
 }
 
