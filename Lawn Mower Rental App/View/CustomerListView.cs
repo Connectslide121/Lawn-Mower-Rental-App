@@ -7,8 +7,7 @@ using System.Threading.Tasks;
 
 namespace Lawn_Mower_Rental_App.View
 {
-    namespace Lawn_Mower_Rental_App.View
-    {
+    
         public class CustomerListView
         {
             public static void DisplayCustomerList(List<Customer> customers)
@@ -43,6 +42,4 @@ namespace Lawn_Mower_Rental_App.View
                 MainMenu.MainMenu_();
             }
         }
-    }
-
 }

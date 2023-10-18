@@ -16,8 +16,8 @@ using Lawn_Mower_Rental_App.View;
 //CustomerManager customerManager = new CustomerManager();
 //customerManager.ViewListOfCustomers();
 
-LawnMowerManager lawnMowerManager = new LawnMowerManager();
-lawnMowerManager.ViewListOfLawnMowers();
+//LawnMowerManager lawnMowerManager = new LawnMowerManager();
+//lawnMowerManager.ViewListOfLawnMowers();
 
-//MainMenu.MainMenu_();
+MainMenu.MainMenu_();
 Console.ReadKey();
