@@ -7,7 +7,7 @@ using System.Xml;
 public class CustomerManager
 {
     private List<Customer> customers;
-    string relativePath = Path.Combine(Path.GetFullPath(Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "..", "..", "..")), "CustomerData.json");
+    string relativePath = Path.Combine(Path.GetFullPath(Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "..", "..", "..","Data")), "CustomerData.json");
 
 
     public CustomerManager()
@@ -67,7 +67,7 @@ public class CustomerManager
     }
      public void ViewListOfCustomers()
     {
-        if (customers.Count == 0)
+        if (customers.Count != 0)
         {
             CustomerListView.DisplayCustomerList(customers);
         }
