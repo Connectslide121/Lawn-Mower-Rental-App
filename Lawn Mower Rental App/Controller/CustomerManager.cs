@@ -1,5 +1,6 @@
 ﻿using Lawn_Mower_Rental_App.Model;
 using Lawn_Mower_Rental_App.View;
+using Lawn_Mower_Rental_App.View.Lawn_Mower_Rental_App.View;
 using System.Text.Json;
 using System.Xml;
 
@@ -64,29 +65,25 @@ public class CustomerManager
             
         }
     }
-
-    public void ViewListOfCustomers()
+     public void ViewListOfCustomers()
     {
         if (customers.Count == 0)
         {
-            Console.Clear();
-            Console.WriteLine("No customers registered yet.");//**THIS SHOULD CALL A METHOD IN VIEW FOLDER WITH THE RIGHT FORMATTING
+            CustomerListView.DisplayCustomerList(customers);
         }
-
         else
         {
-            Console.WriteLine("List of registered customers:"); //**THIS SHOULD CALL A METHOD IN VIEW FOLDER WITH THE RIGHT FORMATTING
+            Console.WriteLine("List of registered customers:");
             foreach (var customer in customers)
             {
                 Console.WriteLine(customer);
             }
+            Console.WriteLine();
+            Console.WriteLine("Press any key to go back to the Main Menu");
+            Console.ReadKey();
+            MainMenu.MainMenu_();  // Rewrote the method, have the old version saved incase we need to rollback / Daniel. 
         }
-        Console.WriteLine();
-        Console.WriteLine("Press any key to go back to the Main Menu");//**THIS SHOULD CALL A METHOD IN VIEW FOLDER WITH THE RIGHT FORMATTING
-        Console.ReadKey();
-        MainMenu.MainMenu_();
     }
-
     private List<Customer> LoadCustomersFromJson()
     {
         try
