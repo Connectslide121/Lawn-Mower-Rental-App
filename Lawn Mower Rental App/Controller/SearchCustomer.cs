@@ -17,7 +17,7 @@ namespace Lawn_Mower_Rental_App.Controller
 
         public void SearchCustomers_()
         {
-            Console.WriteLine("Enter the information of the customer you are looking for.:");
+            Console.WriteLine("Search by either First Name, Last Name, ID, Address, Contact Number or Date of Registry.");
             string query = Console.ReadLine();
 
             var searchResults = Search(query);

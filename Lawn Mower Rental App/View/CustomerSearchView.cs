@@ -37,7 +37,7 @@ namespace Lawn_Mower_Rental_App.View
             Console.WriteLine();
             Console.WriteLine("Press any key to go back to the Main Menu");
             Console.ReadKey();
-            MainMenu.MainMenu_();
+            MainMenu.MainMenu_(); // This is about as far as i got, even with ChatGPT which im still new to using i had issues to get it to the MainMenu, rolled back to undo problems and code breaking.
         }
     }
 }

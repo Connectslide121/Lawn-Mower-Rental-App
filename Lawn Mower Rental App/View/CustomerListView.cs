@@ -7,10 +7,6 @@ using System.Threading.Tasks;
 
 namespace Lawn_Mower_Rental_App.View
 {
-    
-    {
-    {
-    {
         public class CustomerListView
         {
             public static void DisplayCustomerList(List<Customer> customers)
@@ -42,8 +38,6 @@ namespace Lawn_Mower_Rental_App.View
                 Console.WriteLine();
                 Console.WriteLine("Press any key to go back to the Main Menu");
                 Console.ReadKey();
-}
-
 }
 
 }
