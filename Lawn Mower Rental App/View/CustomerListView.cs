@@ -19,7 +19,7 @@ namespace Lawn_Mower_Rental_App.View
                 Console.WriteLine("|\t\t\t\t\t\t\t\t\t\t\t\t\t|");
                 Console.WriteLine("|\t\t\t\t\t    CUSTOMER LIST \t\t\t\t\t\t|");
                 Console.WriteLine("|\t\t\t\t\t\t\t\t\t\t\t\t\t|");
-                Console.WriteLine("|\t\t\t\t\t-----------------------------------------------\t\t\t|");
+                Console.WriteLine("|\t\t\t---------------------------------------------\t\t\t\t\t|");
                 Console.WriteLine();
 
                 if (customers.Count == 0)
@@ -30,11 +30,11 @@ namespace Lawn_Mower_Rental_App.View
                 {
                     foreach (var customer in customers)
                     {
-                        Console.WriteLine($"|\t\t {customer}");
+                        Console.WriteLine($"|\t\t\t{customer}\t\t\t|");
                     }
                 }
 
-                Console.WriteLine("|\t\t\t\t\t-----------------------------------------------\t\t\t\t|");
+                Console.WriteLine("|\t\t\t-----------------------------------------------\t\t\t\t\t|");
                 Console.WriteLine("|\t\t\t\t\t\t\t\t\t\t\t\t\t|");
                 Console.WriteLine("|\t\t\t\t\t\t\t\t\t\t\t\t\t|");
                 Console.WriteLine("|*******************************************************************************************************|");
