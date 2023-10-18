@@ -1,8 +1,6 @@
 ﻿using Lawn_Mower_Rental_App.Model;
 using Lawn_Mower_Rental_App.View;
-using Lawn_Mower_Rental_App.View.Lawn_Mower_Rental_App.View;
 using System.Text.Json;
-using System.Xml;
 
 namespace Lawn_Mower_Rental_App.Controller
 {
@@ -126,6 +124,27 @@ namespace Lawn_Mower_Rental_App.Controller
             });
             File.WriteAllText(relativePath, jsonData);
         }
+        public void SearchCustomers()
+        {
+            Console.WriteLine("Enter the search query:");
+            string query = Console.ReadLine();
 
+            SearchCustomer searchCustomer = new SearchCustomer(customers);
+            List<Customer> searchResults = searchCustomer.Search(query);
+
+            if (searchResults.Count == 0)
+            {
+                Console.WriteLine("No customers found matching the search query.");
+            }
+            else
+            {
+                CustomerListView.DisplayCustomerList(searchResults);
+            }
+
+            Console.WriteLine("Press any key to go back to the Main Menu");
+            Console.ReadKey();
+            MainMenu.MainMenu_();
+        }
     }
+
 }

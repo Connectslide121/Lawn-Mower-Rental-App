@@ -6,8 +6,6 @@ using System.Text;
 using System.Threading.Tasks;
 
 namespace Lawn_Mower_Rental_App.View
-{
-    namespace Lawn_Mower_Rental_App.View
     {
         public class CustomerListView
         {
@@ -45,4 +43,3 @@ namespace Lawn_Mower_Rental_App.View
         }
     }
 
-}
