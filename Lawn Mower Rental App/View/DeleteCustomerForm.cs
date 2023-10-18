@@ -43,7 +43,7 @@ namespace Lawn_Mower_Rental_App.View
             Console.WriteLine("|*******************************************************************************************************|");
             Console.WriteLine();
             Console.WriteLine("Please enter first name:");
-            string firstName = Console.ReadLine().ToLower();
+            string firstName = Console.ReadLine();
 
 
             Console.Clear();
@@ -75,7 +75,7 @@ namespace Lawn_Mower_Rental_App.View
             Console.WriteLine("|*******************************************************************************************************|");
             Console.WriteLine();
             Console.WriteLine("Please enter last name:");
-            string lastName = Console.ReadLine().ToLower();
+            string lastName = Console.ReadLine();
 
 
             Console.Clear();

@@ -20,8 +20,25 @@ namespace Lawn_Mower_Rental_App.Controller
 
         public void RegisterNewCustomer(Customer customer)
         {
-            customers.Add(customer);
-            SaveCustomersToJson(customers);
+            NewCustomerForm newCustomerForm = new NewCustomerForm();
+
+            bool customerExists = customers.Any(item =>
+                item.FirstName.ToLower() == customer.FirstName.ToLower() &&
+                item.LastName.ToLower() == customer.LastName.ToLower() &&
+                item.ContactNumber == customer.ContactNumber);
+
+            if (customerExists)
+            {
+                newCustomerForm.CustomerExistsMessage(customer);
+            }
+
+            else
+            {
+                customers.Add(customer);
+                SaveCustomersToJson(customers);
+                newCustomerForm.CustomerRegisteredMessage(customer);
+            }           
+           
         }
 
         public int GetCustomerId()
@@ -51,8 +68,8 @@ namespace Lawn_Mower_Rental_App.Controller
             int initialCount = customers.Count;
 
             customers.RemoveAll(customer =>
-                customer.FirstName.ToLower() == firstName &&
-                customer.LastName.ToLower() == lastName &&
+                customer.FirstName.ToLower() == firstName.ToLower() &&
+                customer.LastName.ToLower() == lastName.ToLower() &&
                 customer.CustomerId == customerId
                 );
             SaveCustomersToJson(customers);
