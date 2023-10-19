@@ -79,7 +79,7 @@ namespace Lawn_Mower_Rental_App.Controller
 
 
                     case 13:
-                            Console.WriteLine("Exiting the app..."); //REPLACE WITH A CALL FOR THE METHOD
+                            Console.WriteLine("Exiting the app...");
                             return;
 
                         default: 

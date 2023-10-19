@@ -17,6 +17,7 @@ namespace Lawn_Mower_Rental_App.Controller
         public RentalManager() 
         {
             rentals = LoadRentalsFromJson();
+            UpdateLawnMowerAvailability();
         }
 
         public int GetRentalId()
@@ -43,13 +44,10 @@ namespace Lawn_Mower_Rental_App.Controller
         {
             try
             {
-                if (File.Exists(relativePath))
-                {
-                    string jsonData = File.ReadAllText(relativePath);
-                    return JsonSerializer.Deserialize<List<Rental>>(jsonData);
-                }
+                string jsonData = File.ReadAllText(relativePath);
+                return JsonSerializer.Deserialize<List<Rental>>(jsonData);
             }
-            catch (Exception) { ErrorsExceptions.CustomerFileNotFoundException(); }    //Create a specific RentalFileNotFoundException view
+            catch (Exception) { ErrorsExceptions.RentalsFileNotFoundException(); }
             return rentals;
         }
 
@@ -63,7 +61,7 @@ namespace Lawn_Mower_Rental_App.Controller
                 });
                 File.WriteAllText(relativePath, jsonData);
             }
-            catch { ErrorsExceptions.CustomerFileNotFoundException(); } //Create a specific RentalFileNotFoundException view
+            catch { ErrorsExceptions.RentalsFileNotFoundException(); }
 
         }
 
@@ -106,6 +104,21 @@ namespace Lawn_Mower_Rental_App.Controller
                 .ToList();
 
             return rentalHistory;
+        }
+        public void UpdateLawnMowerAvailability()
+        {
+            foreach (Rental rental in rentals)
+            {
+                if (DateTime.Today >= rental.RentalDate && DateTime.Today <= rental.ReturnDate)
+                {
+                    rental.LawnMower.IsAvailable = false;
+                }
+                else if (DateTime.Today !>= rental.RentalDate && DateTime.Today !<= rental.ReturnDate)
+                {
+                    rental.LawnMower.IsAvailable = true;
+                }
+            }
+            SaveRentalsToJson(rentals);
         }
     }
 }

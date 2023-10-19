@@ -18,17 +18,25 @@ namespace Lawn_Mower_Rental_App.View
             Console.WriteLine("|\t\t\t\t\t\t\t\t\t\t\t\t\t|");
             Console.WriteLine("|\t\t\t\t\t   RETURN A LAWN MOWER \t\t\t\t\t|");
             Console.WriteLine("|\t\t\t\t\t\t\t\t\t\t\t\t\t|");
-            Console.WriteLine("|\t\t\t Please enter the lawn mower information as requested: \t\t\t\t|");
+            Console.WriteLine("|\t\t\t Please enter the rental information as requested: \t\t\t\t|");
             Console.WriteLine("|\t\t\t\t\t\t\t\t\t\t\t\t\t|");
-            Console.WriteLine("|\t\t\t\t\t Lawn Mower ID: \t\t\t\t\t\t\t|");
+            Console.WriteLine("|\t\t\t\t\t Rental ID: \t\t\t\t\t\t\t|");
             Console.WriteLine("|\t\t\t\t\t\t\t\t\t\t\t\t\t|");
             Console.WriteLine("|\t\t\t\t\t\t\t\t\t\t\t\t\t|");
             Console.WriteLine("|*******************************************************************************************************|");
             Console.WriteLine();
             Console.WriteLine("Please enter lawn mower ID:");
-            string lawnMowerId = Console.ReadLine();
+            string rentalId = Console.ReadLine();
 
-            //LawnMowerManager.ReturnLawnMower(lawnMowerId);
+            
+
+
+
+
+
+
+
+
             Console.WriteLine("Lawn mower returned successfully. Press any key to go back to the Main Menu.");
             Console.ReadKey();
             MainMenu.MainMenu_();

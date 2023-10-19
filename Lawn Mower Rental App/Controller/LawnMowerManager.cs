@@ -16,20 +16,22 @@ namespace Lawn_Mower_Rental_App.Controller
         private List<LawnMower> lawnMowers;
         string relativePath = Path.Combine(Path.GetFullPath(Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "..", "..", "..", "Data")), "LawnMowerData.json");
 
+        private List<Rental> rentalsToUpdate;
+        string relativePathRentals = Path.Combine(Path.GetFullPath(Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "..", "..", "..", "Data")), "RentalData.json");
+
         public LawnMowerManager()
         {
             lawnMowers = LoadLawnMowersFromJson();
+            rentalsToUpdate = LoadRentalsFromJson();
+            UpdateLawnMowerAvailability();
         }
        
         private List<LawnMower> LoadLawnMowersFromJson()
         {
             try
             {
-                if (File.Exists(relativePath))
-                {
-                    string jsonData = File.ReadAllText(relativePath);
-                    return JsonSerializer.Deserialize<List<LawnMower>>(jsonData);
-                }
+                string jsonData = File.ReadAllText(relativePath);
+                return JsonSerializer.Deserialize<List<LawnMower>>(jsonData);
             }
             catch (Exception) { ErrorsExceptions.LawnMowerFileNotFoundException(); }
             return lawnMowers;
@@ -105,7 +107,45 @@ namespace Lawn_Mower_Rental_App.Controller
             LawnMower selectedMower = lawnMowers[rentedMowerId];
             return selectedMower;
         }
+
+        private List<Rental> LoadRentalsFromJson()
+        {
+            try
+            {
+                string jsonData = File.ReadAllText(relativePathRentals);
+                return JsonSerializer.Deserialize<List<Rental>>(jsonData);
+            }
+            catch (Exception) { ErrorsExceptions.RentalsFileNotFoundException(); }
+            return rentalsToUpdate;
+        }
+
+        public void UpdateLawnMowerAvailability()
+        {
+            List<LawnMower> lawnMowersToUpdate = new List<LawnMower>();
+
+            foreach (Rental rental in rentalsToUpdate)
+            {
+                if (rental.LawnMower.IsAvailable == false)
+                {
+                    lawnMowersToUpdate.Add(rental.LawnMower);
+                }
+            }
+
+            foreach (LawnMower lawnMower in lawnMowersToUpdate)
+            {
+                LawnMower lawnMowerToUpdate = lawnMowers.Find(m => m.LawnMowerId == lawnMower.LawnMowerId);
+                
+                lawnMowerToUpdate.IsAvailable = false;
+                               
+            }
+
+
+
+
+            SaveLawnMowersToJson(lawnMowers);
+        }
     }
+
 
 
 

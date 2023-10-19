@@ -94,11 +94,8 @@ namespace Lawn_Mower_Rental_App.Controller
         {
             try
             {
-                if (File.Exists(relativePath))
-                {
-                    string jsonData = File.ReadAllText(relativePath);
-                    return JsonSerializer.Deserialize<List<Customer>>(jsonData);
-                }
+                string jsonData = File.ReadAllText(relativePath);
+                return JsonSerializer.Deserialize<List<Customer>>(jsonData);
             }
             catch (Exception) { ErrorsExceptions.CustomerFileNotFoundException(); }
             return customers;
@@ -106,12 +103,18 @@ namespace Lawn_Mower_Rental_App.Controller
 
         private void SaveCustomersToJson(List<Customer> customers)
         {
-            string jsonData = JsonSerializer.Serialize(customers, typeof(List<Customer>), new JsonSerializerOptions
+            try
             {
-                WriteIndented = true
-            });
-            File.WriteAllText(relativePath, jsonData);
+                string jsonData = JsonSerializer.Serialize(customers, typeof(List<Customer>), new JsonSerializerOptions
+                {
+                    WriteIndented = true
+                });
+                File.WriteAllText(relativePath, jsonData);
+            }
+            catch { ErrorsExceptions.CustomerFileNotFoundException(); }
+
         }
+
         public Customer FindCustomerById(int customerId)
         {
             Customer foundCustomer = customers.Find(customer => customer.CustomerId == customerId);
@@ -130,10 +133,6 @@ namespace Lawn_Mower_Rental_App.Controller
                 customer.ContactNumber.ToString().Contains(query) ||
                 customer.DateOfRegistry.ToString().Contains(query)
             ).ToList();
-
-            Console.WriteLine("Press any key to go back to the Main Menu");
-            Console.ReadKey();
-            MainMenu.MainMenu_();
         }
     }
 

@@ -15,7 +15,7 @@ namespace Lawn_Mower_Rental_App.View
             Console.WriteLine("|***************************************** LAWN MOWER RENTAL (TM) **************************************|");
             Console.WriteLine("|\t\t\t\t\t\t\t\t\t\t\t\t\t|");
             Console.WriteLine("|\t\t\t\t\t\t\t\t\t\t\t\t\t|");
-            Console.WriteLine("|\t\t\t\t\t    CUSTOMER SEARCH RESULTS \t\t\t\t|");
+            Console.WriteLine("|\t\t\t\t\t    CUSTOMER SEARCH RESULTS \t\t\t\t\t|");
             Console.WriteLine("|\t\t\t\t\t\t\t\t\t\t\t\t\t|");
             Console.WriteLine("|\t\t\t---------------------------------------------\t\t\t\t\t|");
 

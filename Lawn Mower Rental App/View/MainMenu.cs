@@ -11,7 +11,9 @@ namespace Lawn_Mower_Rental_App.View
     {
         public static void MainMenu_()
         {
-
+            RentalManager rentalManager = new RentalManager();
+            LawnMowerManager lawnMowerManager = new LawnMowerManager();
+            
             Console.Clear();
             Console.WriteLine("|***************************************** LAWN MOWER RENTAL (TM) **************************************|");
             Console.WriteLine("|\t\t\t\t\t\t\t\t\t\t\t\t\t|");
@@ -22,7 +24,7 @@ namespace Lawn_Mower_Rental_App.View
             Console.WriteLine("|\t\t\t\t\t\t\t\t\t\t\t\t\t|");
             Console.WriteLine("|\t\t\t\t\t 1.- Rent a lawn mower \t\t\t\t\t\t|");
             Console.WriteLine("|\t\t\t\t\t 2.- Return a lawn mower \t\t\t\t\t|");
-            Console.WriteLine("|\t\t\t\t\t 3.- View current rentals \t\t\t\t\t|");
+            Console.WriteLine("|\t\t\t\t\t 3.- View active rentals \t\t\t\t\t|");
             Console.WriteLine("|\t\t\t\t\t 4.- View history of rentals \t\t\t\t\t|");
             Console.WriteLine("|\t\t\t\t\t\t\t\t\t\t\t\t\t|");
             Console.WriteLine("|\t\t\t\t\t 5.- Register new lawn mower \t\t\t\t\t|");
