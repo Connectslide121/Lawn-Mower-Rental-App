@@ -17,7 +17,6 @@ namespace Lawn_Mower_Rental_App.Controller
         {
             customers = LoadCustomersFromJson();
         }
-        // Just setting up so we can interact with the json file.
 
         public void RegisterNewCustomer(Customer customer)
         {

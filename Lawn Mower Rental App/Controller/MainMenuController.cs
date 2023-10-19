@@ -95,5 +95,32 @@ namespace Lawn_Mower_Rental_App.Controller
 
             }
         }
+
+        public static void WriteColoredText(string text, string targetWord, ConsoleColor color)
+        {
+            int index = 0;
+
+            while (index < text.Length)
+            {
+                int wordIndex = text.IndexOf(targetWord, index, StringComparison.OrdinalIgnoreCase);
+                if (wordIndex == -1)
+                {
+                    Console.Write(text.Substring(index));
+                    break;
+                }
+
+                if (wordIndex > index)
+                {
+                    Console.Write(text.Substring(index, wordIndex - index));
+                }
+
+                Console.ForegroundColor = color;
+                Console.Write(targetWord);
+                Console.ResetColor();
+
+                index = wordIndex + targetWord.Length;
+            }
+            Console.WriteLine();
+        }
     }
 }
