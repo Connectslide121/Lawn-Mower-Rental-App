@@ -42,8 +42,6 @@ namespace Lawn_Mower_Rental_App.View
             }
             while (!int.TryParse(idToRemove, out idToRemoveInt));
 
-
-
             Console.Clear();
             Console.WriteLine("|***************************************** LAWN MOWER RENTAL (TM) **************************************|");
             Console.WriteLine("|\t\t\t\t\t\t\t\t\t\t\t\t\t|");

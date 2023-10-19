@@ -47,7 +47,6 @@ namespace Lawn_Mower_Rental_App.View
             Console.WriteLine("Please enter first name:");
             customer.FirstName = Console.ReadLine();
 
-
             Console.Clear();
             Console.WriteLine("|***************************************** LAWN MOWER RENTAL (TM) **************************************|");
             Console.WriteLine("|\t\t\t\t\t\t\t\t\t\t\t\t\t|");
@@ -78,7 +77,6 @@ namespace Lawn_Mower_Rental_App.View
             Console.WriteLine();
             Console.WriteLine("Please enter last name:");
             customer.LastName = Console.ReadLine();
-
 
             Console.Clear();
             Console.WriteLine("|***************************************** LAWN MOWER RENTAL (TM) **************************************|");
@@ -152,7 +150,6 @@ namespace Lawn_Mower_Rental_App.View
             Console.WriteLine("Please enter address:");
             customer.Address = Console.ReadLine();
 
-
             Console.Clear();
             Console.WriteLine("|***************************************** LAWN MOWER RENTAL (TM) **************************************|");
             Console.WriteLine("|\t\t\t\t\t\t\t\t\t\t\t\t\t|");
@@ -183,7 +180,6 @@ namespace Lawn_Mower_Rental_App.View
             Console.WriteLine();
             Console.ReadKey();
             customerManager.RegisterNewCustomer(customer);
-
         }
 
         public void CustomerExistsMessage(Customer customer)

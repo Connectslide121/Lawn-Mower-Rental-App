@@ -32,7 +32,7 @@ namespace Lawn_Mower_Rental_App.View
             Console.WriteLine("|\t\t\t\t\t 5.- Register new lawn mower \t\t\t\t\t|");
             Console.WriteLine("|\t\t\t\t\t 6.- Delete lawn mower \t\t\t\t\t\t|");
             Console.WriteLine("|\t\t\t\t\t 7.- View list of lawn mowers \t\t\t\t\t|");
-            Console.WriteLine("|\t\t\t\t\t 8.- Update lawn mower Last Maintenance \t\t\t\t\t|");
+            Console.WriteLine("|\t\t\t\t\t 8.- Update lawn mower last maintenance \t\t\t|");
             Console.WriteLine("|\t\t\t\t\t\t\t\t\t\t\t\t\t|");
             Console.WriteLine("|\t\t\t\t\t 9.- Register new customer \t\t\t\t\t|");
             Console.WriteLine("|\t\t\t\t\t 10.- Delete customer \t\t\t\t\t\t|");

@@ -43,9 +43,6 @@ namespace Lawn_Mower_Rental_App.View
             Console.WriteLine("Press any key to go back to the Main Menu");
             Console.ReadKey();
             MainMenu.MainMenu_();
-
-
-
         }
 
         public static void LawnMowerFileNotFoundException()
@@ -81,7 +78,6 @@ namespace Lawn_Mower_Rental_App.View
             Console.WriteLine("Press any key to go back to the Main Menu");
             Console.ReadKey();
             MainMenu.MainMenu_();
-
         }
 
         public static void RentalsFileNotFoundException()
@@ -117,7 +113,6 @@ namespace Lawn_Mower_Rental_App.View
             Console.WriteLine("Press any key to go back to the Main Menu");
             Console.ReadKey();
             MainMenu.MainMenu_();
-
         }
     }
 }

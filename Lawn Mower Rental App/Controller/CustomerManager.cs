@@ -57,10 +57,8 @@ namespace Lawn_Mower_Rental_App.Controller
                     return i;
                 }
             }
-
             return highestID + 1;
         }
-
 
         public void DeleteCustomer(string firstName, string lastName, int customerId)
         {
@@ -75,14 +73,14 @@ namespace Lawn_Mower_Rental_App.Controller
             SaveCustomersToJson(customers);
 
             if (customers.Count == initialCount)
-        {
+            {
             deleteCustomerForm.CustomerNotFoundMessage(firstName, lastName, customerId);
-        }
-        else
-        {
+            }
+            else
+            {
             deleteCustomerForm.CustomerDeletedMessage(firstName, lastName, customerId);
+            }
         }
-    }
 
         public void ViewListOfCustomers()
         {
@@ -111,7 +109,6 @@ namespace Lawn_Mower_Rental_App.Controller
                 File.WriteAllText(relativePath, jsonData);
             }
             catch { ErrorsExceptions.CustomerFileNotFoundException(); }
-
         }
 
         public Customer FindCustomerById(int customerId)
@@ -134,5 +131,4 @@ namespace Lawn_Mower_Rental_App.Controller
             ).ToList();
         }
     }
-
 }

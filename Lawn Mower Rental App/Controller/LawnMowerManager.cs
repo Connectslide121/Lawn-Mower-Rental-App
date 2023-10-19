@@ -53,7 +53,6 @@ namespace Lawn_Mower_Rental_App.Controller
                     return i;
                 }
             }
-
             return highestID + 1;
         }
 
@@ -140,6 +139,7 @@ namespace Lawn_Mower_Rental_App.Controller
             }
             SaveLawnMowersToJson(lawnMowers);
         }
+
         public bool UpdateMaintenanceStatus(int lawnMowerId, DateTime newMaintenanceDate)
         {
             LawnMower lawnMowerToUpdate = lawnMowers.Find(m => m.LawnMowerId == lawnMowerId);
@@ -155,6 +155,5 @@ namespace Lawn_Mower_Rental_App.Controller
                 return false;
             }
         }
-
     }
 }

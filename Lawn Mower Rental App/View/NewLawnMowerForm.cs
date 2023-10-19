@@ -36,7 +36,6 @@ namespace Lawn_Mower_Rental_App.View
             Console.WriteLine("Please enter model:");
             lawnMower.Model = Console.ReadLine();
 
-
             Console.Clear();
             Console.WriteLine("|***************************************** LAWN MOWER RENTAL (TM) **************************************|");
             Console.WriteLine("|\t\t\t\t\t\t\t\t\t\t\t\t\t|");
@@ -60,8 +59,6 @@ namespace Lawn_Mower_Rental_App.View
             lawnMowerManager.RegisterNewLawnMower(lawnMower);
             Console.ReadKey();
             MainMenu.MainMenu_();
-            
-
         }
     }
 }

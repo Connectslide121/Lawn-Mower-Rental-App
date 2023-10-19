@@ -62,7 +62,6 @@ namespace Lawn_Mower_Rental_App.Controller
                 File.WriteAllText(relativePath, jsonData);
             }
             catch { ErrorsExceptions.RentalsFileNotFoundException(); }
-
         }
 
         public Rental RentLawnMower(Customer customer, DateTime rentalDate, DateTime returnDate)

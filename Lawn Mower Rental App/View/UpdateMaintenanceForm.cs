@@ -17,7 +17,7 @@ namespace Lawn_Mower_Rental_App.View
             Console.WriteLine("|\t\t\t\t\t\t\t\t\t\t\t\t\t|");
             Console.WriteLine("|\t\t\t\t\t\t\t\t\t\t\t\t\t|");
             Console.WriteLine("|\t\t\t\t\t\t\t\t\t\t\t\t\t|");
-            Console.WriteLine("|\t\t\t\t  UPDATE MAINTENANCE STATUS \t\t\t\t\t\t|");
+            MainMenuController.WriteColoredText("|\t\t\t\t  UPDATE MAINTENANCE STATUS \t\t\t\t\t\t|", "UPDATE MAINTENANCE STATUS", ConsoleColor.Green);
             Console.WriteLine("|\t\t\t\t\t\t\t\t\t\t\t\t\t|");
             Console.WriteLine("|\t\t\t Please enter the information as requested: \t\t\t\t\t|");
             Console.WriteLine("|\t\t\t\t\t\t\t\t\t\t\t\t\t|");
@@ -25,18 +25,41 @@ namespace Lawn_Mower_Rental_App.View
             Console.WriteLine("|\t\t\t\t\t\t\t\t\t\t\t\t\t|");
             Console.WriteLine("|\t\t\t\t New Maintenance Date (yyyy-MM-dd): \t\t\t\t\t|");
             Console.WriteLine("|\t\t\t\t\t\t\t\t\t\t\t\t\t|");
+            Console.WriteLine("|\t\t\t\t\t\t\t\t\t\t\t\t\t|");
+            Console.WriteLine("|\t\t\t\t\t\t\t\t\t\t\t\t\t|");
             Console.WriteLine("|*******************************************************************************************************|");
             Console.WriteLine();
 
-            Console.Write("Enter Lawn Mower ID: ");
+            Console.WriteLine("Enter Lawn Mower ID: ");
             string lawnMowerIdInput = Console.ReadLine();
             bool success = false; // Bool was the key to make it only go trough if both forms are valid.
+            DateTime newMaintenanceDate = DateTime.Now;
+
             if (int.TryParse(lawnMowerIdInput, out int lawnMowerId))
             {
                 LawnMowerManager manager = new LawnMowerManager();
 
-                Console.Write("Enter the new maintenance date (yyyy-MM-dd): ");
-                if (DateTime.TryParse(Console.ReadLine(), out DateTime newMaintenanceDate))
+                Console.Clear();
+                Console.WriteLine("|***************************************** LAWN MOWER RENTAL (TM) **************************************|");
+                Console.WriteLine("|\t\t\t\t\t\t\t\t\t\t\t\t\t|");
+                Console.WriteLine("|\t\t\t\t\t\t\t\t\t\t\t\t\t|");
+                Console.WriteLine("|\t\t\t\t\t\t\t\t\t\t\t\t\t|");
+                MainMenuController.WriteColoredText("|\t\t\t\t  UPDATE MAINTENANCE STATUS \t\t\t\t\t\t|", "UPDATE MAINTENANCE STATUS", ConsoleColor.Green);
+                Console.WriteLine("|\t\t\t\t\t\t\t\t\t\t\t\t\t|");
+                Console.WriteLine("|\t\t\t Please enter the information as requested: \t\t\t\t\t|");
+                Console.WriteLine("|\t\t\t\t\t\t\t\t\t\t\t\t\t|");
+                Console.WriteLine($"|\t\t\t\t\t Lawn Mower ID: {lawnMowerId}\t\t\t\t\t\t|");
+                Console.WriteLine("|\t\t\t\t\t\t\t\t\t\t\t\t\t|");
+                Console.WriteLine("|\t\t\t\t New Maintenance Date (yyyy-MM-dd): \t\t\t\t\t|");
+                Console.WriteLine("|\t\t\t\t\t\t\t\t\t\t\t\t\t|");
+                Console.WriteLine("|\t\t\t\t\t\t\t\t\t\t\t\t\t|");
+                Console.WriteLine("|\t\t\t\t\t\t\t\t\t\t\t\t\t|");
+                Console.WriteLine("|*******************************************************************************************************|");
+                Console.WriteLine();
+
+                Console.WriteLine("Enter the new maintenance date (yyyy-MM-dd): ");
+
+                if (DateTime.TryParse(Console.ReadLine(), out newMaintenanceDate))
                 {
                     if (manager.UpdateMaintenanceStatus(lawnMowerId, newMaintenanceDate))
                     {
@@ -59,6 +82,23 @@ namespace Lawn_Mower_Rental_App.View
 
             if (success)
             {
+                Console.Clear();
+                Console.WriteLine("|***************************************** LAWN MOWER RENTAL (TM) **************************************|");
+                Console.WriteLine("|\t\t\t\t\t\t\t\t\t\t\t\t\t|");
+                Console.WriteLine("|\t\t\t\t\t\t\t\t\t\t\t\t\t|");
+                Console.WriteLine("|\t\t\t\t\t\t\t\t\t\t\t\t\t|");
+                MainMenuController.WriteColoredText("|\t\t\t\t  UPDATE MAINTENANCE STATUS \t\t\t\t\t\t|", "UPDATE MAINTENANCE STATUS", ConsoleColor.Green);
+                Console.WriteLine("|\t\t\t\t\t\t\t\t\t\t\t\t\t|");
+                Console.WriteLine("|\t\t\t Please enter the information as requested: \t\t\t\t\t|");
+                Console.WriteLine("|\t\t\t\t\t\t\t\t\t\t\t\t\t|");
+                Console.WriteLine($"|\t\t\t\t\t Lawn Mower ID: {lawnMowerId}\t\t\t\t\t\t|");
+                Console.WriteLine("|\t\t\t\t\t\t\t\t\t\t\t\t\t|");
+                Console.WriteLine($"|\t\t\t\t New Maintenance Date (yyyy-MM-dd): {newMaintenanceDate.ToString("d")} \t\t\t\t|");
+                Console.WriteLine("|\t\t\t\t\t\t\t\t\t\t\t\t\t|");
+                Console.WriteLine("|\t\t\t\t\t\t\t\t\t\t\t\t\t|");
+                Console.WriteLine("|\t\t\t\t\t\t\t\t\t\t\t\t\t|");
+                Console.WriteLine("|*******************************************************************************************************|");
+                Console.WriteLine();
                 Console.WriteLine("Maintenance status updated successfully.");
             }
             Console.WriteLine("Press any key to go back to the Main Menu.");

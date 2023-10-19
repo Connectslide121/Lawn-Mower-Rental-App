@@ -14,7 +14,6 @@ namespace Lawn_Mower_Rental_App.View
         {
             RentalManager rentalManager = new RentalManager();
             CustomerManager customerManager = new CustomerManager();
-            
 
             Console.Clear();
             Console.WriteLine("|***************************************** LAWN MOWER RENTAL (TM) **************************************|");
@@ -169,7 +168,6 @@ namespace Lawn_Mower_Rental_App.View
             Console.WriteLine("Press any key to go back to Main Menu");
             Console.ReadKey();
             MainMenu.MainMenu_();
-
         }
     }
 }
