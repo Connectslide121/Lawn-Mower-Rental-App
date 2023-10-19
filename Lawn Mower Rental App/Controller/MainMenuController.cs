@@ -74,11 +74,12 @@ namespace Lawn_Mower_Rental_App.Controller
                              Console.WriteLine("Search by First Name, Last Name, ID, Address, Contact Number or Date of Registry.");
                              string searchQuery = Console.ReadLine();
                              List<Customer> searchResults = customerManager.SearchCustomers(searchQuery);
-                             CustomerSearchView.DisplaySearchResults(searchResults); // Jon you're a genius
+                             CustomerSearchView.DisplaySearchResults(searchResults);
                         break;
 
 
-                    case 13:
+
+                        case 13:
                             Console.WriteLine("Exiting the app...");
                             return;
 

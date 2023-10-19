@@ -1,4 +1,5 @@
-﻿using Lawn_Mower_Rental_App.Model;
+﻿using Lawn_Mower_Rental_App.Controller;
+using Lawn_Mower_Rental_App.Model;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -15,7 +16,7 @@ namespace Lawn_Mower_Rental_App.View
             Console.WriteLine("|***************************************** LAWN MOWER RENTAL (TM) **************************************|");
             Console.WriteLine("|\t\t\t\t\t\t\t\t\t\t\t\t\t|");
             Console.WriteLine("|\t\t\t\t\t\t\t\t\t\t\t\t\t|");
-            Console.WriteLine("|\t\t\t\t\t    LAWN MOWER LIST \t\t\t\t\t\t|");
+            MainMenuController.WriteColoredText("|\t\t\t\t\t    LAWN MOWER LIST \t\t\t\t\t\t|", "LAWN MOWER LIST", ConsoleColor.Green);
             Console.WriteLine("|\t\t\t\t\t\t\t\t\t\t\t\t\t|");
             Console.WriteLine("|\t\t\t---------------------------------------------\t\t\t\t\t|");
 

@@ -18,7 +18,7 @@ namespace Lawn_Mower_Rental_App.View
             Console.WriteLine("|\t\t\t\t\t\t\t\t\t\t\t\t\t|");
             Console.WriteLine("|\t\t\t\t\t\t\t\t\t\t\t\t\t|");
             Console.WriteLine("|\t\t\t\t\t\t\t\t\t\t\t\t\t|");
-            Console.WriteLine("|\t\t\t\t\t DELETE LAWN MOWER \t\t\t\t\t\t|");
+            MainMenuController.WriteColoredText("|\t\t\t\t\t DELETE LAWN MOWER \t\t\t\t\t\t|", "DELETE LAWN MOWER", ConsoleColor.Green);
             Console.WriteLine("|\t\t\t\t\t\t\t\t\t\t\t\t\t|");
             Console.WriteLine("|\t\t\t Please enter the lawn mower information as requested: \t\t\t\t|");
             Console.WriteLine("|\t\t\t\t\t\t\t\t\t\t\t\t\t|");
@@ -49,7 +49,7 @@ namespace Lawn_Mower_Rental_App.View
             Console.WriteLine("|\t\t\t\t\t\t\t\t\t\t\t\t\t|");
             Console.WriteLine("|\t\t\t\t\t\t\t\t\t\t\t\t\t|");
             Console.WriteLine("|\t\t\t\t\t\t\t\t\t\t\t\t\t|");
-            Console.WriteLine("|\t\t\t\t\t DELETE LAWN MOWER \t\t\t\t\t\t|");
+            MainMenuController.WriteColoredText("|\t\t\t\t\t DELETE LAWN MOWER \t\t\t\t\t\t|", "DELETE LAWN MOWER", ConsoleColor.Green);
             Console.WriteLine("|\t\t\t\t\t\t\t\t\t\t\t\t\t|");
             Console.WriteLine($"|\t\t\t\t    Lawn Mower ID {idToRemoveInt} will be deleted! \t\t\t\t\t|");
             Console.WriteLine("|\t\t\t\t\t\t\t\t\t\t\t\t\t|");
@@ -74,7 +74,7 @@ namespace Lawn_Mower_Rental_App.View
             Console.WriteLine("|\t\t\t\t\t\t\t\t\t\t\t\t\t|");
             Console.WriteLine("|\t\t\t\t\t\t\t\t\t\t\t\t\t|");
             Console.WriteLine("|\t\t\t\t\t\t\t\t\t\t\t\t\t|");
-            Console.WriteLine("|\t\t\t\t\t DELETE LAWN MOWER \t\t\t\t\t\t|");
+            MainMenuController.WriteColoredText("|\t\t\t\t\t DELETE LAWN MOWER \t\t\t\t\t\t|", "DELETE LAWN MOWER", ConsoleColor.Green);
             Console.WriteLine("|\t\t\t\t\t\t\t\t\t\t\t\t\t|");
             Console.WriteLine($"|\t\t\t\t Lawn Mower ID {userInput} deleted succesfully \t\t\t\t\t|");
             Console.WriteLine("|\t\t\t\t\t\t\t\t\t\t\t\t\t|");
@@ -98,7 +98,7 @@ namespace Lawn_Mower_Rental_App.View
             Console.WriteLine("|\t\t\t\t\t\t\t\t\t\t\t\t\t|");
             Console.WriteLine("|\t\t\t\t\t\t\t\t\t\t\t\t\t|");
             Console.WriteLine("|\t\t\t\t\t\t\t\t\t\t\t\t\t|");
-            Console.WriteLine("|\t\t\t\t\t DELETE LAWN MOWER \t\t\t\t\t\t|");
+            MainMenuController.WriteColoredText("|\t\t\t\t\t DELETE LAWN MOWER \t\t\t\t\t\t|", "DELETE LAWN MOWER", ConsoleColor.Green);
             Console.WriteLine("|\t\t\t\t\t\t\t\t\t\t\t\t\t|");
             Console.WriteLine($"|\t\t\t\t\tLawn Mower ID {userInput} not found \t\t\t\t\t|");
             Console.WriteLine("|\t\t\t\t\t\t\t\t\t\t\t\t\t|");

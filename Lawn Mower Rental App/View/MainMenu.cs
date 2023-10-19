@@ -1,9 +1,11 @@
 ﻿using Lawn_Mower_Rental_App.Controller;
 using System;
 using System.Collections.Generic;
+using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using static System.Net.Mime.MediaTypeNames;
 
 namespace Lawn_Mower_Rental_App.View
 {
@@ -18,7 +20,7 @@ namespace Lawn_Mower_Rental_App.View
             Console.WriteLine("|***************************************** LAWN MOWER RENTAL (TM) **************************************|");
             Console.WriteLine("|\t\t\t\t\t\t\t\t\t\t\t\t\t|");
             Console.WriteLine("|\t\t\t\t\t\t\t\t\t\t\t\t\t|");
-            Console.WriteLine("|\t\t\t\t\t\t MAIN MENU \t\t\t\t\t\t|");
+            MainMenuController.WriteColoredText("|\t\t\t\t\t\t MAIN MENU \t\t\t\t\t\t|", "MAIN MENU", ConsoleColor.Blue);
             Console.WriteLine("|\t\t\t Select an option by entering the corresponding number: \t\t\t|");
             Console.WriteLine("|\t\t\t\t\t\t\t\t\t\t\t\t\t|");
             Console.WriteLine("|\t\t\t\t\t\t\t\t\t\t\t\t\t|");
