@@ -1,4 +1,5 @@
-﻿using Lawn_Mower_Rental_App.View;
+﻿using Lawn_Mower_Rental_App.Model;
+using Lawn_Mower_Rental_App.View;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -68,11 +69,14 @@ namespace Lawn_Mower_Rental_App.Controller
                             customerManager.ViewListOfCustomers();
                             break;
                         case 12:
-                            Console.WriteLine("Going to..."); //REPLACE WITH A CALL FOR THE METHOD
-                            break;
+                             Console.WriteLine("Search by First Name, Last Name, ID, Address, Contact Number or Date of Registry.");
+                             string searchQuery = Console.ReadLine();
+                             List<Customer> searchResults = customerManager.SearchCustomers(searchQuery);
+                             CustomerSearchView.DisplaySearchResults(searchResults); // Jon you're a genius
+                        break;
 
 
-                        case 13:
+                    case 13:
                             Console.WriteLine("Exiting the app..."); //REPLACE WITH A CALL FOR THE METHOD
                             return;
 

@@ -8,7 +8,10 @@ namespace Lawn_Mower_Rental_App.Controller
     {
         private List<Customer> customers;
         string relativePath = Path.Combine(Path.GetFullPath(Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "..", "..", "..", "Data")), "CustomerData.json");
-
+        public CustomerManager(List<Customer> customers)
+        {
+            this.customers = customers;
+        }
 
         public CustomerManager()
         {
@@ -115,22 +118,18 @@ namespace Lawn_Mower_Rental_App.Controller
             return foundCustomer;
         }
 
-        public void SearchCustomers()
+        public List<Customer> SearchCustomers(string query)
         {
-            Console.WriteLine("Enter the search query:");
-            string query = Console.ReadLine();
+            query = query.ToLower();
 
-            SearchCustomer searchCustomer = new SearchCustomer(customers);
-            List<Customer> searchResults = searchCustomer.Search(query);
-
-            if (searchResults.Count == 0)
-            {
-                Console.WriteLine("No customers found matching the search query.");
-            }
-            else
-            {
-                CustomerListView.DisplayCustomerList(searchResults);
-            }
+            return customers.Where(customer =>
+                customer.FirstName.ToLower().Contains(query) ||
+                customer.LastName.ToLower().Contains(query) ||
+                customer.CustomerId.ToString().Contains(query) ||
+                customer.Address.ToLower().Contains(query) ||
+                customer.ContactNumber.ToString().Contains(query) ||
+                customer.DateOfRegistry.ToString().Contains(query)
+            ).ToList();
 
             Console.WriteLine("Press any key to go back to the Main Menu");
             Console.ReadKey();
