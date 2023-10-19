@@ -24,7 +24,7 @@ namespace Lawn_Mower_Rental_App.View
             Console.WriteLine("|\t\t\t\t----------------------------------------------\t\t\t\t|");
             if (rentalHistory.Count == 0)
             {
-                Console.WriteLine("|\t\t\tNo rental history found.\t\t\t|");
+                Console.WriteLine("|\t\t\t\t\tNo rental history found.\t\t\t\t\t|");
             }
             else
             {
