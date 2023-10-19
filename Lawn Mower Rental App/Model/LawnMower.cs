@@ -15,7 +15,7 @@ namespace Lawn_Mower_Rental_App.Model
         public string Model { get; set;  } = "HUSQVARNA LB 448S KLIPPO";
         public bool IsAvailable { get; set; } = true;
         public DateTime LastMaintenance { get; set; } = DateTime.Now;
-        public decimal PricePerDay { get; set; } = 99.95M;
+        public decimal PricePerDay { get; set; } = 99.9M;
         public string AvailabilityStatus
         {
             get { return IsAvailable ? "Available" : "In Use"; }

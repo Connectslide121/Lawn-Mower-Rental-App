@@ -138,5 +138,49 @@
     "RentalDate": "2023-10-19T00:00:00",
     "ReturnDate": "2023-10-19T00:00:00",
     "TotalPrice": 0
+  },
+  {
+    "RentalId": 8,
+    "LawnMower": {
+      "LawnMowerId": 3,
+      "Model": "HUSQVARNA LB 448S KLIPPO",
+      "IsAvailable": true,
+      "LastMaintenance": "2023-10-18T12:54:11.6747798+02:00",
+      "PricePerDay": 99.95,
+      "AvailabilityStatus": "Available"
+    },
+    "Customer": {
+      "CustomerId": 2,
+      "FirstName": "juan",
+      "LastName": "antonio",
+      "ContactNumber": 2315,
+      "Address": "dgsfdhg",
+      "DateOfRegistry": "2023-10-18T14:10:28.9388551+02:00"
+    },
+    "RentalDate": "2023-10-19T00:00:00",
+    "ReturnDate": "2023-10-25T00:00:00",
+    "TotalPrice": 599.70
+  },
+  {
+    "RentalId": 9,
+    "LawnMower": {
+      "LawnMowerId": 3,
+      "Model": "HUSQVARNA LB 448S KLIPPO",
+      "IsAvailable": true,
+      "LastMaintenance": "2023-10-18T12:54:11.6747798+02:00",
+      "PricePerDay": 99.95,
+      "AvailabilityStatus": "Available"
+    },
+    "Customer": {
+      "CustomerId": 2,
+      "FirstName": "juan",
+      "LastName": "antonio",
+      "ContactNumber": 2315,
+      "Address": "dgsfdhg",
+      "DateOfRegistry": "2023-10-18T14:10:28.9388551+02:00"
+    },
+    "RentalDate": "2023-10-19T00:00:00",
+    "ReturnDate": "2023-10-29T00:00:00",
+    "TotalPrice": 999.50
   }
 ]

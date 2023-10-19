@@ -1,25 +1,32 @@
 {
   "format": 1,
   "restore": {
-    "/Users/jhenessholm/Projects/TotalPricePossibleSolution/TotalPricePossibleSolution/TotalPricePossibleSolution.csproj": {}
+    "C:\\Users\\Jon\\Desktop\\Lexicon .NET\\Assignments\\Week 6 - Lawn Mower Rental\\Lawn Mower Rental App\\LawnMower\\TotalPricePossibleSolution\\TotalPricePossibleSolution\\TotalPricePossibleSolution.csproj": {}
   },
   "projects": {
-    "/Users/jhenessholm/Projects/TotalPricePossibleSolution/TotalPricePossibleSolution/TotalPricePossibleSolution.csproj": {
+    "C:\\Users\\Jon\\Desktop\\Lexicon .NET\\Assignments\\Week 6 - Lawn Mower Rental\\Lawn Mower Rental App\\LawnMower\\TotalPricePossibleSolution\\TotalPricePossibleSolution\\TotalPricePossibleSolution.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "/Users/jhenessholm/Projects/TotalPricePossibleSolution/TotalPricePossibleSolution/TotalPricePossibleSolution.csproj",
+        "projectUniqueName": "C:\\Users\\Jon\\Desktop\\Lexicon .NET\\Assignments\\Week 6 - Lawn Mower Rental\\Lawn Mower Rental App\\LawnMower\\TotalPricePossibleSolution\\TotalPricePossibleSolution\\TotalPricePossibleSolution.csproj",
         "projectName": "TotalPricePossibleSolution",
-        "projectPath": "/Users/jhenessholm/Projects/TotalPricePossibleSolution/TotalPricePossibleSolution/TotalPricePossibleSolution.csproj",
-        "packagesPath": "/Users/jhenessholm/.nuget/packages/",
-        "outputPath": "/Users/jhenessholm/Projects/TotalPricePossibleSolution/TotalPricePossibleSolution/obj/",
+        "projectPath": "C:\\Users\\Jon\\Desktop\\Lexicon .NET\\Assignments\\Week 6 - Lawn Mower Rental\\Lawn Mower Rental App\\LawnMower\\TotalPricePossibleSolution\\TotalPricePossibleSolution\\TotalPricePossibleSolution.csproj",
+        "packagesPath": "C:\\Users\\Jon\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\Jon\\Desktop\\Lexicon .NET\\Assignments\\Week 6 - Lawn Mower Rental\\Lawn Mower Rental App\\LawnMower\\TotalPricePossibleSolution\\TotalPricePossibleSolution\\obj\\",
         "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+        ],
         "configFilePaths": [
-          "/Users/jhenessholm/.nuget/NuGet/NuGet.Config"
+          "C:\\Users\\Jon\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
           "net6.0"
         ],
         "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "C:\\Program Files\\dotnet\\library-packs": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
@@ -53,7 +60,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "/usr/local/share/dotnet/sdk/7.0.309/RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.402\\RuntimeIdentifierGraph.json"
         }
       }
     }

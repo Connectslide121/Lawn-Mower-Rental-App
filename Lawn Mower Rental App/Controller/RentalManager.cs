@@ -67,7 +67,7 @@ namespace Lawn_Mower_Rental_App.Controller
 
         }
 
-        public void RentLawnMower(Customer customer, DateTime rentalDate, DateTime returnDate)
+        public Rental RentLawnMower(Customer customer, DateTime rentalDate, DateTime returnDate)
         {
             LawnMowerManager lawnMowerManager = new LawnMowerManager();
 
@@ -75,11 +75,19 @@ namespace Lawn_Mower_Rental_App.Controller
             rental.Customer = customer;
             rental.RentalDate = rentalDate;
             rental.ReturnDate = returnDate;
-            rental.LawnMower = lawnMowerManager.FindLawnMowerById();            
+            rental.LawnMower = lawnMowerManager.FindLawnMowerById();
 
+            decimal pricePerDay = rental.LawnMower.PricePerDay;
+            TimeSpan rentalPeriod = returnDate - rentalDate;
+            decimal totalPrice = pricePerDay * (decimal)rentalPeriod.TotalDays;
+            rental.TotalPrice = totalPrice;
+            return rental;
+        }
+
+        public void AddRentalToList(Rental rental)
+        {
             rentals.Add(rental);
-
-            SaveRentalsToJson(rentals);            
+            SaveRentalsToJson(rentals);
         }
 
     }
