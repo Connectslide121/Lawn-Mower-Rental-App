@@ -1,0 +1,5 @@
+/Users/jhenessholm/Projects/Possible Solution/Currentrentals and History Rentals/obj/Debug/net6.0/Currentrentals and History Rentals.csproj.AssemblyReference.cache
+/Users/jhenessholm/Projects/Possible Solution/Currentrentals and History Rentals/obj/Debug/net6.0/Currentrentals and History Rentals.GeneratedMSBuildEditorConfig.editorconfig
+/Users/jhenessholm/Projects/Possible Solution/Currentrentals and History Rentals/obj/Debug/net6.0/Currentrentals and History Rentals.AssemblyInfoInputs.cache
+/Users/jhenessholm/Projects/Possible Solution/Currentrentals and History Rentals/obj/Debug/net6.0/Currentrentals and History Rentals.AssemblyInfo.cs
+/Users/jhenessholm/Projects/Possible Solution/Currentrentals and History Rentals/obj/Debug/net6.0/Currentrentals and History Rentals.csproj.CoreCompileInputs.cache
