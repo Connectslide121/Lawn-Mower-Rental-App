@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Net;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -14,11 +15,17 @@ namespace Lawn_Mower_Rental_App.Model
         public DateTime RentalDate { get; set; }
         public DateTime ReturnDate { get; set; }
         public decimal TotalPrice { get; set; }
+        public bool IsActive { get; set; } = true;
 
 
         public Rental(int rentalId) 
         {
             RentalId = rentalId;
+        }
+
+        public override string ToString()
+        {
+            return $"ID: {RentalId}, LawnMowerID:{LawnMower.LawnMowerId}, CustomerID:{Customer.CustomerId}, From: {RentalDate.ToString("d")} To:{ReturnDate.ToString("d")}, Price: {TotalPrice} SEK";
         }
     }
 

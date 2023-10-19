@@ -90,6 +90,23 @@ namespace Lawn_Mower_Rental_App.Controller
             SaveRentalsToJson(rentals);
         }
 
+        public List<Rental> GetActiveRentals()
+        {
+            List<Rental> activeRentals = rentals
+                .Where(rental=> rental.IsActive == true)
+                .ToList();
+
+            return activeRentals;
+        }
+
+        public List<Rental> GetRentalHistory()
+        {
+            List<Rental> rentalHistory = rentals
+                .Where(rental => rental.IsActive == false)
+                .ToList();
+
+            return rentalHistory;
+        }
     }
 }
 

@@ -14,6 +14,8 @@ namespace Lawn_Mower_Rental_App.Controller
         {
             RentLawnMowerForm rentLawnMowerForm = new RentLawnMowerForm();
 
+            ViewActiveRentalsForm viewActiveRentalsForm = new ViewActiveRentalsForm();
+            ViewRentalHistoryForm viewRentalHistoryForm = new ViewRentalHistoryForm();
 
             NewLawnMowerForm newLawnMowerForm = new NewLawnMowerForm();
             DeleteLawnMowerForm deleteLawnMowerForm = new DeleteLawnMowerForm();
@@ -36,10 +38,10 @@ namespace Lawn_Mower_Rental_App.Controller
                             Console.WriteLine("Going to ..."); //REPLACE WITH A CALL FOR THE METHOD
                             break;
                         case 3:
-                            Console.WriteLine("Going to ..."); //REPLACE WITH A CALL FOR THE METHOD
+                            viewActiveRentalsForm.ViewActiveRentalsForm_();
                             break;
                         case 4:
-                            Console.WriteLine("Going to ..."); //REPLACE WITH A CALL FOR THE METHOD
+                            viewRentalHistoryForm.ViewRentalHistoryForm_();
                             break;
 
 

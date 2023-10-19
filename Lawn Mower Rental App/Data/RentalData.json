@@ -1,18 +1,26 @@
 [
   {
     "RentalId": 1,
-    "LawnMower": null,
+    "LawnMower": {
+      "LawnMowerId": 3,
+      "Model": "HUSQVARNA LB 448S KLIPPO",
+      "IsAvailable": true,
+      "LastMaintenance": "2023-10-18T12:54:11.6747798+02:00",
+      "PricePerDay": 99.9,
+      "AvailabilityStatus": "Available"
+    },
     "Customer": {
-      "CustomerId": 4,
-      "FirstName": "as\u00F1flj",
-      "LastName": "sfdgasgfda",
-      "ContactNumber": 235,
-      "Address": "dfhsdfh",
-      "DateOfRegistry": "2023-10-18T14:11:21.7988893+02:00"
+      "CustomerId": 1,
+      "FirstName": "jon",
+      "LastName": "mendi",
+      "ContactNumber": 605996536,
+      "Address": "asfafdsafgasdfasf",
+      "DateOfRegistry": "2023-10-18T14:09:56.6813438+02:00"
     },
     "RentalDate": "2023-10-19T00:00:00",
-    "ReturnDate": "2023-10-25T00:00:00",
-    "TotalPrice": 0
+    "ReturnDate": "2023-10-20T00:00:00",
+    "TotalPrice": 99.9,
+    "IsActive": true
   },
   {
     "RentalId": 2,
@@ -21,20 +29,21 @@
       "Model": "HUSQVARNA LB 448S KLIPPO",
       "IsAvailable": true,
       "LastMaintenance": "2023-10-18T12:54:11.6747798+02:00",
-      "PricePerDay": 99.95,
+      "PricePerDay": 99.9,
       "AvailabilityStatus": "Available"
     },
     "Customer": {
-      "CustomerId": 4,
-      "FirstName": "as\u00F1flj",
-      "LastName": "sfdgasgfda",
-      "ContactNumber": 235,
-      "Address": "dfhsdfh",
-      "DateOfRegistry": "2023-10-18T14:11:21.7988893+02:00"
+      "CustomerId": 1,
+      "FirstName": "jon",
+      "LastName": "mendi",
+      "ContactNumber": 605996536,
+      "Address": "asfafdsafgasdfasf",
+      "DateOfRegistry": "2023-10-18T14:09:56.6813438+02:00"
     },
     "RentalDate": "2023-10-19T00:00:00",
-    "ReturnDate": "2023-10-22T00:00:00",
-    "TotalPrice": 0
+    "ReturnDate": "2023-10-20T00:00:00",
+    "TotalPrice": 99.9,
+    "IsActive": true
   },
   {
     "RentalId": 3,
@@ -43,20 +52,21 @@
       "Model": "HUSQVARNA LB 448S KLIPPO",
       "IsAvailable": true,
       "LastMaintenance": "2023-10-18T12:54:11.6747798+02:00",
-      "PricePerDay": 99.95,
+      "PricePerDay": 99.9,
       "AvailabilityStatus": "Available"
     },
     "Customer": {
-      "CustomerId": 4,
-      "FirstName": "as\u00F1flj",
-      "LastName": "sfdgasgfda",
-      "ContactNumber": 235,
-      "Address": "dfhsdfh",
-      "DateOfRegistry": "2023-10-18T14:11:21.7988893+02:00"
+      "CustomerId": 2,
+      "FirstName": "juan",
+      "LastName": "antonio",
+      "ContactNumber": 2315,
+      "Address": "dgsfdhg",
+      "DateOfRegistry": "2023-10-18T14:10:28.9388551+02:00"
     },
     "RentalDate": "2023-10-19T00:00:00",
-    "ReturnDate": "2023-10-24T00:00:00",
-    "TotalPrice": 0
+    "ReturnDate": "2023-10-20T00:00:00",
+    "TotalPrice": 999.9,
+    "IsActive": false
   },
   {
     "RentalId": 4,
@@ -65,88 +75,7 @@
       "Model": "HUSQVARNA LB 448S KLIPPO",
       "IsAvailable": true,
       "LastMaintenance": "2023-10-18T12:54:11.6747798+02:00",
-      "PricePerDay": 99.95,
-      "AvailabilityStatus": "Available"
-    },
-    "Customer": null,
-    "RentalDate": "2023-10-19T00:00:00",
-    "ReturnDate": "2023-10-20T00:00:00",
-    "TotalPrice": 0
-  },
-  {
-    "RentalId": 5,
-    "LawnMower": {
-      "LawnMowerId": 3,
-      "Model": "HUSQVARNA LB 448S KLIPPO",
-      "IsAvailable": true,
-      "LastMaintenance": "2023-10-18T12:54:11.6747798+02:00",
-      "PricePerDay": 99.95,
-      "AvailabilityStatus": "Available"
-    },
-    "Customer": {
-      "CustomerId": 4,
-      "FirstName": "as\u00F1flj",
-      "LastName": "sfdgasgfda",
-      "ContactNumber": 235,
-      "Address": "dfhsdfh",
-      "DateOfRegistry": "2023-10-18T14:11:21.7988893+02:00"
-    },
-    "RentalDate": "2023-10-19T00:00:00",
-    "ReturnDate": "2023-10-26T00:00:00",
-    "TotalPrice": 0
-  },
-  {
-    "RentalId": 6,
-    "LawnMower": {
-      "LawnMowerId": 3,
-      "Model": "HUSQVARNA LB 448S KLIPPO",
-      "IsAvailable": true,
-      "LastMaintenance": "2023-10-18T12:54:11.6747798+02:00",
-      "PricePerDay": 99.95,
-      "AvailabilityStatus": "Available"
-    },
-    "Customer": {
-      "CustomerId": 4,
-      "FirstName": "as\u00F1flj",
-      "LastName": "sfdgasgfda",
-      "ContactNumber": 235,
-      "Address": "dfhsdfh",
-      "DateOfRegistry": "2023-10-18T14:11:21.7988893+02:00"
-    },
-    "RentalDate": "2023-10-19T00:00:00",
-    "ReturnDate": "2023-10-19T00:00:00",
-    "TotalPrice": 0
-  },
-  {
-    "RentalId": 7,
-    "LawnMower": {
-      "LawnMowerId": 3,
-      "Model": "HUSQVARNA LB 448S KLIPPO",
-      "IsAvailable": true,
-      "LastMaintenance": "2023-10-18T12:54:11.6747798+02:00",
-      "PricePerDay": 99.95,
-      "AvailabilityStatus": "Available"
-    },
-    "Customer": {
-      "CustomerId": 4,
-      "FirstName": "as\u00F1flj",
-      "LastName": "sfdgasgfda",
-      "ContactNumber": 235,
-      "Address": "dfhsdfh",
-      "DateOfRegistry": "2023-10-18T14:11:21.7988893+02:00"
-    },
-    "RentalDate": "2023-10-19T00:00:00",
-    "ReturnDate": "2023-10-19T00:00:00",
-    "TotalPrice": 0
-  },
-  {
-    "RentalId": 8,
-    "LawnMower": {
-      "LawnMowerId": 3,
-      "Model": "HUSQVARNA LB 448S KLIPPO",
-      "IsAvailable": true,
-      "LastMaintenance": "2023-10-18T12:54:11.6747798+02:00",
-      "PricePerDay": 99.95,
+      "PricePerDay": 99.9,
       "AvailabilityStatus": "Available"
     },
     "Customer": {
@@ -158,95 +87,8 @@
       "DateOfRegistry": "2023-10-18T14:10:28.9388551+02:00"
     },
     "RentalDate": "2023-10-19T00:00:00",
-    "ReturnDate": "2023-10-25T00:00:00",
-    "TotalPrice": 599.70
-  },
-  {
-    "RentalId": 9,
-    "LawnMower": {
-      "LawnMowerId": 3,
-      "Model": "HUSQVARNA LB 448S KLIPPO",
-      "IsAvailable": true,
-      "LastMaintenance": "2023-10-18T12:54:11.6747798+02:00",
-      "PricePerDay": 99.95,
-      "AvailabilityStatus": "Available"
-    },
-    "Customer": {
-      "CustomerId": 2,
-      "FirstName": "juan",
-      "LastName": "antonio",
-      "ContactNumber": 2315,
-      "Address": "dgsfdhg",
-      "DateOfRegistry": "2023-10-18T14:10:28.9388551+02:00"
-    },
-    "RentalDate": "2023-10-19T00:00:00",
-    "ReturnDate": "2023-10-29T00:00:00",
-    "TotalPrice": 999.50
-  },
-  {
-    "RentalId": 10,
-    "LawnMower": {
-      "LawnMowerId": 3,
-      "Model": "HUSQVARNA LB 448S KLIPPO",
-      "IsAvailable": true,
-      "LastMaintenance": "2023-10-18T12:54:11.6747798+02:00",
-      "PricePerDay": 99.9,
-      "AvailabilityStatus": "Available"
-    },
-    "Customer": {
-      "CustomerId": 1,
-      "FirstName": "jon",
-      "LastName": "mendi",
-      "ContactNumber": 605996536,
-      "Address": "asfafdsafgasdfasf",
-      "DateOfRegistry": "2023-10-18T14:09:56.6813438+02:00"
-    },
-    "RentalDate": "2023-10-19T00:00:00",
     "ReturnDate": "2023-10-20T00:00:00",
-    "TotalPrice": 99.9
-  },
-  {
-    "RentalId": 11,
-    "LawnMower": {
-      "LawnMowerId": 3,
-      "Model": "HUSQVARNA LB 448S KLIPPO",
-      "IsAvailable": true,
-      "LastMaintenance": "2023-10-18T12:54:11.6747798+02:00",
-      "PricePerDay": 99.9,
-      "AvailabilityStatus": "Available"
-    },
-    "Customer": {
-      "CustomerId": 1,
-      "FirstName": "jon",
-      "LastName": "mendi",
-      "ContactNumber": 605996536,
-      "Address": "asfafdsafgasdfasf",
-      "DateOfRegistry": "2023-10-18T14:09:56.6813438+02:00"
-    },
-    "RentalDate": "2023-10-19T00:00:00",
-    "ReturnDate": "2023-10-20T00:00:00",
-    "TotalPrice": 99.9
-  },
-  {
-    "RentalId": 12,
-    "LawnMower": {
-      "LawnMowerId": 3,
-      "Model": "HUSQVARNA LB 448S KLIPPO",
-      "IsAvailable": true,
-      "LastMaintenance": "2023-10-18T12:54:11.6747798+02:00",
-      "PricePerDay": 99.9,
-      "AvailabilityStatus": "Available"
-    },
-    "Customer": {
-      "CustomerId": 1,
-      "FirstName": "jon",
-      "LastName": "mendi",
-      "ContactNumber": 605996536,
-      "Address": "asfafdsafgasdfasf",
-      "DateOfRegistry": "2023-10-18T14:09:56.6813438+02:00"
-    },
-    "RentalDate": "2023-10-19T00:00:00",
-    "ReturnDate": "2023-10-20T00:00:00",
-    "TotalPrice": 99.9
+    "TotalPrice": 9999.9,
+    "IsActive": false
   }
 ]
