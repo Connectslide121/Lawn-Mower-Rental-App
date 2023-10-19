@@ -140,5 +140,21 @@ namespace Lawn_Mower_Rental_App.Controller
             }
             SaveLawnMowersToJson(lawnMowers);
         }
+        public bool UpdateMaintenanceStatus(int lawnMowerId, DateTime newMaintenanceDate)
+        {
+            LawnMower lawnMowerToUpdate = lawnMowers.Find(m => m.LawnMowerId == lawnMowerId);
+            if (lawnMowerToUpdate != null)
+            {
+                lawnMowerToUpdate.LastMaintenance = newMaintenanceDate;
+                SaveLawnMowersToJson(lawnMowers);
+                return true;
+            }
+            else
+            {
+                Console.WriteLine("Invalid Input");
+                return false;
+            }
+        }
+
     }
 }
