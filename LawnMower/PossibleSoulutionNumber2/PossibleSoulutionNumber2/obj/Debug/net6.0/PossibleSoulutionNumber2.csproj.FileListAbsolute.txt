@@ -1,0 +1,5 @@
+/Users/jhenessholm/Projects/PossibleSoulutionNumber2/PossibleSoulutionNumber2/obj/Debug/net6.0/PossibleSoulutionNumber2.csproj.AssemblyReference.cache
+/Users/jhenessholm/Projects/PossibleSoulutionNumber2/PossibleSoulutionNumber2/obj/Debug/net6.0/PossibleSoulutionNumber2.GeneratedMSBuildEditorConfig.editorconfig
+/Users/jhenessholm/Projects/PossibleSoulutionNumber2/PossibleSoulutionNumber2/obj/Debug/net6.0/PossibleSoulutionNumber2.AssemblyInfoInputs.cache
+/Users/jhenessholm/Projects/PossibleSoulutionNumber2/PossibleSoulutionNumber2/obj/Debug/net6.0/PossibleSoulutionNumber2.AssemblyInfo.cs
+/Users/jhenessholm/Projects/PossibleSoulutionNumber2/PossibleSoulutionNumber2/obj/Debug/net6.0/PossibleSoulutionNumber2.csproj.CoreCompileInputs.cache
