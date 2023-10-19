@@ -182,5 +182,71 @@
     "RentalDate": "2023-10-19T00:00:00",
     "ReturnDate": "2023-10-29T00:00:00",
     "TotalPrice": 999.50
+  },
+  {
+    "RentalId": 10,
+    "LawnMower": {
+      "LawnMowerId": 3,
+      "Model": "HUSQVARNA LB 448S KLIPPO",
+      "IsAvailable": true,
+      "LastMaintenance": "2023-10-18T12:54:11.6747798+02:00",
+      "PricePerDay": 99.9,
+      "AvailabilityStatus": "Available"
+    },
+    "Customer": {
+      "CustomerId": 1,
+      "FirstName": "jon",
+      "LastName": "mendi",
+      "ContactNumber": 605996536,
+      "Address": "asfafdsafgasdfasf",
+      "DateOfRegistry": "2023-10-18T14:09:56.6813438+02:00"
+    },
+    "RentalDate": "2023-10-19T00:00:00",
+    "ReturnDate": "2023-10-20T00:00:00",
+    "TotalPrice": 99.9
+  },
+  {
+    "RentalId": 11,
+    "LawnMower": {
+      "LawnMowerId": 3,
+      "Model": "HUSQVARNA LB 448S KLIPPO",
+      "IsAvailable": true,
+      "LastMaintenance": "2023-10-18T12:54:11.6747798+02:00",
+      "PricePerDay": 99.9,
+      "AvailabilityStatus": "Available"
+    },
+    "Customer": {
+      "CustomerId": 1,
+      "FirstName": "jon",
+      "LastName": "mendi",
+      "ContactNumber": 605996536,
+      "Address": "asfafdsafgasdfasf",
+      "DateOfRegistry": "2023-10-18T14:09:56.6813438+02:00"
+    },
+    "RentalDate": "2023-10-19T00:00:00",
+    "ReturnDate": "2023-10-20T00:00:00",
+    "TotalPrice": 99.9
+  },
+  {
+    "RentalId": 12,
+    "LawnMower": {
+      "LawnMowerId": 3,
+      "Model": "HUSQVARNA LB 448S KLIPPO",
+      "IsAvailable": true,
+      "LastMaintenance": "2023-10-18T12:54:11.6747798+02:00",
+      "PricePerDay": 99.9,
+      "AvailabilityStatus": "Available"
+    },
+    "Customer": {
+      "CustomerId": 1,
+      "FirstName": "jon",
+      "LastName": "mendi",
+      "ContactNumber": 605996536,
+      "Address": "asfafdsafgasdfasf",
+      "DateOfRegistry": "2023-10-18T14:09:56.6813438+02:00"
+    },
+    "RentalDate": "2023-10-19T00:00:00",
+    "ReturnDate": "2023-10-20T00:00:00",
+    "TotalPrice": 99.9
   }
 ]
