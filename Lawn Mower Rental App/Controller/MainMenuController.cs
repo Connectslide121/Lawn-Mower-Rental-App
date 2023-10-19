@@ -21,6 +21,7 @@ namespace Lawn_Mower_Rental_App.Controller
             NewLawnMowerForm newLawnMowerForm = new NewLawnMowerForm();
             DeleteLawnMowerForm deleteLawnMowerForm = new DeleteLawnMowerForm();
             LawnMowerManager lawnMowerManager = new LawnMowerManager();
+            UpdateMaintenanceForm updateMaintenanceForm = new UpdateMaintenanceForm();
 
             NewCustomerForm newCustomerForm = new NewCustomerForm();
             DeleteCustomerForm deleteCustomerForm = new DeleteCustomerForm();
@@ -56,7 +57,7 @@ namespace Lawn_Mower_Rental_App.Controller
                             lawnMowerManager.ViewListOfLawnMowers();
                             break;
                         case 8:
-                            Console.WriteLine("Going to ..."); //REPLACE WITH A CALL FOR THE METHOD
+                            updateMaintenanceForm.UpdateMaintenanceForm_();
                             break;
 
 
