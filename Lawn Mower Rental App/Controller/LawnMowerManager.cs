@@ -155,5 +155,13 @@ namespace Lawn_Mower_Rental_App.Controller
                 return false;
             }
         }
+
+        public void ReturnLawnMower(int lawnMowerId)
+        {
+            LawnMower lawnMowerToUpdate = lawnMowers.Find(m => m.LawnMowerId == lawnMowerId);
+            lawnMowerToUpdate.IsAvailable = true;
+
+            SaveLawnMowersToJson(lawnMowers);
+        }
     }
 }

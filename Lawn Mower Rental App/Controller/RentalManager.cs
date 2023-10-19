@@ -119,6 +119,15 @@ namespace Lawn_Mower_Rental_App.Controller
             }
             SaveRentalsToJson(rentals);
         }
+
+        public int ReturnLawnMower(int rentalId)
+        {
+            Rental rentalToUpdate = rentals.Find(m => m.RentalId == rentalId);
+            rentalToUpdate.IsActive = false;
+            SaveRentalsToJson(rentals);
+
+            return rentalToUpdate.LawnMower.LawnMowerId;
+        }
     }
 }
 

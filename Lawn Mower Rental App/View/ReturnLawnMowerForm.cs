@@ -9,6 +9,9 @@ namespace Lawn_Mower_Rental_App.View
 {
     public class ReturnLawnMowerForm
     {
+        RentalManager rentalManager = new RentalManager();
+        LawnMowerManager lawnMowerManager = new LawnMowerManager();
+
         public void ReturnLawnMowerForm_()
         {
             Console.Clear();
@@ -16,28 +19,50 @@ namespace Lawn_Mower_Rental_App.View
             Console.WriteLine("|\t\t\t\t\t\t\t\t\t\t\t\t\t|");
             Console.WriteLine("|\t\t\t\t\t\t\t\t\t\t\t\t\t|");
             Console.WriteLine("|\t\t\t\t\t\t\t\t\t\t\t\t\t|");
-            MainMenuController.WriteColoredText("|\t\t\t\t\t   RETURN A LAWN MOWER \t\t\t\t\t|", "RETURN A LAWN MOWER", ConsoleColor.Magenta);
+            MainMenuController.WriteColoredText("|\t\t\t\t\t   RETURN A LAWN MOWER \t\t\t\t\t\t|", "RETURN A LAWN MOWER", ConsoleColor.Magenta);
             Console.WriteLine("|\t\t\t\t\t\t\t\t\t\t\t\t\t|");
             Console.WriteLine("|\t\t\t Please enter the rental information as requested: \t\t\t\t|");
             Console.WriteLine("|\t\t\t\t\t\t\t\t\t\t\t\t\t|");
             Console.WriteLine("|\t\t\t\t\t Rental ID: \t\t\t\t\t\t\t|");
             Console.WriteLine("|\t\t\t\t\t\t\t\t\t\t\t\t\t|");
             Console.WriteLine("|\t\t\t\t\t\t\t\t\t\t\t\t\t|");
+            Console.WriteLine("|\t\t\t\t\t\t\t\t\t\t\t\t\t|");
+            Console.WriteLine("|\t\t\t\t\t\t\t\t\t\t\t\t\t|");
+            Console.WriteLine("|\t\t\t\t\t\t\t\t\t\t\t\t\t|");
             Console.WriteLine("|*******************************************************************************************************|");
             Console.WriteLine();
-            Console.WriteLine("Please enter lawn mower ID:");
-            string rentalId = Console.ReadLine();
 
-            
+            string rentalId;
+            int rentalIdInt;
 
+            do
+            {
+                Console.WriteLine("Please enter rental ID:");
+                rentalId = Console.ReadLine();
+            }
+            while (!int.TryParse(rentalId, out rentalIdInt));
 
+            int lawnMowerId = rentalManager.ReturnLawnMower(rentalIdInt);
+            lawnMowerManager.ReturnLawnMower(lawnMowerId);
 
-
-
-
-
-
-            Console.WriteLine("Lawn mower returned successfully. Press any key to go back to the Main Menu.");
+            Console.Clear();
+            Console.WriteLine("|***************************************** LAWN MOWER RENTAL (TM) **************************************|");
+            Console.WriteLine("|\t\t\t\t\t\t\t\t\t\t\t\t\t|");
+            Console.WriteLine("|\t\t\t\t\t\t\t\t\t\t\t\t\t|");
+            Console.WriteLine("|\t\t\t\t\t\t\t\t\t\t\t\t\t|");
+            MainMenuController.WriteColoredText("|\t\t\t\t\t   RETURN A LAWN MOWER \t\t\t\t\t\t|", "RETURN A LAWN MOWER", ConsoleColor.Magenta);
+            Console.WriteLine("|\t\t\t\t\t\t\t\t\t\t\t\t\t|");
+            Console.WriteLine("|\t\t\t Please enter the rental information as requested: \t\t\t\t|");
+            Console.WriteLine("|\t\t\t\t\t\t\t\t\t\t\t\t\t|");
+            Console.WriteLine($"|\t\t\t\t\t Rental ID: {rentalIdInt}\t\t\t\t\t\t\t|");
+            Console.WriteLine("|\t\t\t\t\t\t\t\t\t\t\t\t\t|");
+            Console.WriteLine("|\t\t\t\t\t\t\t\t\t\t\t\t\t|");
+            Console.WriteLine("|\t\t\t\tLawn mower returned successfully!\t\t\t\t\t|");
+            Console.WriteLine("|\t\t\t\t\t\t\t\t\t\t\t\t\t|");
+            Console.WriteLine("|\t\t\t\t\t\t\t\t\t\t\t\t\t|");
+            Console.WriteLine("|*******************************************************************************************************|");
+            Console.WriteLine();
+            Console.WriteLine("Press any key to go back to the Main Menu.");
             Console.ReadKey();
             MainMenu.MainMenu_();
         }

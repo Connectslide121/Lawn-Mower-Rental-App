@@ -14,7 +14,7 @@ namespace Lawn_Mower_Rental_App.Controller
         public static void MenuController(string userInput)
         {
             RentLawnMowerForm rentLawnMowerForm = new RentLawnMowerForm();
-
+            ReturnLawnMowerForm returnLawnMowerForm = new ReturnLawnMowerForm();
             ViewActiveRentalsForm viewActiveRentalsForm = new ViewActiveRentalsForm();
             ViewRentalHistoryForm viewRentalHistoryForm = new ViewRentalHistoryForm();
 
@@ -37,7 +37,7 @@ namespace Lawn_Mower_Rental_App.Controller
                             rentLawnMowerForm.RentLawnMowerForm_();
                             break;
                         case 2:
-                            Console.WriteLine("Going to ..."); //REPLACE WITH A CALL FOR THE METHOD
+                            returnLawnMowerForm.ReturnLawnMowerForm_();
                             break;
                         case 3:
                             viewActiveRentalsForm.ViewActiveRentalsForm_();
