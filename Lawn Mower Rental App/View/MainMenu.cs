@@ -11,6 +11,7 @@ namespace Lawn_Mower_Rental_App.View
     {
         public static void MainMenu_()
         {
+
             Console.Clear();
             Console.WriteLine("|***************************************** LAWN MOWER RENTAL (TM) **************************************|");
             Console.WriteLine("|\t\t\t\t\t\t\t\t\t\t\t\t\t|");

@@ -4,7 +4,7 @@
         "Model": "HUSQVARNA LB 448S KLIPPO",
         "IsAvailable": true,
         "LastMaintenance": "2023-10-18T12:54:11.6747798+02:00",
-        "PricePerDay": 99.95,
+        "PricePerDay": 99.9,
         "AvailabilityStatus": "Available"
     },
     {
@@ -12,7 +12,7 @@
         "Model": "HUSQVARNA LB 448S KLIPPO",
         "IsAvailable": true,
         "LastMaintenance": "2023-10-18T12:54:14.8956261+02:00",
-        "PricePerDay": 99.95,
+        "PricePerDay": 99.9,
         "AvailabilityStatus": "Available"
     },
     {
@@ -20,7 +20,7 @@
         "Model": "HUSQVARNA LB 448S KLIPPO",
         "IsAvailable": true,
         "LastMaintenance": "2023-10-18T12:54:22.8167938+02:00",
-        "PricePerDay": 99.95,
+        "PricePerDay": 99.9,
         "AvailabilityStatus": "Available"
     },
     {
@@ -28,7 +28,7 @@
         "Model": "HUSQVARNA LB 448S KLIPPO",
         "IsAvailable": true,
         "LastMaintenance": "2023-10-18T12:54:32.6052563+02:00",
-        "PricePerDay": 99.95,
+        "PricePerDay": 99.9,
         "AvailabilityStatus": "Available"
     }
 ]
