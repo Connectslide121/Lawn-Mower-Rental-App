@@ -15,6 +15,7 @@ namespace Lawn_Mower_Rental_App.Controller
         {
             RentLawnMowerForm rentLawnMowerForm = new RentLawnMowerForm();
             ReturnLawnMowerForm returnLawnMowerForm = new ReturnLawnMowerForm();
+            RentalManager rentalManager = new RentalManager();
             ViewActiveRentalsForm viewActiveRentalsForm = new ViewActiveRentalsForm();
             ViewRentalHistoryForm viewRentalHistoryForm = new ViewRentalHistoryForm();
 
@@ -29,6 +30,7 @@ namespace Lawn_Mower_Rental_App.Controller
 
             EarningsProfitView earningsProfitView = new EarningsProfitView();
 
+            
 
             if (int.TryParse(userInput, out int userInputInt))
                 {
@@ -41,58 +43,63 @@ namespace Lawn_Mower_Rental_App.Controller
                             returnLawnMowerForm.ReturnLawnMowerForm_();
                             break;
                         case 3:
-                            viewActiveRentalsForm.ViewActiveRentalsForm_();
+                            rentalManager.ViewReturnsToday();
                             break;
                         case 4:
+                            viewActiveRentalsForm.ViewActiveRentalsForm_();
+                            break;
+                        case 5:
                             viewRentalHistoryForm.ViewRentalHistoryForm_();
                             break;
 
 
-                        case 5:
+                        case 6:
                             newLawnMowerForm.NewLawnMowerForm_();
                             break;
-                        case 6:
+                        case 7:
                             deleteLawnMowerForm.DeleteLawnMowerForm_();
                             break;
-                        case 7:
+                        case 8:
                             lawnMowerManager.ViewListOfLawnMowers();
                             break;
-                        case 8:
+                        case 9:
                             updateMaintenanceForm.UpdateMaintenanceForm_();
                             break;
 
 
 
-                        case 9:
+                        case 10:
                             newCustomerForm.NewCustomerForm_();
                             break;
-                        case 10:
+                        case 11:
                             deleteCustomerForm.DeleteCustomerForm_();
                             break;
-                        case 11:
+                        case 12:
                             customerManager.ViewListOfCustomers();
                             break;
-                        case 12:
+                        case 13:
                              Console.WriteLine("Search by First Name, Last Name, ID, Address, Contact Number or Date of Registry.");
                              string searchQuery = Console.ReadLine();
                              List<Customer> searchResults = customerManager.SearchCustomers(searchQuery);
                              CustomerSearchView.DisplaySearchResults(searchResults);
                             break;
 
-                        case 13:
+                        case 14:
                             earningsProfitView.DisplayEarningsProfitMenu();
                             break;
 
 
 
-                        case 14:
+                        case 15:
                             Console.WriteLine("Exiting the app...");
                             return;
 
-                        default: 
+
+                    default: 
                             MainMenu.MainMenu_();
                             break;
                     }
+
                 }
                 else 
                 { 

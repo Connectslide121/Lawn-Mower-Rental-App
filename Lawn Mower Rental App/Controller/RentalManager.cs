@@ -128,6 +128,15 @@ namespace Lawn_Mower_Rental_App.Controller
             SaveRentalsToJson(rentals);
         }
 
+        public void ViewReturnsToday()
+        {
+            List<Rental> returnsToday = rentals
+                .Where(rental => rental.ReturnDate == DateTime.Today)
+                .ToList();
+
+            ViewReturnToday.ViewReturnToday_(returnsToday);
+        }
+
         public int ReturnLawnMower(int rentalId)
         {
             Rental rentalToUpdate = rentals.Find(m => m.RentalId == rentalId);

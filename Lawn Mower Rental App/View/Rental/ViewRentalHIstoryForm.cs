@@ -22,6 +22,7 @@ namespace Lawn_Mower_Rental_App.View
             MainMenuController.WriteColoredText("|\t\t\t\t\t     RENTAL HISTORY \t\t\t\t\t\t|", "RENTAL HISTORY", ConsoleColor.Magenta);
             Console.WriteLine("|\t\t\t\t\t\t\t\t\t\t\t\t\t|");
             Console.WriteLine("|\t\t\t\t----------------------------------------------\t\t\t\t|");
+
             if (rentalHistory.Count == 0)
             {
                 Console.WriteLine("|\t\t\t\t\tNo rental history found.\t\t\t\t\t|");
@@ -30,9 +31,23 @@ namespace Lawn_Mower_Rental_App.View
             {
                 foreach (Rental rental in rentalHistory)
                 {
-                    Console.WriteLine($"|\t{rental}\t\t|");
+                    int lineLength = 95;
+
+                    if (rental.ToString().Length < lineLength)
+                    {
+                        Console.Write("|\t"); Console.Write(rental.ToString().PadRight(lineLength)); Console.WriteLine(" |");
+                    }
+                    else if (rental.ToString().Length > lineLength)
+                    {
+                        Console.Write("|\t"); Console.Write(rental.ToString().Substring(0, lineLength)); Console.WriteLine("|");
+                    }
+                    else
+                    {
+                        Console.Write("|\t"); Console.Write(rental.ToString()); Console.WriteLine("|");
+                    }
                 }
             }
+
             Console.WriteLine("|\t\t\t\t----------------------------------------------\t\t\t\t|");
             Console.WriteLine("|\t\t\t\t\t\t\t\t\t\t\t\t\t|");
             Console.WriteLine("|\t\t\t\t\t\t\t\t\t\t\t\t\t|");

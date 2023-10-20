@@ -72,62 +72,62 @@
   {
     "LawnMowerId": 8,
     "Model": "HUSQVARNA LB 448S KLIPPO",
-    "IsAvailable": true,
+    "IsAvailable": false,
     "LastMaintenance": "2022-02-25T00:00:00",
     "PricePerDay": 99.9,
     "CostPerDay": 49.9,
     "ProfitPerDay": 50.0,
-    "AvailabilityStatus": "Available"
+    "AvailabilityStatus": "In Use"
   },
   {
     "LawnMowerId": 9,
     "Model": "HUSQVARNA LB 448S KLIPPO",
-    "IsAvailable": true,
+    "IsAvailable": false,
     "LastMaintenance": "2023-10-19T11:45:14.958005+02:00",
     "PricePerDay": 99.9,
     "CostPerDay": 49.9,
     "ProfitPerDay": 50.0,
-    "AvailabilityStatus": "Available"
+    "AvailabilityStatus": "In Use"
   },
   {
     "LawnMowerId": 10,
     "Model": "HUSQVARNA LB 448S KLIPPO",
-    "IsAvailable": true,
+    "IsAvailable": false,
     "LastMaintenance": "2023-10-19T11:45:16.527429+02:00",
     "PricePerDay": 99.9,
     "CostPerDay": 49.9,
     "ProfitPerDay": 50.0,
-    "AvailabilityStatus": "Available"
+    "AvailabilityStatus": "In Use"
   },
   {
     "LawnMowerId": 11,
     "Model": "HUSQVARNA LB 448S KLIPPO",
-    "IsAvailable": true,
+    "IsAvailable": false,
     "LastMaintenance": "2023-10-19T11:45:18.1849294+02:00",
     "PricePerDay": 99.9,
     "CostPerDay": 49.9,
     "ProfitPerDay": 50.0,
-    "AvailabilityStatus": "Available"
+    "AvailabilityStatus": "In Use"
   },
   {
     "LawnMowerId": 12,
     "Model": "HUSQVARNA LB 448S KLIPPO",
-    "IsAvailable": true,
+    "IsAvailable": false,
     "LastMaintenance": "2023-02-28T00:00:00",
     "PricePerDay": 99.9,
     "CostPerDay": 49.9,
     "ProfitPerDay": 50.0,
-    "AvailabilityStatus": "Available"
+    "AvailabilityStatus": "In Use"
   },
   {
     "LawnMowerId": 13,
     "Model": "HUSQVARNA LB 448S KLIPPO",
-    "IsAvailable": true,
+    "IsAvailable": false,
     "LastMaintenance": "2023-10-19T11:45:27.2203372+02:00",
     "PricePerDay": 99.9,
     "CostPerDay": 49.9,
     "ProfitPerDay": 50.0,
-    "AvailabilityStatus": "Available"
+    "AvailabilityStatus": "In Use"
   },
   {
     "LawnMowerId": 14,

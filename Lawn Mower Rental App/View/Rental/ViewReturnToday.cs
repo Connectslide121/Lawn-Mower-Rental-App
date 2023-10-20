@@ -1,35 +1,34 @@
-﻿using Lawn_Mower_Rental_App.Controller;
+﻿
+using Lawn_Mower_Rental_App.Controller;
 using Lawn_Mower_Rental_App.Model;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Reflection.Metadata.Ecma335;
 using System.Text;
 using System.Threading.Tasks;
 
 namespace Lawn_Mower_Rental_App.View
 {
-    public class ViewActiveRentalsForm
+    public class ViewReturnToday
     {
-        public void ViewActiveRentalsForm_()
+        public static void ViewReturnToday_(List<Rental> returnToday)
         {
-            RentalManager rentalManager = new RentalManager();
-            List<Rental> currentRentals = rentalManager.GetActiveRentals();
-
             Console.Clear();
             Console.WriteLine("|***************************************** LAWN MOWER RENTAL (TM) **************************************|");
             Console.WriteLine("|\t\t\t\t\t\t\t\t\t\t\t\t\t|");
             Console.WriteLine("|\t\t\t\t\t\t\t\t\t\t\t\t\t|");
-            MainMenuController.WriteColoredText("|\t\t\t\t\t      ACTIVE RENTALS \t\t\t\t\t\t|", "ACTIVE RENTALS", ConsoleColor.Magenta);
+            MainMenuController.WriteColoredText("|\t\t\t\t\t RENTAL RETURNS TODAY \t\t\t\t\t\t|", "RENTAL RETURNS TODAY", ConsoleColor.Magenta);
             Console.WriteLine("|\t\t\t\t\t\t\t\t\t\t\t\t\t|");
             Console.WriteLine("|\t\t\t\t----------------------------------------------\t\t\t\t|");
 
-            if (currentRentals.Count == 0)
+            if (returnToday.Count == 0)
             {
-                Console.WriteLine("|\t\t\t\t\tNo active rentals found.\t\t\t\t\t|");
+                Console.WriteLine("|\t\t\t\t\t   No rentals found.\t\t\t\t\t\t|");
             }
             else
             {
-                foreach (Rental rental in currentRentals)
+                foreach (Rental rental in returnToday)
                 {
                     int lineLength = 95;
 
@@ -59,4 +58,3 @@ namespace Lawn_Mower_Rental_App.View
         }
     }
 }
-
