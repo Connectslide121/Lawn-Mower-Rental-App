@@ -12,7 +12,7 @@ namespace Lawn_Mower_Rental_App.View
     {
         public void RentLawnMowerForm_()
         {
-            RentalManager rentalManager = new RentalManager();
+            
             CustomerManager customerManager = new CustomerManager();
 
             Console.Clear();
@@ -47,7 +47,12 @@ namespace Lawn_Mower_Rental_App.View
             }
             while (!int.TryParse(customerId, out customerIdInt));
 
-            Customer customerToRent = customerManager.FindCustomerById(customerIdInt);
+            customerManager.FindCustomerById(customerIdInt);
+        }
+
+        public static void RentLawnMowerForm__(Customer customer)
+        {
+            RentalManager rentalManager = new RentalManager();
 
             Console.Clear();
             Console.WriteLine("|***************************************** LAWN MOWER RENTAL (TM) **************************************|");
@@ -58,7 +63,8 @@ namespace Lawn_Mower_Rental_App.View
             Console.WriteLine("|\t\t\t\t\t\t\t\t\t\t\t\t\t|");
             Console.WriteLine("|\t\t\t\t Please enter information as requested: \t\t\t\t|");
             Console.WriteLine("|\t\t\t\t\t\t\t\t\t\t\t\t\t|");
-                        
+
+            string customerId = customer.CustomerId.ToString();
             int lineLengthCustomerId = 49;
 
             if (customerId.Length < lineLengthCustomerId)
@@ -140,7 +146,7 @@ namespace Lawn_Mower_Rental_App.View
             }
             while (!DateTime.TryParse(returnDate, out returnDateValid));
 
-            Rental rentalToAdd = rentalManager.RentLawnMower(customerToRent, rentalDateValid, returnDateValid);
+            Rental rentalToAdd = rentalManager.RentLawnMower(customer, rentalDateValid, returnDateValid);
 
             Console.Clear();
             Console.WriteLine("|***************************************** LAWN MOWER RENTAL (TM) **************************************|");
@@ -249,6 +255,36 @@ namespace Lawn_Mower_Rental_App.View
             Console.ReadKey();
             MainMenu.MainMenu_();
         }
+
+        public static void CustomerNotFoundMessage()
+        {
+            Console.Clear();
+            Console.WriteLine("|***************************************** LAWN MOWER RENTAL (TM) **************************************|");
+            Console.WriteLine("|\t\t\t\t\t\t\t\t\t\t\t\t\t|");
+            Console.WriteLine("|\t\t\t\t\t\t\t\t\t\t\t\t\t|");
+            Console.WriteLine("|\t\t\t\t\t\t\t\t\t\t\t\t\t|");
+            MainMenuController.WriteColoredText("|\t\t\t\t\t    RENT A LAWN MOWER \t\t\t\t\t\t|", "RENT A LAWN MOWER", ConsoleColor.Magenta);
+            Console.WriteLine("|\t\t\t\t\t\t\t\t\t\t\t\t\t|");
+            Console.WriteLine("|\t\t\t\t Please enter information as requested: \t\t\t\t|");
+            Console.WriteLine("|\t\t\t\t\t\t\t\t\t\t\t\t\t|");
+            Console.WriteLine("|\t\t\t\t\t Customer ID: \t\t\t\t\t\t\t|");
+            Console.WriteLine("|\t\t\t\t\t\t\t\t\t\t\t\t\t|");
+            Console.WriteLine("|\t\t\t\t\t Rental Date: \t\t\t\t\t\t\t|");
+            Console.WriteLine("|\t\t\t\t\t\t\t\t\t\t\t\t\t|");
+            Console.WriteLine("|\t\t\t\t\t Return Date: \t\t\t\t\t\t\t|");
+            Console.WriteLine("|\t\t\t\t\t\t\t\t\t\t\t\t\t|");
+            Console.WriteLine("|\t\t\t\t\t\t\t\t\t\t\t\t\t|");
+            Console.WriteLine("|\t\t\t\t\t Customer not found\t\t\t\t\t\t|");
+            Console.WriteLine("|\t\t\t\t\t\t\t\t\t\t\t\t\t|");
+            Console.WriteLine("|\t\t\t\t\t\t\t\t\t\t\t\t\t|");
+            Console.WriteLine("|*******************************************************************************************************|");
+            Console.WriteLine();
+            Console.WriteLine("Press any key to go back to Main Menu");
+            Console.ReadKey();
+            MainMenu.MainMenu_();
+
+        }
     }
 }
+
 

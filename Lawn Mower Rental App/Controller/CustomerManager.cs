@@ -111,10 +111,17 @@ namespace Lawn_Mower_Rental_App.Controller
             catch { ErrorsExceptions.CustomerFileNotFoundException(); }
         }
 
-        public Customer FindCustomerById(int customerId)
+        public void FindCustomerById(int customerId)
         {
             Customer foundCustomer = customers.Find(customer => customer.CustomerId == customerId);
-            return foundCustomer;
+            if (foundCustomer != null)
+            {
+                RentLawnMowerForm.RentLawnMowerForm__(foundCustomer);
+            }
+            else
+            {
+                RentLawnMowerForm.CustomerNotFoundMessage();
+            };
         }
 
         public List<Customer> SearchCustomers(string query)
