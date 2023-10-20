@@ -26,7 +26,7 @@ namespace Lawn_Mower_Rental_App.View
             Console.WriteLine("|\t\t\t\t\t 02.- Return a lawn mower \t\t\t\t\t|");
             Console.WriteLine("|\t\t\t\t\t 03.- View returns expected today \t\t\t\t|");
             Console.WriteLine("|\t\t\t\t\t 04.- View active rentals \t\t\t\t\t|");
-            Console.WriteLine("|\t\t\t\t\t 05.- View history of rentals \t\t\t\t\t|");
+            Console.WriteLine("|\t\t\t\t\t 05.- View rental history \t\t\t\t\t|");
             Console.WriteLine("|\t\t\t\t\t\t\t\t\t\t\t\t\t|");
             Console.WriteLine("|\t\t\t\t\t 06.- Register new lawn mower \t\t\t\t\t|");
             Console.WriteLine("|\t\t\t\t\t 07.- Delete lawn mower \t\t\t\t\t|");
