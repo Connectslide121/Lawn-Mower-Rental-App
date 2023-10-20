@@ -44,7 +44,10 @@ namespace Lawn_Mower_Rental_App.View
 
             int lawnMowerId = rentalManager.ReturnLawnMower(rentalIdInt);
             lawnMowerManager.ReturnLawnMower(lawnMowerId);
+        }
 
+        public static void LawnMowerReturnedSuccessfullyMessage(int rentalId)
+        {
             Console.Clear();
             Console.WriteLine("|***************************************** LAWN MOWER RENTAL (TM) **************************************|");
             Console.WriteLine("|\t\t\t\t\t\t\t\t\t\t\t\t\t|");
@@ -54,7 +57,7 @@ namespace Lawn_Mower_Rental_App.View
             Console.WriteLine("|\t\t\t\t\t\t\t\t\t\t\t\t\t|");
             Console.WriteLine("|\t\t\t Please enter the rental information as requested: \t\t\t\t|");
             Console.WriteLine("|\t\t\t\t\t\t\t\t\t\t\t\t\t|");
-            Console.WriteLine($"|\t\t\t\t\t Rental ID: {rentalIdInt}\t\t\t\t\t\t\t|");
+            Console.WriteLine($"|\t\t\t\t\t Rental ID: {rentalId}\t\t\t\t\t\t\t|");
             Console.WriteLine("|\t\t\t\t\t\t\t\t\t\t\t\t\t|");
             Console.WriteLine("|\t\t\t\t\t\t\t\t\t\t\t\t\t|");
             Console.WriteLine("|\t\t\t\tLawn mower returned successfully!\t\t\t\t\t|");
@@ -66,6 +69,34 @@ namespace Lawn_Mower_Rental_App.View
             Console.ReadKey();
             MainMenu.MainMenu_();
         }
+
+        public static void LawnMowerReturnedFailMessage(int rentalId)
+        {
+            Console.Clear();
+            Console.WriteLine("|***************************************** LAWN MOWER RENTAL (TM) **************************************|");
+            Console.WriteLine("|\t\t\t\t\t\t\t\t\t\t\t\t\t|");
+            Console.WriteLine("|\t\t\t\t\t\t\t\t\t\t\t\t\t|");
+            Console.WriteLine("|\t\t\t\t\t\t\t\t\t\t\t\t\t|");
+            MainMenuController.WriteColoredText("|\t\t\t\t\t   RETURN A LAWN MOWER \t\t\t\t\t\t|", "RETURN A LAWN MOWER", ConsoleColor.Magenta);
+            Console.WriteLine("|\t\t\t\t\t\t\t\t\t\t\t\t\t|");
+            Console.WriteLine("|\t\t\t Please enter the rental information as requested: \t\t\t\t|");
+            Console.WriteLine("|\t\t\t\t\t\t\t\t\t\t\t\t\t|");
+            Console.WriteLine($"|\t\t\t\t\t Rental ID: {rentalId}\t\t\t\t\t\t\t|");
+            Console.WriteLine("|\t\t\t\t\t\t\t\t\t\t\t\t\t|");
+            Console.WriteLine("|\t\t\t\t\t\t\t\t\t\t\t\t\t|");
+            Console.WriteLine("|\t\t\t\t\tRental ID not found\t\t\t\t\t\t|");
+            Console.WriteLine("|\t\t\t\t\t\t\t\t\t\t\t\t\t|");
+            Console.WriteLine("|\t\t\t\t\t\t\t\t\t\t\t\t\t|");
+            Console.WriteLine("|*******************************************************************************************************|");
+            Console.WriteLine();
+            Console.WriteLine("Press any key to go back to the Main Menu.");
+            Console.ReadKey();
+            MainMenu.MainMenu_();
+        }
+
+
+
+
     }
 }
 

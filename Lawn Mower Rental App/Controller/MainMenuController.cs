@@ -76,7 +76,7 @@ namespace Lawn_Mower_Rental_App.Controller
                              string searchQuery = Console.ReadLine();
                              List<Customer> searchResults = customerManager.SearchCustomers(searchQuery);
                              CustomerSearchView.DisplaySearchResults(searchResults);
-                        break;
+                            break;
 
 
 
@@ -86,8 +86,7 @@ namespace Lawn_Mower_Rental_App.Controller
 
                         default: 
                             MainMenu.MainMenu_();
-
-                        break;
+                            break;
                     }
                 }
                 else 

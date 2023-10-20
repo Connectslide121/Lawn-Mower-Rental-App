@@ -126,8 +126,18 @@ namespace Lawn_Mower_Rental_App.Controller
         public int ReturnLawnMower(int rentalId)
         {
             Rental rentalToUpdate = rentals.Find(m => m.RentalId == rentalId);
-            rentalToUpdate.IsActive = false;
-            SaveRentalsToJson(rentals);
+            
+            if(rentalToUpdate != null)
+            {
+                rentalToUpdate.IsActive = false;
+                SaveRentalsToJson(rentals);
+                ReturnLawnMowerForm.LawnMowerReturnedSuccessfullyMessage(rentalId);
+
+            }
+            else
+            {
+                ReturnLawnMowerForm.LawnMowerReturnedFailMessage(rentalId);
+            }
 
             return rentalToUpdate.LawnMower.LawnMowerId;
         }
