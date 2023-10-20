@@ -68,16 +68,19 @@ namespace Lawn_Mower_Rental_App.Controller
         {
             LawnMowerManager lawnMowerManager = new LawnMowerManager();
 
-            Rental rental = new Rental(GetRentalId());
+            LawnMower lawnMower = lawnMowerManager.FindLawnMowerById();
+            Rental rental = new Rental(GetRentalId(), lawnMower.CostPerDay); // Pass CostPerDay here
             rental.Customer = customer;
             rental.RentalDate = rentalDate;
             rental.ReturnDate = returnDate;
-            rental.LawnMower = lawnMowerManager.FindLawnMowerById();
+            rental.LawnMower = lawnMower;
 
+            // Calculate TotalPrice using PricePerDay
             decimal pricePerDay = rental.LawnMower.PricePerDay;
             TimeSpan rentalPeriod = returnDate - rentalDate;
             decimal totalPrice = pricePerDay * (decimal)rentalPeriod.TotalDays;
             rental.TotalPrice = totalPrice;
+
             return rental;
         }
 
@@ -137,6 +140,15 @@ namespace Lawn_Mower_Rental_App.Controller
             }
 
             return rentalToUpdate.LawnMower.LawnMowerId;
+        }
+        public decimal CalculateTotalEarnings()
+        {
+            return rentals.Where(rental => !rental.IsActive).Sum(rental => rental.TotalPrice);
+        }
+
+        public decimal CalculateTotalProfits()
+        {
+            return rentals.Where(rental => !rental.IsActive).Sum(rental => rental.TotalPrice - (rental.CostPerDay * (decimal)(rental.ReturnDate - rental.RentalDate).TotalDays));
         }
     }
 }
