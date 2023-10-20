@@ -33,7 +33,6 @@ namespace Lawn_Mower_Rental_App.View
             Console.WriteLine("|\t\t\t\t\t\t\t\t\t\t\t\t\t|");
             Console.WriteLine("|\t\t\t\t\t\t\t\t\t\t\t\t\t|");
             Console.WriteLine("|*******************************************************************************************************|");
-            Console.WriteLine();
             Console.WriteLine("Please enter first name:");
             string firstName = Console.ReadLine();
 
@@ -72,7 +71,6 @@ namespace Lawn_Mower_Rental_App.View
             Console.WriteLine("|\t\t\t\t\t\t\t\t\t\t\t\t\t|");
             Console.WriteLine("|\t\t\t\t\t\t\t\t\t\t\t\t\t|");
             Console.WriteLine("|*******************************************************************************************************|");
-            Console.WriteLine();
             Console.WriteLine("Please enter last name:");
             string lastName = Console.ReadLine();
 
@@ -124,7 +122,6 @@ namespace Lawn_Mower_Rental_App.View
             Console.WriteLine("|\t\t\t\t\t\t\t\t\t\t\t\t\t|");
             Console.WriteLine("|\t\t\t\t\t\t\t\t\t\t\t\t\t|");
             Console.WriteLine("|*******************************************************************************************************|");
-            Console.WriteLine();
 
             string customerID;
             int customerIDInt;
@@ -186,7 +183,6 @@ namespace Lawn_Mower_Rental_App.View
             Console.WriteLine("|\t\t\t\t\t\t\t\t\t\t\t\t\t|");
             Console.WriteLine("|\t\t\t\t\t\t\t\t\t\t\t\t\t|");
             Console.WriteLine("|*******************************************************************************************************|");
-            Console.WriteLine();
             Console.ReadKey();
 
             customerManager.DeleteCustomer(firstName, lastName, customerIDInt);
@@ -243,12 +239,12 @@ namespace Lawn_Mower_Rental_App.View
             Console.WriteLine("|\t\t\t\t\t\t\t\t\t\t\t\t\t|");
             Console.WriteLine("|\t\t\t\t\t\t\t\t\t\t\t\t\t|");
             Console.WriteLine("|\t\t\t\t\t\t\t\t\t\t\t\t\t|");
-            Console.WriteLine("|\t\t Customer deleted successfully. Press any key to go back to the Main Menu\t\t|");
+            Console.WriteLine("|\t\t\t\t   Customer deleted successfully!\t\t\t\t\t|");
             Console.WriteLine("|\t\t\t\t\t\t\t\t\t\t\t\t\t|");
             Console.WriteLine("|\t\t\t\t\t\t\t\t\t\t\t\t\t|");
             Console.WriteLine("|\t\t\t\t\t\t\t\t\t\t\t\t\t|");
             Console.WriteLine("|*******************************************************************************************************|");
-            Console.WriteLine();
+            Console.WriteLine("Press any key to go back to the Main Menu");
             Console.ReadKey();
             MainMenu.MainMenu_();
         }
@@ -307,7 +303,6 @@ namespace Lawn_Mower_Rental_App.View
             Console.WriteLine("|\t\t\t\t\t\t\t\t\t\t\t\t\t|");
             Console.WriteLine("|\t\t\t\t\t\t\t\t\t\t\t\t\t|");
             Console.WriteLine("|*******************************************************************************************************|");
-            Console.WriteLine();
             Console.WriteLine("Press any key to go back to the Main Menu");
             Console.ReadKey();
             MainMenu.MainMenu_();

@@ -35,7 +35,6 @@ namespace Lawn_Mower_Rental_App.View
             Console.WriteLine("|\t\t\t\t\t\t\t\t\t\t\t\t\t|");
             Console.WriteLine("|\t\t\t\t\t\t\t\t\t\t\t\t\t|");
             Console.WriteLine("|*******************************************************************************************************|");
-            Console.WriteLine();
 
             string customerId;
             int customerIdInt;
@@ -90,7 +89,6 @@ namespace Lawn_Mower_Rental_App.View
             Console.WriteLine("|\t\t\t\t\t\t\t\t\t\t\t\t\t|");
             Console.WriteLine("|\t\t\t\t\t\t\t\t\t\t\t\t\t|");
             Console.WriteLine("|*******************************************************************************************************|");
-            Console.WriteLine();
 
             string rentalDate;
             DateTime rentalDateValid;
@@ -134,7 +132,6 @@ namespace Lawn_Mower_Rental_App.View
             Console.WriteLine("|\t\t\t\t\t\t\t\t\t\t\t\t\t|");
             Console.WriteLine("|\t\t\t\t\t\t\t\t\t\t\t\t\t|");
             Console.WriteLine("|*******************************************************************************************************|");
-            Console.WriteLine();
 
             string returnDate;
             DateTime returnDateValid;
@@ -198,7 +195,6 @@ namespace Lawn_Mower_Rental_App.View
             Console.WriteLine("|\t\t\t\t\t\t\t\t\t\t\t\t\t|");
             Console.WriteLine("|\t\t\t\t\t\t\t\t\t\t\t\t\t|");
             Console.WriteLine("|*******************************************************************************************************|");
-            Console.WriteLine();
             Console.ReadKey();
 
             rentalManager.AddRentalToList(rentalToAdd);
@@ -250,7 +246,6 @@ namespace Lawn_Mower_Rental_App.View
             Console.WriteLine("|\t\t\t\t\t\t\t\t\t\t\t\t\t|");
             Console.WriteLine("|\t\t\t\t\t\t\t\t\t\t\t\t\t|");
             Console.WriteLine("|*******************************************************************************************************|");
-            Console.WriteLine();
             Console.WriteLine("Press any key to go back to Main Menu");
             Console.ReadKey();
             MainMenu.MainMenu_();
@@ -278,7 +273,6 @@ namespace Lawn_Mower_Rental_App.View
             Console.WriteLine("|\t\t\t\t\t\t\t\t\t\t\t\t\t|");
             Console.WriteLine("|\t\t\t\t\t\t\t\t\t\t\t\t\t|");
             Console.WriteLine("|*******************************************************************************************************|");
-            Console.WriteLine();
             Console.WriteLine("Press any key to go back to Main Menu");
             Console.ReadKey();
             MainMenu.MainMenu_();

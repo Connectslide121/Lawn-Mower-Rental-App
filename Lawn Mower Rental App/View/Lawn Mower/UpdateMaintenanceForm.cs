@@ -28,11 +28,9 @@ namespace Lawn_Mower_Rental_App.View
             Console.WriteLine("|\t\t\t\t\t\t\t\t\t\t\t\t\t|");
             Console.WriteLine("|\t\t\t\t\t\t\t\t\t\t\t\t\t|");
             Console.WriteLine("|*******************************************************************************************************|");
-            Console.WriteLine();
-
             Console.WriteLine("Enter Lawn Mower ID: ");
             string lawnMowerIdInput = Console.ReadLine();
-            bool success = false; // Bool was the key to make it only go trough if both forms are valid.
+            bool success = false;
             DateTime newMaintenanceDate = DateTime.Now;
 
             if (int.TryParse(lawnMowerIdInput, out int lawnMowerId))
@@ -55,8 +53,6 @@ namespace Lawn_Mower_Rental_App.View
                 Console.WriteLine("|\t\t\t\t\t\t\t\t\t\t\t\t\t|");
                 Console.WriteLine("|\t\t\t\t\t\t\t\t\t\t\t\t\t|");
                 Console.WriteLine("|*******************************************************************************************************|");
-                Console.WriteLine();
-
                 Console.WriteLine("Enter the new maintenance date (yyyy-MM-dd): ");
 
                 if (DateTime.TryParse(Console.ReadLine(), out newMaintenanceDate))
@@ -95,11 +91,9 @@ namespace Lawn_Mower_Rental_App.View
                 Console.WriteLine("|\t\t\t\t\t\t\t\t\t\t\t\t\t|");
                 Console.WriteLine($"|\t\t\t\t\t New Maintenance Date (yyyy-MM-dd): {newMaintenanceDate.ToString("d")} \t\t\t|");
                 Console.WriteLine("|\t\t\t\t\t\t\t\t\t\t\t\t\t|");
-                Console.WriteLine("|\t\t\t\t\t\t\t\t\t\t\t\t\t|");
+                Console.WriteLine("|\t\t\t\tMaintenance status updated successfully!\t\t\t\t|");
                 Console.WriteLine("|\t\t\t\t\t\t\t\t\t\t\t\t\t|");
                 Console.WriteLine("|*******************************************************************************************************|");
-                Console.WriteLine();
-                Console.WriteLine("Maintenance status updated successfully.");
             }
             Console.WriteLine("Press any key to go back to the Main Menu.");
             Console.ReadKey();

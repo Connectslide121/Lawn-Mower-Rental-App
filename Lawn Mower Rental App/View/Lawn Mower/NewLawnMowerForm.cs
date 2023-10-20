@@ -32,7 +32,6 @@ namespace Lawn_Mower_Rental_App.View
             Console.WriteLine("|\t\t\t\t\t\t\t\t\t\t\t\t\t|");
             Console.WriteLine("|\t\t\t\t\t\t\t\t\t\t\t\t\t|");
             Console.WriteLine("|*******************************************************************************************************|");
-            Console.WriteLine();
             Console.WriteLine("Please enter model:");
             lawnMower.Model = Console.ReadLine();
 
@@ -69,10 +68,10 @@ namespace Lawn_Mower_Rental_App.View
             Console.WriteLine("|\t\t\t\t\t\t\t\t\t\t\t\t\t|");
             Console.WriteLine("|\t\t\t\t\t\t\t\t\t\t\t\t\t|");
             Console.WriteLine("|*******************************************************************************************************|");
-            Console.WriteLine();
-            lawnMowerManager.RegisterNewLawnMower(lawnMower);
-            Console.WriteLine();
             Console.WriteLine("Press any key to go back to the Main Menu");
+
+            lawnMowerManager.RegisterNewLawnMower(lawnMower);
+
             Console.ReadKey();
             MainMenu.MainMenu_();
         }

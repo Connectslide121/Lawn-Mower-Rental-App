@@ -49,8 +49,7 @@ namespace Lawn_Mower_Rental_App.Controller
                         case 4:
                             rentalManager.GetDelayedRentals();
                             break;
-
-                    case 5:
+                        case 5:
                             viewActiveRentalsForm.ViewActiveRentalsForm_();
                             break;
                         case 6:

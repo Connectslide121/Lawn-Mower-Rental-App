@@ -11,5 +11,6 @@ using Lawn_Mower_Rental_App.View;
 //ErrorsExceptions.CustomerFileNotFoundException();
 
 
+Console.WindowHeight = 30;
 
 MainMenu.MainMenu_();
