@@ -27,6 +27,7 @@ namespace Lawn_Mower_Rental_App.Controller
             DeleteCustomerForm deleteCustomerForm = new DeleteCustomerForm();
             CustomerManager customerManager = new CustomerManager();
 
+            EarningsProfitView earningsProfitView = new EarningsProfitView();
 
 
             if (int.TryParse(userInput, out int userInputInt))
@@ -78,9 +79,13 @@ namespace Lawn_Mower_Rental_App.Controller
                              CustomerSearchView.DisplaySearchResults(searchResults);
                             break;
 
-
-
                         case 13:
+                            earningsProfitView.DisplayEarningsProfitMenu();
+                            break;
+
+
+
+                        case 14:
                             Console.WriteLine("Exiting the app...");
                             return;
 
