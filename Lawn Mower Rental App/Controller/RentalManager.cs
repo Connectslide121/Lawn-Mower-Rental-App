@@ -136,6 +136,15 @@ namespace Lawn_Mower_Rental_App.Controller
 
             ViewReturnToday.ViewReturnToday_(returnsToday);
         }
+        public void GetDelayedRentals()
+        {
+            DateTime today = DateTime.Today;
+            List<Rental> delayedRentals = rentals
+                .Where(rental => rental.ReturnDate < today && rental.IsActive)
+                .ToList();
+
+            ViewDelayedRentals.ViewDelayedRentals_(delayedRentals);
+        }
 
         public int ReturnLawnMower(int rentalId)
         {
