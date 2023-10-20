@@ -28,5 +28,4 @@ namespace Lawn_Mower_Rental_App.Model
             return $"ID: {CustomerId}, {FirstName} {LastName} - Contact: {ContactNumber}, Address: {Address},  {DateOfRegistry.ToString("d")}";
         }
     }
-
 }

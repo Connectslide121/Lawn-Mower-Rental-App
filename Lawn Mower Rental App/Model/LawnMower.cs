@@ -21,6 +21,7 @@ namespace Lawn_Mower_Rental_App.Model
             get { return IsAvailable ? "Available" : "In Use"; }
         }
 
+
         public LawnMower(int lawnMowerId)
         {
             LawnMowerId = lawnMowerId;
@@ -29,9 +30,5 @@ namespace Lawn_Mower_Rental_App.Model
         {
             return $"ID: {LawnMowerId}, {Model}, {AvailabilityStatus}, Maintenance: {LastMaintenance.ToString("d")}, {PricePerDay} SEK/day";
         }
-
-
-
-
     }
 }
