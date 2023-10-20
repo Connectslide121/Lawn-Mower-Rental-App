@@ -112,11 +112,12 @@ namespace Lawn_Mower_Rental_App.Controller
 
             return rentalHistory;
         }
+
         public void UpdateLawnMowerAvailability()
         {
             foreach (Rental rental in rentals)
             {
-                if (DateTime.Today >= rental.RentalDate && DateTime.Today <= rental.ReturnDate)
+                if (DateTime.Today >= rental.RentalDate && DateTime.Today <= rental.ReturnDate && rental.IsActive)
                 {
                     rental.LawnMower.IsAvailable = false;
                 }
@@ -155,7 +156,6 @@ namespace Lawn_Mower_Rental_App.Controller
                 rentalToUpdate.IsActive = false;
                 SaveRentalsToJson(rentals);
                 ReturnLawnMowerForm.LawnMowerReturnedSuccessfullyMessage(rentalId);
-
             }
             else
             {

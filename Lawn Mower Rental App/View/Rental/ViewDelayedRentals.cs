@@ -22,7 +22,7 @@ namespace Lawn_Mower_Rental_App.View
 
             if (delayedRentals.Count == 0)
             {
-                Console.WriteLine("|\t\t\t\t\t   No delayed rentals found.\t\t\t\t\t\t|");
+                Console.WriteLine("|\t\t\t\t\t   No delayed rentals found.\t\t\t\t\t|");
             }
             else
             {

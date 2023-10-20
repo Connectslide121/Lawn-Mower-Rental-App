@@ -102,9 +102,21 @@ namespace Lawn_Mower_Rental_App.Controller
         public LawnMower FindLawnMowerById()
         {
             int rentedMowerId = lawnMowers.FindIndex(m => m.IsAvailable == true);
+            LawnMower selectedMower = new LawnMower(1);
             
-            LawnMower selectedMower = lawnMowers[rentedMowerId];
-            return selectedMower;
+            try
+            {
+                selectedMower = lawnMowers[rentedMowerId];
+                return selectedMower;
+            }
+            catch (Exception ex)
+            {
+                RentLawnMowerForm.NoLawnMowersAvailableMessage();
+                return selectedMower;
+            }
+
+
+            
         }
 
         private List<Rental> LoadRentalsFromJson()
