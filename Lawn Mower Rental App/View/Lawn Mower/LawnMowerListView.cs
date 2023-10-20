@@ -26,9 +26,23 @@ namespace Lawn_Mower_Rental_App.View
             }
             else
             {
-                foreach (var lawnMower in lawnMowers)
+                foreach (LawnMower lawnMower in lawnMowers)
                 {
-                    Console.WriteLine($"|\t{lawnMower}\t\t|");
+                    string line = lawnMower.ToString();
+                    int lineLength = 96;
+
+                    if (line.Length < lineLength)
+                    {
+                        Console.Write("|\t"); Console.Write(line.PadRight(lineLength)); Console.WriteLine("|");
+                    }
+                    else if (line.Length > lineLength)
+                    {
+                        Console.Write("|\t"); Console.Write(line.Substring(0, lineLength)); Console.WriteLine("|");
+                    }
+                    else
+                    {
+                        Console.Write("|\t"); Console.Write(line); Console.WriteLine("|");
+                    }
                 }
             }
 
