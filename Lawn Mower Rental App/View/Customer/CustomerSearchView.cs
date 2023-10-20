@@ -16,13 +16,13 @@ namespace Lawn_Mower_Rental_App.View
             Console.WriteLine("|***************************************** LAWN MOWER RENTAL (TM) **************************************|");
             Console.WriteLine("|\t\t\t\t\t\t\t\t\t\t\t\t\t|");
             Console.WriteLine("|\t\t\t\t\t\t\t\t\t\t\t\t\t|");
-            MainMenuController.WriteColoredText("|\t\t\t\t\t    CUSTOMER SEARCH RESULTS \t\t\t\t\t|", "CUSTOMER SEARCH RESULTS", ConsoleColor.Yellow);
+            MainMenuController.WriteColoredText("|\t\t\t\t\t  CUSTOMER SEARCH RESULTS \t\t\t\t\t|", "CUSTOMER SEARCH RESULTS", ConsoleColor.Yellow);
             Console.WriteLine("|\t\t\t\t\t\t\t\t\t\t\t\t\t|");
-            Console.WriteLine("|\t\t\t\t---------------------------------------------\t\t\t\t|");
+            Console.WriteLine("|\t\t\t   -----------------------------------------------\t\t\t\t|");
 
             if (searchResults.Count == 0)
             {
-                Console.WriteLine("|\t\t\t\tNo customers found matching the search query.\t\t\t\t|");
+                Console.WriteLine("|\t\t\t\t\tNo customer(s) found.\t\t\t\t\t\t|");
             }
             else
             {
@@ -46,7 +46,7 @@ namespace Lawn_Mower_Rental_App.View
                 }
             }
 
-            Console.WriteLine("|\t\t\t\t-----------------------------------------------\t\t\t\t|");
+            Console.WriteLine("|\t\t\t   -----------------------------------------------\t\t\t\t|");
             Console.WriteLine("|\t\t\t\t\t\t\t\t\t\t\t\t\t|");
             Console.WriteLine("|*******************************************************************************************************|");
             Console.WriteLine();

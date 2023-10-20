@@ -16,9 +16,9 @@ namespace Lawn_Mower_Rental_App.View
             Console.WriteLine("|***************************************** LAWN MOWER RENTAL (TM) **************************************|");
             Console.WriteLine("|\t\t\t\t\t\t\t\t\t\t\t\t\t|");
             Console.WriteLine("|\t\t\t\t\t\t\t\t\t\t\t\t\t|");
-            MainMenuController.WriteColoredText("|\t\t\t\t\t    CUSTOMER LIST \t\t\t\t\t\t|", "CUSTOMER LIST", ConsoleColor.Yellow);
+            MainMenuController.WriteColoredText("|\t\t\t\t\t      CUSTOMER LIST \t\t\t\t\t\t|", "CUSTOMER LIST", ConsoleColor.Yellow);
             Console.WriteLine("|\t\t\t\t\t\t\t\t\t\t\t\t\t|");
-            Console.WriteLine("|\t\t\t-----------------------------------------------\t\t\t\t\t|");
+            Console.WriteLine("|\t\t\t   -----------------------------------------------\t\t\t\t|");
 
             if (customers.Count == 0)
             {
@@ -46,7 +46,7 @@ namespace Lawn_Mower_Rental_App.View
                 }
             }
 
-            Console.WriteLine("|\t\t\t-----------------------------------------------\t\t\t\t\t|");
+            Console.WriteLine("|\t\t\t   -----------------------------------------------\t\t\t\t|");
             Console.WriteLine("|\t\t\t\t\t\t\t\t\t\t\t\t\t|");
             Console.WriteLine("|\t\t\t\t\t\t\t\t\t\t\t\t\t|");
             Console.WriteLine("|*******************************************************************************************************|");

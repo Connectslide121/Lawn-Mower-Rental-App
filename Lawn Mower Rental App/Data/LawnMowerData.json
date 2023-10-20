@@ -35,7 +35,7 @@
     "LawnMowerId": 5,
     "Model": "HUSQVARNA LB 448S KLIPPO",
     "IsAvailable": true,
-    "LastMaintenance": "2023-10-19T12:51:59.4571759+02:00",
+    "LastMaintenance": "2023-10-12T00:00:00",
     "PricePerDay": 99.9,
     "AvailabilityStatus": "Available"
   },
@@ -59,7 +59,7 @@
     "LawnMowerId": 8,
     "Model": "HUSQVARNA LB 448S KLIPPO",
     "IsAvailable": true,
-    "LastMaintenance": "2023-10-19T11:45:13.2137261+02:00",
+    "LastMaintenance": "2022-02-25T00:00:00",
     "PricePerDay": 99.9,
     "AvailabilityStatus": "Available"
   },

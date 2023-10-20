@@ -19,7 +19,7 @@ namespace Lawn_Mower_Rental_App.View
             Console.WriteLine("|***************************************** LAWN MOWER RENTAL (TM) **************************************|");
             Console.WriteLine("|\t\t\t\t\t\t\t\t\t\t\t\t\t|");
             Console.WriteLine("|\t\t\t\t\t\t\t\t\t\t\t\t\t|");
-            MainMenuController.WriteColoredText("|\t\t\t\t\t RENTAL HISTORY \t\t\t\t\t\t|", "RENTAL HISTORY", ConsoleColor.Magenta);
+            MainMenuController.WriteColoredText("|\t\t\t\t\t     RENTAL HISTORY \t\t\t\t\t\t|", "RENTAL HISTORY", ConsoleColor.Magenta);
             Console.WriteLine("|\t\t\t\t\t\t\t\t\t\t\t\t\t|");
             Console.WriteLine("|\t\t\t\t----------------------------------------------\t\t\t\t|");
             if (rentalHistory.Count == 0)
