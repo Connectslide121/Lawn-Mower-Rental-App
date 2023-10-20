@@ -14,13 +14,15 @@ namespace Lawn_Mower_Rental_App.Model
         public Customer Customer { get; set; }
         public DateTime RentalDate { get; set; }
         public DateTime ReturnDate { get; set; }
+        public decimal CostPerDay { get; set; } // New property
         public decimal TotalPrice { get; set; }
         public bool IsActive { get; set; } = true;
 
 
-        public Rental(int rentalId) 
+        public Rental(int rentalId, decimal costPerDay) 
         {
             RentalId = rentalId;
+            CostPerDay = costPerDay;
         }
 
         public override string ToString()
