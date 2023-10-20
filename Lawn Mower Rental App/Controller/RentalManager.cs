@@ -75,13 +75,11 @@ namespace Lawn_Mower_Rental_App.Controller
             rental.ReturnDate = returnDate;
             rental.LawnMower = lawnMower;
 
-            // Calculate TotalPrice using PricePerDay
             decimal pricePerDay = rental.LawnMower.PricePerDay;
             TimeSpan rentalPeriod = returnDate - rentalDate;
             decimal totalPrice = pricePerDay * (decimal)rentalPeriod.TotalDays;
             rental.TotalPrice = totalPrice;
 
-            // Calculate TotalCost using CostPerDay
             decimal costPerDay = rental.LawnMower.CostPerDay;
             decimal totalCost =costPerDay * (decimal)rentalPeriod.TotalDays;
             rental.TotalCost = totalCost;

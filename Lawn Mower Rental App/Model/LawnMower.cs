@@ -16,7 +16,7 @@ namespace Lawn_Mower_Rental_App.Model
         public bool IsAvailable { get; set; } = true;
         public DateTime LastMaintenance { get; set; } = DateTime.Now;
         public decimal PricePerDay { get; set; } = 99.9M;
-        public decimal CostPerDay { get; set; } = 49.9M; // Not sure if this is the right cost per day
+        public decimal CostPerDay { get; set; } = 49.9M;
         public decimal ProfitPerDay => PricePerDay - CostPerDay;
         public string AvailabilityStatus
         {
