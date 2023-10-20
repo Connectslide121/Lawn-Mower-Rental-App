@@ -25,7 +25,7 @@ namespace Lawn_Mower_Rental_App.View
             Console.WriteLine("|\t\t\t Please enter the lawn mower information as requested: \t\t\t\t|");
             Console.WriteLine("|\t\t\t\t\t\t\t\t\t\t\t\t\t|");
             Console.WriteLine("|\t\t\t\t\t\t\t\t\t\t\t\t\t|");
-            Console.WriteLine("|\t\t\t\t Model: \t\t\t\t\t\t\t\t|");
+            Console.WriteLine("|\t\t\t\t\t Model: \t\t\t\t\t\t\t|");
             Console.WriteLine("|\t\t\t\t\t\t\t\t\t\t\t\t\t|");
             Console.WriteLine("|\t\t\t\t\t\t\t\t\t\t\t\t\t|");
             Console.WriteLine("|\t\t       The rest of the properties will be generated automatically\t\t\t|");
@@ -46,17 +46,33 @@ namespace Lawn_Mower_Rental_App.View
             Console.WriteLine("|\t\t\t Please enter the lawn mower information as requested: \t\t\t\t|");
             Console.WriteLine("|\t\t\t\t\t\t\t\t\t\t\t\t\t|");
             Console.WriteLine("|\t\t\t\t\t\t\t\t\t\t\t\t\t|");
-            Console.WriteLine($"|\t\t\t\t Model: {lawnMower.Model}\t\t\t\t\t|");
+
+            string model = lawnMower.Model;
+            int lineLengthModel = 55;
+
+            if (model.Length < lineLengthModel)
+            {
+                Console.Write("|\t\t\t\t\t Model: "); Console.Write(model.PadRight(lineLengthModel)); Console.WriteLine(" |");
+            }
+            else if (model.Length > lineLengthModel)
+            {
+                Console.Write("|\t\t\t\t\t Model: "); Console.Write(model.Substring(0, lineLengthModel)); Console.WriteLine("|");
+            }
+            else
+            {
+                Console.Write("|\t\t\t\t\t Model: "); Console.Write(model); Console.WriteLine("|");
+            }
+
             Console.WriteLine("|\t\t\t\t\t\t\t\t\t\t\t\t\t|");
             Console.WriteLine("|\t\t\t\t\t\t\t\t\t\t\t\t\t|");
-            Console.WriteLine($"|\t  Lawn Mower (ID: {lawnMower.LawnMowerId}) registered successfully. Press any key to go back to the Main Menu\t\t|");
+            Console.WriteLine($"|\t\t\t\tLawn Mower (ID: {lawnMower.LawnMowerId}) registered successfully!\t\t\t\t|");
             Console.WriteLine("|\t\t\t\t\t\t\t\t\t\t\t\t\t|");
             Console.WriteLine("|\t\t\t\t\t\t\t\t\t\t\t\t\t|");
             Console.WriteLine("|*******************************************************************************************************|");
             Console.WriteLine();
-
-            Console.WriteLine();
             lawnMowerManager.RegisterNewLawnMower(lawnMower);
+            Console.WriteLine();
+            Console.WriteLine("Press any key to go back to the Main Menu");
             Console.ReadKey();
             MainMenu.MainMenu_();
         }

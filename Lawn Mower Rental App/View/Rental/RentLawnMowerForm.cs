@@ -58,7 +58,22 @@ namespace Lawn_Mower_Rental_App.View
             Console.WriteLine("|\t\t\t\t\t\t\t\t\t\t\t\t\t|");
             Console.WriteLine("|\t\t\t\t Please enter information as requested: \t\t\t\t|");
             Console.WriteLine("|\t\t\t\t\t\t\t\t\t\t\t\t\t|");
-            Console.WriteLine($"|\t\t\t\t\t Customer ID: {customerIdInt}\t\t\t\t\t\t\t|");
+                        
+            int lineLengthCustomerId = 49;
+
+            if (customerId.Length < lineLengthCustomerId)
+            {
+                Console.Write("|\t\t\t\t\t Customer ID: "); Console.Write(customerId.PadRight(lineLengthCustomerId)); Console.WriteLine(" |");
+            }
+            else if (customerId.Length > lineLengthCustomerId)
+            {
+                Console.Write("|\t\t\t\t\t Customer ID: "); Console.Write(customerId.Substring(0, lineLengthCustomerId)); Console.WriteLine("|");
+            }
+            else
+            {
+                Console.Write("|\t\t\t\t\t Customer ID: "); Console.Write(customerId); Console.WriteLine("|");
+            }
+
             Console.WriteLine("|\t\t\t\t\t\t\t\t\t\t\t\t\t|");
             Console.WriteLine("|\t\t\t\t\t Rental Date: \t\t\t\t\t\t\t|");
             Console.WriteLine("|\t\t\t\t\t\t\t\t\t\t\t\t\t|");
@@ -90,7 +105,19 @@ namespace Lawn_Mower_Rental_App.View
             Console.WriteLine("|\t\t\t\t\t\t\t\t\t\t\t\t\t|");
             Console.WriteLine("|\t\t\t\t Please enter information as requested: \t\t\t\t|");
             Console.WriteLine("|\t\t\t\t\t\t\t\t\t\t\t\t\t|");
-            Console.WriteLine($"|\t\t\t\t\t Customer ID: {customerIdInt}\t\t\t\t\t\t\t|");
+
+            if (customerId.Length < lineLengthCustomerId)
+            {
+                Console.Write("|\t\t\t\t\t Customer ID: "); Console.Write(customerId.PadRight(lineLengthCustomerId)); Console.WriteLine(" |");
+            }
+            else if (customerId.Length > lineLengthCustomerId)
+            {
+                Console.Write("|\t\t\t\t\t Customer ID: "); Console.Write(customerId.Substring(0, lineLengthCustomerId)); Console.WriteLine("|");
+            }
+            else
+            {
+                Console.Write("|\t\t\t\t\t Customer ID: "); Console.Write(customerId); Console.WriteLine("|");
+            }
             Console.WriteLine("|\t\t\t\t\t\t\t\t\t\t\t\t\t|");
             Console.WriteLine($"|\t\t\t\t\t Rental Date: {rentalDateValid.ToString("d")}\t\t\t\t\t|");
             Console.WriteLine("|\t\t\t\t\t\t\t\t\t\t\t\t\t|");
@@ -124,13 +151,41 @@ namespace Lawn_Mower_Rental_App.View
             Console.WriteLine("|\t\t\t\t\t\t\t\t\t\t\t\t\t|");
             Console.WriteLine("|\t\t\t\t Please enter information as requested: \t\t\t\t|");
             Console.WriteLine("|\t\t\t\t\t\t\t\t\t\t\t\t\t|");
-            Console.WriteLine($"|\t\t\t\t\t Customer ID: {customerIdInt}\t\t\t\t\t\t\t|");
+
+            if (customerId.Length < lineLengthCustomerId)
+            {
+                Console.Write("|\t\t\t\t\t Customer ID: "); Console.Write(customerId.PadRight(lineLengthCustomerId)); Console.WriteLine(" |");
+            }
+            else if (customerId.Length > lineLengthCustomerId)
+            {
+                Console.Write("|\t\t\t\t\t Customer ID: "); Console.Write(customerId.Substring(0, lineLengthCustomerId)); Console.WriteLine("|");
+            }
+            else
+            {
+                Console.Write("|\t\t\t\t\t Customer ID: "); Console.Write(customerId); Console.WriteLine("|");
+            }
             Console.WriteLine("|\t\t\t\t\t\t\t\t\t\t\t\t\t|");
             Console.WriteLine($"|\t\t\t\t\t Rental Date: {rentalDateValid.ToString("d")}\t\t\t\t\t|");
             Console.WriteLine("|\t\t\t\t\t\t\t\t\t\t\t\t\t|");
             Console.WriteLine($"|\t\t\t\t\t Return Date: {returnDateValid.ToString("d")}\t\t\t\t\t|");
             Console.WriteLine("|\t\t\t\t\t\t\t\t\t\t\t\t\t|");
-            Console.WriteLine($"|\t\t\t\t\t Total price: {rentalToAdd.TotalPrice} SEK\t\t\t\t\t\t|");
+
+            string totalPrice = rentalToAdd.TotalPrice.ToString();
+            int lineLengthTotalPrice = 49;
+
+            if (totalPrice.Length < lineLengthTotalPrice)
+            {
+                Console.Write("|\t\t\t\t\t Total price: "); Console.Write($"{totalPrice} SEK".PadRight(lineLengthTotalPrice)); Console.WriteLine(" |");
+            }
+            else if (totalPrice.Length > lineLengthTotalPrice)
+            {
+                Console.Write("|\t\t\t\t\t Total price: "); Console.Write($"{totalPrice} SEK".Substring(0, lineLengthTotalPrice)); Console.WriteLine("|");
+            }
+            else
+            {
+                Console.Write("|\t\t\t\t\t Total price: "); Console.Write($"{totalPrice} SEK"); Console.WriteLine("|");
+            }
+
             Console.WriteLine("|\t\t\t\t\t\t\t\t\t\t\t\t\t|");
             Console.WriteLine("|\t\t\t\t\t\t\t\t\t\t\t\t\t|");
             Console.WriteLine("|\t\t\t\t    Press any key to create rental\t\t\t\t\t|");
@@ -151,13 +206,38 @@ namespace Lawn_Mower_Rental_App.View
             Console.WriteLine("|\t\t\t\t\t\t\t\t\t\t\t\t\t|");
             Console.WriteLine("|\t\t\t\t Please enter information as requested: \t\t\t\t|");
             Console.WriteLine("|\t\t\t\t\t\t\t\t\t\t\t\t\t|");
-            Console.WriteLine($"|\t\t\t\t\t Customer ID: {customerIdInt}\t\t\t\t\t\t\t|");
+
+            if (customerId.Length < lineLengthCustomerId)
+            {
+                Console.Write("|\t\t\t\t\t Customer ID: "); Console.Write(customerId.PadRight(lineLengthCustomerId)); Console.WriteLine(" |");
+            }
+            else if (customerId.Length > lineLengthCustomerId)
+            {
+                Console.Write("|\t\t\t\t\t Customer ID: "); Console.Write(customerId.Substring(0, lineLengthCustomerId)); Console.WriteLine("|");
+            }
+            else
+            {
+                Console.Write("|\t\t\t\t\t Customer ID: "); Console.Write(customerId); Console.WriteLine("|");
+            }
             Console.WriteLine("|\t\t\t\t\t\t\t\t\t\t\t\t\t|");
             Console.WriteLine($"|\t\t\t\t\t Rental Date: {rentalDateValid.ToString("d")}\t\t\t\t\t|");
             Console.WriteLine("|\t\t\t\t\t\t\t\t\t\t\t\t\t|");
             Console.WriteLine($"|\t\t\t\t\t Return Date: {returnDateValid.ToString("d")}\t\t\t\t\t|");
             Console.WriteLine("|\t\t\t\t\t\t\t\t\t\t\t\t\t|");
-            Console.WriteLine($"|\t\t\t\t\t Total price: {rentalToAdd.TotalPrice} SEK\t\t\t\t\t\t|");
+
+            if (totalPrice.Length < lineLengthTotalPrice)
+            {
+                Console.Write("|\t\t\t\t\t Total price: "); Console.Write($"{totalPrice} SEK".PadRight(lineLengthTotalPrice)); Console.WriteLine(" |");
+            }
+            else if (totalPrice.Length > lineLengthTotalPrice)
+            {
+                Console.Write("|\t\t\t\t\t Total price: "); Console.Write($"{totalPrice} SEK".Substring(0, lineLengthTotalPrice)); Console.WriteLine("|");
+            }
+            else
+            {
+                Console.Write("|\t\t\t\t\t Total price: "); Console.Write($"{totalPrice} SEK"); Console.WriteLine("|");
+            }
+
             Console.WriteLine("|\t\t\t\t\t\t\t\t\t\t\t\t\t|");
             Console.WriteLine("|\t\t\t\t\t\t\t\t\t\t\t\t\t|");
             Console.WriteLine("|\t\t\t\t    Rental created successfully!\t\t\t\t\t|");

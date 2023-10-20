@@ -78,5 +78,13 @@
     "ContactNumber": 417852035,
     "Address": "Kindstugatan 1, Stockholm",
     "DateOfRegistry": "2023-10-19T13:15:59.8530697+02:00"
+  },
+  {
+    "CustomerId": 11,
+    "FirstName": "Anton",
+    "LastName": "Nahasapemil",
+    "ContactNumber": 25185,
+    "Address": "Storgatan 10, Assheholm",
+    "DateOfRegistry": "2023-10-20T12:45:51.0491142+02:00"
   }
 ]
