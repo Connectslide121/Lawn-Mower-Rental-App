@@ -16,7 +16,7 @@ namespace Lawn_Mower_Rental_App.View
             Console.WriteLine("|***************************************** LAWN MOWER RENTAL (TM) **************************************|");
             Console.WriteLine("|\t\t\t\t\t\t\t\t\t\t\t\t\t|");
             Console.WriteLine("|\t\t\t\t\t\t\t\t\t\t\t\t\t|");
-            MainMenuController.WriteColoredText("|\t\t\t\t\t DELAYED RENTALS \t\t\t\t\t\t|", "DELAYED RENTALS", ConsoleColor.Magenta);
+            MainMenuController.WriteColoredText("|\t\t\t\t\t     DELAYED RENTALS \t\t\t\t\t\t|", "DELAYED RENTALS", ConsoleColor.Magenta);
             Console.WriteLine("|\t\t\t\t\t\t\t\t\t\t\t\t\t|");
             Console.WriteLine("|\t\t\t\t----------------------------------------------\t\t\t\t|");
 
