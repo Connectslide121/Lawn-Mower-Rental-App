@@ -1,4 +1,5 @@
 ﻿using Lawn_Mower_Rental_App.Controller;
+using Lawn_Mower_Rental_App.Helper;
 using System;
 using System.Collections.Generic;
 using System.Drawing;
@@ -20,7 +21,7 @@ namespace Lawn_Mower_Rental_App.View
             Console.Clear();
             Console.WriteLine("|***************************************** LAWN MOWER RENTAL (TM) **************************************|");
             Console.WriteLine("|\t\t\t\t\t\t\t\t\t\t\t\t\t|");
-            MainMenuController.WriteColoredText("|\t\t\t\t\t\t MAIN MENU \t\t\t\t\t\t|", "MAIN MENU", ConsoleColor.Blue);
+            HelperMethods.WriteColoredText("|\t\t\t\t\t\t MAIN MENU \t\t\t\t\t\t|", "MAIN MENU", ConsoleColor.Blue);
             Console.WriteLine("|\t\t\t Select an option by entering the corresponding number: \t\t\t|");
             Console.WriteLine("|\t\t\t\t\t\t\t\t\t\t\t\t\t|");
             Console.WriteLine("|\t\t\t\t\t 01.- Rent a lawn mower \t\t\t\t\t|");
@@ -47,7 +48,7 @@ namespace Lawn_Mower_Rental_App.View
             Console.WriteLine("|*******************************************************************************************************|");
             Console.WriteLine("Enter the number of your choice:");
 
-            MainMenuController.MenuController(Console.ReadLine());
+            MainMenuController.MenuController(HelperMethods.ReadLine());
         }
     }
 }

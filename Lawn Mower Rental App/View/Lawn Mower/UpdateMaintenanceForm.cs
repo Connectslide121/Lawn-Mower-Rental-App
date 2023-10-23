@@ -1,4 +1,5 @@
 ﻿using Lawn_Mower_Rental_App.Controller;
+using Lawn_Mower_Rental_App.Helper;
 using Lawn_Mower_Rental_App.Model;
 using System;
 using System.Collections.Generic;
@@ -17,7 +18,7 @@ namespace Lawn_Mower_Rental_App.View
             Console.WriteLine("|\t\t\t\t\t\t\t\t\t\t\t\t\t|");
             Console.WriteLine("|\t\t\t\t\t\t\t\t\t\t\t\t\t|");
             Console.WriteLine("|\t\t\t\t\t\t\t\t\t\t\t\t\t|");
-            MainMenuController.WriteColoredText("|\t\t\t\t\tUPDATE MAINTENANCE STATUS \t\t\t\t\t|", "UPDATE MAINTENANCE STATUS", ConsoleColor.Green);
+            HelperMethods.WriteColoredText("|\t\t\t\t\tUPDATE MAINTENANCE STATUS \t\t\t\t\t|", "UPDATE MAINTENANCE STATUS", ConsoleColor.Green);
             Console.WriteLine("|\t\t\t\t\t\t\t\t\t\t\t\t\t|");
             Console.WriteLine("|\t\t\t\tPlease enter the information as requested: \t\t\t\t|");
             Console.WriteLine("|\t\t\t\t\t\t\t\t\t\t\t\t\t|");
@@ -29,7 +30,7 @@ namespace Lawn_Mower_Rental_App.View
             Console.WriteLine("|\t\t\t\t\t\t\t\t\t\t\t\t\t|");
             Console.WriteLine("|*******************************************************************************************************|");
             Console.WriteLine("Enter Lawn Mower ID: ");
-            string lawnMowerIdInput = Console.ReadLine();
+            string lawnMowerIdInput = HelperMethods.ReadLine();
             bool success = false;
             DateTime newMaintenanceDate = DateTime.Now;
 
@@ -42,7 +43,7 @@ namespace Lawn_Mower_Rental_App.View
                 Console.WriteLine("|\t\t\t\t\t\t\t\t\t\t\t\t\t|");
                 Console.WriteLine("|\t\t\t\t\t\t\t\t\t\t\t\t\t|");
                 Console.WriteLine("|\t\t\t\t\t\t\t\t\t\t\t\t\t|");
-                MainMenuController.WriteColoredText("|\t\t\t\t\tUPDATE MAINTENANCE STATUS \t\t\t\t\t|", "UPDATE MAINTENANCE STATUS", ConsoleColor.Green);
+                HelperMethods.WriteColoredText("|\t\t\t\t\tUPDATE MAINTENANCE STATUS \t\t\t\t\t|", "UPDATE MAINTENANCE STATUS", ConsoleColor.Green);
                 Console.WriteLine("|\t\t\t\t\t\t\t\t\t\t\t\t\t|");
                 Console.WriteLine("|\t\t\t\tPlease enter the information as requested: \t\t\t\t|");
                 Console.WriteLine("|\t\t\t\t\t\t\t\t\t\t\t\t\t|");
@@ -55,7 +56,7 @@ namespace Lawn_Mower_Rental_App.View
                 Console.WriteLine("|*******************************************************************************************************|");
                 Console.WriteLine("Enter the new maintenance date (yyyy-MM-dd): ");
 
-                if (DateTime.TryParse(Console.ReadLine(), out newMaintenanceDate))
+                if (DateTime.TryParse(HelperMethods.ReadLine(), out newMaintenanceDate))
                 {
                     if (manager.UpdateMaintenanceStatus(lawnMowerId, newMaintenanceDate))
                     {
@@ -83,7 +84,7 @@ namespace Lawn_Mower_Rental_App.View
                 Console.WriteLine("|\t\t\t\t\t\t\t\t\t\t\t\t\t|");
                 Console.WriteLine("|\t\t\t\t\t\t\t\t\t\t\t\t\t|");
                 Console.WriteLine("|\t\t\t\t\t\t\t\t\t\t\t\t\t|");
-                MainMenuController.WriteColoredText("|\t\t\t\t\tUPDATE MAINTENANCE STATUS \t\t\t\t\t|", "UPDATE MAINTENANCE STATUS", ConsoleColor.Green);
+                HelperMethods.WriteColoredText("|\t\t\t\t\tUPDATE MAINTENANCE STATUS \t\t\t\t\t|", "UPDATE MAINTENANCE STATUS", ConsoleColor.Green);
                 Console.WriteLine("|\t\t\t\t\t\t\t\t\t\t\t\t\t|");
                 Console.WriteLine("|\t\t\t\tPlease enter the information as requested: \t\t\t\t|");
                 Console.WriteLine("|\t\t\t\t\t\t\t\t\t\t\t\t\t|");

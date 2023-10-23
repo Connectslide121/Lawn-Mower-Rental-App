@@ -1,5 +1,6 @@
 ﻿
 using Lawn_Mower_Rental_App.Controller;
+using Lawn_Mower_Rental_App.Helper;
 using Lawn_Mower_Rental_App.Model;
 using System;
 using System.Collections.Generic;
@@ -18,7 +19,7 @@ namespace Lawn_Mower_Rental_App.View
             Console.WriteLine("|***************************************** LAWN MOWER RENTAL (TM) **************************************|");
             Console.WriteLine("|\t\t\t\t\t\t\t\t\t\t\t\t\t|");
             Console.WriteLine("|\t\t\t\t\t\t\t\t\t\t\t\t\t|");
-            MainMenuController.WriteColoredText("|\t\t\t\t\t RENTAL RETURNS TODAY \t\t\t\t\t\t|", "RENTAL RETURNS TODAY", ConsoleColor.Magenta);
+            HelperMethods.WriteColoredText("|\t\t\t\t\t RENTAL RETURNS TODAY \t\t\t\t\t\t|", "RENTAL RETURNS TODAY", ConsoleColor.Magenta);
             Console.WriteLine("|\t\t\t\t\t\t\t\t\t\t\t\t\t|");
             Console.WriteLine("|\t\t\t\t----------------------------------------------\t\t\t\t|");
 
