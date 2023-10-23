@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Lawn_Mower_Rental_App.Controller;
+using Lawn_Mower_Rental_App.Helper;
 using Lawn_Mower_Rental_App.Model;
 
 
@@ -21,7 +22,7 @@ namespace Lawn_Mower_Rental_App.View
             Console.WriteLine("|\t\t\t\t\t\t\t\t\t\t\t\t\t|");
             Console.WriteLine("|\t\t\t\t\t\t\t\t\t\t\t\t\t|");
             Console.WriteLine("|\t\t\t\t\t\t\t\t\t\t\t\t\t|");
-            MainMenuController.WriteColoredText("|\t\t\t\t\t       NEW CUSTOMER \t\t\t\t\t\t|", "NEW CUSTOMER", ConsoleColor.Yellow);
+            HelperMethods.WriteColoredText("|\t\t\t\t\t       NEW CUSTOMER \t\t\t\t\t\t|", "NEW CUSTOMER", ConsoleColor.Yellow);
             Console.WriteLine("|\t\t\t\t\t\t\t\t\t\t\t\t\t|");
             Console.WriteLine("|\t\t\t Please enter the customer information as requested: \t\t\t\t|");
             Console.WriteLine("|\t\t\t\t\t\t\t\t\t\t\t\t\t|");
@@ -44,14 +45,14 @@ namespace Lawn_Mower_Rental_App.View
             Console.WriteLine("|\t\t\t\t\t\t\t\t\t\t\t\t\t|");
             Console.WriteLine("|*******************************************************************************************************|");
             Console.WriteLine("Please enter first name:");
-            customer.FirstName = Console.ReadLine();
+            customer.FirstName = HelperMethods.ReadLine();
 
             Console.Clear();
             Console.WriteLine("|***************************************** LAWN MOWER RENTAL (TM) **************************************|");
             Console.WriteLine("|\t\t\t\t\t\t\t\t\t\t\t\t\t|");
             Console.WriteLine("|\t\t\t\t\t\t\t\t\t\t\t\t\t|");
             Console.WriteLine("|\t\t\t\t\t\t\t\t\t\t\t\t\t|");
-            MainMenuController.WriteColoredText("|\t\t\t\t\t       NEW CUSTOMER \t\t\t\t\t\t|", "NEW CUSTOMER", ConsoleColor.Yellow);
+            HelperMethods.WriteColoredText("|\t\t\t\t\t       NEW CUSTOMER \t\t\t\t\t\t|", "NEW CUSTOMER", ConsoleColor.Yellow);
             Console.WriteLine("|\t\t\t\t\t\t\t\t\t\t\t\t\t|");
             Console.WriteLine("|\t\t\t Please enter the customer information as requested: \t\t\t\t|");
             Console.WriteLine("|\t\t\t\t\t\t\t\t\t\t\t\t\t|");
@@ -90,14 +91,14 @@ namespace Lawn_Mower_Rental_App.View
             Console.WriteLine("|\t\t\t\t\t\t\t\t\t\t\t\t\t|");
             Console.WriteLine("|*******************************************************************************************************|");
             Console.WriteLine("Please enter last name:");
-            customer.LastName = Console.ReadLine();
+            customer.LastName = HelperMethods.ReadLine();
 
             Console.Clear();
             Console.WriteLine("|***************************************** LAWN MOWER RENTAL (TM) **************************************|");
             Console.WriteLine("|\t\t\t\t\t\t\t\t\t\t\t\t\t|");
             Console.WriteLine("|\t\t\t\t\t\t\t\t\t\t\t\t\t|");
             Console.WriteLine("|\t\t\t\t\t\t\t\t\t\t\t\t\t|");
-            MainMenuController.WriteColoredText("|\t\t\t\t\t       NEW CUSTOMER \t\t\t\t\t\t|", "NEW CUSTOMER", ConsoleColor.Yellow);
+            HelperMethods.WriteColoredText("|\t\t\t\t\t       NEW CUSTOMER \t\t\t\t\t\t|", "NEW CUSTOMER", ConsoleColor.Yellow);
             Console.WriteLine("|\t\t\t\t\t\t\t\t\t\t\t\t\t|");
             Console.WriteLine("|\t\t\t Please enter the customer information as requested: \t\t\t\t|");
             Console.WriteLine("|\t\t\t\t\t\t\t\t\t\t\t\t\t|");
@@ -154,7 +155,7 @@ namespace Lawn_Mower_Rental_App.View
             do
             {
                 Console.WriteLine("Please enter contact number:");
-                contactNumber = Console.ReadLine();
+                contactNumber = HelperMethods.ReadLine();
             } 
             while (!int.TryParse(contactNumber, out contactNumberInt));
 
@@ -165,7 +166,7 @@ namespace Lawn_Mower_Rental_App.View
             Console.WriteLine("|\t\t\t\t\t\t\t\t\t\t\t\t\t|");
             Console.WriteLine("|\t\t\t\t\t\t\t\t\t\t\t\t\t|");
             Console.WriteLine("|\t\t\t\t\t\t\t\t\t\t\t\t\t|");
-            MainMenuController.WriteColoredText("|\t\t\t\t\t       NEW CUSTOMER \t\t\t\t\t\t|", "NEW CUSTOMER", ConsoleColor.Yellow);
+            HelperMethods.WriteColoredText("|\t\t\t\t\t       NEW CUSTOMER \t\t\t\t\t\t|", "NEW CUSTOMER", ConsoleColor.Yellow);
             Console.WriteLine("|\t\t\t\t\t\t\t\t\t\t\t\t\t|");
             Console.WriteLine("|\t\t\t Please enter the customer information as requested: \t\t\t\t|");
             Console.WriteLine("|\t\t\t\t\t\t\t\t\t\t\t\t\t|");
@@ -229,14 +230,14 @@ namespace Lawn_Mower_Rental_App.View
             Console.WriteLine("|\t\t\t\t\t\t\t\t\t\t\t\t\t|");
             Console.WriteLine("|*******************************************************************************************************|");
             Console.WriteLine("Please enter address:");
-            customer.Address = Console.ReadLine();
+            customer.Address = HelperMethods.ReadLine();
 
             Console.Clear();
             Console.WriteLine("|***************************************** LAWN MOWER RENTAL (TM) **************************************|");
             Console.WriteLine("|\t\t\t\t\t\t\t\t\t\t\t\t\t|");
             Console.WriteLine("|\t\t\t\t\t\t\t\t\t\t\t\t\t|");
             Console.WriteLine("|\t\t\t\t\t\t\t\t\t\t\t\t\t|");
-            MainMenuController.WriteColoredText("|\t\t\t\t\t       NEW CUSTOMER \t\t\t\t\t\t|", "NEW CUSTOMER", ConsoleColor.Yellow);
+            HelperMethods.WriteColoredText("|\t\t\t\t\t       NEW CUSTOMER \t\t\t\t\t\t|", "NEW CUSTOMER", ConsoleColor.Yellow);
             Console.WriteLine("|\t\t\t\t\t\t\t\t\t\t\t\t\t|");
             Console.WriteLine("|\t\t\t Please enter the customer information as requested: \t\t\t\t|");
             Console.WriteLine("|\t\t\t\t\t\t\t\t\t\t\t\t\t|");
@@ -324,7 +325,7 @@ namespace Lawn_Mower_Rental_App.View
             Console.WriteLine("|\t\t\t\t\t\t\t\t\t\t\t\t\t|");
             Console.WriteLine("|\t\t\t\t\t\t\t\t\t\t\t\t\t|");
             Console.WriteLine("|\t\t\t\t\t\t\t\t\t\t\t\t\t|");
-            MainMenuController.WriteColoredText("|\t\t\t\t\t       NEW CUSTOMER \t\t\t\t\t\t|", "NEW CUSTOMER", ConsoleColor.Yellow);
+            HelperMethods.WriteColoredText("|\t\t\t\t\t       NEW CUSTOMER \t\t\t\t\t\t|", "NEW CUSTOMER", ConsoleColor.Yellow);
             Console.WriteLine("|\t\t\t\t\t\t\t\t\t\t\t\t\t|");
             Console.WriteLine("|\t\t\t\t\t\t\t\t\t\t\t\t\t|");
             Console.WriteLine("|\t\t\t\t\t\t\t\t\t\t\t\t\t|");
@@ -422,7 +423,7 @@ namespace Lawn_Mower_Rental_App.View
             Console.WriteLine("|\t\t\t\t\t\t\t\t\t\t\t\t\t|");
             Console.WriteLine("|\t\t\t\t\t\t\t\t\t\t\t\t\t|");
             Console.WriteLine("|\t\t\t\t\t\t\t\t\t\t\t\t\t|");
-            MainMenuController.WriteColoredText("|\t\t\t\t\t       NEW CUSTOMER \t\t\t\t\t\t|", "NEW CUSTOMER", ConsoleColor.Yellow);
+            HelperMethods.WriteColoredText("|\t\t\t\t\t       NEW CUSTOMER \t\t\t\t\t\t|", "NEW CUSTOMER", ConsoleColor.Yellow);
             Console.WriteLine("|\t\t\t\t\t\t\t\t\t\t\t\t\t|");
             Console.WriteLine("|\t\t\t\t\t\t\t\t\t\t\t\t\t|");
             Console.WriteLine("|\t\t\t\t\t\t\t\t\t\t\t\t\t|");

@@ -1,4 +1,5 @@
-﻿using Lawn_Mower_Rental_App.Model;
+﻿using Lawn_Mower_Rental_App.Helper;
+using Lawn_Mower_Rental_App.Model;
 using Lawn_Mower_Rental_App.View;
 using System;
 using System.Collections.Generic;
@@ -83,7 +84,7 @@ namespace Lawn_Mower_Rental_App.Controller
                             break;
                         case 14:
                              Console.WriteLine("Search by First Name, Last Name, ID, Address, Contact Number or Date of Registry.");
-                             string searchQuery = Console.ReadLine();
+                             string searchQuery = HelperMethods.ReadLine();
                              List<Customer> searchResults = customerManager.SearchCustomers(searchQuery);
                              CustomerSearchView.DisplaySearchResults(searchResults);
                             break;
@@ -109,33 +110,6 @@ namespace Lawn_Mower_Rental_App.Controller
                     MainMenu.MainMenu_();
 
             }
-        }
-
-        public static void WriteColoredText(string text, string targetWord, ConsoleColor color)
-        {
-            int index = 0;
-
-            while (index < text.Length)
-            {
-                int wordIndex = text.IndexOf(targetWord, index, StringComparison.OrdinalIgnoreCase);
-                if (wordIndex == -1)
-                {
-                    Console.Write(text.Substring(index));
-                    break;
-                }
-
-                if (wordIndex > index)
-                {
-                    Console.Write(text.Substring(index, wordIndex - index));
-                }
-
-                Console.ForegroundColor = color;
-                Console.Write(targetWord);
-                Console.ResetColor();
-
-                index = wordIndex + targetWord.Length;
-            }
-            Console.WriteLine();
         }
     }
 }

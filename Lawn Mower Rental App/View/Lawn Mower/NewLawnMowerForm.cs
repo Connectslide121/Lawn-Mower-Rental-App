@@ -1,4 +1,5 @@
 ﻿using Lawn_Mower_Rental_App.Controller;
+using Lawn_Mower_Rental_App.Helper;
 using Lawn_Mower_Rental_App.Model;
 using System;
 using System.Collections.Generic;
@@ -20,7 +21,7 @@ namespace Lawn_Mower_Rental_App.View
             Console.WriteLine("|\t\t\t\t\t\t\t\t\t\t\t\t\t|");
             Console.WriteLine("|\t\t\t\t\t\t\t\t\t\t\t\t\t|");
             Console.WriteLine("|\t\t\t\t\t\t\t\t\t\t\t\t\t|");
-            MainMenuController.WriteColoredText("|\t\t\t\t\t     NEW LAWN MOWER \t\t\t\t\t\t|", "NEW LAWN MOWER", ConsoleColor.Green);
+            HelperMethods.WriteColoredText("|\t\t\t\t\t     NEW LAWN MOWER \t\t\t\t\t\t|", "NEW LAWN MOWER", ConsoleColor.Green);
             Console.WriteLine("|\t\t\t\t\t\t\t\t\t\t\t\t\t|");
             Console.WriteLine("|\t\t\t Please enter the lawn mower information as requested: \t\t\t\t|");
             Console.WriteLine("|\t\t\t\t\t\t\t\t\t\t\t\t\t|");
@@ -33,14 +34,14 @@ namespace Lawn_Mower_Rental_App.View
             Console.WriteLine("|\t\t\t\t\t\t\t\t\t\t\t\t\t|");
             Console.WriteLine("|*******************************************************************************************************|");
             Console.WriteLine("Please enter model:");
-            lawnMower.Model = Console.ReadLine();
+            lawnMower.Model = HelperMethods.ReadLine();
 
             Console.Clear();
             Console.WriteLine("|***************************************** LAWN MOWER RENTAL (TM) **************************************|");
             Console.WriteLine("|\t\t\t\t\t\t\t\t\t\t\t\t\t|");
             Console.WriteLine("|\t\t\t\t\t\t\t\t\t\t\t\t\t|");
             Console.WriteLine("|\t\t\t\t\t\t\t\t\t\t\t\t\t|");
-            MainMenuController.WriteColoredText("|\t\t\t\t\t     NEW LAWN MOWER \t\t\t\t\t\t|", "NEW LAWN MOWER", ConsoleColor.Green);
+            HelperMethods.WriteColoredText("|\t\t\t\t\t     NEW LAWN MOWER \t\t\t\t\t\t|", "NEW LAWN MOWER", ConsoleColor.Green);
             Console.WriteLine("|\t\t\t\t\t\t\t\t\t\t\t\t\t|");
             Console.WriteLine("|\t\t\t Please enter the lawn mower information as requested: \t\t\t\t|");
             Console.WriteLine("|\t\t\t\t\t\t\t\t\t\t\t\t\t|");

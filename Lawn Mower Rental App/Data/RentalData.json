@@ -284,5 +284,31 @@
     "TotalCost": 399.2,
     "TotalPrice": 799.2,
     "IsActive": true
+  },
+  {
+    "RentalId": 12,
+    "LawnMower": {
+      "LawnMowerId": 6,
+      "Model": "HUSQVARNA LB 448S KLIPPO",
+      "IsAvailable": false,
+      "LastMaintenance": "2023-10-19T11:45:08.1654051+02:00",
+      "PricePerDay": 99.9,
+      "CostPerDay": 49.9,
+      "ProfitPerDay": 50.0,
+      "AvailabilityStatus": "In Use"
+    },
+    "Customer": {
+      "CustomerId": 6,
+      "FirstName": "Robert",
+      "LastName": "Current",
+      "ContactNumber": 513058496,
+      "Address": "Morbyvagen 9, Nynashamn",
+      "DateOfRegistry": "2023-10-19T13:11:02.6012544+02:00"
+    },
+    "RentalDate": "2023-10-15T00:00:00",
+    "ReturnDate": "2023-12-12T00:00:00",
+    "TotalCost": 2894.2,
+    "TotalPrice": 5794.2,
+    "IsActive": true
   }
 ]
