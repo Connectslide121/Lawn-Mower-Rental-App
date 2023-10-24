@@ -16,24 +16,24 @@ namespace Lawn_Mower_Rental_App.Controller
             basicCustomers = LoadBasicCustomersFromJson();
         }
 
-        public void RegisterNewCustomer(BasicCustomer customer) //This should also check in the primeCustomers list
+        public void RegisterNewCustomer(BasicCustomer basicCustomer) //This should also check in the primeCustomers list
         {
             NewCustomerForm newCustomerForm = new NewCustomerForm();
 
             bool customerExists = basicCustomers.Any(item =>
-                item.FirstName.ToLower() == customer.FirstName.ToLower() &&
-                item.LastName.ToLower() == customer.LastName.ToLower() &&
-                item.ContactNumber == customer.ContactNumber);
+                item.FirstName.ToLower() == basicCustomer.FirstName.ToLower() &&
+                item.LastName.ToLower() == basicCustomer.LastName.ToLower() &&
+                item.ContactNumber == basicCustomer.ContactNumber);
 
             if (customerExists)
             {
-                newCustomerForm.CustomerExistsMessage(customer);
+                newCustomerForm.CustomerExistsMessage(basicCustomer);
             }
             else
             {
-                basicCustomers.Add(customer);
+                basicCustomers.Add(basicCustomer);
                 SaveBasicCustomersToJson(basicCustomers);
-                newCustomerForm.CustomerRegisteredMessage(customer);
+                newCustomerForm.CustomerRegisteredMessage(basicCustomer);
             }
         }
 
@@ -44,11 +44,11 @@ namespace Lawn_Mower_Rental_App.Controller
                 return 1;
             }
 
-            int highestID = basicCustomers.Max(customer => customer.CustomerId);
+            int highestID = basicCustomers.Max(basicCustomer => basicCustomer.CustomerId);
 
             for (int i = 1; i <= highestID + 1; i++)
             {
-                if (!basicCustomers.Any(customer => customer.CustomerId == i))
+                if (!basicCustomers.Any(basicCustomer => basicCustomer.CustomerId == i))
                 {
                     return i;
                 }
@@ -61,10 +61,10 @@ namespace Lawn_Mower_Rental_App.Controller
             DeleteCustomerForm deleteCustomerForm = new DeleteCustomerForm();
             int initialCount = basicCustomers.Count;
 
-            basicCustomers.RemoveAll(customer =>
-                customer.FirstName.ToLower() == firstName.ToLower() &&
-                customer.LastName.ToLower() == lastName.ToLower() &&
-                customer.CustomerId == customerId
+            basicCustomers.RemoveAll(basicCustomer =>
+                basicCustomer.FirstName.ToLower() == firstName.ToLower() &&
+                basicCustomer.LastName.ToLower() == lastName.ToLower() &&
+                basicCustomer.CustomerId == customerId
                 );
             SaveBasicCustomersToJson(basicCustomers);
 
@@ -109,7 +109,7 @@ namespace Lawn_Mower_Rental_App.Controller
 
         public void FindCustomerById(int customerId) //This should also check in the primeCustomers list
         {
-            Customer foundCustomer = basicCustomers.Find(customer => customer.CustomerId == customerId);
+            Customer foundCustomer = basicCustomers.Find(basicCustomer => basicCustomer.CustomerId == customerId);
             if (foundCustomer != null)
             {
                 RentLawnMowerForm.RentLawnMowerForm__(foundCustomer);
@@ -124,13 +124,13 @@ namespace Lawn_Mower_Rental_App.Controller
         {
             query = query.ToLower();
 
-            return basicCustomers.Where(customer =>
-                customer.FirstName.ToLower().Contains(query) ||
-                customer.LastName.ToLower().Contains(query) ||
-                customer.CustomerId.ToString().Contains(query) ||
-                customer.Address.ToLower().Contains(query) ||
-                customer.ContactNumber.ToString().Contains(query) ||
-                customer.DateOfRegistry.ToString().Contains(query)
+            return basicCustomers.Where(basicCustomer =>
+                basicCustomer.FirstName.ToLower().Contains(query) ||
+                basicCustomer.LastName.ToLower().Contains(query) ||
+                basicCustomer.CustomerId.ToString().Contains(query) ||
+                basicCustomer.Address.ToLower().Contains(query) ||
+                basicCustomer.ContactNumber.ToString().Contains(query) ||
+                basicCustomer.DateOfRegistry.ToString().Contains(query)
             ).ToList();
         }
     }
