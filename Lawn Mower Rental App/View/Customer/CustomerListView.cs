@@ -11,7 +11,7 @@ namespace Lawn_Mower_Rental_App.View
 {
     public class CustomerListView
     {
-        public static void DisplayCustomerList(List<Customer> customers)
+        public static void DisplayCustomerList(List<BasicCustomer> basicCustomers)
         {
             Console.Clear();
             Console.WriteLine("|***************************************** LAWN MOWER RENTAL (TM) **************************************|");
@@ -21,13 +21,13 @@ namespace Lawn_Mower_Rental_App.View
             Console.WriteLine("|\t\t\t\t\t\t\t\t\t\t\t\t\t|");
             Console.WriteLine("|\t\t\t   -----------------------------------------------\t\t\t\t|");
 
-            if (customers.Count == 0)
+            if (basicCustomers.Count == 0)
             {
                 Console.WriteLine("|\t\t\tNo customers registered yet.\t\t\t|");
             }
             else
             {
-                foreach (Customer customer in customers)
+                foreach (Customer customer in basicCustomers)
                 {
                     HelperMethods.WriteLineFitBox("|", customer.ToString(), "|", 103);
                 }

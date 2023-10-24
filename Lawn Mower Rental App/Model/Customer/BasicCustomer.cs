@@ -8,14 +8,17 @@ namespace Lawn_Mower_Rental_App.Model
 {
     public class BasicCustomer : Customer
     {
-        public bool HasDiscount { get; set; }
         public int RemainingDiscounts { get; set; }
 
         public BasicCustomer(int customerId) : base(customerId)
         {
-            HasDiscount = true;
             RemainingDiscounts = 1;
         }
+
+        public override string ToString()
+        {
+            return $"ID: {CustomerId} - {FirstName} {LastName} - Contact: {ContactNumber} - Address: {Address} - {DateOfRegistry.ToString("d")} - Discounts left: {RemainingDiscounts.ToString()}";
+        }
     }
-} // In hindsight i think Basic and Prime could have worked in one class, but im keeping them seperate for now so its easier to tweak. // Daniel
+}
 

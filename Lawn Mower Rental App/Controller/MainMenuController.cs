@@ -84,7 +84,7 @@ namespace Lawn_Mower_Rental_App.Controller
                         case 14:
                              Console.WriteLine("Search by First Name, Last Name, ID, Address, Contact Number or Date of Registry.");
                              string searchQuery = HelperMethods.ReadLine();
-                             List<Customer> searchResults = customerManager.SearchCustomers(searchQuery);
+                             List<BasicCustomer> searchResults = customerManager.SearchCustomers(searchQuery);
                              CustomerSearchView.DisplaySearchResults(searchResults);
                             break;
 

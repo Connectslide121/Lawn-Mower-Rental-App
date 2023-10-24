@@ -6,23 +6,21 @@ namespace Lawn_Mower_Rental_App.Controller
 {
     public class CustomerManager
     {
-        private List<Customer> customers;
-        string relativePath = Path.Combine(Path.GetFullPath(Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "..", "..", "..", "Data")), "CustomerData.json");
-        public CustomerManager(List<Customer> customers)
-        {
-            this.customers = customers;
-        }
+        private List<BasicCustomer> basicCustomers;
+        private List<PrimeCustomer> primeCustomers;
+        string relativePathBasic = Path.Combine(Path.GetFullPath(Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "..", "..", "..", "Data")), "BasicCustomerData.json");
+        string relativePathPrime = Path.Combine(Path.GetFullPath(Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "..", "..", "..", "Data")), "PrimeCustomerData.json");
 
         public CustomerManager()
         {
-            customers = LoadCustomersFromJson();
+            basicCustomers = LoadBasicCustomersFromJson();
         }
 
-        public void RegisterNewCustomer(Customer customer) // When i was trying to get PrimeCustomer set in, it made sense to just get Basic and Prime both done in one go. 
-        { // NewCustomerForm has to be updated 
+        public void RegisterNewCustomer(BasicCustomer customer) //This should also check in the primeCustomers list
+        {
             NewCustomerForm newCustomerForm = new NewCustomerForm();
 
-            bool customerExists = customers.Any(item =>
+            bool customerExists = basicCustomers.Any(item =>
                 item.FirstName.ToLower() == customer.FirstName.ToLower() &&
                 item.LastName.ToLower() == customer.LastName.ToLower() &&
                 item.ContactNumber == customer.ContactNumber);
@@ -33,24 +31,24 @@ namespace Lawn_Mower_Rental_App.Controller
             }
             else
             {
-                customers.Add(customer);
-                SaveCustomersToJson(customers);
+                basicCustomers.Add(customer);
+                SaveBasicCustomersToJson(basicCustomers);
                 newCustomerForm.CustomerRegisteredMessage(customer);
             }
         }
 
-        public int GetCustomerId()
+        public int GetCustomerId() //This should also check in the primeCustomers list
         {
-            if (customers.Count == 0)
+            if (basicCustomers.Count == 0)
             {
                 return 1;
             }
 
-            int highestID = customers.Max(customer => customer.CustomerId);
+            int highestID = basicCustomers.Max(customer => customer.CustomerId);
 
             for (int i = 1; i <= highestID + 1; i++)
             {
-                if (!customers.Any(customer => customer.CustomerId == i))
+                if (!basicCustomers.Any(customer => customer.CustomerId == i))
                 {
                     return i;
                 }
@@ -58,19 +56,19 @@ namespace Lawn_Mower_Rental_App.Controller
             return highestID + 1;
         }
 
-        public void DeleteCustomer(string firstName, string lastName, int customerId)
+        public void DeleteCustomer(string firstName, string lastName, int customerId) //This should also check in the primeCustomers list
         {
             DeleteCustomerForm deleteCustomerForm = new DeleteCustomerForm();
-            int initialCount = customers.Count;
+            int initialCount = basicCustomers.Count;
 
-            customers.RemoveAll(customer =>
+            basicCustomers.RemoveAll(customer =>
                 customer.FirstName.ToLower() == firstName.ToLower() &&
                 customer.LastName.ToLower() == lastName.ToLower() &&
                 customer.CustomerId == customerId
                 );
-            SaveCustomersToJson(customers);
+            SaveBasicCustomersToJson(basicCustomers);
 
-            if (customers.Count == initialCount)
+            if (basicCustomers.Count == initialCount)
             {
             deleteCustomerForm.CustomerNotFoundMessage(firstName, lastName, customerId);
             }
@@ -80,38 +78,38 @@ namespace Lawn_Mower_Rental_App.Controller
             }
         }
 
-        public void ViewListOfCustomers()
+        public void ViewListOfCustomers() //This should also check in the primeCustomers list
         {
-                CustomerListView.DisplayCustomerList(customers);
+                CustomerListView.DisplayCustomerList(basicCustomers);
         }
 
-        private List<Customer> LoadCustomersFromJson()
+        private List<BasicCustomer> LoadBasicCustomersFromJson()
         {
             try
             {
-                string jsonData = File.ReadAllText(relativePath);
-                return JsonSerializer.Deserialize<List<Customer>>(jsonData);
+                string jsonData = File.ReadAllText(relativePathBasic);
+                return JsonSerializer.Deserialize<List<BasicCustomer>>(jsonData);
             }
             catch (Exception) { ErrorsExceptions.CustomerFileNotFoundException(); }
-            return customers;
+            return basicCustomers;
         }
 
-        private void SaveCustomersToJson(List<Customer> customers)
+        private void SaveBasicCustomersToJson(List<BasicCustomer> basicCustomers)
         {
             try
             {
-                string jsonData = JsonSerializer.Serialize(customers, typeof(List<Customer>), new JsonSerializerOptions
+                string jsonData = JsonSerializer.Serialize(basicCustomers, typeof(List<BasicCustomer>), new JsonSerializerOptions
                 {
                     WriteIndented = true
                 });
-                File.WriteAllText(relativePath, jsonData);
+                File.WriteAllText(relativePathBasic, jsonData);
             }
             catch { ErrorsExceptions.CustomerFileNotFoundException(); }
         }
 
-        public void FindCustomerById(int customerId)
+        public void FindCustomerById(int customerId) //This should also check in the primeCustomers list
         {
-            Customer foundCustomer = customers.Find(customer => customer.CustomerId == customerId);
+            Customer foundCustomer = basicCustomers.Find(customer => customer.CustomerId == customerId);
             if (foundCustomer != null)
             {
                 RentLawnMowerForm.RentLawnMowerForm__(foundCustomer);
@@ -122,11 +120,11 @@ namespace Lawn_Mower_Rental_App.Controller
             };
         }
 
-        public List<Customer> SearchCustomers(string query)
+        public List<BasicCustomer> SearchCustomers(string query) //This should also check in the primeCustomers list
         {
             query = query.ToLower();
 
-            return customers.Where(customer =>
+            return basicCustomers.Where(customer =>
                 customer.FirstName.ToLower().Contains(query) ||
                 customer.LastName.ToLower().Contains(query) ||
                 customer.CustomerId.ToString().Contains(query) ||
