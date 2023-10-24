@@ -13,78 +13,135 @@ namespace Lawn_Mower_Rental_App.Controller
 {
     public class LawnMowerManager
     {
-        private List<LawnMower> lawnMowers;
-        string relativePath = Path.Combine(Path.GetFullPath(Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "..", "..", "..", "Data")), "LawnMowerData.json");
+        private List<PetrolLawnMower> petrolLawnMowers;
+        string relativePathPetrol = Path.Combine(Path.GetFullPath(Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "..", "..", "..", "Data")), "PetrolLawnMowerData.json");
 
-        private List<Rental> rentalsToUpdate;
+        private List<ElectricLawnMower> electricLawnMowers;
+        string relativePathElectric = Path.Combine(Path.GetFullPath(Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "..", "..", "..", "Data")), "ElectricLawnMowerData.json");
+
+
+
+
+        private List<Rental> rentals;
         string relativePathRentals = Path.Combine(Path.GetFullPath(Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "..", "..", "..", "Data")), "RentalData.json");
 
         public LawnMowerManager()
         {
-            lawnMowers = LoadLawnMowersFromJson();
-            rentalsToUpdate = LoadRentalsFromJson();
+            electricLawnMowers = LoadElectricLawnMowersFromJson();
+            petrolLawnMowers = LoadPetrolLawnMowersFromJson();
+            rentals = LoadRentalsFromJson();
             UpdateLawnMowerAvailability();
         }
        
-        private List<LawnMower> LoadLawnMowersFromJson()
+        private List<ElectricLawnMower> LoadElectricLawnMowersFromJson() 
         {
             try
             {
-                string jsonData = File.ReadAllText(relativePath);
-                return JsonSerializer.Deserialize<List<LawnMower>>(jsonData);
+                string jsonData = File.ReadAllText(relativePathElectric);
+                return JsonSerializer.Deserialize<List<ElectricLawnMower>>(jsonData);
             }
-            catch (Exception) { ErrorsExceptions.LawnMowerFileNotFoundException(); }
-            return lawnMowers;
+            catch (Exception) { ErrorsExceptions.LawnMowerFileNotFoundException(); } //We should have a specific ElectricLawnMowerNotFound message
+            return electricLawnMowers;
         }
 
-        public int GetLawnMowerId()
+        private List<PetrolLawnMower> LoadPetrolLawnMowersFromJson()
         {
-            if (lawnMowers.Count == 0)
+            try
+            {
+                string jsonData = File.ReadAllText(relativePathPetrol);
+                return JsonSerializer.Deserialize<List<PetrolLawnMower>>(jsonData);
+            }
+            catch (Exception) { ErrorsExceptions.LawnMowerFileNotFoundException(); } //We should have a specific PetrolLawnMowerNotFound message
+            return petrolLawnMowers;
+        }
+
+        public int GetLawnMowerId() //**************************UNTESTED******************************************************
+        {
+            if (electricLawnMowers.Count == 0 && petrolLawnMowers.Count == 0)
             {
                 return 1;
             }
-
-            int highestID = lawnMowers.Max(mower => mower.LawnMowerId);
-
-            for (int i = 1; i<= highestID +1; i++)
+            else
             {
-                if(!lawnMowers.Any(mower => mower.LawnMowerId == i))
+                int nextId = 1;
+                bool idInUse;
+
+                do
                 {
-                    return i;
+                    if (electricLawnMowers.Any(mower => mower.LawnMowerId == nextId))
+                    {
+                        idInUse = true;
+                        nextId++;
+                    }
+                    else if (petrolLawnMowers.Any(mower => mower.LawnMowerId == nextId))
+                    {
+                        idInUse = true;
+                        nextId++;
+                    }
+                    else
+                    {
+                        idInUse = false;
+                    }
                 }
+                while (idInUse == true);
+
+            return nextId;
             }
-            return highestID + 1;
         }
 
-        public void SaveLawnMowersToJson(List<LawnMower> lawnMowers)
+        public void SaveElectricLawnMowersToJson(List<ElectricLawnMower> electricLawnMowers)
         {
             try
             {
-                string jsonData = JsonSerializer.Serialize(lawnMowers, typeof(List<LawnMower>), new JsonSerializerOptions
+                string jsonData = JsonSerializer.Serialize(electricLawnMowers, typeof(List<ElectricLawnMower>), new JsonSerializerOptions
                 {
                     WriteIndented = true
                 });
 
-                File.WriteAllText(relativePath, jsonData);
+                File.WriteAllText(relativePathElectric, jsonData);
             }
-            catch { ErrorsExceptions.LawnMowerFileNotFoundException(); }
+            catch { ErrorsExceptions.LawnMowerFileNotFoundException(); } //We should have a specific ElectricLawnMowerNotFound message
         }
 
-        public void RegisterNewLawnMower(LawnMower lawnMower)
+        public void SavePetrolLawnMowersToJson(List<PetrolLawnMower> petrolLawnMowers)
         {
-            lawnMowers.Add(lawnMower);
-            SaveLawnMowersToJson(lawnMowers);
+            try
+            {
+                string jsonData = JsonSerializer.Serialize(petrolLawnMowers, typeof(List<PetrolLawnMower>), new JsonSerializerOptions
+                {
+                    WriteIndented = true
+                });
+
+                File.WriteAllText(relativePathPetrol, jsonData);
+            }
+            catch { ErrorsExceptions.LawnMowerFileNotFoundException(); } //We should have a specific PetrolLawnMowerNotFound message
         }
+
+        public void RegisterElectricLawnMower(ElectricLawnMower electricLawnMower) //In the form we need to ask what type of lawn mower is and call the required method accordingly
+        {
+                electricLawnMowers.Add(electricLawnMower);
+                SaveElectricLawnMowersToJson(electricLawnMowers);
+        }
+
+        public void RegisterPetrolLawnMower(PetrolLawnMower petrolLawnMower) //In the form we need to ask what type of lawn mower is and call the required method accordingly
+        {
+            petrolLawnMowers.Add(petrolLawnMower);
+            SavePetrolLawnMowersToJson(petrolLawnMowers);
+        }
+
 
         public void DeleteLawnMower(int userInput)
         {
             DeleteLawnMowerForm deleteLawnMowerForm = new DeleteLawnMowerForm();
-            int initialCount = lawnMowers.Count;
+            int initialCount = electricLawnMowers.Count + petrolLawnMowers.Count;
 
-            lawnMowers.RemoveAll(lawnMower => lawnMower.LawnMowerId == userInput);
-            SaveLawnMowersToJson(lawnMowers);
+            electricLawnMowers.RemoveAll(lawnMower => lawnMower.LawnMowerId == userInput);
+            SaveElectricLawnMowersToJson(electricLawnMowers);
 
-            if (lawnMowers.Count == initialCount)
+            petrolLawnMowers.RemoveAll(lawnMower => lawnMower.LawnMowerId == userInput);
+            SavePetrolLawnMowersToJson(petrolLawnMowers);
+
+            if (electricLawnMowers.Count + petrolLawnMowers.Count == initialCount)
             {
                 deleteLawnMowerForm.LawnMowerNotFoundMessage(userInput);
             }
@@ -96,27 +153,41 @@ namespace Lawn_Mower_Rental_App.Controller
 
         public void ViewListOfLawnMowers()
         {
-            LawnMowerListView.LawnMowerListView_(lawnMowers);
+            LawnMowerListView.LawnMowerListView_(electricLawnMowers, petrolLawnMowers);
         }
 
-        public LawnMower FindLawnMowerById()
+        public ElectricLawnMower FindElectricLawnMowerById()//In the form we need to ask what type of lawn mower is and call the required method accordingly
         {
-            int rentedMowerId = lawnMowers.FindIndex(m => m.IsAvailable == true);
-            LawnMower selectedMower = new LawnMower(1);
+            int rentedElectricMowerId = electricLawnMowers.FindIndex(m => m.IsAvailable == true);
+            ElectricLawnMower selectedElectricMower = new ElectricLawnMower(GetLawnMowerId());
             
             try
             {
-                selectedMower = lawnMowers[rentedMowerId];
-                return selectedMower;
+                selectedElectricMower = electricLawnMowers[rentedElectricMowerId];
+                return selectedElectricMower;
             }
             catch (Exception ex)
             {
-                RentLawnMowerForm.NoLawnMowersAvailableMessage();
-                return selectedMower;
+                RentLawnMowerForm.NoLawnMowersAvailableMessage();//We shoudl have a specific message
+                return selectedElectricMower;
             }
+        }
 
+        public PetrolLawnMower FindPetrolLawnMowerById()//In the form we need to ask what type of lawn mower is and call the required method accordingly
+        {
+            int rentedPetrolMowerId = petrolLawnMowers.FindIndex(m => m.IsAvailable == true);
+            PetrolLawnMower selectedPetrolMower = new PetrolLawnMower(GetLawnMowerId());
 
-            
+            try
+            {
+                selectedPetrolMower = petrolLawnMowers[rentedPetrolMowerId];
+                return selectedPetrolMower;
+            }
+            catch (Exception ex)
+            {
+                RentLawnMowerForm.NoLawnMowersAvailableMessage();//We shoudl have a specific message
+                return selectedPetrolMower;
+            }
         }
 
         private List<Rental> LoadRentalsFromJson()
@@ -127,53 +198,79 @@ namespace Lawn_Mower_Rental_App.Controller
                 return JsonSerializer.Deserialize<List<Rental>>(jsonData);
             }
             catch (Exception) { ErrorsExceptions.RentalsFileNotFoundException(); }
-            return rentalsToUpdate;
+            return rentals;
         }
 
         public void UpdateLawnMowerAvailability()
         {
-            List<LawnMower> lawnMowersToUpdate = new List<LawnMower>();
+            List<int> lawnMowerIdsToUpdate = new List<int>();
 
-            foreach (Rental rental in rentalsToUpdate)
+            foreach (Rental rental in rentals)
             {
                 if (rental.LawnMower.IsAvailable == false)
                 {
-                    lawnMowersToUpdate.Add(rental.LawnMower);
+                    lawnMowerIdsToUpdate.Add(rental.LawnMower.LawnMowerId);
                 }
             }
 
-            foreach (LawnMower lawnMower in lawnMowersToUpdate)
+            foreach (int id in lawnMowerIdsToUpdate)
             {
-                LawnMower lawnMowerToUpdate = lawnMowers.Find(m => m.LawnMowerId == lawnMower.LawnMowerId);
+                ElectricLawnMower electricLawnMowerToUpdate = electricLawnMowers.Find(m => m.LawnMowerId == id);
                 
-                lawnMowerToUpdate.IsAvailable = false;
+                electricLawnMowerToUpdate.IsAvailable = false;
                                
             }
-            SaveLawnMowersToJson(lawnMowers);
+            SaveElectricLawnMowersToJson(electricLawnMowers);
+
+            foreach (int id in lawnMowerIdsToUpdate)
+            {
+                PetrolLawnMower petrolLawnMowerToUpdate = petrolLawnMowers.Find(m => m.LawnMowerId == id);
+
+                petrolLawnMowerToUpdate.IsAvailable = false;
+
+            }
+            SavePetrolLawnMowersToJson(petrolLawnMowers);
         }
 
         public bool UpdateMaintenanceStatus(int lawnMowerId, DateTime newMaintenanceDate)
         {
-            LawnMower lawnMowerToUpdate = lawnMowers.Find(m => m.LawnMowerId == lawnMowerId);
-            if (lawnMowerToUpdate != null)
+            ElectricLawnMower electricLawnMowerToUpdate = electricLawnMowers.Find(m => m.LawnMowerId == lawnMowerId);
+            PetrolLawnMower petrolLawnMowerToUpdate = petrolLawnMowers.Find(m => m.LawnMowerId == lawnMowerId);
+
+            if (electricLawnMowerToUpdate != null)
             {
-                lawnMowerToUpdate.LastMaintenance = newMaintenanceDate;
-                SaveLawnMowersToJson(lawnMowers);
+                electricLawnMowerToUpdate.LastMaintenance = newMaintenanceDate;
+                SaveElectricLawnMowersToJson(electricLawnMowers);
+                return true;
+            }
+            else if(petrolLawnMowerToUpdate != null)
+            {
+                petrolLawnMowerToUpdate.LastMaintenance = newMaintenanceDate;
+                SavePetrolLawnMowersToJson(petrolLawnMowers);
                 return true;
             }
             else
             {
-                Console.WriteLine("Invalid Input");
+                Console.WriteLine("Lawn Mower not found");
                 return false;
             }
         }
 
         public void ReturnLawnMower(int lawnMowerId)
         {
-            LawnMower lawnMowerToUpdate = lawnMowers.Find(m => m.LawnMowerId == lawnMowerId);
-            lawnMowerToUpdate.IsAvailable = true;
+            ElectricLawnMower electricLawnMowerToReturn = electricLawnMowers.Find(m => m.LawnMowerId == lawnMowerId);
+            PetrolLawnMower petrolLawnMowerToReturn = petrolLawnMowers.Find(m => m.LawnMowerId == lawnMowerId);
 
-            SaveLawnMowersToJson(lawnMowers);
+            if (electricLawnMowerToReturn != null)
+            {
+                electricLawnMowerToReturn.IsAvailable = true;
+                SaveElectricLawnMowersToJson(electricLawnMowers);
+            }
+            else if (petrolLawnMowerToReturn != null)
+            {
+                petrolLawnMowerToReturn.IsAvailable = true;
+                SavePetrolLawnMowersToJson(petrolLawnMowers);
+            }
         }
     }
 }
