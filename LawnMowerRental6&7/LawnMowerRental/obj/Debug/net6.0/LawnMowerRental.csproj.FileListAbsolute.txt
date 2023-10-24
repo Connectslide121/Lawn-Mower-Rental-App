@@ -1,0 +1,5 @@
+/Users/jhenessholm/Projects/LawnMowerRental6&7/LawnMowerRental/obj/Debug/net6.0/LawnMowerRental.csproj.AssemblyReference.cache
+/Users/jhenessholm/Projects/LawnMowerRental6&7/LawnMowerRental/obj/Debug/net6.0/LawnMowerRental.GeneratedMSBuildEditorConfig.editorconfig
+/Users/jhenessholm/Projects/LawnMowerRental6&7/LawnMowerRental/obj/Debug/net6.0/LawnMowerRental.AssemblyInfoInputs.cache
+/Users/jhenessholm/Projects/LawnMowerRental6&7/LawnMowerRental/obj/Debug/net6.0/LawnMowerRental.AssemblyInfo.cs
+/Users/jhenessholm/Projects/LawnMowerRental6&7/LawnMowerRental/obj/Debug/net6.0/LawnMowerRental.csproj.CoreCompileInputs.cache
