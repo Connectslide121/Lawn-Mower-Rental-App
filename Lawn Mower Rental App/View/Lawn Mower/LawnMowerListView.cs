@@ -17,9 +17,9 @@ namespace Lawn_Mower_Rental_App.View
             Console.WriteLine("|***************************************** LAWN MOWER RENTAL (TM) **************************************|");
             Console.WriteLine("|\t\t\t\t\t\t\t\t\t\t\t\t\t|");
             Console.WriteLine("|\t\t\t\t\t\t\t\t\t\t\t\t\t|");
-            HelperMethods.WriteColoredText("|\t\t\t\t\t    LAWN MOWER LIST \t\t\t\t\t\t|", "LAWN MOWER LIST", ConsoleColor.Green);
+            HelperMethods.WriteColoredText("|\t\t\t\t\t      LAWN MOWER LIST \t\t\t\t\t\t|", "LAWN MOWER LIST", ConsoleColor.Green);
             Console.WriteLine("|\t\t\t\t\t\t\t\t\t\t\t\t\t|");
-            Console.WriteLine("|\t\t\t---------------------------------------------\t\t\t\t\t|");
+            Console.WriteLine("|\t\t\t\t---------------------------------------------\t\t\t\t|");
 
             if (electricLawnMowers.Count + petrolLawnMowers.Count == 0)
             {
@@ -27,24 +27,24 @@ namespace Lawn_Mower_Rental_App.View
             }
             else
             {
-                HelperMethods.WriteColoredText("|\t\t\t\t\t    ELECTRIC LAWN MOWERS \t\t\t\t\t\t|", "ELECTRIC LAWN MOWERS", ConsoleColor.DarkGreen);
+                HelperMethods.WriteColoredText("|\t\t\t\t\t    ELECTRIC LAWN MOWERS \t\t\t\t\t|", "ELECTRIC LAWN MOWERS", ConsoleColor.DarkGreen);
                 Console.WriteLine("|\t\t\t\t\t\t\t\t\t\t\t\t\t|");
 
                 foreach (ElectricLawnMower electricLawnMower in electricLawnMowers)
                 {
-                    HelperMethods.WriteLineFitBox("|\t", electricLawnMower.ToString(), "|", 96);
+                    HelperMethods.WriteLineFitBox("|", electricLawnMower.ToString(), "|", 103);
                 }
 
-                Console.WriteLine("|\t\t\t---------------------------------------------\t\t\t\t\t|");
+                Console.WriteLine("|\t\t\t\t---------------------------------------------\t\t\t\t|");
                 HelperMethods.WriteColoredText("|\t\t\t\t\t    PETROL LAWN MOWERS \t\t\t\t\t\t|", "PETROL LAWN MOWERS", ConsoleColor.DarkGreen);
                 Console.WriteLine("|\t\t\t\t\t\t\t\t\t\t\t\t\t|");
                 foreach (PetrolLawnMower petrolLawnMower in petrolLawnMowers)
                 {
-                    HelperMethods.WriteLineFitBox("|\t", petrolLawnMower.ToString(), "|", 96);
+                    HelperMethods.WriteLineFitBox("|", petrolLawnMower.ToString(), "|", 103);
                 }
             }
 
-            Console.WriteLine("|\t\t\t-----------------------------------------------\t\t\t\t\t|");
+            Console.WriteLine("|\t\t\t\t-----------------------------------------------\t\t\t\t|");
             Console.WriteLine("|\t\t\t\t\t\t\t\t\t\t\t\t\t|");
             Console.WriteLine("|\t\t\t\t\t\t\t\t\t\t\t\t\t|");
             Console.WriteLine("|*******************************************************************************************************|");

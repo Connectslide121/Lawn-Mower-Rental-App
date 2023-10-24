@@ -1,2 +1,11 @@
 [
+  {
+    "RemainingDiscounts": 1,
+    "CustomerId": 1,
+    "FirstName": "jon",
+    "LastName": "mendi",
+    "ContactNumber": 123512345,
+    "Address": "rgea",
+    "DateOfRegistry": "2023-10-24T15:55:45.2510189+02:00"
+  }
 ]

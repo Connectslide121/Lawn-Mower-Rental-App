@@ -1,2 +1,112 @@
 [
+  {
+    "BatteryEffect": 75.6,
+    "LawnMowerId": 11,
+    "Model": "HUSQVARNA LB 448i",
+    "IsAvailable": false,
+    "LastMaintenance": "2023-10-24T15:38:25.8262484+02:00",
+    "PricePerDay": 99.9,
+    "CostPerDay": 49.9,
+    "ProfitPerDay": 50.0,
+    "AvailabilityStatus": "In Use"
+  },
+  {
+    "BatteryEffect": 75.6,
+    "LawnMowerId": 12,
+    "Model": "HUSQVARNA LB 448i",
+    "IsAvailable": true,
+    "LastMaintenance": "2023-10-24T15:38:33.4555242+02:00",
+    "PricePerDay": 99.9,
+    "CostPerDay": 49.9,
+    "ProfitPerDay": 50.0,
+    "AvailabilityStatus": "Available"
+  },
+  {
+    "BatteryEffect": 75.6,
+    "LawnMowerId": 13,
+    "Model": "HUSQVARNA LB 448i",
+    "IsAvailable": true,
+    "LastMaintenance": "2023-10-24T15:38:38.9856624+02:00",
+    "PricePerDay": 99.9,
+    "CostPerDay": 49.9,
+    "ProfitPerDay": 50.0,
+    "AvailabilityStatus": "Available"
+  },
+  {
+    "BatteryEffect": 75.6,
+    "LawnMowerId": 14,
+    "Model": "HUSQVARNA LB 448i",
+    "IsAvailable": true,
+    "LastMaintenance": "2023-10-24T15:38:44.9325822+02:00",
+    "PricePerDay": 99.9,
+    "CostPerDay": 49.9,
+    "ProfitPerDay": 50.0,
+    "AvailabilityStatus": "Available"
+  },
+  {
+    "BatteryEffect": 75.6,
+    "LawnMowerId": 15,
+    "Model": "HUSQVARNA LB 448i",
+    "IsAvailable": true,
+    "LastMaintenance": "2023-10-24T15:38:51.0520079+02:00",
+    "PricePerDay": 99.9,
+    "CostPerDay": 49.9,
+    "ProfitPerDay": 50.0,
+    "AvailabilityStatus": "Available"
+  },
+  {
+    "BatteryEffect": 75.6,
+    "LawnMowerId": 16,
+    "Model": "HUSQVARNA LB 448i",
+    "IsAvailable": true,
+    "LastMaintenance": "2023-10-24T15:38:55.4346804+02:00",
+    "PricePerDay": 99.9,
+    "CostPerDay": 49.9,
+    "ProfitPerDay": 50.0,
+    "AvailabilityStatus": "Available"
+  },
+  {
+    "BatteryEffect": 75.6,
+    "LawnMowerId": 17,
+    "Model": "HUSQVARNA LB 448i",
+    "IsAvailable": true,
+    "LastMaintenance": "2023-10-24T15:38:59.9450624+02:00",
+    "PricePerDay": 99.9,
+    "CostPerDay": 49.9,
+    "ProfitPerDay": 50.0,
+    "AvailabilityStatus": "Available"
+  },
+  {
+    "BatteryEffect": 75.6,
+    "LawnMowerId": 18,
+    "Model": "HUSQVARNA LB 448i",
+    "IsAvailable": true,
+    "LastMaintenance": "2023-10-24T15:39:05.3954345+02:00",
+    "PricePerDay": 99.9,
+    "CostPerDay": 49.9,
+    "ProfitPerDay": 50.0,
+    "AvailabilityStatus": "Available"
+  },
+  {
+    "BatteryEffect": 75.6,
+    "LawnMowerId": 19,
+    "Model": "HUSQVARNA LB 448i",
+    "IsAvailable": true,
+    "LastMaintenance": "2023-10-24T15:39:09.6394071+02:00",
+    "PricePerDay": 99.9,
+    "CostPerDay": 49.9,
+    "ProfitPerDay": 50.0,
+    "AvailabilityStatus": "Available"
+  },
+  {
+    "BatteryEffect": 75.6,
+    "LawnMowerId": 20,
+    "Model": "HUSQVARNA LB 448i",
+    "IsAvailable": true,
+    "LastMaintenance": "2023-10-24T15:39:13.9162292+02:00",
+    "PricePerDay": 99.9,
+    "CostPerDay": 49.9,
+    "ProfitPerDay": 50.0,
+    "AvailabilityStatus": "Available"
+  }
 ]

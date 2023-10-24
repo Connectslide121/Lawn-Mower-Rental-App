@@ -64,11 +64,20 @@ namespace Lawn_Mower_Rental_App.Controller
             catch { ErrorsExceptions.RentalsFileNotFoundException(); }
         }
 
-        public Rental RentLawnMower(Customer customer, DateTime rentalDate, DateTime returnDate)
+        public Rental RentLawnMower(Customer customer, DateTime rentalDate, DateTime returnDate, bool electric)
         {
             LawnMowerManager lawnMowerManager = new LawnMowerManager();
+            LawnMower lawnMower;
 
-            LawnMower lawnMower = lawnMowerManager.FindLawnMowerById();
+            if (electric == true)
+            {
+                lawnMower = lawnMowerManager.FindElectricLawnMowerById();
+            }
+            else
+            {
+                lawnMower = lawnMowerManager.FindPetrolLawnMowerById();
+            }
+
             Rental rental = new Rental(GetRentalId());
             rental.Customer = customer;
             rental.RentalDate = rentalDate;

@@ -55,7 +55,7 @@ namespace Lawn_Mower_Rental_App.Controller
             return petrolLawnMowers;
         }
 
-        public int GetLawnMowerId() //**************************UNTESTED******************************************************
+        public int GetLawnMowerId()
         {
             if (electricLawnMowers.Count == 0 && petrolLawnMowers.Count == 0)
             {
@@ -117,13 +117,13 @@ namespace Lawn_Mower_Rental_App.Controller
             catch { ErrorsExceptions.LawnMowerFileNotFoundException(); } //We should have a specific PetrolLawnMowerNotFound message
         }
 
-        public void RegisterElectricLawnMower(ElectricLawnMower electricLawnMower) //In the form we need to ask what type of lawn mower is and call the required method accordingly
+        public void RegisterElectricLawnMower(ElectricLawnMower electricLawnMower)
         {
                 electricLawnMowers.Add(electricLawnMower);
                 SaveElectricLawnMowersToJson(electricLawnMowers);
         }
 
-        public void RegisterPetrolLawnMower(PetrolLawnMower petrolLawnMower) //In the form we need to ask what type of lawn mower is and call the required method accordingly
+        public void RegisterPetrolLawnMower(PetrolLawnMower petrolLawnMower)
         {
             petrolLawnMowers.Add(petrolLawnMower);
             SavePetrolLawnMowersToJson(petrolLawnMowers);
@@ -156,7 +156,7 @@ namespace Lawn_Mower_Rental_App.Controller
             LawnMowerListView.LawnMowerListView_(electricLawnMowers, petrolLawnMowers);
         }
 
-        public ElectricLawnMower FindElectricLawnMowerById()//In the form we need to ask what type of lawn mower is and call the required method accordingly
+        public ElectricLawnMower FindElectricLawnMowerById()
         {
             int rentedElectricMowerId = electricLawnMowers.FindIndex(m => m.IsAvailable == true);
             ElectricLawnMower selectedElectricMower = new ElectricLawnMower(GetLawnMowerId());
@@ -173,7 +173,7 @@ namespace Lawn_Mower_Rental_App.Controller
             }
         }
 
-        public PetrolLawnMower FindPetrolLawnMowerById()//In the form we need to ask what type of lawn mower is and call the required method accordingly
+        public PetrolLawnMower FindPetrolLawnMowerById()
         {
             int rentedPetrolMowerId = petrolLawnMowers.FindIndex(m => m.IsAvailable == true);
             PetrolLawnMower selectedPetrolMower = new PetrolLawnMower(GetLawnMowerId());
@@ -217,8 +217,10 @@ namespace Lawn_Mower_Rental_App.Controller
             {
                 ElectricLawnMower electricLawnMowerToUpdate = electricLawnMowers.Find(m => m.LawnMowerId == id);
                 
-                electricLawnMowerToUpdate.IsAvailable = false;
-                               
+                if (electricLawnMowerToUpdate != null)
+                {
+                    electricLawnMowerToUpdate.IsAvailable = false;
+                }
             }
             SaveElectricLawnMowersToJson(electricLawnMowers);
 
@@ -226,8 +228,10 @@ namespace Lawn_Mower_Rental_App.Controller
             {
                 PetrolLawnMower petrolLawnMowerToUpdate = petrolLawnMowers.Find(m => m.LawnMowerId == id);
 
-                petrolLawnMowerToUpdate.IsAvailable = false;
-
+                if (petrolLawnMowerToUpdate != null)
+                {
+                    petrolLawnMowerToUpdate.IsAvailable = false;
+                }
             }
             SavePetrolLawnMowersToJson(petrolLawnMowers);
         }

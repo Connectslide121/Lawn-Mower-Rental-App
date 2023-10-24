@@ -310,5 +310,31 @@
     "TotalCost": 2894.2,
     "TotalPrice": 5794.2,
     "IsActive": true
+  },
+  {
+    "RentalId": 13,
+    "LawnMower": {
+      "LawnMowerId": 11,
+      "Model": "HUSQVARNA LB 448i",
+      "IsAvailable": false,
+      "LastMaintenance": "2023-10-24T15:38:25.8262484+02:00",
+      "PricePerDay": 99.9,
+      "CostPerDay": 49.9,
+      "ProfitPerDay": 50.0,
+      "AvailabilityStatus": "In Use"
+    },
+    "Customer": {
+      "CustomerId": 1,
+      "FirstName": "jon",
+      "LastName": "mendi",
+      "ContactNumber": 123512345,
+      "Address": "rgea",
+      "DateOfRegistry": "2023-10-24T15:55:45.2510189+02:00"
+    },
+    "RentalDate": "2023-10-24T00:00:00",
+    "ReturnDate": "2023-10-31T00:00:00",
+    "TotalCost": 349.3,
+    "TotalPrice": 699.3,
+    "IsActive": true
   }
 ]
