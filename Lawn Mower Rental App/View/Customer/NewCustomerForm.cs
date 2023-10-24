@@ -15,7 +15,6 @@ namespace Lawn_Mower_Rental_App.View
         public void NewCustomerForm_()
         {
             CustomerManager customerManager = new CustomerManager();
-            Customer customer = new Customer(customerManager.GetCustomerId());
 
             Console.Clear();
             Console.WriteLine("|***************************************** LAWN MOWER RENTAL (TM) **************************************|");
@@ -45,7 +44,7 @@ namespace Lawn_Mower_Rental_App.View
             Console.WriteLine("|\t\t\t\t\t\t\t\t\t\t\t\t\t|");
             Console.WriteLine("|*******************************************************************************************************|");
             Console.WriteLine("Please enter first name:");
-            customer.FirstName = HelperMethods.ReadLine();
+            string firstName = HelperMethods.ReadLine();
 
             Console.Clear();
             Console.WriteLine("|***************************************** LAWN MOWER RENTAL (TM) **************************************|");
@@ -57,23 +56,7 @@ namespace Lawn_Mower_Rental_App.View
             Console.WriteLine("|\t\t\t Please enter the customer information as requested: \t\t\t\t|");
             Console.WriteLine("|\t\t\t\t\t\t\t\t\t\t\t\t\t|");
             Console.WriteLine("|\t\t\t\t\t\t\t\t\t\t\t\t\t|");
-
-            string firstName = customer.FirstName;
-            int lineLengthFirstName = 50;
-
-            if (firstName.Length < lineLengthFirstName)
-            {
-                Console.Write("|\t\t\t\t\t First name: "); Console.Write(firstName.PadRight(lineLengthFirstName)); Console.WriteLine(" |");
-            }
-            else if (firstName.Length > lineLengthFirstName)
-            {
-                Console.Write("|\t\t\t\t\t First name: "); Console.Write(firstName.Substring(0, lineLengthFirstName)); Console.WriteLine("|");
-            }
-            else
-            {
-                Console.Write("|\t\t\t\t\t First name: "); Console.Write(firstName); Console.WriteLine("|");
-            }
-
+            HelperMethods.WriteLineFitBox("|\t\t\t\t\t First name: ", firstName, "|", 51);
             Console.WriteLine("|\t\t\t\t\t\t\t\t\t\t\t\t\t|");
             Console.WriteLine("|\t\t\t\t\t Last name: \t\t\t\t\t\t\t|");
             Console.WriteLine("|\t\t\t\t\t\t\t\t\t\t\t\t\t|");
@@ -91,7 +74,7 @@ namespace Lawn_Mower_Rental_App.View
             Console.WriteLine("|\t\t\t\t\t\t\t\t\t\t\t\t\t|");
             Console.WriteLine("|*******************************************************************************************************|");
             Console.WriteLine("Please enter last name:");
-            customer.LastName = HelperMethods.ReadLine();
+            string lastName = HelperMethods.ReadLine();
 
             Console.Clear();
             Console.WriteLine("|***************************************** LAWN MOWER RENTAL (TM) **************************************|");
@@ -103,37 +86,9 @@ namespace Lawn_Mower_Rental_App.View
             Console.WriteLine("|\t\t\t Please enter the customer information as requested: \t\t\t\t|");
             Console.WriteLine("|\t\t\t\t\t\t\t\t\t\t\t\t\t|");
             Console.WriteLine("|\t\t\t\t\t\t\t\t\t\t\t\t\t|");
-
-            if (firstName.Length < lineLengthFirstName)
-            {
-                Console.Write("|\t\t\t\t\t First name: "); Console.Write(firstName.PadRight(lineLengthFirstName)); Console.WriteLine(" |");
-            }
-            else if (firstName.Length > lineLengthFirstName)
-            {
-                Console.Write("|\t\t\t\t\t First name: "); Console.Write(firstName.Substring(0, lineLengthFirstName)); Console.WriteLine("|");
-            }
-            else
-            {
-                Console.Write("|\t\t\t\t\t First name: "); Console.Write(firstName); Console.WriteLine("|");
-            }
+            HelperMethods.WriteLineFitBox("|\t\t\t\t\t First name: ", firstName, "|", 51);
             Console.WriteLine("|\t\t\t\t\t\t\t\t\t\t\t\t\t|");
-
-            string lastName = customer.LastName;
-            int lineLengthLastName = 51;
-
-            if (lastName.Length < lineLengthLastName)
-            {
-                Console.Write("|\t\t\t\t\t Last name: "); Console.Write(lastName.PadRight(lineLengthLastName)); Console.WriteLine(" |");
-            }
-            else if (lastName.Length > lineLengthLastName)
-            {
-                Console.Write("|\t\t\t\t\t Last name: "); Console.Write(lastName.Substring(0, lineLengthLastName)); Console.WriteLine("|");
-            }
-            else
-            {
-                Console.Write("|\t\t\t\t\t Last name: "); Console.Write(lastName); Console.WriteLine("|");
-            }
-
+            HelperMethods.WriteLineFitBox("|\t\t\t\t\t Last name: ", lastName, "|", 52);
             Console.WriteLine("|\t\t\t\t\t\t\t\t\t\t\t\t\t|");
             Console.WriteLine("|\t\t\t\t\t Contact number: \t\t\t\t\t\t|");
             Console.WriteLine("|\t\t\t\t\t\t\t\t\t\t\t\t\t|");
@@ -159,8 +114,6 @@ namespace Lawn_Mower_Rental_App.View
             } 
             while (!int.TryParse(contactNumber, out contactNumberInt));
 
-            customer.ContactNumber = contactNumberInt;
-
             Console.Clear();
             Console.WriteLine("|***************************************** LAWN MOWER RENTAL (TM) **************************************|");
             Console.WriteLine("|\t\t\t\t\t\t\t\t\t\t\t\t\t|");
@@ -171,52 +124,11 @@ namespace Lawn_Mower_Rental_App.View
             Console.WriteLine("|\t\t\t Please enter the customer information as requested: \t\t\t\t|");
             Console.WriteLine("|\t\t\t\t\t\t\t\t\t\t\t\t\t|");
             Console.WriteLine("|\t\t\t\t\t\t\t\t\t\t\t\t\t|");
-
-            if (firstName.Length < lineLengthFirstName)
-            {
-                Console.Write("|\t\t\t\t\t First name: "); Console.Write(firstName.PadRight(lineLengthFirstName)); Console.WriteLine(" |");
-            }
-            else if (firstName.Length > lineLengthFirstName)
-            {
-                Console.Write("|\t\t\t\t\t First name: "); Console.Write(firstName.Substring(0, lineLengthFirstName)); Console.WriteLine("|");
-            }
-            else
-            {
-                Console.Write("|\t\t\t\t\t First name: "); Console.Write(firstName); Console.WriteLine("|");
-            }
-
+            HelperMethods.WriteLineFitBox("|\t\t\t\t\t First name: ", firstName, "|", 51);
             Console.WriteLine("|\t\t\t\t\t\t\t\t\t\t\t\t\t|");
-
-            if (lastName.Length < lineLengthLastName)
-            {
-                Console.Write("|\t\t\t\t\t Last name: "); Console.Write(lastName.PadRight(lineLengthLastName)); Console.WriteLine(" |");
-            }
-            else if (lastName.Length > lineLengthLastName)
-            {
-                Console.Write("|\t\t\t\t\t Last name: "); Console.Write(lastName.Substring(0, lineLengthLastName)); Console.WriteLine("|");
-            }
-            else
-            {
-                Console.Write("|\t\t\t\t\t Last name: "); Console.Write(lastName); Console.WriteLine("|");
-            }
-
+            HelperMethods.WriteLineFitBox("|\t\t\t\t\t Last name: ", lastName, "|", 52);
             Console.WriteLine("|\t\t\t\t\t\t\t\t\t\t\t\t\t|");
-
-            int lineLengthContactNumber = 46;
-
-            if (contactNumber.Length < lineLengthContactNumber)
-            {
-                Console.Write("|\t\t\t\t\t Contact number: "); Console.Write(contactNumber.PadRight(lineLengthContactNumber)); Console.WriteLine(" |");
-            }
-            else if (contactNumber.Length > lineLengthContactNumber)
-            {
-                Console.Write("|\t\t\t\t\t Contact number: "); Console.Write(contactNumber.Substring(0, lineLengthContactNumber)); Console.WriteLine("|");
-            }
-            else
-            {
-                Console.Write("|\t\t\t\t\t Contact number: "); Console.Write(contactNumber); Console.WriteLine("|");
-            }
-
+            HelperMethods.WriteLineFitBox("|\t\t\t\t\t Contact number: ", contactNumber, "|", 47);
             Console.WriteLine("|\t\t\t\t\t\t\t\t\t\t\t\t\t|");
             Console.WriteLine("|\t\t\t\t\t Address: \t\t\t\t\t\t\t|");
             Console.WriteLine("|\t\t\t\t\t\t\t\t\t\t\t\t\t|");
@@ -230,7 +142,7 @@ namespace Lawn_Mower_Rental_App.View
             Console.WriteLine("|\t\t\t\t\t\t\t\t\t\t\t\t\t|");
             Console.WriteLine("|*******************************************************************************************************|");
             Console.WriteLine("Please enter address:");
-            customer.Address = HelperMethods.ReadLine();
+            string address = HelperMethods.ReadLine();
 
             Console.Clear();
             Console.WriteLine("|***************************************** LAWN MOWER RENTAL (TM) **************************************|");
@@ -242,68 +154,13 @@ namespace Lawn_Mower_Rental_App.View
             Console.WriteLine("|\t\t\t Please enter the customer information as requested: \t\t\t\t|");
             Console.WriteLine("|\t\t\t\t\t\t\t\t\t\t\t\t\t|");
             Console.WriteLine("|\t\t\t\t\t\t\t\t\t\t\t\t\t|");
-
-            if (firstName.Length < lineLengthFirstName)
-            {
-                Console.Write("|\t\t\t\t\t First name: "); Console.Write(firstName.PadRight(lineLengthFirstName)); Console.WriteLine(" |");
-            }
-            else if (firstName.Length > lineLengthFirstName)
-            {
-                Console.Write("|\t\t\t\t\t First name: "); Console.Write(firstName.Substring(0, lineLengthFirstName)); Console.WriteLine("|");
-            }
-            else
-            {
-                Console.Write("|\t\t\t\t\t First name: "); Console.Write(firstName); Console.WriteLine("|");
-            }
-
+            HelperMethods.WriteLineFitBox("|\t\t\t\t\t First name: ", firstName, "|", 51);
             Console.WriteLine("|\t\t\t\t\t\t\t\t\t\t\t\t\t|");
-
-            if (lastName.Length < lineLengthLastName)
-            {
-                Console.Write("|\t\t\t\t\t Last name: "); Console.Write(lastName.PadRight(lineLengthLastName)); Console.WriteLine(" |");
-            }
-            else if (lastName.Length > lineLengthLastName)
-            {
-                Console.Write("|\t\t\t\t\t Last name: "); Console.Write(lastName.Substring(0, lineLengthLastName)); Console.WriteLine("|");
-            }
-            else
-            {
-                Console.Write("|\t\t\t\t\t Last name: "); Console.Write(lastName); Console.WriteLine("|");
-            }
-
+            HelperMethods.WriteLineFitBox("|\t\t\t\t\t Last name: ", lastName, "|", 52);
             Console.WriteLine("|\t\t\t\t\t\t\t\t\t\t\t\t\t|");
-
-            if (contactNumber.Length < lineLengthContactNumber)
-            {
-                Console.Write("|\t\t\t\t\t Contact number: "); Console.Write(contactNumber.PadRight(lineLengthContactNumber)); Console.WriteLine(" |");
-            }
-            else if (contactNumber.Length > lineLengthContactNumber)
-            {
-                Console.Write("|\t\t\t\t\t Contact number: "); Console.Write(contactNumber.Substring(0, lineLengthContactNumber)); Console.WriteLine("|");
-            }
-            else
-            {
-                Console.Write("|\t\t\t\t\t Contact number: "); Console.Write(contactNumber); Console.WriteLine("|");
-            }
-
+            HelperMethods.WriteLineFitBox("|\t\t\t\t\t Contact number: ", contactNumber, "|", 47);
             Console.WriteLine("|\t\t\t\t\t\t\t\t\t\t\t\t\t|");
-
-            string address = customer.Address;
-            int lineLengthAddress = 53;
-
-            if (address.Length < lineLengthAddress)
-            {
-                Console.Write("|\t\t\t\t\t Address: "); Console.Write(address.PadRight(lineLengthAddress)); Console.WriteLine(" |");
-            }
-            else if (address.Length > lineLengthAddress)
-            {
-                Console.Write("|\t\t\t\t\t Address: "); Console.Write(address.Substring(0, lineLengthAddress)); Console.WriteLine("|");
-            }
-            else
-            {
-                Console.Write("|\t\t\t\t\t Address: "); Console.Write(address); Console.WriteLine("|");
-            }
-
+            HelperMethods.WriteLineFitBox("|\t\t\t\t\t Address: ", address, "|", 54);
             Console.WriteLine("|\t\t\t\t\t\t\t\t\t\t\t\t\t|");
             Console.WriteLine("|\t\t\t\t\t\t\t\t\t\t\t\t\t|");
             Console.WriteLine("|\t\t\t\t\t\t\t\t\t\t\t\t\t|");
@@ -315,6 +172,13 @@ namespace Lawn_Mower_Rental_App.View
             Console.WriteLine("|\t\t\t\t\t\t\t\t\t\t\t\t\t|");
             Console.WriteLine("|*******************************************************************************************************|");
             Console.ReadKey();
+
+            BasicCustomer customer = new BasicCustomer(customerManager.GetCustomerId());
+            customer.FirstName = firstName;
+            customer.LastName = lastName;
+            customer.ContactNumber = contactNumberInt;
+            customer.Address = address;
+
             customerManager.RegisterNewCustomer(customer);
         }
 
@@ -330,77 +194,13 @@ namespace Lawn_Mower_Rental_App.View
             Console.WriteLine("|\t\t\t\t\t\t\t\t\t\t\t\t\t|");
             Console.WriteLine("|\t\t\t\t\t\t\t\t\t\t\t\t\t|");
             Console.WriteLine("|\t\t\t\t\t\t\t\t\t\t\t\t\t|");
-
-            string firstName = customer.FirstName;
-            int lineLengthFirstName = 50;
-
-            if (firstName.Length < lineLengthFirstName)
-            {
-                Console.Write("|\t\t\t\t\t First name: "); Console.Write(firstName.PadRight(lineLengthFirstName)); Console.WriteLine(" |");
-            }
-            else if (firstName.Length > lineLengthFirstName)
-            {
-                Console.Write("|\t\t\t\t\t First name: "); Console.Write(firstName.Substring(0, lineLengthFirstName)); Console.WriteLine("|");
-            }
-            else
-            {
-                Console.Write("|\t\t\t\t\t First name: "); Console.Write(firstName); Console.WriteLine("|");
-            }
-
+            HelperMethods.WriteLineFitBox("|\t\t\t\t\t First name: ", customer.FirstName, "|", 51);
             Console.WriteLine("|\t\t\t\t\t\t\t\t\t\t\t\t\t|");
-
-            string lastName = customer.LastName;
-            int lineLengthLastName = 51;
-
-            if (lastName.Length < lineLengthLastName)
-            {
-                Console.Write("|\t\t\t\t\t Last name: "); Console.Write(lastName.PadRight(lineLengthLastName)); Console.WriteLine(" |");
-            }
-            else if (lastName.Length > lineLengthLastName)
-            {
-                Console.Write("|\t\t\t\t\t Last name: "); Console.Write(lastName.Substring(0, lineLengthLastName)); Console.WriteLine("|");
-            }
-            else
-            {
-                Console.Write("|\t\t\t\t\t Last name: "); Console.Write(lastName); Console.WriteLine("|");
-            }
-
+            HelperMethods.WriteLineFitBox("|\t\t\t\t\t Last name: ", customer.LastName, "|", 52);
             Console.WriteLine("|\t\t\t\t\t\t\t\t\t\t\t\t\t|");
-
-            string contactNumber = customer.ContactNumber.ToString();
-            int lineLengthContactNumber = 46;
-
-            if (contactNumber.Length < lineLengthContactNumber)
-            {
-                Console.Write("|\t\t\t\t\t Contact number: "); Console.Write(contactNumber.PadRight(lineLengthContactNumber)); Console.WriteLine(" |");
-            }
-            else if (contactNumber.Length > lineLengthContactNumber)
-            {
-                Console.Write("|\t\t\t\t\t Contact number: "); Console.Write(contactNumber.Substring(0, lineLengthContactNumber)); Console.WriteLine("|");
-            }
-            else
-            {
-                Console.Write("|\t\t\t\t\t Contact number: "); Console.Write(contactNumber); Console.WriteLine("|");
-            }
-
+            HelperMethods.WriteLineFitBox("|\t\t\t\t\t Contact number: ", customer.ContactNumber.ToString(), "|", 47);
             Console.WriteLine("|\t\t\t\t\t\t\t\t\t\t\t\t\t|");
-
-            string address = customer.Address;
-            int lineLengthAddress = 53;
-
-            if (address.Length < lineLengthAddress)
-            {
-                Console.Write("|\t\t\t\t\t Address: "); Console.Write(address.PadRight(lineLengthAddress)); Console.WriteLine(" |");
-            }
-            else if (address.Length > lineLengthAddress)
-            {
-                Console.Write("|\t\t\t\t\t Address: "); Console.Write(address.Substring(0, lineLengthAddress)); Console.WriteLine("|");
-            }
-            else
-            {
-                Console.Write("|\t\t\t\t\t Address: "); Console.Write(address); Console.WriteLine("|");
-            }
-
+            HelperMethods.WriteLineFitBox("|\t\t\t\t\t Address: ", customer.Address, "|", 54);
             Console.WriteLine("|\t\t\t\t\t\t\t\t\t\t\t\t\t|");
             Console.WriteLine("|\t\t\t\t\t\t\t\t\t\t\t\t\t|");
             Console.WriteLine("|\t\t\t\t\t\t\t\t\t\t\t\t\t|");
@@ -428,77 +228,13 @@ namespace Lawn_Mower_Rental_App.View
             Console.WriteLine("|\t\t\t\t\t\t\t\t\t\t\t\t\t|");
             Console.WriteLine("|\t\t\t\t\t\t\t\t\t\t\t\t\t|");
             Console.WriteLine("|\t\t\t\t\t\t\t\t\t\t\t\t\t|");
-
-            string firstName = customer.FirstName;
-            int lineLengthFirstName = 50;
-
-            if (firstName.Length < lineLengthFirstName)
-            {
-                Console.Write("|\t\t\t\t\t First name: "); Console.Write(firstName.PadRight(lineLengthFirstName)); Console.WriteLine(" |");
-            }
-            else if (firstName.Length > lineLengthFirstName)
-            {
-                Console.Write("|\t\t\t\t\t First name: "); Console.Write(firstName.Substring(0, lineLengthFirstName)); Console.WriteLine("|");
-            }
-            else
-            {
-                Console.Write("|\t\t\t\t\t First name: "); Console.Write(firstName); Console.WriteLine("|");
-            }
-
+            HelperMethods.WriteLineFitBox("|\t\t\t\t\t First name: ", customer.FirstName, "|", 51);
             Console.WriteLine("|\t\t\t\t\t\t\t\t\t\t\t\t\t|");
-
-            string lastName = customer.LastName;
-            int lineLengthLastName = 51;
-
-            if (lastName.Length < lineLengthLastName)
-            {
-                Console.Write("|\t\t\t\t\t Last name: "); Console.Write(lastName.PadRight(lineLengthLastName)); Console.WriteLine(" |");
-            }
-            else if (lastName.Length > lineLengthLastName)
-            {
-                Console.Write("|\t\t\t\t\t Last name: "); Console.Write(lastName.Substring(0, lineLengthLastName)); Console.WriteLine("|");
-            }
-            else
-            {
-                Console.Write("|\t\t\t\t\t Last name: "); Console.Write(lastName); Console.WriteLine("|");
-            }
-
+            HelperMethods.WriteLineFitBox("|\t\t\t\t\t Last name: ", customer.LastName, "|", 52);
             Console.WriteLine("|\t\t\t\t\t\t\t\t\t\t\t\t\t|");
-
-            string contactNumber = customer.ContactNumber.ToString();
-            int lineLengthContactNumber = 46;
-
-            if (contactNumber.Length < lineLengthContactNumber)
-            {
-                Console.Write("|\t\t\t\t\t Contact number: "); Console.Write(contactNumber.PadRight(lineLengthContactNumber)); Console.WriteLine(" |");
-            }
-            else if (contactNumber.Length > lineLengthContactNumber)
-            {
-                Console.Write("|\t\t\t\t\t Contact number: "); Console.Write(contactNumber.Substring(0, lineLengthContactNumber)); Console.WriteLine("|");
-            }
-            else
-            {
-                Console.Write("|\t\t\t\t\t Contact number: "); Console.Write(contactNumber); Console.WriteLine("|");
-            }
-
+            HelperMethods.WriteLineFitBox("|\t\t\t\t\t Contact number: ", customer.ContactNumber.ToString(), "|", 47);
             Console.WriteLine("|\t\t\t\t\t\t\t\t\t\t\t\t\t|");
-
-            string address = customer.Address;
-            int lineLengthAddress = 53;
-
-            if (address.Length < lineLengthAddress)
-            {
-                Console.Write("|\t\t\t\t\t Address: "); Console.Write(address.PadRight(lineLengthAddress)); Console.WriteLine(" |");
-            }
-            else if (address.Length > lineLengthAddress)
-            {
-                Console.Write("|\t\t\t\t\t Address: "); Console.Write(address.Substring(0, lineLengthAddress)); Console.WriteLine("|");
-            }
-            else
-            {
-                Console.Write("|\t\t\t\t\t Address: "); Console.Write(address); Console.WriteLine("|");
-            }
-
+            HelperMethods.WriteLineFitBox("|\t\t\t\t\t Address: ", customer.Address, "|", 54);
             Console.WriteLine("|\t\t\t\t\t\t\t\t\t\t\t\t\t|");
             Console.WriteLine("|\t\t\t\t\t\t\t\t\t\t\t\t\t|");
             Console.WriteLine("|\t\t\t\t\t\t\t\t\t\t\t\t\t|");

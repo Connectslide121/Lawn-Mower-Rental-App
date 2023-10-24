@@ -32,20 +32,7 @@ namespace Lawn_Mower_Rental_App.View
             {
                 foreach (Rental rental in rentalHistory)
                 {
-                    int lineLength = 95;
-
-                    if (rental.ToString().Length < lineLength)
-                    {
-                        Console.Write("|\t"); Console.Write(rental.ToString().PadRight(lineLength)); Console.WriteLine(" |");
-                    }
-                    else if (rental.ToString().Length > lineLength)
-                    {
-                        Console.Write("|\t"); Console.Write(rental.ToString().Substring(0, lineLength)); Console.WriteLine("|");
-                    }
-                    else
-                    {
-                        Console.Write("|\t"); Console.Write(rental.ToString()); Console.WriteLine("|");
-                    }
+                    HelperMethods.WriteLineFitBox("|\t", rental.ToString(), "|", 96);
                 }
             }
 

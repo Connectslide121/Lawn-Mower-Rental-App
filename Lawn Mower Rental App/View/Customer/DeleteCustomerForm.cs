@@ -48,22 +48,7 @@ namespace Lawn_Mower_Rental_App.View
             Console.WriteLine("|\t\t\t Please enter the customer information as requested: \t\t\t\t|");
             Console.WriteLine("|\t\t\t\t\t\t\t\t\t\t\t\t\t|");
             Console.WriteLine("|\t\t\t\t\t\t\t\t\t\t\t\t\t|");
-
-            int lineLengthFirstName = 50;
-
-            if (firstName.Length < lineLengthFirstName)
-            {
-                Console.Write("|\t\t\t\t\t First name: "); Console.Write(firstName.PadRight(lineLengthFirstName)); Console.WriteLine(" |");
-            }
-            else if (firstName.Length > lineLengthFirstName)
-            {
-                Console.Write("|\t\t\t\t\t First name: "); Console.Write(firstName.Substring(0, lineLengthFirstName)); Console.WriteLine("|");
-            }
-            else
-            {
-                Console.Write("|\t\t\t\t\t First name: "); Console.Write(firstName); Console.WriteLine("|");
-            }
-
+            HelperMethods.WriteLineFitBox("|\t\t\t\t\t First name: ", firstName, "|", 51);
             Console.WriteLine("|\t\t\t\t\t\t\t\t\t\t\t\t\t|");
             Console.WriteLine("|\t\t\t\t\t Last name: \t\t\t\t\t\t\t|");
             Console.WriteLine("|\t\t\t\t\t\t\t\t\t\t\t\t\t|");
@@ -86,37 +71,9 @@ namespace Lawn_Mower_Rental_App.View
             Console.WriteLine("|\t\t\t Please enter the customer information as requested: \t\t\t\t|");
             Console.WriteLine("|\t\t\t\t\t\t\t\t\t\t\t\t\t|");
             Console.WriteLine("|\t\t\t\t\t\t\t\t\t\t\t\t\t|");
-
-            if (firstName.Length < lineLengthFirstName)
-            {
-                Console.Write("|\t\t\t\t\t First name: "); Console.Write(firstName.PadRight(lineLengthFirstName)); Console.WriteLine(" |");
-            }
-            else if (firstName.Length > lineLengthFirstName)
-            {
-                Console.Write("|\t\t\t\t\t First name: "); Console.Write(firstName.Substring(0, lineLengthFirstName)); Console.WriteLine("|");
-            }
-            else
-            {
-                Console.Write("|\t\t\t\t\t First name: "); Console.Write(firstName); Console.WriteLine("|");
-            }
-
+            HelperMethods.WriteLineFitBox("|\t\t\t\t\t First name: ", firstName, "|", 51);
             Console.WriteLine("|\t\t\t\t\t\t\t\t\t\t\t\t\t|");
-
-            int lineLengthLastName = 51;
-
-            if (lastName.Length < lineLengthLastName)
-            {
-                Console.Write("|\t\t\t\t\t Last name: "); Console.Write(lastName.PadRight(lineLengthLastName)); Console.WriteLine(" |");
-            }
-            else if (lastName.Length > lineLengthLastName)
-            {
-                Console.Write("|\t\t\t\t\t Last name: "); Console.Write(lastName.Substring(0, lineLengthLastName)); Console.WriteLine("|");
-            }
-            else
-            {
-                Console.Write("|\t\t\t\t\t Last name: "); Console.Write(lastName); Console.WriteLine("|");
-            }
-
+            HelperMethods.WriteLineFitBox("|\t\t\t\t\t Last name: ", lastName, "|", 52);
             Console.WriteLine("|\t\t\t\t\t\t\t\t\t\t\t\t\t|");
             Console.WriteLine("|\t\t\t\t\t Customer ID: \t\t\t\t\t\t\t|");
             Console.WriteLine("|\t\t\t\t\t\t\t\t\t\t\t\t\t|");
@@ -144,35 +101,9 @@ namespace Lawn_Mower_Rental_App.View
             Console.WriteLine("|\t\t\t Please enter the customer information as requested: \t\t\t\t|");
             Console.WriteLine("|\t\t\t\t\t\t\t\t\t\t\t\t\t|");
             Console.WriteLine("|\t\t\t\t\t\t\t\t\t\t\t\t\t|");
-            
-            if (firstName.Length < lineLengthFirstName)
-            {
-                Console.Write("|\t\t\t\t\t First name: "); Console.Write(firstName.PadRight(lineLengthFirstName)); Console.WriteLine(" |");
-            }
-            else if (firstName.Length > lineLengthFirstName)
-            {
-                Console.Write("|\t\t\t\t\t First name: "); Console.Write(firstName.Substring(0, lineLengthFirstName)); Console.WriteLine("|");
-            }
-            else
-            {
-                Console.Write("|\t\t\t\t\t First name: "); Console.Write(firstName); Console.WriteLine("|");
-            }
-
+            HelperMethods.WriteLineFitBox("|\t\t\t\t\t First name: ", firstName, "|", 51);
             Console.WriteLine("|\t\t\t\t\t\t\t\t\t\t\t\t\t|");
-
-            if (lastName.Length < lineLengthLastName)
-            {
-                Console.Write("|\t\t\t\t\t Last name: "); Console.Write(lastName.PadRight(lineLengthLastName)); Console.WriteLine(" |");
-            }
-            else if (lastName.Length > lineLengthLastName)
-            {
-                Console.Write("|\t\t\t\t\t Last name: "); Console.Write(lastName.Substring(0, lineLengthLastName)); Console.WriteLine("|");
-            }
-            else
-            {
-                Console.Write("|\t\t\t\t\t Last name: "); Console.Write(lastName); Console.WriteLine("|");
-            }
-
+            HelperMethods.WriteLineFitBox("|\t\t\t\t\t Last name: ", lastName, "|", 52);
             Console.WriteLine("|\t\t\t\t\t\t\t\t\t\t\t\t\t|");
             Console.WriteLine($"|\t\t\t\t\t Customer ID: {customerIDInt}\t\t\t\t\t\t\t|");
             Console.WriteLine("|\t\t\t\t\t\t\t\t\t\t\t\t\t|");
@@ -203,38 +134,9 @@ namespace Lawn_Mower_Rental_App.View
             Console.WriteLine("|\t\t\t Please enter the customer information as requested: \t\t\t\t|");
             Console.WriteLine("|\t\t\t\t\t\t\t\t\t\t\t\t\t|");
             Console.WriteLine("|\t\t\t\t\t\t\t\t\t\t\t\t\t|");
-
-            int lineLengthFirstName = 50;
-
-            if (firstName.Length < lineLengthFirstName)
-            {
-                Console.Write("|\t\t\t\t\t First name: "); Console.Write(firstName.PadRight(lineLengthFirstName)); Console.WriteLine(" |");
-            }
-            else if (firstName.Length > lineLengthFirstName)
-            {
-                Console.Write("|\t\t\t\t\t First name: "); Console.Write(firstName.Substring(0, lineLengthFirstName)); Console.WriteLine("|");
-            }
-            else
-            {
-                Console.Write("|\t\t\t\t\t First name: "); Console.Write(firstName); Console.WriteLine("|");
-            }
+            HelperMethods.WriteLineFitBox("|\t\t\t\t\t First name: ", firstName, "|", 51);
             Console.WriteLine("|\t\t\t\t\t\t\t\t\t\t\t\t\t|");
-
-            int lineLengthLastName = 51;
-
-            if (lastName.Length < lineLengthLastName)
-            {
-                Console.Write("|\t\t\t\t\t Last name: "); Console.Write(lastName.PadRight(lineLengthLastName)); Console.WriteLine(" |");
-            }
-            else if (lastName.Length > lineLengthLastName)
-            {
-                Console.Write("|\t\t\t\t\t Last name: "); Console.Write(lastName.Substring(0, lineLengthLastName)); Console.WriteLine("|");
-            }
-            else
-            {
-                Console.Write("|\t\t\t\t\t Last name: "); Console.Write(lastName); Console.WriteLine("|");
-            }
-
+            HelperMethods.WriteLineFitBox("|\t\t\t\t\t Last name: ", lastName, "|", 52);
             Console.WriteLine("|\t\t\t\t\t\t\t\t\t\t\t\t\t|");
             Console.WriteLine($"|\t\t\t\t\t Customer ID: {customerID}\t\t\t\t\t\t\t|");
             Console.WriteLine("|\t\t\t\t\t\t\t\t\t\t\t\t\t|");
@@ -262,38 +164,9 @@ namespace Lawn_Mower_Rental_App.View
             Console.WriteLine("|\t\t\t Please enter the customer information as requested: \t\t\t\t|");
             Console.WriteLine("|\t\t\t\t\t\t\t\t\t\t\t\t\t|");
             Console.WriteLine("|\t\t\t\t\t\t\t\t\t\t\t\t\t|");
-
-            int lineLengthFirstName = 50;
-
-            if (firstName.Length < lineLengthFirstName)
-            {
-                Console.Write("|\t\t\t\t\t First name: "); Console.Write(firstName.PadRight(lineLengthFirstName)); Console.WriteLine(" |");
-            }
-            else if (firstName.Length > lineLengthFirstName)
-            {
-                Console.Write("|\t\t\t\t\t First name: "); Console.Write(firstName.Substring(0, lineLengthFirstName)); Console.WriteLine("|");
-            }
-            else
-            {
-                Console.Write("|\t\t\t\t\t First name: "); Console.Write(firstName); Console.WriteLine("|");
-            }
+            HelperMethods.WriteLineFitBox("|\t\t\t\t\t First name: ", firstName, "|", 51);
             Console.WriteLine("|\t\t\t\t\t\t\t\t\t\t\t\t\t|");
-
-            int lineLengthLastName = 51;
-
-            if (lastName.Length < lineLengthLastName)
-            {
-                Console.Write("|\t\t\t\t\t Last name: "); Console.Write(lastName.PadRight(lineLengthLastName)); Console.WriteLine(" |");
-            }
-            else if (lastName.Length > lineLengthLastName)
-            {
-                Console.Write("|\t\t\t\t\t Last name: "); Console.Write(lastName.Substring(0, lineLengthLastName)); Console.WriteLine("|");
-            }
-            else
-            {
-                Console.Write("|\t\t\t\t\t Last name: "); Console.Write(lastName); Console.WriteLine("|");
-            }
-
+            HelperMethods.WriteLineFitBox("|\t\t\t\t\t Last name: ", lastName, "|", 52);
             Console.WriteLine("|\t\t\t\t\t\t\t\t\t\t\t\t\t|");
             Console.WriteLine($"|\t\t\t\t\t Customer ID: {customerID}\t\t\t\t\t\t\t|");
             Console.WriteLine("|\t\t\t\t\t\t\t\t\t\t\t\t\t|");

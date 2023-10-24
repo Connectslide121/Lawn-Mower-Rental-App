@@ -29,21 +29,7 @@ namespace Lawn_Mower_Rental_App.View
             {
                 foreach (var customer in searchResults)
                 {
-                    string line = customer.ToString();
-                    int lineLength = 101;
-
-                    if (line.Length < lineLength)
-                    {
-                        Console.Write("|  "); Console.Write(line.PadRight(lineLength)); Console.WriteLine("|");
-                    }
-                    else if (line.Length > lineLength)
-                    {
-                        Console.Write("|  "); Console.Write(line.Substring(0, lineLength)); Console.WriteLine("|");
-                    }
-                    else
-                    {
-                        Console.Write("|  "); Console.Write(line); Console.WriteLine("|");
-                    }
+                    HelperMethods.WriteLineFitBox("|", customer.ToString(), "|", 103);
                 }
             }
 

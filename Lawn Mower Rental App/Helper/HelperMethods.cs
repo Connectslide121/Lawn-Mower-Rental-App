@@ -1,4 +1,5 @@
-﻿using Lawn_Mower_Rental_App.View;
+﻿using Lawn_Mower_Rental_App.Model;
+using Lawn_Mower_Rental_App.View;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -47,6 +48,22 @@ namespace Lawn_Mower_Rental_App.Helper
             }
 
             return userInput;
+        }
+
+        public static void WriteLineFitBox(string left, string line, string right, int lineLength)
+        {
+            if (line.Length < lineLength)
+            {
+                Console.Write(left); Console.Write(line.PadRight(lineLength)); Console.WriteLine(right);
+            }
+            else if (line.Length > lineLength)
+            {
+                Console.Write(left); Console.Write(line.Substring(0, lineLength)); Console.WriteLine(right);
+            }
+            else
+            {
+                Console.Write(left); Console.Write(line); Console.WriteLine(right);
+            }
         }
     }
 }

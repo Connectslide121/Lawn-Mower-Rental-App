@@ -96,7 +96,8 @@ namespace Lawn_Mower_Rental_App.Controller
 
                         case 16:
                             Console.WriteLine("Exiting the app...");
-                            return;
+                            Environment.Exit(0);
+                            break;
 
 
                         default: 
