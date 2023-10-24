@@ -11,7 +11,7 @@ namespace Lawn_Mower_Rental_App.View
 {
     public class CustomerSearchView
     {
-        public static void DisplaySearchResults(List<BasicCustomer> searchResults)
+        public static void DisplaySearchResults(List<Customer> searchResults)
         {
             Console.Clear();
             Console.WriteLine("|***************************************** LAWN MOWER RENTAL (TM) **************************************|");
