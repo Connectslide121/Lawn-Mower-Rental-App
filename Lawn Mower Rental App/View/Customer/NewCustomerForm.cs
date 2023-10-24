@@ -12,7 +12,7 @@ namespace Lawn_Mower_Rental_App.View
 {
     public class NewCustomerForm
     {
-        public void NewCustomerForm_()
+        public void NewCustomerForm_(CustomerType initialCustomerType)
         {
             CustomerManager customerManager = new CustomerManager();
 
@@ -23,7 +23,7 @@ namespace Lawn_Mower_Rental_App.View
             Console.WriteLine("|\t\t\t\t\t\t\t\t\t\t\t\t\t|");
             HelperMethods.WriteColoredText("|\t\t\t\t\t       NEW CUSTOMER \t\t\t\t\t\t|", "NEW CUSTOMER", ConsoleColor.Yellow);
             Console.WriteLine("|\t\t\t\t\t\t\t\t\t\t\t\t\t|");
-            Console.WriteLine("|\t\t\t Please enter the customer information as requested: \t\t\t\t|");
+            Console.WriteLine("|\t\t Please enter the customer information as requested: \t\t\t\t|");
             Console.WriteLine("|\t\t\t\t\t\t\t\t\t\t\t\t\t|");
             Console.WriteLine("|\t\t\t\t\t\t\t\t\t\t\t\t\t|");
             Console.WriteLine("|\t\t\t\t\t First name: \t\t\t\t\t\t\t|");
@@ -53,7 +53,7 @@ namespace Lawn_Mower_Rental_App.View
             Console.WriteLine("|\t\t\t\t\t\t\t\t\t\t\t\t\t|");
             HelperMethods.WriteColoredText("|\t\t\t\t\t       NEW CUSTOMER \t\t\t\t\t\t|", "NEW CUSTOMER", ConsoleColor.Yellow);
             Console.WriteLine("|\t\t\t\t\t\t\t\t\t\t\t\t\t|");
-            Console.WriteLine("|\t\t\t Please enter the customer information as requested: \t\t\t\t|");
+            Console.WriteLine("|\t Please enter the customer information as requested: \t\t\t\t|");
             Console.WriteLine("|\t\t\t\t\t\t\t\t\t\t\t\t\t|");
             Console.WriteLine("|\t\t\t\t\t\t\t\t\t\t\t\t\t|");
             HelperMethods.WriteLineFitBox("|\t\t\t\t\t First name: ", firstName, "|", 51);
@@ -63,9 +63,6 @@ namespace Lawn_Mower_Rental_App.View
             Console.WriteLine("|\t\t\t\t\t Contact number: \t\t\t\t\t\t|");
             Console.WriteLine("|\t\t\t\t\t\t\t\t\t\t\t\t\t|");
             Console.WriteLine("|\t\t\t\t\t Address: \t\t\t\t\t\t\t|");
-            Console.WriteLine("|\t\t\t\t\t\t\t\t\t\t\t\t\t|");
-            Console.WriteLine("|\t\t\t\t\t\t\t\t\t\t\t\t\t|");
-            Console.WriteLine("|\t\t\t\t\t\t\t\t\t\t\t\t\t|");
             Console.WriteLine("|\t\t\t\t\t\t\t\t\t\t\t\t\t|");
             Console.WriteLine("|\t\t\t\t\t\t\t\t\t\t\t\t\t|");
             Console.WriteLine("|\t\t\t\t\t\t\t\t\t\t\t\t\t|");
@@ -83,14 +80,14 @@ namespace Lawn_Mower_Rental_App.View
             Console.WriteLine("|\t\t\t\t\t\t\t\t\t\t\t\t\t|");
             HelperMethods.WriteColoredText("|\t\t\t\t\t       NEW CUSTOMER \t\t\t\t\t\t|", "NEW CUSTOMER", ConsoleColor.Yellow);
             Console.WriteLine("|\t\t\t\t\t\t\t\t\t\t\t\t\t|");
-            Console.WriteLine("|\t\t\t Please enter the customer information as requested: \t\t\t\t|");
+            Console.WriteLine("|\t Please enter the customer information as requested: \t\t\t\t|");
             Console.WriteLine("|\t\t\t\t\t\t\t\t\t\t\t\t\t|");
             Console.WriteLine("|\t\t\t\t\t\t\t\t\t\t\t\t\t|");
             HelperMethods.WriteLineFitBox("|\t\t\t\t\t First name: ", firstName, "|", 51);
             Console.WriteLine("|\t\t\t\t\t\t\t\t\t\t\t\t\t|");
             HelperMethods.WriteLineFitBox("|\t\t\t\t\t Last name: ", lastName, "|", 52);
             Console.WriteLine("|\t\t\t\t\t\t\t\t\t\t\t\t\t|");
-            Console.WriteLine("|\t\t\t\t\t Contact number: \t\t\t\t\t\t|");
+            Console.WriteLine("|\t\t\t\t\t Contact Number: \t\t\t\t\t\t\t|");
             Console.WriteLine("|\t\t\t\t\t\t\t\t\t\t\t\t\t|");
             Console.WriteLine("|\t\t\t\t\t Address: \t\t\t\t\t\t\t|");
             Console.WriteLine("|\t\t\t\t\t\t\t\t\t\t\t\t\t|");
@@ -103,17 +100,15 @@ namespace Lawn_Mower_Rental_App.View
             Console.WriteLine("|\t\t\t\t\t\t\t\t\t\t\t\t\t|");
             Console.WriteLine("|\t\t\t\t\t\t\t\t\t\t\t\t\t|");
             Console.WriteLine("|*******************************************************************************************************|");
+            Console.WriteLine("Please enter contact number:");
+            string contactNumberInput = HelperMethods.ReadLine();
+            int contactNumber;
 
-            string contactNumber;
-            int contactNumberInt;
-
-            do
+            while (!int.TryParse(contactNumberInput, out contactNumber))
             {
-                Console.WriteLine("Please enter contact number:");
-                contactNumber = HelperMethods.ReadLine();
-            } 
-            while (!int.TryParse(contactNumber, out contactNumberInt));
-
+                Console.WriteLine("Invalid input. Please enter a valid integer for contact number:");
+                contactNumberInput = HelperMethods.ReadLine();
+            }
             Console.Clear();
             Console.WriteLine("|***************************************** LAWN MOWER RENTAL (TM) **************************************|");
             Console.WriteLine("|\t\t\t\t\t\t\t\t\t\t\t\t\t|");
@@ -121,7 +116,7 @@ namespace Lawn_Mower_Rental_App.View
             Console.WriteLine("|\t\t\t\t\t\t\t\t\t\t\t\t\t|");
             HelperMethods.WriteColoredText("|\t\t\t\t\t       NEW CUSTOMER \t\t\t\t\t\t|", "NEW CUSTOMER", ConsoleColor.Yellow);
             Console.WriteLine("|\t\t\t\t\t\t\t\t\t\t\t\t\t|");
-            Console.WriteLine("|\t\t\t Please enter the customer information as requested: \t\t\t\t|");
+            Console.WriteLine("|\t Please enter the customer information as requested: \t\t\t\t|");
             Console.WriteLine("|\t\t\t\t\t\t\t\t\t\t\t\t\t|");
             Console.WriteLine("|\t\t\t\t\t\t\t\t\t\t\t\t\t|");
             HelperMethods.WriteLineFitBox("|\t\t\t\t\t First name: ", firstName, "|", 51);
@@ -143,7 +138,6 @@ namespace Lawn_Mower_Rental_App.View
             Console.WriteLine("|*******************************************************************************************************|");
             Console.WriteLine("Please enter address:");
             string address = HelperMethods.ReadLine();
-
             Console.Clear();
             Console.WriteLine("|***************************************** LAWN MOWER RENTAL (TM) **************************************|");
             Console.WriteLine("|\t\t\t\t\t\t\t\t\t\t\t\t\t|");
@@ -151,7 +145,7 @@ namespace Lawn_Mower_Rental_App.View
             Console.WriteLine("|\t\t\t\t\t\t\t\t\t\t\t\t\t|");
             HelperMethods.WriteColoredText("|\t\t\t\t\t       NEW CUSTOMER \t\t\t\t\t\t|", "NEW CUSTOMER", ConsoleColor.Yellow);
             Console.WriteLine("|\t\t\t\t\t\t\t\t\t\t\t\t\t|");
-            Console.WriteLine("|\t\t\t Please enter the customer information as requested: \t\t\t\t|");
+            Console.WriteLine("|\t Please enter the customer information as requested: \t\t\t\t|");
             Console.WriteLine("|\t\t\t\t\t\t\t\t\t\t\t\t\t|");
             Console.WriteLine("|\t\t\t\t\t\t\t\t\t\t\t\t\t|");
             HelperMethods.WriteLineFitBox("|\t\t\t\t\t First name: ", firstName, "|", 51);
@@ -164,19 +158,72 @@ namespace Lawn_Mower_Rental_App.View
             Console.WriteLine("|\t\t\t\t\t\t\t\t\t\t\t\t\t|");
             Console.WriteLine("|\t\t\t\t\t\t\t\t\t\t\t\t\t|");
             Console.WriteLine("|\t\t\t\t\t\t\t\t\t\t\t\t\t|");
-            Console.WriteLine("|\t\t\t\t\tPress any key to validate\t\t\t\t\t|");
+            Console.WriteLine("|\t\t\t\t   Customer Details registered succesfully!\t\t\t\t\t|"); // Placeholder, just something to confirm the details are correct.
             Console.WriteLine("|\t\t\t\t\t\t\t\t\t\t\t\t\t|");
             Console.WriteLine("|\t\t\t\t\t\t\t\t\t\t\t\t\t|");
             Console.WriteLine("|\t\t\t\t\t\t\t\t\t\t\t\t\t|");
             Console.WriteLine("|\t\t\t\t\t\t\t\t\t\t\t\t\t|");
             Console.WriteLine("|\t\t\t\t\t\t\t\t\t\t\t\t\t|");
             Console.WriteLine("|*******************************************************************************************************|");
+            Console.WriteLine("Please enter customer type (Prime/Basic):");
+            
+            string customerTypeInput = HelperMethods.ReadLine();
+            CustomerType customerType;
+
+            while (!Enum.TryParse(customerTypeInput, true, out customerType) ||
+       (customerType != CustomerType.Basic && customerType != CustomerType.Prime))
+            {
+                Console.WriteLine("Invalid input. Please enter 'Prime' or 'Basic' for customer type:");
+                customerTypeInput = HelperMethods.ReadLine(); // Took a little work but i decided the register type should be at the end after adress
+            }
+
+            Console.Clear();
+            Console.WriteLine("|***************************************** LAWN MOWER RENTAL (TM) **************************************|");
+            Console.WriteLine("|\t\t\t\t\t\t\t\t\t\t\t\t\t|");
+            Console.WriteLine("|\t\t\t\t\t\t\t\t\t\t\t\t\t|");
+            Console.WriteLine("|\t\t\t\t\t\t\t\t\t\t\t\t\t|");
+            HelperMethods.WriteColoredText("|\t\t\t\t\t       NEW CUSTOMER \t\t\t\t\t\t|", "NEW CUSTOMER", ConsoleColor.Yellow);
+            Console.WriteLine("|\t\t\t\t\t\t\t\t\t\t\t\t\t|");
+            Console.WriteLine("|\t Please enter the customer information as requested: \t\t\t\t|");
+            Console.WriteLine("|\t\t\t\t\t\t\t\t\t\t\t\t\t|");
+            Console.WriteLine("|\t\t\t\t\t\t\t\t\t\t\t\t\t|");
+            HelperMethods.WriteLineFitBox("|\t\t\t\t\t First name: ", firstName, "|", 51);
+            Console.WriteLine("|\t\t\t\t\t\t\t\t\t\t\t\t\t|");
+            HelperMethods.WriteLineFitBox("|\t\t\t\t\t Last name: ", lastName, "|", 52);
+            Console.WriteLine("|\t\t\t\t\t\t\t\t\t\t\t\t\t|");
+            HelperMethods.WriteLineFitBox("|\t\t\t\t\t Contact number: ", contactNumber, "|", 47);
+            Console.WriteLine("|\t\t\t\t\t\t\t\t\t\t\t\t\t|");
+            HelperMethods.WriteLineFitBox("|\t\t\t\t\t Address: ", address, "|", 54);
+            Console.WriteLine("|\t\t\t\t\t\t\t\t\t\t\t\t\t|");
+            Console.WriteLine("|\t\t\t\t\t\t\t\t\t\t\t\t\t|");
+            Console.WriteLine("|\t\t\t\t\t\t\t\t\t\t\t\t\t|");
+            Console.WriteLine("|\t\t\t\t   Customer registered successfully!\t\t\t\t\t|");
+            Console.WriteLine("|\t\t\t\t\t\t\t\t\t\t\t\t\t|");
+            Console.WriteLine("|\t\t\t\t\t\t\t\t\t\t\t\t\t|");
+            Console.WriteLine("|\t\t\t\t\t\t\t\t\t\t\t\t\t|");
+            Console.WriteLine("|\t\t\t\t\t\t\t\t\t\t\t\t\t|");
+            Console.WriteLine("|\t\t\t\t\t\t\t\t\t\t\t\t\t|");
+            Console.WriteLine("|*******************************************************************************************************|");
+            Console.WriteLine("Press any key to go back to Main Menu");
+
             Console.ReadKey();
 
-            BasicCustomer customer = new BasicCustomer(customerManager.GetCustomerId());
+            Customer customer;
+            if (customerType == CustomerType.Basic)
+            {
+                customer = new BasicCustomer(customerManager.GetCustomerId(CustomerType.Basic));
+            }
+            else if (customerType == CustomerType.Prime)
+            {
+                customer = new PrimeCustomer(customerManager.GetCustomerId(CustomerType.Prime));
+            }
+            else
+            {
+                throw new ArgumentException("Invalid customer type.");
+            }
             customer.FirstName = firstName;
             customer.LastName = lastName;
-            customer.ContactNumber = contactNumberInt;
+            customer.ContactNumber = contactNumber;
             customer.Address = address;
 
             customerManager.RegisterNewCustomer(customer);
@@ -238,7 +285,7 @@ namespace Lawn_Mower_Rental_App.View
             Console.WriteLine("|\t\t\t\t\t\t\t\t\t\t\t\t\t|");
             Console.WriteLine("|\t\t\t\t\t\t\t\t\t\t\t\t\t|");
             Console.WriteLine("|\t\t\t\t\t\t\t\t\t\t\t\t\t|");
-            Console.WriteLine("|\t\t\t\t   Customer registered successfully!\t\t\t\t\t|");
+            Console.WriteLine($"|\t\t\t\t   Customer registered successfully as a {customer.GetType().Name} customer!\t\t\t\t|"); // Added to show the name at the end
             Console.WriteLine("|\t\t\t\t\t\t\t\t\t\t\t\t\t|");
             Console.WriteLine("|\t\t\t\t\t\t\t\t\t\t\t\t\t|");
             Console.WriteLine("|\t\t\t\t\t\t\t\t\t\t\t\t\t|");
@@ -249,6 +296,6 @@ namespace Lawn_Mower_Rental_App.View
 
             Console.ReadKey();
             MainMenu.MainMenu_();
-        }
+        } // Code is untested due to unable to run debugger, so im just hoping it works.
     }
 }

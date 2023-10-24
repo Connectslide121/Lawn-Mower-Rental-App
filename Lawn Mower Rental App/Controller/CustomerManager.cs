@@ -56,9 +56,9 @@ namespace Lawn_Mower_Rental_App.Controller
             }
         }
 
-        public int GetCustomerId(Customer customer)
+        public int GetCustomerId(CustomerType customerType)
         {
-            List<Customer> customers = customer is BasicCustomer ? basicCustomers.Cast<Customer>().ToList() : primeCustomers.Cast<Customer>().ToList();
+            List<Customer> customers = customerType == CustomerType.Basic ? basicCustomers.Cast<Customer>().ToList() : primeCustomers.Cast<Customer>().ToList();
 
             if (customers.Count == 0)
             {
