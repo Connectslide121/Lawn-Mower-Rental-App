@@ -27,6 +27,8 @@ namespace Lawn_Mower_Rental_App.View
             Console.WriteLine("|\t\t\t\t\t\t\t\t\t\t\t\t\t|");
             Console.WriteLine("|\t\t\t\t\t Customer ID: \t\t\t\t\t\t\t|");
             Console.WriteLine("|\t\t\t\t\t\t\t\t\t\t\t\t\t|");
+            Console.WriteLine("|\t\t\t\t\t Electric or Petrol: \t\t\t\t\t\t|");
+            Console.WriteLine("|\t\t\t\t\t\t\t\t\t\t\t\t\t|");
             Console.WriteLine("|\t\t\t\t\t Rental Date: \t\t\t\t\t\t\t|");
             Console.WriteLine("|\t\t\t\t\t\t\t\t\t\t\t\t\t|");
             Console.WriteLine("|\t\t\t\t\t Return Date: \t\t\t\t\t\t\t|");
@@ -65,6 +67,8 @@ namespace Lawn_Mower_Rental_App.View
             Console.WriteLine("|\t\t\t\t\t\t\t\t\t\t\t\t\t|");
             HelperMethods.WriteLineFitBox("|\t\t\t\t\t Customer ID: ", customer.CustomerId.ToString(), "|", 50);
             Console.WriteLine("|\t\t\t\t\t\t\t\t\t\t\t\t\t|");
+            Console.WriteLine("|\t\t\t\t\t Electric or Petrol: \t\t\t\t\t\t|");
+            Console.WriteLine("|\t\t\t\t\t\t\t\t\t\t\t\t\t|");
             Console.WriteLine("|\t\t\t\t\t Rental Date: \t\t\t\t\t\t\t|");
             Console.WriteLine("|\t\t\t\t\t\t\t\t\t\t\t\t\t|");
             Console.WriteLine("|\t\t\t\t\t Return Date: \t\t\t\t\t\t\t|");
@@ -74,6 +78,49 @@ namespace Lawn_Mower_Rental_App.View
             Console.WriteLine("|\t\t\t\t\t\t\t\t\t\t\t\t\t|");
             Console.WriteLine("|\t\t\t\t\t\t\t\t\t\t\t\t\t|");
             Console.WriteLine("|*******************************************************************************************************|");
+
+            string lawnMowerType;
+            bool electric;
+
+            do
+            {
+                Console.WriteLine("Please enter type of lawn mower");
+                lawnMowerType = HelperMethods.ReadLine();
+            }
+            while (lawnMowerType.ToLower() != "electric" && lawnMowerType.ToLower() != "petrol");
+
+            if (lawnMowerType == "electric")
+            {
+                electric = true;
+            }
+            else
+            {
+                electric = false;
+            }
+
+            Console.Clear();
+            Console.WriteLine("|***************************************** LAWN MOWER RENTAL (TM) **************************************|");
+            Console.WriteLine("|\t\t\t\t\t\t\t\t\t\t\t\t\t|");
+            Console.WriteLine("|\t\t\t\t\t\t\t\t\t\t\t\t\t|");
+            Console.WriteLine("|\t\t\t\t\t\t\t\t\t\t\t\t\t|");
+            HelperMethods.WriteColoredText("|\t\t\t\t\t    RENT A LAWN MOWER \t\t\t\t\t\t|", "RENT A LAWN MOWER", ConsoleColor.Magenta);
+            Console.WriteLine("|\t\t\t\t\t\t\t\t\t\t\t\t\t|");
+            Console.WriteLine("|\t\t\t\t Please enter information as requested: \t\t\t\t|");
+            Console.WriteLine("|\t\t\t\t\t\t\t\t\t\t\t\t\t|");
+            HelperMethods.WriteLineFitBox("|\t\t\t\t\t Customer ID: ", customer.CustomerId.ToString(), "|", 50);
+            Console.WriteLine("|\t\t\t\t\t\t\t\t\t\t\t\t\t|");
+            HelperMethods.WriteLineFitBox("|\t\t\t\t\t Electric or Petrol: ", lawnMowerType, "|", 43);
+            Console.WriteLine("|\t\t\t\t\t\t\t\t\t\t\t\t\t|");
+            Console.WriteLine("|\t\t\t\t\t Rental Date: \t\t\t\t\t\t\t|");
+            Console.WriteLine("|\t\t\t\t\t\t\t\t\t\t\t\t\t|");
+            Console.WriteLine("|\t\t\t\t\t Return Date: \t\t\t\t\t\t\t|");
+            Console.WriteLine("|\t\t\t\t\t\t\t\t\t\t\t\t\t|");
+            Console.WriteLine("|\t\t\t\t\t\t\t\t\t\t\t\t\t|");
+            Console.WriteLine("|\t\t\t\t\t\t\t\t\t\t\t\t\t|");
+            Console.WriteLine("|\t\t\t\t\t\t\t\t\t\t\t\t\t|");
+            Console.WriteLine("|\t\t\t\t\t\t\t\t\t\t\t\t\t|");
+            Console.WriteLine("|*******************************************************************************************************|");
+
 
             string rentalDate;
             DateTime rentalDateValid;
@@ -95,6 +142,8 @@ namespace Lawn_Mower_Rental_App.View
             Console.WriteLine("|\t\t\t\t Please enter information as requested: \t\t\t\t|");
             Console.WriteLine("|\t\t\t\t\t\t\t\t\t\t\t\t\t|");
             HelperMethods.WriteLineFitBox("|\t\t\t\t\t Customer ID: ", customer.CustomerId.ToString(), "|", 50);
+            Console.WriteLine("|\t\t\t\t\t\t\t\t\t\t\t\t\t|");
+            HelperMethods.WriteLineFitBox("|\t\t\t\t\t Electric or Petrol: ", lawnMowerType, "|", 43);
             Console.WriteLine("|\t\t\t\t\t\t\t\t\t\t\t\t\t|");
             Console.WriteLine($"|\t\t\t\t\t Rental Date: {rentalDateValid.ToString("d")}\t\t\t\t\t|");
             Console.WriteLine("|\t\t\t\t\t\t\t\t\t\t\t\t\t|");
@@ -133,6 +182,8 @@ namespace Lawn_Mower_Rental_App.View
             Console.WriteLine("|\t\t\t\t\t\t\t\t\t\t\t\t\t|");
             HelperMethods.WriteLineFitBox("|\t\t\t\t\t Customer ID: ", customer.CustomerId.ToString(), "|", 50);
             Console.WriteLine("|\t\t\t\t\t\t\t\t\t\t\t\t\t|");
+            HelperMethods.WriteLineFitBox("|\t\t\t\t\t Electric or Petrol: ", lawnMowerType, "|", 43);
+            Console.WriteLine("|\t\t\t\t\t\t\t\t\t\t\t\t\t|");
             Console.WriteLine($"|\t\t\t\t\t Rental Date: {rentalDateValid.ToString("d")}\t\t\t\t\t|");
             Console.WriteLine("|\t\t\t\t\t\t\t\t\t\t\t\t\t|");
             Console.WriteLine($"|\t\t\t\t\t Return Date: {returnDateValid.ToString("d")}\t\t\t\t\t|");
@@ -146,7 +197,7 @@ namespace Lawn_Mower_Rental_App.View
             Console.WriteLine("|*******************************************************************************************************|");
             Console.ReadKey();
 
-            Rental rentalToAdd = rentalManager.RentLawnMower(customer, rentalDateValid, returnDateValid);
+            Rental rentalToAdd = rentalManager.RentLawnMower(customer, rentalDateValid, returnDateValid, electric);
             rentalManager.AddRentalToList(rentalToAdd);
 
             Console.Clear();
@@ -159,6 +210,8 @@ namespace Lawn_Mower_Rental_App.View
             Console.WriteLine("|\t\t\t\t Please enter information as requested: \t\t\t\t|");
             Console.WriteLine("|\t\t\t\t\t\t\t\t\t\t\t\t\t|");
             HelperMethods.WriteLineFitBox("|\t\t\t\t\t Customer ID: ", customer.CustomerId.ToString(), "|", 50);
+            Console.WriteLine("|\t\t\t\t\t\t\t\t\t\t\t\t\t|");
+            HelperMethods.WriteLineFitBox("|\t\t\t\t\t Electric or Petrol: ", lawnMowerType, "|", 43);
             Console.WriteLine("|\t\t\t\t\t\t\t\t\t\t\t\t\t|");
             Console.WriteLine($"|\t\t\t\t\t Rental Date: {rentalDateValid.ToString("d")}\t\t\t\t\t|");
             Console.WriteLine("|\t\t\t\t\t\t\t\t\t\t\t\t\t|");
@@ -176,7 +229,7 @@ namespace Lawn_Mower_Rental_App.View
             MainMenu.MainMenu_();
         }
 
-        public static void CustomerNotFoundMessage(int customerId)
+        public static void CustomerNotFoundMessage(int customerId)//Check box fitting*******************************************************************
         {
             Console.Clear();
             Console.WriteLine("|***************************************** LAWN MOWER RENTAL (TM) **************************************|");
@@ -188,6 +241,8 @@ namespace Lawn_Mower_Rental_App.View
             Console.WriteLine("|\t\t\t\t Please enter information as requested: \t\t\t\t|");
             Console.WriteLine("|\t\t\t\t\t\t\t\t\t\t\t\t\t|");
             HelperMethods.WriteLineFitBox("|\t\t\t\t\t Customer ID: ", customerId.ToString(), "|", 50);
+            Console.WriteLine("|\t\t\t\t\t\t\t\t\t\t\t\t\t|");
+            Console.WriteLine("|\t\t\t\t\t Electric or Petrol: \t\t\t\t\t\t|");
             Console.WriteLine("|\t\t\t\t\t\t\t\t\t\t\t\t\t|");
             Console.WriteLine("|\t\t\t\t\t Rental Date: \t\t\t\t\t\t\t|");
             Console.WriteLine("|\t\t\t\t\t\t\t\t\t\t\t\t\t|");
