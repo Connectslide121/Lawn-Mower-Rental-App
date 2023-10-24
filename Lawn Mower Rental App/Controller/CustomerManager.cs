@@ -18,8 +18,8 @@ namespace Lawn_Mower_Rental_App.Controller
             customers = LoadCustomersFromJson();
         }
 
-        public void RegisterNewCustomer(Customer customer)
-        {
+        public void RegisterNewCustomer(Customer customer, bool isPrimeCustomer) // When i was trying to get PrimeCustomer set in, it made sense to just get Basic and Prime both done in one go. 
+        { // NewCustomerForm has to be updated 
             NewCustomerForm newCustomerForm = new NewCustomerForm();
 
             bool customerExists = customers.Any(item =>
@@ -31,14 +31,31 @@ namespace Lawn_Mower_Rental_App.Controller
             {
                 newCustomerForm.CustomerExistsMessage(customer);
             }
-
             else
             {
-                customers.Add(customer);
+                if (isPrimeCustomer)
+                {
+                    PrimeCustomer primeCustomer = new PrimeCustomer(GetCustomerId());
+                    primeCustomer.FirstName = customer.FirstName;
+                    primeCustomer.LastName = customer.LastName;
+                    primeCustomer.ContactNumber = customer.ContactNumber;
+                    primeCustomer.Address = customer.Address;
+
+                    customers.Add(primeCustomer);
+                }
+                else
+                {
+                    BasicCustomer basicCustomer = new BasicCustomer(GetCustomerId());
+                    basicCustomer.FirstName = customer.FirstName;
+                    basicCustomer.LastName = customer.LastName;
+                    basicCustomer.ContactNumber = customer.ContactNumber;
+                    basicCustomer.Address = customer.Address;
+                    customers.Add(basicCustomer);
+                }
+
                 SaveCustomersToJson(customers);
                 newCustomerForm.CustomerRegisteredMessage(customer);
-            }           
-           
+            }
         }
 
         public int GetCustomerId()
