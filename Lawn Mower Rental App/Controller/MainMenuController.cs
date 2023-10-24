@@ -72,7 +72,6 @@ namespace Lawn_Mower_Rental_App.Controller
                             break;
 
 
-
                         case 11:
                             newCustomerForm.NewCustomerForm_();
                             break;
@@ -89,25 +88,26 @@ namespace Lawn_Mower_Rental_App.Controller
                              CustomerSearchView.DisplaySearchResults(searchResults);
                             break;
 
+
                         case 15:
                             earningsProfitView.DisplayEarningsProfitMenu();
                             break;
-
 
 
                         case 16:
                             Console.WriteLine("Exiting the app...");
                             return;
 
-                    default: 
+
+                        default: 
                             MainMenu.MainMenu_();
                             break;
                     }
 
-                }
-                else 
-                { 
-                    MainMenu.MainMenu_();
+            }
+            else 
+            { 
+                MainMenu.MainMenu_();
 
             }
         }
