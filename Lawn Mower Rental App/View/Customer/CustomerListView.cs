@@ -91,7 +91,7 @@ public class CustomerListView
         Console.WriteLine("|\t\t\t\t\t\t\t\t\t\t\t\t\t|");
         Console.WriteLine("|*******************************************************************************************************|");
         Console.WriteLine("Press any key to go back to the Main Menu.");
-        Console.ReadKey();
+        HelperMethods.ReadLine();
         MainMenu.MainMenu_();
 
     }
@@ -125,7 +125,7 @@ public class CustomerListView
         Console.WriteLine("|\t\t\t\t\t\t\t\t\t\t\t\t\t|");
         Console.WriteLine("|*******************************************************************************************************|");
         Console.WriteLine("Press any key to go back to the Main Menu.");
-        Console.ReadKey();
+        HelperMethods.ReadLine();
         MainMenu.MainMenu_();
 
     }
@@ -160,7 +160,7 @@ public class CustomerListView
         Console.WriteLine("|\t\t\t\t\t\t\t\t\t\t\t\t\t|");
         Console.WriteLine("|*******************************************************************************************************|");
         Console.WriteLine("Press any key to go back to the Main Menu.");
-        Console.ReadKey();
+        HelperMethods.ReadLine();
         MainMenu.MainMenu_();
 
     }

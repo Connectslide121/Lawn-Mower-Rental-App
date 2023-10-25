@@ -195,7 +195,7 @@ namespace Lawn_Mower_Rental_App.View
             Console.WriteLine("|\t\t\t\t\t\t\t\t\t\t\t\t\t|");
             Console.WriteLine("|\t\t\t\t\t\t\t\t\t\t\t\t\t|");
             Console.WriteLine("|*******************************************************************************************************|");
-            Console.ReadKey();
+            HelperMethods.ReadLine();
 
             Rental rentalToAdd = rentalManager.RentLawnMower(customer, rentalDateValid, returnDateValid, electric);
             rentalManager.AddRentalToList(rentalToAdd);
@@ -225,7 +225,7 @@ namespace Lawn_Mower_Rental_App.View
             Console.WriteLine("|\t\t\t\t\t\t\t\t\t\t\t\t\t|");
             Console.WriteLine("|*******************************************************************************************************|");
             Console.WriteLine("Press any key to go back to Main Menu");
-            Console.ReadKey();
+            HelperMethods.ReadLine();
             MainMenu.MainMenu_();
         }
 
@@ -254,7 +254,7 @@ namespace Lawn_Mower_Rental_App.View
             Console.WriteLine("|\t\t\t\t\t\t\t\t\t\t\t\t\t|");
             Console.WriteLine("|*******************************************************************************************************|");
             Console.WriteLine("Press any key to go back to Main Menu");
-            Console.ReadKey();
+            HelperMethods.ReadLine();
             MainMenu.MainMenu_();
 
         }
@@ -281,7 +281,7 @@ namespace Lawn_Mower_Rental_App.View
             Console.WriteLine("|\t\t\t\t\t\t\t\t\t\t\t\t\t|");
             Console.WriteLine("|*******************************************************************************************************|");
             Console.WriteLine("Press any key to go back to Main Menu");
-            Console.ReadKey();
+            HelperMethods.ReadLine();
             MainMenu.MainMenu_();
 
         }

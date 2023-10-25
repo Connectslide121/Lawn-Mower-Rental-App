@@ -115,7 +115,7 @@ public class AddPointsView
         Console.WriteLine("|\t\t\t\t\t\t\t\t\t\t\t\t\t|");
         Console.WriteLine("|*******************************************************************************************************|");
         Console.WriteLine("Press any key to validate");
-        Console.ReadKey();
+        HelperMethods.ReadLine();
 
         customerManager.AddDiscountsToBasicCustomer(customerId, discountsToAdd);
 
@@ -135,7 +135,7 @@ public class AddPointsView
         Console.WriteLine("|\t\t\t\t\t\t\t\t\t\t\t\t\t|");
         Console.WriteLine("|*******************************************************************************************************|");
         Console.WriteLine("Press any key to go back to the main menu.");
-        Console.ReadKey();
+        HelperMethods.ReadLine();
         MainMenu.MainMenu_();
     }
 
@@ -207,7 +207,7 @@ public class AddPointsView
         Console.WriteLine("|\t\t\t\t\t\t\t\t\t\t\t\t\t|");
         Console.WriteLine("|*******************************************************************************************************|");
         Console.WriteLine("Press any key to validate");
-        Console.ReadKey();
+        HelperMethods.ReadLine();
 
         customerManager.AddBonusPointsToPrimeCustomer(customerId, pointsToAdd);
 
@@ -227,7 +227,7 @@ public class AddPointsView
         Console.WriteLine("|\t\t\t\t\t\t\t\t\t\t\t\t\t|");
         Console.WriteLine("|*******************************************************************************************************|");
         Console.WriteLine("Press any key to go back to the main menu.");
-        Console.ReadKey();
+        HelperMethods.ReadLine();
         MainMenu.MainMenu_();
     }
 }

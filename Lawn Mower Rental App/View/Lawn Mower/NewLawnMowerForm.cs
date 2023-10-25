@@ -95,7 +95,7 @@ namespace Lawn_Mower_Rental_App.View
 
                 lawnMowerManager.RegisterElectricLawnMower(electricLawnMower);
 
-                Console.ReadKey();
+                HelperMethods.ReadLine();
                 MainMenu.MainMenu_();
             }
 
@@ -127,7 +127,7 @@ namespace Lawn_Mower_Rental_App.View
 
                 lawnMowerManager.RegisterPetrolLawnMower(petrolLawnMower);
 
-                Console.ReadKey();
+                HelperMethods.ReadLine();
                 MainMenu.MainMenu_();
             }
         }

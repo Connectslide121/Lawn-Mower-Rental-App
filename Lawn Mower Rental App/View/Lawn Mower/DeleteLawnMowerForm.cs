@@ -59,7 +59,7 @@ namespace Lawn_Mower_Rental_App.View
             Console.WriteLine("|\t\t\t\t\t\t\t\t\t\t\t\t\t|");
             Console.WriteLine("|\t\t\t\t\t\t\t\t\t\t\t\t\t|");
             Console.WriteLine("|*******************************************************************************************************|");
-            Console.ReadKey();
+            HelperMethods.ReadLine();
 
             lawnMowerManager.DeleteLawnMower(idToRemoveInt);
         }
@@ -84,7 +84,7 @@ namespace Lawn_Mower_Rental_App.View
             Console.WriteLine("|\t\t\t\t\t\t\t\t\t\t\t\t\t|");
             Console.WriteLine("|*******************************************************************************************************|");
             Console.WriteLine("Press any key to go back to the main menu");
-            Console.ReadKey();
+            HelperMethods.ReadLine();
             MainMenu.MainMenu_();
         }
 
@@ -108,7 +108,7 @@ namespace Lawn_Mower_Rental_App.View
             Console.WriteLine("|\t\t\t\t\t\t\t\t\t\t\t\t\t|");
             Console.WriteLine("|*******************************************************************************************************|");
             Console.WriteLine("Press any key to go back to the main menu");
-            Console.ReadKey();
+            HelperMethods.ReadLine();
             MainMenu.MainMenu_();
         }
     }

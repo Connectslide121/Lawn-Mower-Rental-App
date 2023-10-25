@@ -54,7 +54,7 @@ namespace Lawn_Mower_Rental_App.View
                 Console.WriteLine("|\t\t\t\t\t\t\t\t\t\t\t\t\t|");
                 Console.WriteLine("|*******************************************************************************************************|");
                 Console.WriteLine("Press any key to go back to Main Menu");
-                Console.ReadKey();
+                HelperMethods.ReadLine();
                 MainMenu.MainMenu_();
             }
             else
@@ -82,7 +82,7 @@ namespace Lawn_Mower_Rental_App.View
                 Console.WriteLine("|\t\t\t\t\t\t\t\t\t\t\t\t\t|");
                 Console.WriteLine("|*******************************************************************************************************|");
                 Console.WriteLine("Press any key to go back to Main Menu");
-                Console.ReadKey();
+                HelperMethods.ReadLine();
                 MainMenu.MainMenu_();
             }
         }
