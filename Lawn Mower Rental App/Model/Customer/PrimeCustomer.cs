@@ -14,6 +14,11 @@ namespace Lawn_Mower_Rental_App.Model
         {
             BonusPoints = 0;
         }
+
+        public override string ToString()
+        {
+            return $"ID: {CustomerId} - {FirstName} {LastName} - {ContactNumber} - {Address} - {DateOfRegistry.ToString("d")} - Discounts: {BonusPoints.ToString()}";
+        }
     }
 }
 
