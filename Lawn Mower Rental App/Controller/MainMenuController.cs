@@ -84,6 +84,11 @@ namespace Lawn_Mower_Rental_App.Controller
 
                 }
             }
+            else
+            {
+                MainMenu.RentalMenu();
+            }
+
         }
         public static void LawnMowerMenuController(string userInput)
         {
@@ -114,7 +119,10 @@ namespace Lawn_Mower_Rental_App.Controller
 
                 }
             }
-
+            else
+            {
+                MainMenu.LawnMowerMenu();
+            }
         }
 
         public static void CustomerMenuController(string userInput)
@@ -123,6 +131,7 @@ namespace Lawn_Mower_Rental_App.Controller
             DeleteCustomerForm deleteCustomerForm = new DeleteCustomerForm();
             CustomerManager customerManager = new CustomerManager();
             CustomerSearchView customerSearchView = new CustomerSearchView();
+            AddPointsView addPointsView = new AddPointsView();
 
             if (int.TryParse(userInput, out int userInputInt))
             {
@@ -140,13 +149,19 @@ namespace Lawn_Mower_Rental_App.Controller
                     case 4:
                         customerSearchView.SearchCustomers();
                         break;
+                    case 5:
+                        addPointsView.AddPointsMenu();
+                        break;
                     default:
                         MainMenu.CustomerMenu();
                         break;
 
                 }
             }
-
+            else
+            {
+                MainMenu.CustomerMenu();
+            }
         }
 
         public static void AccountingMenuController(string userInput)
@@ -165,6 +180,10 @@ namespace Lawn_Mower_Rental_App.Controller
                         break;
 
                 }
+            }
+            else
+            {
+                MainMenu.AccountingMenu();
             }
         }
     }

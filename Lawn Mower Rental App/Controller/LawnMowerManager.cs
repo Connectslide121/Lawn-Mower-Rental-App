@@ -19,9 +19,6 @@ namespace Lawn_Mower_Rental_App.Controller
         private List<ElectricLawnMower> electricLawnMowers;
         string relativePathElectric = Path.Combine(Path.GetFullPath(Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "..", "..", "..", "Data")), "ElectricLawnMowerData.json");
 
-
-
-
         private List<Rental> rentals;
         string relativePathRentals = Path.Combine(Path.GetFullPath(Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "..", "..", "..", "Data")), "RentalData.json");
 
