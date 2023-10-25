@@ -24,6 +24,7 @@ namespace Lawn_Mower_Rental_App.Controller
             primeCustomers = LoadPrimeCustomersFromJson();
             rentals = LoadRentalsFromJson();
             UpdatePrimeCustomerBonusPoints();
+            ResetBasicCustomerDiscounts();
         }
 
         public void RegisterNewCustomer(BasicCustomer basicCustomer)
@@ -370,6 +371,20 @@ namespace Lawn_Mower_Rental_App.Controller
                 else
                 {
                     changeCustomerView.CustomerNotFound(customerId);
+                }
+            }
+        }
+
+        public void ResetBasicCustomerDiscounts()
+        {
+            if (DateTime.Today.Month == 1 && DateTime.Today.Day == 1)
+            {
+                foreach (BasicCustomer basicCustomer in basicCustomers)
+                {
+                    if (basicCustomer.RemainingDiscounts == 0)
+                    {
+                        basicCustomer.RemainingDiscounts = 1;
+                    }
                 }
             }
         }
