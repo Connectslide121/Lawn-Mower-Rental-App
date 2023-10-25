@@ -11,55 +11,20 @@ namespace Lawn_Mower_Rental_App.View
 {
     public class ChangeCustomerView
     {
-        private CustomerManager customerManager;
-        public ChangeCustomerView()
-        {
-            customerManager = new CustomerManager();
-        }
-        public void ChangeCustomerMenu()
-        {
-            while (true)
-            {
-                Console.Clear();
-                Console.WriteLine("|***************************************** LAWN MOWER RENTAL (TM) **************************************|");
-                Console.WriteLine("|\t\t\t\t\t\t\t\t\t\t\t\t\t|");
-                Console.WriteLine("|\t\t\t\t\t\t\t\t\t\t\t\t\t|");
-                HelperMethods.WriteColoredText("|\t\t\t\t\t   CHANGE CUSTOMER TYPE MENU \t\t\t\t\t|", "CHANGE CUSTOMER TYPE MENU", ConsoleColor.Yellow);
-                Console.WriteLine("|\t\t\t\t\t\t\t\t\t\t\t\t\t|");
-                Console.WriteLine("|\t\t\t\t\t\t\t\t\t\t\t\t\t|");
-                Console.WriteLine("|\t\t\t\t\t   01.- Change Customer Type by Customer ID \t\t\t\t|");
-                Console.WriteLine("|\t\t\t\t\t\t\t\t\t\t\t\t\t|");
-                Console.WriteLine("|\t\t\t\t\t   02.- Go back to Main Menu \t\t\t\t\t\t|");
-                Console.WriteLine("|\t\t\t\t\t\t\t\t\t\t\t\t\t|");
-                Console.WriteLine("|\t\t\t\t\t\t\t\t\t\t\t\t\t|");
-                Console.WriteLine("|*******************************************************************************************************|");
-                Console.WriteLine("Please enter your option of choice:");
-                string option = HelperMethods.ReadLine();
+        CustomerManager customerManager = new CustomerManager();
 
-                switch (option)
-                {
-                    case "1":
-                        ChangeCustomerType();
-                        break;
-                    case "2":
-                        return; // Go back to the main menu
-                    default:
-                        Console.WriteLine("Invalid option. Please try again.");
-                        break;
-                }
-            }
-        }
         public void ChangeCustomerType()
         {
+            
 
             Console.Clear();
             Console.WriteLine("|***************************************** LAWN MOWER RENTAL (TM) **************************************|");
             Console.WriteLine("|\t\t\t\t\t\t\t\t\t\t\t\t\t|");
             Console.WriteLine("|\t\t\t\t\t\t\t\t\t\t\t\t\t|");
-            HelperMethods.WriteColoredText("|\t\t\t\t\t   CHANGE CUSTOMER TYPE BY CUSTOMER ID \t\t\t\t\t|", "CHANGE CUSTOMER TYPE BY CUSTOMER ID", ConsoleColor.Yellow);
+            HelperMethods.WriteColoredText("|\t\t\t\t\tCHANGE CUSTOMER TYPE BY CUSTOMER ID \t\t\t\t|", "CHANGE CUSTOMER TYPE BY CUSTOMER ID", ConsoleColor.Yellow);
             Console.WriteLine("|\t\t\t\t\t\t\t\t\t\t\t\t\t|");
             Console.WriteLine("|\t\t\t\t\t\t\t\t\t\t\t\t\t|");
-            Console.WriteLine("|\t\t\t\t\t   Enter Customer ID: \t\t\t\t\t\t|");
+            Console.WriteLine("|\t\t\t\t\t   Customer ID: \t\t\t\t\t\t|");
             Console.WriteLine("|\t\t\t\t\t\t\t\t\t\t\t\t\t|");
             Console.WriteLine("|\t\t\t\t\t\t\t\t\t\t\t\t\t|");
             Console.WriteLine("|\t\t\t\t\t\t\t\t\t\t\t\t\t|");
@@ -75,66 +40,116 @@ namespace Lawn_Mower_Rental_App.View
                 customerIdInput = HelperMethods.ReadLine();
             }
 
-            Customer customer;
-            if (customerManager.TryFindCustomerById(customerId, out customer))
-            {
-                Console.WriteLine("Customer found. Do something with the customer...");
-            }
-            else
-            {
-                RentLawnMowerForm.CustomerNotFoundMessage(customerId);
-            }
+            customerManager.ChangeCustomerTypeById(customerId);
+        }
+
+        public void UpgradeBasicToPrime(int customerId)
+        {
+            Console.Clear();
+            Console.WriteLine("|***************************************** LAWN MOWER RENTAL (TM) **************************************|");
+            Console.WriteLine("|\t\t\t\t\t\t\t\t\t\t\t\t\t|");
+            Console.WriteLine("|\t\t\t\t\t\t\t\t\t\t\t\t\t|");
+            HelperMethods.WriteColoredText("|\t\t\t\t\tCHANGE CUSTOMER TYPE BY CUSTOMER ID \t\t\t\t|", "CHANGE CUSTOMER TYPE BY CUSTOMER ID", ConsoleColor.Yellow);
+            Console.WriteLine("|\t\t\t\t\t\t\t\t\t\t\t\t\t|");
+            Console.WriteLine("|\t\t\t\t\t\t\t\t\t\t\t\t\t|");
+            Console.WriteLine($"|\t\t\t\t\t   Customer ID: {customerId}\t\t\t\t\t\t|");
+            Console.WriteLine("|\t\t\t\t\t\t\t\t\t\t\t\t\t|");
+            Console.WriteLine("|\t\t\t\t\tBasic customer found\t\t\t\t\t\t|");
+            Console.WriteLine("|\t\t\t\t\t\t\t\t\t\t\t\t\t|");
+            Console.WriteLine("|\t\t\t\t\t\t\t\t\t\t\t\t\t|");
+            Console.WriteLine("|*******************************************************************************************************|");
+            Console.WriteLine("Press any key to upgrade to Prime");
+            HelperMethods.ReadLine();
+
+            customerManager.ConvertBasicToPrime(customerId);
 
             Console.Clear();
             Console.WriteLine("|***************************************** LAWN MOWER RENTAL (TM) **************************************|");
-            Console.WriteLine("Customer Details:");
-            Console.WriteLine("Customer ID: " + customer.CustomerId);
-            Console.WriteLine("Name: " + customer.FirstName + " " + customer.LastName);
-            Console.WriteLine("Address: " + customer.Address);
-            Console.WriteLine("Contact Number: " + customer.ContactNumber);
-            Console.WriteLine("Customer Type: " + (customer is BasicCustomer ? "Basic" : "Prime"));
+            Console.WriteLine("|\t\t\t\t\t\t\t\t\t\t\t\t\t|");
+            Console.WriteLine("|\t\t\t\t\t\t\t\t\t\t\t\t\t|");
+            HelperMethods.WriteColoredText("|\t\t\t\t\tCHANGE CUSTOMER TYPE BY CUSTOMER ID \t\t\t\t|", "CHANGE CUSTOMER TYPE BY CUSTOMER ID", ConsoleColor.Yellow);
+            Console.WriteLine("|\t\t\t\t\t\t\t\t\t\t\t\t\t|");
+            Console.WriteLine("|\t\t\t\t\t\t\t\t\t\t\t\t\t|");
+            Console.WriteLine($"|\t\t\t\t\t   Customer ID: {customerId}\t\t\t\t\t\t|");
+            Console.WriteLine("|\t\t\t\t\t\t\t\t\t\t\t\t\t|");
+            Console.WriteLine("|\t\t\t\t   Customer upgraded successfully!\t\t\t\t\t|");
+            Console.WriteLine("|\t\t\t\t\t\t\t\t\t\t\t\t\t|");
+            Console.WriteLine("|\t\t\t\t\t\t\t\t\t\t\t\t\t|");
             Console.WriteLine("|*******************************************************************************************************|");
+            Console.WriteLine("Press any key to go back to Main Menu");
+            HelperMethods.ReadLine();
+            MainMenu.MainMenu_();
 
-            if (customer is BasicCustomer)
-            {
-                Console.WriteLine("1. Change to Prime Customer");
-            }
-            else if (customer is PrimeCustomer)
-            {
-                Console.WriteLine("2. Change to Basic Customer");
-            }
-            Console.WriteLine("3. Cancel and go back to Main Menu");
-
-            Console.WriteLine("Please enter your choice:");
-
-            string choice = HelperMethods.ReadLine();
-
-            switch (choice)
-            {
-                case "1":
-                    if (customer is BasicCustomer)
-                    {
-                        customerManager.ConvertBasicToPrime(customerId);
-                        Console.WriteLine("Customer changed to Prime. Press any key to continue.");
-                        HelperMethods.ReadLine();
-                    }
-                    break;
-                case "2":
-                    if (customer is PrimeCustomer)
-                    {
-                        customerManager.ConvertPrimeToBasic(customerId);
-                        Console.WriteLine("Customer changed to Basic. Press any key to continue.");
-                        HelperMethods.ReadLine();
-                    }
-                    break;
-                case "3":
-                    // Go back to the main menu
-                    return;
-                default:
-                    Console.WriteLine("Invalid option. Press any key to continue.");
-                    HelperMethods.ReadLine();
-                    break;
-            }
         }
+
+        public void DowngradePrimeToBasic(int customerId)
+        {
+            Console.Clear();
+            Console.WriteLine("|***************************************** LAWN MOWER RENTAL (TM) **************************************|");
+            Console.WriteLine("|\t\t\t\t\t\t\t\t\t\t\t\t\t|");
+            Console.WriteLine("|\t\t\t\t\t\t\t\t\t\t\t\t\t|");
+            HelperMethods.WriteColoredText("|\t\t\t\t\tCHANGE CUSTOMER TYPE BY CUSTOMER ID \t\t\t\t|", "CHANGE CUSTOMER TYPE BY CUSTOMER ID", ConsoleColor.Yellow);
+            Console.WriteLine("|\t\t\t\t\t\t\t\t\t\t\t\t\t|");
+            Console.WriteLine("|\t\t\t\t\t\t\t\t\t\t\t\t\t|");
+            Console.WriteLine($"|\t\t\t\t\t   Customer ID: {customerId}\t\t\t\t\t\t|");
+            Console.WriteLine("|\t\t\t\t\t\t\t\t\t\t\t\t\t|");
+            Console.WriteLine("|\t\t\t\t\tPrime customer found\t\t\t\t\t\t|");
+            Console.WriteLine("|\t\t\t\t\t\t\t\t\t\t\t\t\t|");
+            Console.WriteLine("|\t\t\t\t\t\t\t\t\t\t\t\t\t|");
+            Console.WriteLine("|*******************************************************************************************************|");
+            Console.WriteLine("Press any key to downgrade to Basic");
+            HelperMethods.ReadLine();
+
+            customerManager.ConvertPrimeToBasic(customerId);
+
+            Console.Clear();
+            Console.WriteLine("|***************************************** LAWN MOWER RENTAL (TM) **************************************|");
+            Console.WriteLine("|\t\t\t\t\t\t\t\t\t\t\t\t\t|");
+            Console.WriteLine("|\t\t\t\t\t\t\t\t\t\t\t\t\t|");
+            HelperMethods.WriteColoredText("|\t\t\t\t\tCHANGE CUSTOMER TYPE BY CUSTOMER ID \t\t\t\t|", "CHANGE CUSTOMER TYPE BY CUSTOMER ID", ConsoleColor.Yellow);
+            Console.WriteLine("|\t\t\t\t\t\t\t\t\t\t\t\t\t|");
+            Console.WriteLine("|\t\t\t\t\t\t\t\t\t\t\t\t\t|");
+            Console.WriteLine($"|\t\t\t\t\t   Customer ID: {customerId}\t\t\t\t\t\t|");
+            Console.WriteLine("|\t\t\t\t\t\t\t\t\t\t\t\t\t|");
+            Console.WriteLine("|\t\t\t\t   Customer downgraded successfully!\t\t\t\t\t|");
+            Console.WriteLine("|\t\t\t\t\t\t\t\t\t\t\t\t\t|");
+            Console.WriteLine("|\t\t\t\t\t\t\t\t\t\t\t\t\t|");
+            Console.WriteLine("|*******************************************************************************************************|");
+            Console.WriteLine("Press any key to go back to Main Menu");
+            HelperMethods.ReadLine();
+            MainMenu.MainMenu_();
+
+        }
+
+        public void CustomerNotFound(int customerId)
+        {
+            Console.Clear();
+            Console.WriteLine("|***************************************** LAWN MOWER RENTAL (TM) **************************************|");
+            Console.WriteLine("|\t\t\t\t\t\t\t\t\t\t\t\t\t|");
+            Console.WriteLine("|\t\t\t\t\t\t\t\t\t\t\t\t\t|");
+            HelperMethods.WriteColoredText("|\t\t\t\t\tCHANGE CUSTOMER TYPE BY CUSTOMER ID \t\t\t\t|", "CHANGE CUSTOMER TYPE BY CUSTOMER ID", ConsoleColor.Yellow);
+            Console.WriteLine("|\t\t\t\t\t\t\t\t\t\t\t\t\t|");
+            Console.WriteLine("|\t\t\t\t\t\t\t\t\t\t\t\t\t|");
+            Console.WriteLine($"|\t\t\t\t\t   Customer ID: {customerId}\t\t\t\t\t\t|");
+            Console.WriteLine("|\t\t\t\t\t\t\t\t\t\t\t\t\t|");
+            Console.WriteLine("|\t\t\t\t\tCustomer not found\t\t\t\t\t\t|");
+            Console.WriteLine("|\t\t\t\t\t\t\t\t\t\t\t\t\t|");
+            Console.WriteLine("|\t\t\t\t\t\t\t\t\t\t\t\t\t|");
+            Console.WriteLine("|*******************************************************************************************************|");
+            Console.WriteLine("Press any key to go back to Main Menu");
+            HelperMethods.ReadLine();
+            MainMenu.MainMenu_();
+        }
+
+
+
+
+
+
+
+
+
+
+
     }
 }

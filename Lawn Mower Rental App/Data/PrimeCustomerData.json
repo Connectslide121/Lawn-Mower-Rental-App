@@ -52,5 +52,14 @@
     "ContactNumber": 15654898,
     "Address": "Storgatan 10, Assheholm",
     "DateOfRegistry": "2023-10-25T12:31:34.0262102+02:00"
+  },
+  {
+    "BonusPoints": 2722,
+    "CustomerId": 5,
+    "FirstName": "Kjell",
+    "LastName": "Bergstr\u00F6m",
+    "ContactNumber": 1548765,
+    "Address": "Elsa Brandstroms gata 60A, Hagersten",
+    "DateOfRegistry": "2023-10-25T12:14:09.1527756+02:00"
   }
 ]

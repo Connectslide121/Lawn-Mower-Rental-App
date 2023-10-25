@@ -14,9 +14,9 @@ namespace Lawn_Mower_Rental_App.View
     {
         public static void MainMenu_()
         {
-            CustomerManager customerManager = new CustomerManager();
-            LawnMowerManager lawnMowerManager = new LawnMowerManager();
-            RentalManager rentalManager = new RentalManager();
+            CustomerManager customerManager = new CustomerManager();//Do not remove, important for periodic checks of specific properties
+            LawnMowerManager lawnMowerManager = new LawnMowerManager();//Do not remove, important for periodic checks of specific properties
+            RentalManager rentalManager = new RentalManager();//Do not remove, important for periodic checks of specific properties
 
             Console.Clear();
             Console.WriteLine("|***************************************** LAWN MOWER RENTAL (TM) **************************************|");
@@ -50,7 +50,7 @@ namespace Lawn_Mower_Rental_App.View
             Console.WriteLine("|***************************************** LAWN MOWER RENTAL (TM) **************************************|");
             Console.WriteLine("|\t\t\t\t\t\t\t\t\t\t\t\t\t|");
             Console.WriteLine("|\t\t\t\t\t\t\t\t\t\t\t\t\t|");
-            HelperMethods.WriteColoredText("|\t\t\t\t\t\t RENTAL MENU \t\t\t\t\t\t|", "RENTAL MENU", ConsoleColor.Blue);
+            HelperMethods.WriteColoredText("|\t\t\t\t\t\t RENTAL MENU \t\t\t\t\t\t|", "RENTAL MENU", ConsoleColor.Magenta);
             Console.WriteLine("|\t\t\t\t\t\t\t\t\t\t\t\t\t|");
             Console.WriteLine("|\t\t\t Select an option by entering the corresponding number or \t\t\t|");
             Console.WriteLine("|\t\t\t\t type \"exit\" to go back to the main menu\t\t\t\t|");
@@ -81,7 +81,7 @@ namespace Lawn_Mower_Rental_App.View
             Console.WriteLine("|***************************************** LAWN MOWER RENTAL (TM) **************************************|");
             Console.WriteLine("|\t\t\t\t\t\t\t\t\t\t\t\t\t|");
             Console.WriteLine("|\t\t\t\t\t\t\t\t\t\t\t\t\t|");
-            HelperMethods.WriteColoredText("|\t\t\t\t\t\t LAWN MOWER MENU \t\t\t\t\t|", "LAWN MOWER MENU", ConsoleColor.Blue);
+            HelperMethods.WriteColoredText("|\t\t\t\t\t\t LAWN MOWER MENU \t\t\t\t\t|", "LAWN MOWER MENU", ConsoleColor.Green);
             Console.WriteLine("|\t\t\t\t\t\t\t\t\t\t\t\t\t|");
             Console.WriteLine("|\t\t\t Select an option by entering the corresponding number or \t\t\t|");
             Console.WriteLine("|\t\t\t\t type \"exit\" to go back to the main menu\t\t\t\t|");
@@ -108,7 +108,7 @@ namespace Lawn_Mower_Rental_App.View
             Console.WriteLine("|***************************************** LAWN MOWER RENTAL (TM) **************************************|");
             Console.WriteLine("|\t\t\t\t\t\t\t\t\t\t\t\t\t|");
             Console.WriteLine("|\t\t\t\t\t\t\t\t\t\t\t\t\t|");
-            HelperMethods.WriteColoredText("|\t\t\t\t\t\t CUSTOMER MENU \t\t\t\t\t\t|", "CUSTOMER MENU", ConsoleColor.Blue);
+            HelperMethods.WriteColoredText("|\t\t\t\t\t\t CUSTOMER MENU \t\t\t\t\t\t|", "CUSTOMER MENU", ConsoleColor.Yellow);
             Console.WriteLine("|\t\t\t\t\t\t\t\t\t\t\t\t\t|");
             Console.WriteLine("|\t\t\t Select an option by entering the corresponding number or \t\t\t|");
             Console.WriteLine("|\t\t\t\t type \"exit\" to go back to the main menu\t\t\t\t|");
@@ -124,6 +124,8 @@ namespace Lawn_Mower_Rental_App.View
             Console.WriteLine("|\t\t\t\t\t\t\t\t\t\t\t\t\t|");
             Console.WriteLine("|\t\t\t\t\t 05.- Add points/discounts to customer \t\t\t\t|");
             Console.WriteLine("|\t\t\t\t\t\t\t\t\t\t\t\t\t|");
+            Console.WriteLine("|\t\t\t\t\t 06.- Upgrade/downgrade customer \t\t\t\t|");
+            Console.WriteLine("|\t\t\t\t\t\t\t\t\t\t\t\t\t|");
             Console.WriteLine("|\t\t\t\t\t\t\t\t\t\t\t\t\t|");
             Console.WriteLine("|*******************************************************************************************************|");
             Console.WriteLine("Enter the number of your choice:");
@@ -136,7 +138,7 @@ namespace Lawn_Mower_Rental_App.View
             Console.WriteLine("|***************************************** LAWN MOWER RENTAL (TM) **************************************|");
             Console.WriteLine("|\t\t\t\t\t\t\t\t\t\t\t\t\t|");
             Console.WriteLine("|\t\t\t\t\t\t\t\t\t\t\t\t\t|");
-            HelperMethods.WriteColoredText("|\t\t\t\t\t\t ACCOUNTING MENU \t\t\t\t\t|", "ACCOUNTING MENU", ConsoleColor.Blue);
+            HelperMethods.WriteColoredText("|\t\t\t\t\t\t ACCOUNTING MENU \t\t\t\t\t|", "ACCOUNTING MENU", ConsoleColor.Cyan);
             Console.WriteLine("|\t\t\t\t\t\t\t\t\t\t\t\t\t|");
             Console.WriteLine("|\t\t\t Select an option by entering the corresponding number or \t\t\t|");
             Console.WriteLine("|\t\t\t\t type \"exit\" to go back to the main menu\t\t\t\t|");

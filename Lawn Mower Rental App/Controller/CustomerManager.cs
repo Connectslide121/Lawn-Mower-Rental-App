@@ -185,7 +185,7 @@ namespace Lawn_Mower_Rental_App.Controller
                 RentLawnMowerForm.RentLawnMowerForm__(basicCustomer);
             }
 
-            else if (basicCustomer == null)
+            else
             {
                 PrimeCustomer primeCustomer = primeCustomers.Find(customer => customer.CustomerId == customerId);
 
@@ -194,7 +194,7 @@ namespace Lawn_Mower_Rental_App.Controller
                     RentLawnMowerForm.RentLawnMowerForm__(primeCustomer);
                 }
 
-                else if(primeCustomer == null)
+                else
                 {
                     RentLawnMowerForm.CustomerNotFoundMessage(customerId);
                 }
@@ -336,7 +336,7 @@ namespace Lawn_Mower_Rental_App.Controller
 
         public bool TryFindCustomerById(int customerId, out Customer customer) // This is an bad solution, but i could not get the existing FindbyId to work without breaking RentLawnMower.
         {
-            Customer foundCustomer = null;
+            Customer foundCustomer = null;//THIS METHOD IS NEVER RETURNING TRUE, foundCustomer IS SET TO NULL, SO IT WILL ALWAYS RETURN FALSE.   JON
             
             if (foundCustomer != null)
             {
@@ -345,6 +345,33 @@ namespace Lawn_Mower_Rental_App.Controller
             }
             customer = null;
             return false;
+        }
+
+        public void ChangeCustomerTypeById(int customerId)
+        {
+            ChangeCustomerView changeCustomerView = new ChangeCustomerView();
+
+            BasicCustomer basicCustomer = basicCustomers.Find(customer => customer.CustomerId == customerId);
+
+            if (basicCustomer != null)
+            {
+                changeCustomerView.UpgradeBasicToPrime(customerId);
+            }
+
+            else
+            {
+                PrimeCustomer primeCustomer = primeCustomers.Find(customer => customer.CustomerId == customerId);
+
+                if (primeCustomer != null)
+                {
+                    changeCustomerView.DowngradePrimeToBasic(customerId);
+                }
+
+                else
+                {
+                    changeCustomerView.CustomerNotFound(customerId);
+                }
+            }
         }
     }
 }

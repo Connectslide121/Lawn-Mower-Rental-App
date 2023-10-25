@@ -1,14 +1,5 @@
 [
   {
-    "RemainingDiscounts": 0,
-    "CustomerId": 5,
-    "FirstName": "Kjell",
-    "LastName": "Bergstr\u00F6m",
-    "ContactNumber": 1548765,
-    "Address": "Elsa Brandstroms gata 60A, Hagersten",
-    "DateOfRegistry": "2023-10-25T12:14:09.1527756+02:00"
-  },
-  {
     "RemainingDiscounts": 1,
     "CustomerId": 6,
     "FirstName": "Robert",
