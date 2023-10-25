@@ -119,20 +119,9 @@ namespace Lawn_Mower_Rental_App.Controller
             }
         }
 
-        public void ViewListOfCustomers(CustomerType customerType)
+        public void ViewListOfCustomers()
         {
-            List<Customer> allCustomers = new List<Customer>();
-
-            if (customerType == CustomerType.Basic)
-            {
-                allCustomers.AddRange(basicCustomers);
-            }
-            else
-            {
-                allCustomers.AddRange(primeCustomers);
-            }
-
-            CustomerListView.DisplayCustomerList(allCustomers);
+            CustomerListView.DisplayCustomerList(basicCustomers, primeCustomers);
         }
 
         private List<BasicCustomer> LoadBasicCustomersFromJson()
@@ -183,20 +172,28 @@ namespace Lawn_Mower_Rental_App.Controller
             catch { ErrorsExceptions.CustomerFileNotFoundException(); }
         }
 
-        public void FindCustomerById(int customerId, CustomerType customerType)
+        public void FindCustomerById(int customerId)
         {
-            var customers = customerType == CustomerType.Basic
-                ? basicCustomers.Cast<Customer>().ToList()
-                : primeCustomers.Cast<Customer>().ToList();
+            BasicCustomer basicCustomer = basicCustomers.Find(customer => customer.CustomerId == customerId);
 
-            Customer foundCustomer = customers.Find(cust => cust.CustomerId == customerId);
-            if (foundCustomer != null)
+            if (basicCustomer != null)
             {
-                RentLawnMowerForm.RentLawnMowerForm__(foundCustomer);
+                RentLawnMowerForm.RentLawnMowerForm__(basicCustomer);
             }
-            else
+
+            else if (basicCustomer == null)
             {
-                RentLawnMowerForm.CustomerNotFoundMessage(customerId);
+                PrimeCustomer primeCustomer = primeCustomers.Find(customer => customer.CustomerId == customerId);
+
+                if(primeCustomer != null)
+                {
+                    RentLawnMowerForm.RentLawnMowerForm__(primeCustomer);
+                }
+
+                else if(primeCustomer == null)
+                {
+                    RentLawnMowerForm.CustomerNotFoundMessage(customerId);
+                }
             }
         }
 

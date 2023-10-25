@@ -109,6 +109,7 @@ namespace Lawn_Mower_Rental_App.View
                 Console.WriteLine("Invalid input. Please enter a valid integer for contact number:");
                 contactNumberInput = HelperMethods.ReadLine();
             }
+
             Console.Clear();
             Console.WriteLine("|***************************************** LAWN MOWER RENTAL (TM) **************************************|");
             Console.WriteLine("|\t\t\t\t\t\t\t\t\t\t\t\t\t|");
@@ -123,7 +124,7 @@ namespace Lawn_Mower_Rental_App.View
             Console.WriteLine("|\t\t\t\t\t\t\t\t\t\t\t\t\t|");
             HelperMethods.WriteLineFitBox("|\t\t\t\t\t Last name: ", lastName, "|", 52);
             Console.WriteLine("|\t\t\t\t\t\t\t\t\t\t\t\t\t|");
-            HelperMethods.WriteLineFitBox("|\t\t\t\t\t Contact number: ", contactNumber, "|", 47);
+            HelperMethods.WriteLineFitBox("|\t\t\t\t\t Contact number: ", contactNumberInput, "|", 47);
             Console.WriteLine("|\t\t\t\t\t\t\t\t\t\t\t\t\t|");
             Console.WriteLine("|\t\t\t\t\t Address: \t\t\t\t\t\t\t|");
             Console.WriteLine("|\t\t\t\t\t\t\t\t\t\t\t\t\t|");
@@ -138,6 +139,7 @@ namespace Lawn_Mower_Rental_App.View
             Console.WriteLine("|*******************************************************************************************************|");
             Console.WriteLine("Please enter address:");
             string address = HelperMethods.ReadLine();
+
             Console.Clear();
             Console.WriteLine("|***************************************** LAWN MOWER RENTAL (TM) **************************************|");
             Console.WriteLine("|\t\t\t\t\t\t\t\t\t\t\t\t\t|");
@@ -152,7 +154,7 @@ namespace Lawn_Mower_Rental_App.View
             Console.WriteLine("|\t\t\t\t\t\t\t\t\t\t\t\t\t|");
             HelperMethods.WriteLineFitBox("|\t\t\t\t\t Last name: ", lastName, "|", 52);
             Console.WriteLine("|\t\t\t\t\t\t\t\t\t\t\t\t\t|");
-            HelperMethods.WriteLineFitBox("|\t\t\t\t\t Contact number: ", contactNumber, "|", 47);
+            HelperMethods.WriteLineFitBox("|\t\t\t\t\t Contact number: ", contactNumberInput, "|", 47);
             Console.WriteLine("|\t\t\t\t\t\t\t\t\t\t\t\t\t|");
             HelperMethods.WriteLineFitBox("|\t\t\t\t\t Address: ", address, "|", 54);
             Console.WriteLine("|\t\t\t\t\t\t\t\t\t\t\t\t\t|");
@@ -171,7 +173,7 @@ namespace Lawn_Mower_Rental_App.View
             CustomerType customerType;
 
             while (!Enum.TryParse(customerTypeInput, true, out customerType) ||
-       (customerType != CustomerType.Basic && customerType != CustomerType.Prime))
+            (customerType != CustomerType.Basic && customerType != CustomerType.Prime))
             {
                 Console.WriteLine("Invalid input. Please enter 'Prime' or 'Basic' for customer type:");
                 customerTypeInput = HelperMethods.ReadLine(); // Took a little work but i decided the register type should be at the end after adress
@@ -191,7 +193,7 @@ namespace Lawn_Mower_Rental_App.View
             Console.WriteLine("|\t\t\t\t\t\t\t\t\t\t\t\t\t|");
             HelperMethods.WriteLineFitBox("|\t\t\t\t\t Last name: ", lastName, "|", 52);
             Console.WriteLine("|\t\t\t\t\t\t\t\t\t\t\t\t\t|");
-            HelperMethods.WriteLineFitBox("|\t\t\t\t\t Contact number: ", contactNumber, "|", 47);
+            HelperMethods.WriteLineFitBox("|\t\t\t\t\t Contact number: ", contactNumberInput, "|", 47);
             Console.WriteLine("|\t\t\t\t\t\t\t\t\t\t\t\t\t|");
             HelperMethods.WriteLineFitBox("|\t\t\t\t\t Address: ", address, "|", 54);
             Console.WriteLine("|\t\t\t\t\t\t\t\t\t\t\t\t\t|");
