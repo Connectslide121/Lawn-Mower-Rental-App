@@ -69,7 +69,7 @@ namespace Lawn_Mower_Rental_App.Controller
             LawnMowerManager lawnMowerManager = new LawnMowerManager();
             LawnMower lawnMower;
 
-            if (electric == true)
+            if (electric)
             {
                 lawnMower = lawnMowerManager.FindElectricLawnMowerById();
             }
@@ -87,13 +87,27 @@ namespace Lawn_Mower_Rental_App.Controller
             decimal pricePerDay = rental.LawnMower.PricePerDay;
             TimeSpan rentalPeriod = returnDate - rentalDate;
             decimal totalPrice = pricePerDay * (decimal)rentalPeriod.TotalDays;
+
+            // If to check if customer is basic here, not in the form
+            if (customer is BasicCustomer basicCustomer && basicCustomer.RemainingDiscounts > 0)
+            {
+                decimal discountAmount = CalculateDiscount(totalPrice);
+                totalPrice -= discountAmount;
+                basicCustomer.RemainingDiscounts--; // Reducing the remaining discounts
+            }
+
             rental.TotalPrice = totalPrice;
 
             decimal costPerDay = rental.LawnMower.CostPerDay;
-            decimal totalCost =costPerDay * (decimal)rentalPeriod.TotalDays;
+            decimal totalCost = costPerDay * (decimal)rentalPeriod.TotalDays;
             rental.TotalCost = totalCost;
 
             return rental;
+        }
+        public decimal CalculateDiscount(decimal totalPrice)
+        {
+            decimal discountPercentage = 0.25M; // 25% Discount if im right
+            return totalPrice * discountPercentage;
         }
 
         public void AddRentalToList(Rental rental)

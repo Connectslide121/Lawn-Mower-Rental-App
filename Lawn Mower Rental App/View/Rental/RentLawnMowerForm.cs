@@ -170,7 +170,19 @@ namespace Lawn_Mower_Rental_App.View
 
             TimeSpan rentalPeriod = returnDateValid - rentalDateValid;
             decimal totalPrice = pricePerDay * (decimal)rentalPeriod.TotalDays;
+            if (customer is BasicCustomer basicCustomer && basicCustomer.RemainingDiscounts > 0)
+            {
+                Console.WriteLine("Do you want to apply your available discount? (Y/N)");
+                string applyDiscount = Console.ReadLine();
 
+                if (applyDiscount.Trim().Equals("Y", StringComparison.OrdinalIgnoreCase))
+                {
+                    // Might need to reconsider where this goes, it is only here to function right now. Will test if able.
+                    decimal discountAmount = rentalManager.CalculateDiscount(totalPrice);
+                    totalPrice -= discountAmount;
+                    basicCustomer.RemainingDiscounts--;
+                }
+            }
             Console.Clear();
             Console.WriteLine("|***************************************** LAWN MOWER RENTAL (TM) **************************************|");
             Console.WriteLine("|\t\t\t\t\t\t\t\t\t\t\t\t\t|");

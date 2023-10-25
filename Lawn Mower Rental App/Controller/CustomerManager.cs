@@ -239,8 +239,8 @@ namespace Lawn_Mower_Rental_App.Controller
                     ContactNumber = basicCustomer.ContactNumber,
                     Address = basicCustomer.Address,
                     DateOfRegistry = basicCustomer.DateOfRegistry,
-                    BonusPoints = 0 // I was thinking of somehow tweaking this so you could on the view set an initial amount of bonus points, could be nice for the Rent Company to implement special offers like ''Subscribe now and get 100 bonus points!''
-                }; // An potentially better option is to just make an Add Points class
+                    BonusPoints = 0 
+                }; 
 
                 primeCustomers.Add(primeCustomer);
                 basicCustomers.Remove(basicCustomer);
@@ -267,8 +267,8 @@ namespace Lawn_Mower_Rental_App.Controller
                     ContactNumber = primeCustomer.ContactNumber,
                     Address = primeCustomer.Address,
                     DateOfRegistry = primeCustomer.DateOfRegistry,
-                    RemainingDiscounts = 1 // Like for prime, it feels possible to make this tweakable based on how long a customer was Prime if we wanna implement the option to make an special deal
-                }; // If an Add points class is made, an Add Discounts class should be for consistency and logic
+                    RemainingDiscounts = 1 
+                }; 
 
                 basicCustomers.Add(basicCustomer);
                 primeCustomers.Remove(primeCustomer);
