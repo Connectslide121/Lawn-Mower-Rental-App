@@ -35,7 +35,7 @@ namespace Lawn_Mower_Rental_App.View
                     HelperMethods.WriteLineFitBox("|", electricLawnMower.ToString(), "|", 103);
                 }
 
-                Console.WriteLine("|\t\t\t\t---------------------------------------------\t\t\t\t|");
+                Console.WriteLine("|\t\t\t\t\t\t\t\t\t\t\t\t\t|");
                 HelperMethods.WriteColoredText("|\t\t\t\t\t    PETROL LAWN MOWERS \t\t\t\t\t\t|", "PETROL LAWN MOWERS", ConsoleColor.DarkGreen);
                 Console.WriteLine("|\t\t\t\t\t\t\t\t\t\t\t\t\t|");
                 foreach (PetrolLawnMower petrolLawnMower in petrolLawnMowers)
