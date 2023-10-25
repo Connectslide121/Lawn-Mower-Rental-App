@@ -58,18 +58,29 @@ namespace Lawn_Mower_Rental_App.Controller
 
         public int GetCustomerId(CustomerType customerType)
         {
-            List<Customer> customers = customerType == CustomerType.Basic ? basicCustomers.Cast<Customer>().ToList() : primeCustomers.Cast<Customer>().ToList();
+            List<Customer> allCustomers = new List<Customer>();
 
-            if (customers.Count == 0)
+            if (customerType == CustomerType.Basic)
+            {
+                allCustomers.AddRange(basicCustomers.Cast<Customer>());
+                allCustomers.AddRange(primeCustomers.Cast<Customer>());
+            }
+            else
+            {
+                allCustomers.AddRange(primeCustomers.Cast<Customer>());
+                allCustomers.AddRange(basicCustomers.Cast<Customer>());
+            }
+
+            if (allCustomers.Count == 0)
             {
                 return 1;
             }
 
-            int highestID = customers.Max(cust => cust.CustomerId);
+            int highestID = allCustomers.Max(cust => cust.CustomerId);
 
             for (int i = 1; i <= highestID + 1; i++)
             {
-                if (!customers.Any(cust => cust.CustomerId == i))
+                if (!allCustomers.Any(cust => cust.CustomerId == i))
                 {
                     return i;
                 }
@@ -216,6 +227,63 @@ namespace Lawn_Mower_Rental_App.Controller
                 cust.DateOfRegistry.ToString().Contains(query)
             ).ToList();
         }
+        public void ConvertBasicToPrime(int customerId)
+        {
+            BasicCustomer basicCustomer = basicCustomers.Find(cust => cust.CustomerId == customerId);
+
+            if (basicCustomer != null)
+            {
+                PrimeCustomer primeCustomer = new PrimeCustomer(basicCustomer.CustomerId)
+                {
+                    FirstName = basicCustomer.FirstName,
+                    LastName = basicCustomer.LastName,
+                    ContactNumber = basicCustomer.ContactNumber,
+                    Address = basicCustomer.Address,
+                    DateOfRegistry = basicCustomer.DateOfRegistry,
+                    BonusPoints = 0 // I was thinking of somehow tweaking this so you could on the view set an initial amount of bonus points, could be nice for the Rent Company to implement special offers like ''Subscribe now and get 100 bonus points!''
+                }; // An potentially better option is to just make an Add Points class
+
+                primeCustomers.Add(primeCustomer);
+                basicCustomers.Remove(basicCustomer);
+
+                SaveBasicCustomersToJson(basicCustomers);
+                SavePrimeCustomersToJson(primeCustomers);
+
+            }
+            else
+            {
+               // I'd normally put an error message here, but im leaving that for the view
+            }
+        }
+        public void ConvertPrimeToBasic(int customerId)
+        {
+            PrimeCustomer primeCustomer = primeCustomers.Find(cust => cust.CustomerId == customerId);
+
+            if (primeCustomer != null)
+            {
+                BasicCustomer basicCustomer = new BasicCustomer(primeCustomer.CustomerId)
+                {
+                    FirstName = primeCustomer.FirstName,
+                    LastName = primeCustomer.LastName,
+                    ContactNumber = primeCustomer.ContactNumber,
+                    Address = primeCustomer.Address,
+                    DateOfRegistry = primeCustomer.DateOfRegistry,
+                    RemainingDiscounts = 1 // Like for prime, it feels possible to make this tweakable based on how long a customer was Prime if we wanna implement the option to make an special deal
+                }; // If an Add points class is made, an Add Discounts class should be for consistency and logic
+
+                basicCustomers.Add(basicCustomer);
+                primeCustomers.Remove(primeCustomer);
+
+                SaveBasicCustomersToJson(basicCustomers);
+                SavePrimeCustomersToJson(primeCustomers);
+            }
+            else
+            {
+                // Error message can go here
+            }
+        }
+
+
     }
 }
 
