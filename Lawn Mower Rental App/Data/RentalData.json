@@ -336,5 +336,83 @@
     "TotalCost": 349.3,
     "TotalPrice": 699.3,
     "IsActive": true
+  },
+  {
+    "RentalId": 14,
+    "LawnMower": {
+      "LawnMowerId": 12,
+      "Model": "HUSQVARNA LB 448i",
+      "IsAvailable": false,
+      "LastMaintenance": "2023-10-24T15:38:33.4555242+02:00",
+      "PricePerDay": 99.9,
+      "CostPerDay": 49.9,
+      "ProfitPerDay": 50.0,
+      "AvailabilityStatus": "In Use"
+    },
+    "Customer": {
+      "CustomerId": 5,
+      "FirstName": "Kjell",
+      "LastName": "Bergstr\u00F6m",
+      "ContactNumber": 1548765,
+      "Address": "Elsa Brandstroms gata 60A, Hagersten",
+      "DateOfRegistry": "2023-10-25T12:14:09.1527756+02:00"
+    },
+    "RentalDate": "2023-10-25T00:00:00",
+    "ReturnDate": "2023-10-31T00:00:00",
+    "TotalCost": 299.4,
+    "TotalPrice": 599.4,
+    "IsActive": true
+  },
+  {
+    "RentalId": 15,
+    "LawnMower": {
+      "LawnMowerId": 7,
+      "Model": "HUSQVARNA LB 448S KLIPPO",
+      "IsAvailable": false,
+      "LastMaintenance": "2023-10-24T15:36:53.930861+02:00",
+      "PricePerDay": 99.9,
+      "CostPerDay": 49.9,
+      "ProfitPerDay": 50.0,
+      "AvailabilityStatus": "In Use"
+    },
+    "Customer": {
+      "CustomerId": 3,
+      "FirstName": "Gunilla",
+      "LastName": "Dahlberg",
+      "ContactNumber": 54182547,
+      "Address": "Arne Beurlings Torg 3, Kista",
+      "DateOfRegistry": "2023-10-25T12:11:29.7132111+02:00"
+    },
+    "RentalDate": "2023-10-05T00:00:00",
+    "ReturnDate": "2023-12-31T00:00:00",
+    "TotalCost": 4341.3,
+    "TotalPrice": 8691.3,
+    "IsActive": true
+  },
+  {
+    "RentalId": 16,
+    "LawnMower": {
+      "LawnMowerId": 13,
+      "Model": "HUSQVARNA LB 448i",
+      "IsAvailable": true,
+      "LastMaintenance": "2023-10-24T15:38:38.9856624+02:00",
+      "PricePerDay": 99.9,
+      "CostPerDay": 49.9,
+      "ProfitPerDay": 50.0,
+      "AvailabilityStatus": "Available"
+    },
+    "Customer": {
+      "CustomerId": 9,
+      "FirstName": "Patrik",
+      "LastName": "Eliasson",
+      "ContactNumber": 154987,
+      "Address": "Sveavagen 84, V\u00E4xj\u00F6",
+      "DateOfRegistry": "2023-10-25T12:16:35.1028956+02:00"
+    },
+    "RentalDate": "2023-01-05T00:00:00",
+    "ReturnDate": "2023-08-30T00:00:00",
+    "TotalCost": 11826.3,
+    "TotalPrice": 23676.3,
+    "IsActive": false
   }
 ]

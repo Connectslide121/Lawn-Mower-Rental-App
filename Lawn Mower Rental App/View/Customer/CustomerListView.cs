@@ -20,13 +20,13 @@ public class CustomerListView
             Console.WriteLine("|\t\t\t\t\t\t\t\t\t\t\t\t\t|");
             HelperMethods.WriteColoredText("|\t\t\t\t\t      CUSTOMER LIST \t\t\t\t\t\t|", "CUSTOMER LIST", ConsoleColor.Yellow);
             Console.WriteLine("|\t\t\t\t\t\t\t\t\t\t\t\t\t|");
-            Console.WriteLine("|\t\t\t   -----------------------------------------------\t\t\t\t|");
+            Console.WriteLine("|\t\t\t      -----------------------------------------------\t\t\t\t|");
             Console.WriteLine("|\t\t\t\t\t\t\t\t\t\t\t\t\t|");
-            Console.WriteLine("|\t\t\t\t\t 01.- View all customers (Basic and Prime) \t\t\t\t\t|");
-            Console.WriteLine("|\t\t\t\t\t 02.- View all basic customers (Basic only) \t\t\t\t\t|");
-            Console.WriteLine("|\t\t\t\t\t 03.- View all prime customers (Prime only) \t\t\t\t|");
+            Console.WriteLine("|\t\t\t\t 01.- View all customers (Basic and Prime) \t\t\t\t|");
+            Console.WriteLine("|\t\t\t\t 02.- View all basic customers (Basic only) \t\t\t\t|");
+            Console.WriteLine("|\t\t\t\t 03.- View all prime customers (Prime only) \t\t\t\t|");
             Console.WriteLine("|\t\t\t\t\t\t\t\t\t\t\t\t\t|");
-            Console.WriteLine("|\t\t\t   -----------------------------------------------\t\t\t\t|");
+            Console.WriteLine("|\t\t\t      -----------------------------------------------\t\t\t\t|");
             Console.WriteLine("|\t\t\t\t\t\t\t\t\t\t\t\t\t|");
             Console.WriteLine("|\t\t\t\t\t\t\t\t\t\t\t\t\t|");
             Console.WriteLine("|*******************************************************************************************************|");
@@ -63,7 +63,7 @@ public class CustomerListView
         Console.WriteLine("|\t\t\t\t\t\t\t\t\t\t\t\t\t|");
         if (basicCustomers.Count == 0 && primeCustomers.Count == 0)
         {
-            Console.WriteLine("|\t\t\tNo customers registered yet.\t\t\t|");
+            Console.WriteLine("|\t\t\t\t\tNo customers registered yet.\t\t\t\t|");
         }
         else
         {
@@ -71,33 +71,19 @@ public class CustomerListView
             HelperMethods.WriteColoredText("|\t\t\t\t\t      BASIC CUSTOMERS \t\t\t\t\t\t|", "BASIC CUSTOMERS", ConsoleColor.DarkYellow);
             Console.WriteLine("|\t\t\t\t\t\t\t\t\t\t\t\t\t|");
 
-            if (basicCustomers.Count == 0)
-            {
-                Console.WriteLine("|\t\t\tNo basic customers registered yet.\t\t\t|");
-            }
-            else
-            {
                 foreach (Customer customer in basicCustomers)
                 {
                     HelperMethods.WriteLineFitBox("|", customer.ToString(), "|", 103);
                 }
-            }
 
             Console.WriteLine("|\t\t\t\t\t\t\t\t\t\t\t\t\t|");
             HelperMethods.WriteColoredText("|\t\t\t\t\t      PRIME CUSTOMERS \t\t\t\t\t\t|", "PRIME CUSTOMERS", ConsoleColor.DarkYellow);
             Console.WriteLine("|\t\t\t\t\t\t\t\t\t\t\t\t\t|");
 
-            if (primeCustomers.Count == 0)
-            {
-                Console.WriteLine("|\t\t\tNo prime customers registered yet.\t\t\t|");
-            }
-            else
-            {
                 foreach (Customer customer in primeCustomers)
                 {
                     HelperMethods.WriteLineFitBox("|", customer.ToString(), "|", 103);
                 }
-            }
         }
         Console.WriteLine("|\t\t\t\t\t\t\t\t\t\t\t\t\t|");
         Console.WriteLine("|\t\t\t   -----------------------------------------------\t\t\t\t|");
@@ -124,7 +110,7 @@ public class CustomerListView
         Console.WriteLine("|\t\t\t\t\t\t\t\t\t\t\t\t\t|");
         if (basicCustomers.Count == 0)
         {
-            Console.WriteLine("|\t\t\tNo customers registered yet.\t\t\t|");
+            Console.WriteLine("|\t\t\t\t\tNo basic customers registered yet.\t\t\t\t|");
         }
         else
         {
@@ -159,7 +145,7 @@ public class CustomerListView
 
         if (primeCustomers.Count == 0)
         {
-            Console.WriteLine("|\t\t\tNo customers registered yet.\t\t\t|");
+            Console.WriteLine("|\t\t\t\t\tNo prime customers registered yet.\t\t\t\t|");
         }
         else
         {

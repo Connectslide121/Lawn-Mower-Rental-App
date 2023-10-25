@@ -47,41 +47,34 @@ namespace Lawn_Mower_Rental_App.View
 
             if (basicCustomers.Count == 0 && primeCustomers.Count == 0)
             {
-                Console.WriteLine("|\t\t\tNo customers registered yet.\t\t\t|");
+                Console.WriteLine("|\t\t\t\t\tNo customers registered yet.\t\t\t\t\t|");
+                Console.WriteLine("|\t\t\t\t\t\t\t\t\t\t\t\t\t|");
+                Console.WriteLine("|\t\t\t   -----------------------------------------------\t\t\t\t|");
+                Console.WriteLine("|\t\t\t\t\t\t\t\t\t\t\t\t\t|");
+                Console.WriteLine("|\t\t\t\t\t\t\t\t\t\t\t\t\t|");
+                Console.WriteLine("|*******************************************************************************************************|");
+                Console.WriteLine("Press any key to go back to Main Menu");
+                Console.ReadKey();
+                MainMenu.MainMenu_();
             }
             else
             {
-                Console.WriteLine("|\t\t\t\t\t\t\t\t\t\t\t\t\t|");
                 HelperMethods.WriteColoredText("|\t\t\t\t\t      BASIC CUSTOMERS \t\t\t\t\t\t|", "BASIC CUSTOMERS", ConsoleColor.DarkYellow);
                 Console.WriteLine("|\t\t\t\t\t\t\t\t\t\t\t\t\t|");
 
-                if (basicCustomers.Count == 0)
-                {
-                    Console.WriteLine("|\t\t\tNo basic customers registered yet.\t\t\t|");
-                }
-                else
-                {
                     foreach (Customer customer in basicCustomers)
                     {
                         HelperMethods.WriteLineFitBox("|", customer.ToString(), "|", 103);
                     }
-                }
 
                 Console.WriteLine("|\t\t\t\t\t\t\t\t\t\t\t\t\t|");
                 HelperMethods.WriteColoredText("|\t\t\t\t\t      PRIME CUSTOMERS \t\t\t\t\t\t|", "PRIME CUSTOMERS", ConsoleColor.DarkYellow);
                 Console.WriteLine("|\t\t\t\t\t\t\t\t\t\t\t\t\t|");
 
-                if (primeCustomers.Count == 0)
-                {
-                    Console.WriteLine("|\t\t\tNo prime customers registered yet.\t\t\t|");
-                }
-                else
-                {
                     foreach (Customer customer in primeCustomers)
                     {
                         HelperMethods.WriteLineFitBox("|", customer.ToString(), "|", 103);
                     }
-                }
 
                 Console.WriteLine("|\t\t\t\t\t\t\t\t\t\t\t\t\t|");
                 Console.WriteLine("|\t\t\t   -----------------------------------------------\t\t\t\t|");

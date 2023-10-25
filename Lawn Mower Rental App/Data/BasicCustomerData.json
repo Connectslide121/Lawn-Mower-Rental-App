@@ -1,11 +1,47 @@
 [
   {
     "RemainingDiscounts": 1,
-    "CustomerId": 1,
-    "FirstName": "jon",
-    "LastName": "mendi",
-    "ContactNumber": 123512345,
-    "Address": "rgea",
-    "DateOfRegistry": "2023-10-24T15:55:45.2510189+02:00"
+    "CustomerId": 5,
+    "FirstName": "Kjell",
+    "LastName": "Bergstr\u00F6m",
+    "ContactNumber": 1548765,
+    "Address": "Elsa Brandstroms gata 60A, Hagersten",
+    "DateOfRegistry": "2023-10-25T12:14:09.1527756+02:00"
+  },
+  {
+    "RemainingDiscounts": 1,
+    "CustomerId": 6,
+    "FirstName": "Robert",
+    "LastName": "Current",
+    "ContactNumber": 51351548,
+    "Address": "Morbyvagen 9, Nynashamn",
+    "DateOfRegistry": "2023-10-25T12:14:56.8128257+02:00"
+  },
+  {
+    "RemainingDiscounts": 1,
+    "CustomerId": 7,
+    "FirstName": "Ann-Christin",
+    "LastName": "Jansson",
+    "ContactNumber": 5132594,
+    "Address": "Sturegatan 6, Sundbyberg",
+    "DateOfRegistry": "2023-10-25T12:15:23.8740978+02:00"
+  },
+  {
+    "RemainingDiscounts": 1,
+    "CustomerId": 8,
+    "FirstName": "Hans",
+    "LastName": "Abrahamsson",
+    "ContactNumber": 51846541,
+    "Address": "Katarina Bangata 21, Stockholm",
+    "DateOfRegistry": "2023-10-25T12:15:49.1610299+02:00"
+  },
+  {
+    "RemainingDiscounts": 1,
+    "CustomerId": 10,
+    "FirstName": "Christoffer",
+    "LastName": "Lindberg",
+    "ContactNumber": 4187594,
+    "Address": "Kindstugatan 1, Stockholm",
+    "DateOfRegistry": "2023-10-25T12:17:03.888899+02:00"
   }
 ]

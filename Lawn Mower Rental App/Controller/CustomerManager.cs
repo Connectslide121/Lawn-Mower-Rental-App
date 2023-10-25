@@ -4,7 +4,7 @@ using System.Text.Json;
 
 namespace Lawn_Mower_Rental_App.Controller
 {
-    public enum CustomerType // Not sure if Enum is the right call, but felt like the obvious fix to me
+    public enum CustomerType
     {
         Basic,
         Prime
