@@ -8,11 +8,52 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-public class CustomerListView
+namespace Lawn_Mower_Rental_App.View
 {
-    public static void DisplayCustomerList(List<BasicCustomer> basicCustomers, List<PrimeCustomer> primeCustomers)
+    public class CustomerListView
     {
-        while (true)
+        public static void DisplayCustomerList(List<BasicCustomer> basicCustomers, List<PrimeCustomer> primeCustomers)
+        {
+            while (true)
+            {
+                Console.Clear();
+                Console.WriteLine("|***************************************** LAWN MOWER RENTAL (TM) **************************************|");
+                Console.WriteLine("|\t\t\t\t\t\t\t\t\t\t\t\t\t|");
+                Console.WriteLine("|\t\t\t\t\t\t\t\t\t\t\t\t\t|");
+                HelperMethods.WriteColoredText("|\t\t\t\t\t      CUSTOMER LIST \t\t\t\t\t\t|", "CUSTOMER LIST", ConsoleColor.Yellow);
+                Console.WriteLine("|\t\t\t\t\t\t\t\t\t\t\t\t\t|");
+                Console.WriteLine("|\t\t\t      -----------------------------------------------\t\t\t\t|");
+                Console.WriteLine("|\t\t\t\t\t\t\t\t\t\t\t\t\t|");
+                Console.WriteLine("|\t\t\t\t 01.- View all customers (Basic and Prime) \t\t\t\t|");
+                Console.WriteLine("|\t\t\t\t 02.- View all basic customers (Basic only) \t\t\t\t|");
+                Console.WriteLine("|\t\t\t\t 03.- View all prime customers (Prime only) \t\t\t\t|");
+                Console.WriteLine("|\t\t\t\t\t\t\t\t\t\t\t\t\t|");
+                Console.WriteLine("|\t\t\t      -----------------------------------------------\t\t\t\t|");
+                Console.WriteLine("|\t\t\t\t\t\t\t\t\t\t\t\t\t|");
+                Console.WriteLine("|\t\t\t\t\t\t\t\t\t\t\t\t\t|");
+                Console.WriteLine("|*******************************************************************************************************|");
+                Console.WriteLine("Please enter your option of choice:");
+                string option = HelperMethods.ReadLine();
+
+                switch (option)
+                {
+                    case "1":
+                        DisplayAllCustomers(basicCustomers, primeCustomers);
+                        break;
+                    case "2":
+                        DisplayBasicCustomers(basicCustomers);
+                        break;
+                    case "3":
+                        DisplayPrimeCustomers(primeCustomers);
+                        break;
+                    default:
+                        Console.WriteLine("Invalid option. Please try again.");
+                        break;
+                }
+            }
+        }
+
+        public static void DisplayAllCustomers(List<BasicCustomer> basicCustomers, List<PrimeCustomer> primeCustomers)
         {
             Console.Clear();
             Console.WriteLine("|***************************************** LAWN MOWER RENTAL (TM) **************************************|");
@@ -20,150 +61,111 @@ public class CustomerListView
             Console.WriteLine("|\t\t\t\t\t\t\t\t\t\t\t\t\t|");
             HelperMethods.WriteColoredText("|\t\t\t\t\t      CUSTOMER LIST \t\t\t\t\t\t|", "CUSTOMER LIST", ConsoleColor.Yellow);
             Console.WriteLine("|\t\t\t\t\t\t\t\t\t\t\t\t\t|");
-            Console.WriteLine("|\t\t\t      -----------------------------------------------\t\t\t\t|");
+            Console.WriteLine("|\t\t\t   -----------------------------------------------\t\t\t\t|");
             Console.WriteLine("|\t\t\t\t\t\t\t\t\t\t\t\t\t|");
-            Console.WriteLine("|\t\t\t\t 01.- View all customers (Basic and Prime) \t\t\t\t|");
-            Console.WriteLine("|\t\t\t\t 02.- View all basic customers (Basic only) \t\t\t\t|");
-            Console.WriteLine("|\t\t\t\t 03.- View all prime customers (Prime only) \t\t\t\t|");
-            Console.WriteLine("|\t\t\t\t\t\t\t\t\t\t\t\t\t|");
-            Console.WriteLine("|\t\t\t      -----------------------------------------------\t\t\t\t|");
-            Console.WriteLine("|\t\t\t\t\t\t\t\t\t\t\t\t\t|");
-            Console.WriteLine("|\t\t\t\t\t\t\t\t\t\t\t\t\t|");
-            Console.WriteLine("|*******************************************************************************************************|");
-            Console.WriteLine("Please enter your option of choice:");
-            string option = HelperMethods.ReadLine();
-
-            switch (option)
+            if (basicCustomers.Count == 0 && primeCustomers.Count == 0)
             {
-                case "1":
-                    DisplayAllCustomers(basicCustomers, primeCustomers);
-                    break;
-                case "2":
-                    DisplayBasicCustomers(basicCustomers);
-                    break;
-                case "3":
-                    DisplayPrimeCustomers(primeCustomers);
-                    break;
-                default:
-                    Console.WriteLine("Invalid option. Please try again.");
-                    break;
+                Console.WriteLine("|\t\t\t\t\tNo customers registered yet.\t\t\t\t|");
             }
-        }
-    }
-
-    public static void DisplayAllCustomers(List<BasicCustomer> basicCustomers, List<PrimeCustomer> primeCustomers)
-    {
-        Console.Clear();
-        Console.WriteLine("|***************************************** LAWN MOWER RENTAL (TM) **************************************|");
-        Console.WriteLine("|\t\t\t\t\t\t\t\t\t\t\t\t\t|");
-        Console.WriteLine("|\t\t\t\t\t\t\t\t\t\t\t\t\t|");
-        HelperMethods.WriteColoredText("|\t\t\t\t\t      CUSTOMER LIST \t\t\t\t\t\t|", "CUSTOMER LIST", ConsoleColor.Yellow);
-        Console.WriteLine("|\t\t\t\t\t\t\t\t\t\t\t\t\t|");
-        Console.WriteLine("|\t\t\t   -----------------------------------------------\t\t\t\t|");
-        Console.WriteLine("|\t\t\t\t\t\t\t\t\t\t\t\t\t|");
-        if (basicCustomers.Count == 0 && primeCustomers.Count == 0)
-        {
-            Console.WriteLine("|\t\t\t\t\tNo customers registered yet.\t\t\t\t|");
-        }
-        else
-        {
-            Console.WriteLine("|\t\t\t\t\t\t\t\t\t\t\t\t\t|");
-            HelperMethods.WriteColoredText("|\t\t\t\t\t      BASIC CUSTOMERS \t\t\t\t\t\t|", "BASIC CUSTOMERS", ConsoleColor.DarkYellow);
-            Console.WriteLine("|\t\t\t\t\t\t\t\t\t\t\t\t\t|");
+            else
+            {
+                Console.WriteLine("|\t\t\t\t\t\t\t\t\t\t\t\t\t|");
+                HelperMethods.WriteColoredText("|\t\t\t\t\t      BASIC CUSTOMERS \t\t\t\t\t\t|", "BASIC CUSTOMERS", ConsoleColor.DarkYellow);
+                Console.WriteLine("|\t\t\t\t\t\t\t\t\t\t\t\t\t|");
 
                 foreach (Customer customer in basicCustomers)
                 {
                     HelperMethods.WriteLineFitBox("|", customer.ToString(), "|", 103);
                 }
 
-            Console.WriteLine("|\t\t\t\t\t\t\t\t\t\t\t\t\t|");
-            HelperMethods.WriteColoredText("|\t\t\t\t\t      PRIME CUSTOMERS \t\t\t\t\t\t|", "PRIME CUSTOMERS", ConsoleColor.DarkYellow);
-            Console.WriteLine("|\t\t\t\t\t\t\t\t\t\t\t\t\t|");
+                Console.WriteLine("|\t\t\t\t\t\t\t\t\t\t\t\t\t|");
+                HelperMethods.WriteColoredText("|\t\t\t\t\t      PRIME CUSTOMERS \t\t\t\t\t\t|", "PRIME CUSTOMERS", ConsoleColor.DarkYellow);
+                Console.WriteLine("|\t\t\t\t\t\t\t\t\t\t\t\t\t|");
 
                 foreach (Customer customer in primeCustomers)
                 {
                     HelperMethods.WriteLineFitBox("|", customer.ToString(), "|", 103);
                 }
-        }
-        Console.WriteLine("|\t\t\t\t\t\t\t\t\t\t\t\t\t|");
-        Console.WriteLine("|\t\t\t   -----------------------------------------------\t\t\t\t|");
-        Console.WriteLine("|\t\t\t\t\t\t\t\t\t\t\t\t\t|");
-        Console.WriteLine("|\t\t\t\t\t\t\t\t\t\t\t\t\t|");
-        Console.WriteLine("|*******************************************************************************************************|");
-        Console.WriteLine("Press any key to go back to the Main Menu.");
-        HelperMethods.ReadLine();
-        MainMenu.MainMenu_();
-
-    }
-
-    public static void DisplayBasicCustomers(List<BasicCustomer> basicCustomers)
-    {
-        Console.Clear();
-        Console.WriteLine("|***************************************** LAWN MOWER RENTAL (TM) **************************************|");
-        Console.WriteLine("|\t\t\t\t\t\t\t\t\t\t\t\t\t|");
-        Console.WriteLine("|\t\t\t\t\t\t\t\t\t\t\t\t\t|");
-        HelperMethods.WriteColoredText("|\t\t\t\t\t      CUSTOMER LIST \t\t\t\t\t\t|", "CUSTOMER LIST", ConsoleColor.Yellow);
-        Console.WriteLine("|\t\t\t\t\t\t\t\t\t\t\t\t\t|");
-        Console.WriteLine("|\t\t\t   -----------------------------------------------\t\t\t\t|");
-        Console.WriteLine("|\t\t\t\t\t\t\t\t\t\t\t\t\t|");
-        HelperMethods.WriteColoredText("|\t\t\t\t\t      BASIC CUSTOMERS \t\t\t\t\t\t|", "BASIC CUSTOMERS", ConsoleColor.DarkYellow);
-        Console.WriteLine("|\t\t\t\t\t\t\t\t\t\t\t\t\t|");
-        if (basicCustomers.Count == 0)
-        {
-            Console.WriteLine("|\t\t\t\t\tNo basic customers registered yet.\t\t\t\t|");
-        }
-        else
-        {
-            foreach (Customer customer in basicCustomers)
-            {
-                HelperMethods.WriteLineFitBox("|", customer.ToString(), "|", 103);
             }
+            Console.WriteLine("|\t\t\t\t\t\t\t\t\t\t\t\t\t|");
+            Console.WriteLine("|\t\t\t   -----------------------------------------------\t\t\t\t|");
+            Console.WriteLine("|\t\t\t\t\t\t\t\t\t\t\t\t\t|");
+            Console.WriteLine("|\t\t\t\t\t\t\t\t\t\t\t\t\t|");
+            Console.WriteLine("|*******************************************************************************************************|");
+            Console.WriteLine("Press any key to go back to the Main Menu.");
+            HelperMethods.ReadLine();
+            MainMenu.MainMenu_();
+
         }
-        Console.WriteLine("|\t\t\t\t\t\t\t\t\t\t\t\t\t|");
-        Console.WriteLine("|\t\t\t   -----------------------------------------------\t\t\t\t|");
-        Console.WriteLine("|\t\t\t\t\t\t\t\t\t\t\t\t\t|");
-        Console.WriteLine("|\t\t\t\t\t\t\t\t\t\t\t\t\t|");
-        Console.WriteLine("|*******************************************************************************************************|");
-        Console.WriteLine("Press any key to go back to the Main Menu.");
-        HelperMethods.ReadLine();
-        MainMenu.MainMenu_();
 
-    }
-
-    public static void DisplayPrimeCustomers(List<PrimeCustomer> primeCustomers)
-    {
-        Console.Clear();
-        Console.WriteLine("|***************************************** LAWN MOWER RENTAL (TM) **************************************|");
-        Console.WriteLine("|\t\t\t\t\t\t\t\t\t\t\t\t\t|");
-        Console.WriteLine("|\t\t\t\t\t\t\t\t\t\t\t\t\t|");
-        HelperMethods.WriteColoredText("|\t\t\t\t\t      CUSTOMER LIST \t\t\t\t\t\t|", "CUSTOMER LIST", ConsoleColor.Yellow);
-        Console.WriteLine("|\t\t\t\t\t\t\t\t\t\t\t\t\t|");
-        Console.WriteLine("|\t\t\t   -----------------------------------------------\t\t\t\t|");
-        Console.WriteLine("|\t\t\t\t\t\t\t\t\t\t\t\t\t|");
-        HelperMethods.WriteColoredText("|\t\t\t\t\t      PRIME CUSTOMERS \t\t\t\t\t\t|", "PRIME CUSTOMERS", ConsoleColor.DarkYellow);
-        Console.WriteLine("|\t\t\t\t\t\t\t\t\t\t\t\t\t|");
-
-        if (primeCustomers.Count == 0)
+        public static void DisplayBasicCustomers(List<BasicCustomer> basicCustomers)
         {
-            Console.WriteLine("|\t\t\t\t\tNo prime customers registered yet.\t\t\t\t|");
-        }
-        else
-        {
-            foreach (Customer customer in primeCustomers)
+            Console.Clear();
+            Console.WriteLine("|***************************************** LAWN MOWER RENTAL (TM) **************************************|");
+            Console.WriteLine("|\t\t\t\t\t\t\t\t\t\t\t\t\t|");
+            Console.WriteLine("|\t\t\t\t\t\t\t\t\t\t\t\t\t|");
+            HelperMethods.WriteColoredText("|\t\t\t\t\t      CUSTOMER LIST \t\t\t\t\t\t|", "CUSTOMER LIST", ConsoleColor.Yellow);
+            Console.WriteLine("|\t\t\t\t\t\t\t\t\t\t\t\t\t|");
+            Console.WriteLine("|\t\t\t   -----------------------------------------------\t\t\t\t|");
+            Console.WriteLine("|\t\t\t\t\t\t\t\t\t\t\t\t\t|");
+            HelperMethods.WriteColoredText("|\t\t\t\t\t      BASIC CUSTOMERS \t\t\t\t\t\t|", "BASIC CUSTOMERS", ConsoleColor.DarkYellow);
+            Console.WriteLine("|\t\t\t\t\t\t\t\t\t\t\t\t\t|");
+            if (basicCustomers.Count == 0)
             {
-                HelperMethods.WriteLineFitBox("|", customer.ToString(), "|", 103);
+                Console.WriteLine("|\t\t\t\t\tNo basic customers registered yet.\t\t\t\t|");
             }
-        }
-        Console.WriteLine("|\t\t\t\t\t\t\t\t\t\t\t\t\t|");
-        Console.WriteLine("|\t\t\t   -----------------------------------------------\t\t\t\t|");
-        Console.WriteLine("|\t\t\t\t\t\t\t\t\t\t\t\t\t|");
-        Console.WriteLine("|\t\t\t\t\t\t\t\t\t\t\t\t\t|");
-        Console.WriteLine("|*******************************************************************************************************|");
-        Console.WriteLine("Press any key to go back to the Main Menu.");
-        HelperMethods.ReadLine();
-        MainMenu.MainMenu_();
+            else
+            {
+                foreach (Customer customer in basicCustomers)
+                {
+                    HelperMethods.WriteLineFitBox("|", customer.ToString(), "|", 103);
+                }
+            }
+            Console.WriteLine("|\t\t\t\t\t\t\t\t\t\t\t\t\t|");
+            Console.WriteLine("|\t\t\t   -----------------------------------------------\t\t\t\t|");
+            Console.WriteLine("|\t\t\t\t\t\t\t\t\t\t\t\t\t|");
+            Console.WriteLine("|\t\t\t\t\t\t\t\t\t\t\t\t\t|");
+            Console.WriteLine("|*******************************************************************************************************|");
+            Console.WriteLine("Press any key to go back to the Main Menu.");
+            HelperMethods.ReadLine();
+            MainMenu.MainMenu_();
 
+        }
+
+        public static void DisplayPrimeCustomers(List<PrimeCustomer> primeCustomers)
+        {
+            Console.Clear();
+            Console.WriteLine("|***************************************** LAWN MOWER RENTAL (TM) **************************************|");
+            Console.WriteLine("|\t\t\t\t\t\t\t\t\t\t\t\t\t|");
+            Console.WriteLine("|\t\t\t\t\t\t\t\t\t\t\t\t\t|");
+            HelperMethods.WriteColoredText("|\t\t\t\t\t      CUSTOMER LIST \t\t\t\t\t\t|", "CUSTOMER LIST", ConsoleColor.Yellow);
+            Console.WriteLine("|\t\t\t\t\t\t\t\t\t\t\t\t\t|");
+            Console.WriteLine("|\t\t\t   -----------------------------------------------\t\t\t\t|");
+            Console.WriteLine("|\t\t\t\t\t\t\t\t\t\t\t\t\t|");
+            HelperMethods.WriteColoredText("|\t\t\t\t\t      PRIME CUSTOMERS \t\t\t\t\t\t|", "PRIME CUSTOMERS", ConsoleColor.DarkYellow);
+            Console.WriteLine("|\t\t\t\t\t\t\t\t\t\t\t\t\t|");
+
+            if (primeCustomers.Count == 0)
+            {
+                Console.WriteLine("|\t\t\t\t\tNo prime customers registered yet.\t\t\t\t|");
+            }
+            else
+            {
+                foreach (Customer customer in primeCustomers)
+                {
+                    HelperMethods.WriteLineFitBox("|", customer.ToString(), "|", 103);
+                }
+            }
+            Console.WriteLine("|\t\t\t\t\t\t\t\t\t\t\t\t\t|");
+            Console.WriteLine("|\t\t\t   -----------------------------------------------\t\t\t\t|");
+            Console.WriteLine("|\t\t\t\t\t\t\t\t\t\t\t\t\t|");
+            Console.WriteLine("|\t\t\t\t\t\t\t\t\t\t\t\t\t|");
+            Console.WriteLine("|*******************************************************************************************************|");
+            Console.WriteLine("Press any key to go back to the Main Menu.");
+            HelperMethods.ReadLine();
+            MainMenu.MainMenu_();
+
+        }
     }
 }
-
 

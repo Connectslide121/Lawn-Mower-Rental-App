@@ -328,6 +328,18 @@ namespace Lawn_Mower_Rental_App.Controller
                 .Where(rental => rental.Customer.CustomerId == customerId)
                 .Sum(rental => rental.TotalPrice);
         }
+        public bool TryFindCustomerById(int customerId, out Customer customer) // This is an bad solution, but i could not get the existing FindbyId to work without breaking RentLawnMower.
+        {
+            Customer foundCustomer = null;
+            
+            if (foundCustomer != null)
+            {
+                customer = foundCustomer;
+                return true;
+            }
+            customer = null;
+            return false;
+        }
     }
 }
 
