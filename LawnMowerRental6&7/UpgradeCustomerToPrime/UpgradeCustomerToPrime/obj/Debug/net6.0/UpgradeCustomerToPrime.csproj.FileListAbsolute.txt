@@ -1,5 +1,0 @@
-/Users/jhenessholm/Projects/UpgradeCustomerToPrime/UpgradeCustomerToPrime/obj/Debug/net6.0/UpgradeCustomerToPrime.csproj.AssemblyReference.cache
-/Users/jhenessholm/Projects/UpgradeCustomerToPrime/UpgradeCustomerToPrime/obj/Debug/net6.0/UpgradeCustomerToPrime.GeneratedMSBuildEditorConfig.editorconfig
-/Users/jhenessholm/Projects/UpgradeCustomerToPrime/UpgradeCustomerToPrime/obj/Debug/net6.0/UpgradeCustomerToPrime.AssemblyInfoInputs.cache
-/Users/jhenessholm/Projects/UpgradeCustomerToPrime/UpgradeCustomerToPrime/obj/Debug/net6.0/UpgradeCustomerToPrime.AssemblyInfo.cs
-/Users/jhenessholm/Projects/UpgradeCustomerToPrime/UpgradeCustomerToPrime/obj/Debug/net6.0/UpgradeCustomerToPrime.csproj.CoreCompileInputs.cache
