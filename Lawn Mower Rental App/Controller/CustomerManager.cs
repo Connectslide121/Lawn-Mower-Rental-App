@@ -13,8 +13,10 @@ namespace Lawn_Mower_Rental_App.Controller
     {
         private List<BasicCustomer> basicCustomers;
         private List<PrimeCustomer> primeCustomers;
+        private List<Rental> rentals;
         string relativePathBasic = Path.Combine(Path.GetFullPath(Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "..", "..", "..", "Data")), "BasicCustomerData.json");
         string relativePathPrime = Path.Combine(Path.GetFullPath(Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "..", "..", "..", "Data")), "PrimeCustomerData.json");
+        string relativePathRental = Path.Combine(Path.GetFullPath(Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "..", "..", "..", "Data")), "RentalData.json");
 
         public CustomerManager()
         {
@@ -297,7 +299,34 @@ namespace Lawn_Mower_Rental_App.Controller
                 SaveBasicCustomersToJson(basicCustomers);
             }
         }
+        private List<Rental> LoadRentalsFromJson()
+        {
+            try
+            {
+                string jsonData = File.ReadAllText(relativePathRental);
+                return JsonSerializer.Deserialize<List<Rental>>(jsonData);
+            }
+            catch (Exception) { ErrorsExceptions.RentalsFileNotFoundException(); }
+            return new List<Rental>();
+        }
+        public void UpdatePrimeCustomerBonusPoints()
+        {
+            foreach (PrimeCustomer primeCustomer in primeCustomers)
+            {
+                decimal customerSpending = CalculateCustomerSpending(primeCustomer.CustomerId);
+                int bonusPointsToAdd = (int)(customerSpending / 1); // 1 Point for Every 1 SEK
+                primeCustomer.BonusPoints = bonusPointsToAdd;
+            }
+            SavePrimeCustomersToJson(primeCustomers);
+        }
 
+        private decimal CalculateCustomerSpending(int customerId)
+        {
+            return rentals
+                .Where(rental => rental.Customer.CustomerId == customerId)
+                .Where(rental => !rental.IsActive)
+                .Sum(rental => rental.TotalPrice);
+        }
     }
 }
 

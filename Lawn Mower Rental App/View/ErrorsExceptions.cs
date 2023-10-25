@@ -148,7 +148,7 @@ namespace Lawn_Mower_Rental_App.View
             Console.WriteLine("|\t\t\t\t\t\t\t\t\t\t\t\t\t|");
             Console.WriteLine("|\t\t\t\t\t\t\t\t\t\t\t\t\t|");
             Console.WriteLine("|\t\t\t\t\t\t\t\t\t\t\t\t\t|");
-            HelperMethods.WriteColoredText("|\t\t\t\t\Prime customer not found  \t\t\t\t\t|", "Prime customer not found", ConsoleColor.Red);
+            HelperMethods.WriteColoredText("|\t\t\t\t\tPrime customer not found  \t\t\t\t\t|", "Prime customer not found", ConsoleColor.Red);
             Console.WriteLine("|\t\t\t\t\t\t\t\t\t\t\t\t\t|");
             Console.WriteLine("|\t\t\t\t\t\t\t\t\t\t\t\t\t|");
             Console.WriteLine("|\t\t\t\t\t\t\t\t\t\t\t\t\t|");
