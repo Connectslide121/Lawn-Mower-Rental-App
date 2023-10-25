@@ -67,13 +67,36 @@ public class CustomerListView
         }
         else
         {
-            foreach (Customer customer in basicCustomers)
+            Console.WriteLine("|\t\t\t\t\t\t\t\t\t\t\t\t\t|");
+            HelperMethods.WriteColoredText("|\t\t\t\t\t      BASIC CUSTOMERS \t\t\t\t\t\t|", "BASIC CUSTOMERS", ConsoleColor.DarkYellow);
+            Console.WriteLine("|\t\t\t\t\t\t\t\t\t\t\t\t\t|");
+
+            if (basicCustomers.Count == 0)
             {
-                HelperMethods.WriteLineFitBox("|", customer.ToString(), "|", 103);
+                Console.WriteLine("|\t\t\tNo basic customers registered yet.\t\t\t|");
             }
-            foreach (Customer customer in primeCustomers)
+            else
             {
-                HelperMethods.WriteLineFitBox("|", customer.ToString(), "|", 103);
+                foreach (Customer customer in basicCustomers)
+                {
+                    HelperMethods.WriteLineFitBox("|", customer.ToString(), "|", 103);
+                }
+            }
+
+            Console.WriteLine("|\t\t\t\t\t\t\t\t\t\t\t\t\t|");
+            HelperMethods.WriteColoredText("|\t\t\t\t\t      PRIME CUSTOMERS \t\t\t\t\t\t|", "PRIME CUSTOMERS", ConsoleColor.DarkYellow);
+            Console.WriteLine("|\t\t\t\t\t\t\t\t\t\t\t\t\t|");
+
+            if (primeCustomers.Count == 0)
+            {
+                Console.WriteLine("|\t\t\tNo prime customers registered yet.\t\t\t|");
+            }
+            else
+            {
+                foreach (Customer customer in primeCustomers)
+                {
+                    HelperMethods.WriteLineFitBox("|", customer.ToString(), "|", 103);
+                }
             }
         }
         Console.WriteLine("|\t\t\t\t\t\t\t\t\t\t\t\t\t|");
@@ -96,6 +119,8 @@ public class CustomerListView
         HelperMethods.WriteColoredText("|\t\t\t\t\t      CUSTOMER LIST \t\t\t\t\t\t|", "CUSTOMER LIST", ConsoleColor.Yellow);
         Console.WriteLine("|\t\t\t\t\t\t\t\t\t\t\t\t\t|");
         Console.WriteLine("|\t\t\t   -----------------------------------------------\t\t\t\t|");
+        Console.WriteLine("|\t\t\t\t\t\t\t\t\t\t\t\t\t|");
+        HelperMethods.WriteColoredText("|\t\t\t\t\t      BASIC CUSTOMERS \t\t\t\t\t\t|", "BASIC CUSTOMERS", ConsoleColor.DarkYellow);
         Console.WriteLine("|\t\t\t\t\t\t\t\t\t\t\t\t\t|");
         if (basicCustomers.Count == 0)
         {
@@ -129,6 +154,9 @@ public class CustomerListView
         Console.WriteLine("|\t\t\t\t\t\t\t\t\t\t\t\t\t|");
         Console.WriteLine("|\t\t\t   -----------------------------------------------\t\t\t\t|");
         Console.WriteLine("|\t\t\t\t\t\t\t\t\t\t\t\t\t|");
+        HelperMethods.WriteColoredText("|\t\t\t\t\t      PRIME CUSTOMERS \t\t\t\t\t\t|", "PRIME CUSTOMERS", ConsoleColor.DarkYellow);
+        Console.WriteLine("|\t\t\t\t\t\t\t\t\t\t\t\t\t|");
+
         if (primeCustomers.Count == 0)
         {
             Console.WriteLine("|\t\t\tNo customers registered yet.\t\t\t|");

@@ -208,22 +208,31 @@ namespace Lawn_Mower_Rental_App.Controller
             }
         }
 
-        public List<Customer> SearchCustomers(string query, CustomerType customerType)
+        public void SearchCustomers(string query)
         {
             query = query.ToLower();
-            var customers = customerType == CustomerType.Basic
-                ? basicCustomers.Cast<Customer>().ToList()
-                : primeCustomers.Cast<Customer>().ToList();
 
-            return customers.Where(cust =>
-                cust.FirstName.ToLower().Contains(query) ||
-                cust.LastName.ToLower().Contains(query) ||
-                cust.CustomerId.ToString().Contains(query) ||
-                cust.Address.ToLower().Contains(query) ||
-                cust.ContactNumber.ToString().Contains(query) ||
-                cust.DateOfRegistry.ToString().Contains(query)
+            List<BasicCustomer> basicCustomersSearch = basicCustomers.Where(basicCustomer =>
+                basicCustomer.FirstName.ToLower().Contains(query) ||
+                basicCustomer.LastName.ToLower().Contains(query) ||
+                basicCustomer.CustomerId.ToString().Contains(query) ||
+                basicCustomer.Address.ToLower().Contains(query) ||
+                basicCustomer.ContactNumber.ToString().Contains(query) ||
+                basicCustomer.DateOfRegistry.ToString().Contains(query)
             ).ToList();
+
+            List<PrimeCustomer> primeCustomersSearch = primeCustomers.Where(primeCustomer =>
+                primeCustomer.FirstName.ToLower().Contains(query) ||
+                primeCustomer.LastName.ToLower().Contains(query) ||
+                primeCustomer.CustomerId.ToString().Contains(query) ||
+                primeCustomer.Address.ToLower().Contains(query) ||
+                primeCustomer.ContactNumber.ToString().Contains(query) ||
+                primeCustomer.DateOfRegistry.ToString().Contains(query)
+            ).ToList();
+
+            CustomerSearchView.DisplaySearchResult(basicCustomersSearch, primeCustomersSearch);
         }
+
         public void ConvertBasicToPrime(int customerId)
         {
             BasicCustomer basicCustomer = basicCustomers.Find(cust => cust.CustomerId == customerId);

@@ -29,6 +29,7 @@ namespace Lawn_Mower_Rental_App.Controller
             NewCustomerForm newCustomerForm = new NewCustomerForm();
             DeleteCustomerForm deleteCustomerForm = new DeleteCustomerForm();
             CustomerManager customerManager = new CustomerManager();
+            CustomerSearchView customerSearchView = new CustomerSearchView();
 
             EarningsProfitView earningsProfitView = new EarningsProfitView();
 
@@ -82,27 +83,14 @@ namespace Lawn_Mower_Rental_App.Controller
                         case 13:
                             customerManager.ViewListOfCustomers();
                             break;
-                        case 14: // These cases are getting complicated so they can work and be accepted by visual studio
-                        Console.WriteLine("Enter customer type (Basic/Prime):");
-                        if (Enum.TryParse(HelperMethods.ReadLine(), true, out selectedCustomerType))
-                            {
-                            Console.WriteLine("Enter search query:");
-                            string searchQuery = HelperMethods.ReadLine();
-
-                            List<Customer> searchResults = customerManager.SearchCustomers(searchQuery, selectedCustomerType);
-
-                            CustomerSearchView.DisplaySearchResults(searchResults);
-                             }
-                             else
-                             {
-                            Console.WriteLine("Invalid customer type. Please enter 'Basic' or 'Prime'.");
-                             }
+                        case 14:
+                            customerSearchView.SearchCustomers();
                              break;
 
 
 
 
-                    case 15:
+                        case 15:
                             earningsProfitView.DisplayEarningsProfitMenu();
                             break;
 
