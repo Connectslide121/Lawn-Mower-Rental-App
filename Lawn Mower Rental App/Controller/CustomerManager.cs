@@ -23,6 +23,7 @@ namespace Lawn_Mower_Rental_App.Controller
             basicCustomers = LoadBasicCustomersFromJson();
             primeCustomers = LoadPrimeCustomersFromJson();
             rentals = LoadRentalsFromJson();
+            UpdatePrimeCustomerBonusPoints();
         }
 
         public void RegisterNewCustomer(BasicCustomer basicCustomer)
@@ -325,7 +326,6 @@ namespace Lawn_Mower_Rental_App.Controller
         {
             return rentals
                 .Where(rental => rental.Customer.CustomerId == customerId)
-                .Where(rental => !rental.IsActive)
                 .Sum(rental => rental.TotalPrice);
         }
     }

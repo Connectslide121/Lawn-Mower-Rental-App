@@ -1,6 +1,6 @@
 [
   {
-    "BonusPoints": 0,
+    "BonusPoints": 27272,
     "CustomerId": 2,
     "FirstName": "Marianne",
     "LastName": "Jansson",
@@ -9,7 +9,7 @@
     "DateOfRegistry": "2023-10-25T12:07:12.071684+02:00"
   },
   {
-    "BonusPoints": 0,
+    "BonusPoints": 6993,
     "CustomerId": 1,
     "FirstName": "Lynus",
     "LastName": "Nystr\u00F6m",
@@ -18,7 +18,7 @@
     "DateOfRegistry": "2023-10-25T12:09:56.2446195+02:00"
   },
   {
-    "BonusPoints": 5,
+    "BonusPoints": 8691,
     "CustomerId": 3,
     "FirstName": "Gunilla",
     "LastName": "Dahlberg",
@@ -27,7 +27,7 @@
     "DateOfRegistry": "2023-10-25T12:11:29.7132111+02:00"
   },
   {
-    "BonusPoints": 0,
+    "BonusPoints": 499,
     "CustomerId": 4,
     "FirstName": "Malin",
     "LastName": "Engstr\u00F6m",
@@ -36,7 +36,7 @@
     "DateOfRegistry": "2023-10-25T12:13:39.1553992+02:00"
   },
   {
-    "BonusPoints": 0,
+    "BonusPoints": 26373,
     "CustomerId": 9,
     "FirstName": "Patrik",
     "LastName": "Eliasson",
@@ -45,7 +45,7 @@
     "DateOfRegistry": "2023-10-25T12:16:35.1028956+02:00"
   },
   {
-    "BonusPoints": 0,
+    "BonusPoints": 1998,
     "CustomerId": 11,
     "FirstName": "Robert",
     "LastName": "Almond",
