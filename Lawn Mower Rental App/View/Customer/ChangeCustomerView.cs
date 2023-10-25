@@ -15,8 +15,6 @@ namespace Lawn_Mower_Rental_App.View
 
         public void ChangeCustomerType()
         {
-            
-
             Console.Clear();
             Console.WriteLine("|***************************************** LAWN MOWER RENTAL (TM) **************************************|");
             Console.WriteLine("|\t\t\t\t\t\t\t\t\t\t\t\t\t|");
@@ -79,7 +77,6 @@ namespace Lawn_Mower_Rental_App.View
             Console.WriteLine("Press any key to go back to Main Menu");
             HelperMethods.ReadLine();
             MainMenu.MainMenu_();
-
         }
 
         public void DowngradePrimeToBasic(int customerId)
@@ -118,7 +115,6 @@ namespace Lawn_Mower_Rental_App.View
             Console.WriteLine("Press any key to go back to Main Menu");
             HelperMethods.ReadLine();
             MainMenu.MainMenu_();
-
         }
 
         public void CustomerNotFound(int customerId)
@@ -140,16 +136,5 @@ namespace Lawn_Mower_Rental_App.View
             HelperMethods.ReadLine();
             MainMenu.MainMenu_();
         }
-
-
-
-
-
-
-
-
-
-
-
     }
 }
