@@ -11,7 +11,7 @@ namespace Lawn_Mower_Rental_App.View
 {
     public class RentLawnMowerForm
     {
-        public void RentLawnMowerForm_(CustomerType customerType)
+        public void RentLawnMowerForm_()
         {
             
             CustomerManager customerManager = new CustomerManager();
@@ -49,7 +49,7 @@ namespace Lawn_Mower_Rental_App.View
             }
             while (!int.TryParse(customerId, out customerIdInt));
 
-            customerManager.FindCustomerById(customerIdInt, customerType);
+            customerManager.FindCustomerById(customerIdInt);
         }
 
         public static void RentLawnMowerForm__(Customer customer)

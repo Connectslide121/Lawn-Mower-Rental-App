@@ -19,7 +19,6 @@ namespace Lawn_Mower_Rental_App.Controller
             RentalManager rentalManager = new RentalManager();
             ViewActiveRentalsForm viewActiveRentalsForm = new ViewActiveRentalsForm();
             ViewRentalHistoryForm viewRentalHistoryForm = new ViewRentalHistoryForm();
-            ViewDelayedRentals viewDelayedRentals = new ViewDelayedRentals();
 
             NewLawnMowerForm newLawnMowerForm = new NewLawnMowerForm();
             DeleteLawnMowerForm deleteLawnMowerForm = new DeleteLawnMowerForm();
@@ -29,6 +28,7 @@ namespace Lawn_Mower_Rental_App.Controller
             NewCustomerForm newCustomerForm = new NewCustomerForm();
             DeleteCustomerForm deleteCustomerForm = new DeleteCustomerForm();
             CustomerManager customerManager = new CustomerManager();
+            CustomerSearchView customerSearchView = new CustomerSearchView();
 
             EarningsProfitView earningsProfitView = new EarningsProfitView();
 
@@ -36,25 +36,13 @@ namespace Lawn_Mower_Rental_App.Controller
 
             if (int.TryParse(userInput, out int userInputInt))
                 {
-                    switch (userInputInt)
-                    {
-                    case 1:
-                        Console.WriteLine("Enter customer type (Basic/Prime):");
-                        string customerTypeStr = HelperMethods.ReadLine();
-
-                        if (Enum.TryParse(customerTypeStr, out CustomerType customerType))
+                        switch (userInputInt)
                         {
-                            rentLawnMowerForm.RentLawnMowerForm_(customerType);
-                        }
-                        else
-                        {
-                            Console.WriteLine("Invalid customer type. Please enter 'Basic' or 'Prime'.");
-                        }
-                        break;
 
-
-
-                    case 2:
+                        case 1:
+                            rentLawnMowerForm.RentLawnMowerForm_();
+                            break;
+                        case 2:
                             returnLawnMowerForm.ReturnLawnMowerForm_();
                             break;
                         case 3:
@@ -92,43 +80,16 @@ namespace Lawn_Mower_Rental_App.Controller
                             deleteCustomerForm.DeleteCustomerForm_();
                             break;
                         case 13:
-                        Console.WriteLine("Enter customer type (Basic/Prime):");
-
-                            if (Enum.TryParse(HelperMethods.ReadLine(), true, out CustomerType selectedCustomerType))
-                           {
-                            Console.WriteLine("Enter search query:");
-                            string searchQuery = HelperMethods.ReadLine();
-
-                            List<Customer> searchResults = customerManager.SearchCustomers(searchQuery, selectedCustomerType);
-
-                            CustomerSearchView.DisplaySearchResults(searchResults);
-                           }
-                           else
-                            {
-                            Console.WriteLine("Invalid customer type. Please enter 'Basic' or 'Prime'.");
-                            }
+                            customerManager.ViewListOfCustomers();
                             break;
-                        case 14: // These cases are getting complicated so they can work and be accepted by visual studio
-                        Console.WriteLine("Enter customer type (Basic/Prime):");
-                        if (Enum.TryParse(HelperMethods.ReadLine(), true, out selectedCustomerType))
-                            {
-                            Console.WriteLine("Enter search query:");
-                            string searchQuery = HelperMethods.ReadLine();
-
-                            List<Customer> searchResults = customerManager.SearchCustomers(searchQuery, selectedCustomerType);
-
-                            CustomerSearchView.DisplaySearchResults(searchResults);
-                             }
-                             else
-                             {
-                            Console.WriteLine("Invalid customer type. Please enter 'Basic' or 'Prime'.");
-                             }
+                        case 14:
+                            customerSearchView.SearchCustomers();
                              break;
 
 
 
 
-                    case 15:
+                        case 15:
                             earningsProfitView.DisplayEarningsProfitMenu();
                             break;
 

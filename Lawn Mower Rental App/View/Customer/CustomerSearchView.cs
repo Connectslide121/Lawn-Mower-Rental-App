@@ -11,7 +11,7 @@ namespace Lawn_Mower_Rental_App.View
 {
     public class CustomerSearchView
     {
-        public void SearchCustomers(CustomerType customerType)
+        public void SearchCustomers()
         {
             CustomerManager customerManager = new CustomerManager();
 
@@ -22,25 +22,76 @@ namespace Lawn_Mower_Rental_App.View
             HelperMethods.WriteColoredText("|\t\t\t\t\t      SEARCH CUSTOMERS \t\t\t\t\t\t|", "SEARCH CUSTOMERS", ConsoleColor.Yellow);
             Console.WriteLine("|\t\t\t\t\t\t\t\t\t\t\t\t\t|");
             Console.WriteLine("|\t\t\t\t\t\t\t\t\t\t\t\t\t|");
+            Console.WriteLine("|\t\t\t\t\t Please enter search query\t\t\t\t\t|");
+            Console.WriteLine("|\t\t\t\t\t\t\t\t\t\t\t\t\t|");
+            Console.WriteLine("|\t\t\t\t\t\t\t\t\t\t\t\t\t|");
             Console.WriteLine("|*******************************************************************************************************|");
-            Console.WriteLine("Enter search query:");
             string searchQuery = HelperMethods.ReadLine();
 
-            List<Customer> searchResults = customerManager.SearchCustomers(searchQuery, customerType);
+            customerManager.SearchCustomers(searchQuery);
 
-            if (searchResults.Count == 0)
+
+
+        }
+
+        public static void DisplaySearchResult(List<BasicCustomer> basicCustomers, List<PrimeCustomer> primeCustomers)
+        {
+            Console.Clear();
+            Console.WriteLine("|***************************************** LAWN MOWER RENTAL (TM) **************************************|");
+            Console.WriteLine("|\t\t\t\t\t\t\t\t\t\t\t\t\t|");
+            Console.WriteLine("|\t\t\t\t\t\t\t\t\t\t\t\t\t|");
+            HelperMethods.WriteColoredText("|\t\t\t\t\t      SEARCH CUSTOMERS \t\t\t\t\t\t|", "SEARCH CUSTOMERS", ConsoleColor.Yellow);
+            Console.WriteLine("|\t\t\t\t\t\t\t\t\t\t\t\t\t|");
+            Console.WriteLine("|\t\t\t   -----------------------------------------------\t\t\t\t|");
+            Console.WriteLine("|\t\t\t\t\t\t\t\t\t\t\t\t\t|");
+
+            if (basicCustomers.Count == 0 && primeCustomers.Count == 0)
             {
-                Console.WriteLine("No customers found matching the search criteria.");
+                Console.WriteLine("|\t\t\tNo customers registered yet.\t\t\t|");
             }
             else
             {
-                Console.WriteLine("Search results:");
-                CustomerListView.DisplayCustomerList(searchResults);
-            }
+                Console.WriteLine("|\t\t\t\t\t\t\t\t\t\t\t\t\t|");
+                HelperMethods.WriteColoredText("|\t\t\t\t\t      BASIC CUSTOMERS \t\t\t\t\t\t|", "BASIC CUSTOMERS", ConsoleColor.DarkYellow);
+                Console.WriteLine("|\t\t\t\t\t\t\t\t\t\t\t\t\t|");
 
-            Console.WriteLine("Press any key to go back to Main Menu");
-            Console.ReadKey();
-            MainMenu.MainMenu_();
+                if (basicCustomers.Count == 0)
+                {
+                    Console.WriteLine("|\t\t\tNo basic customers registered yet.\t\t\t|");
+                }
+                else
+                {
+                    foreach (Customer customer in basicCustomers)
+                    {
+                        HelperMethods.WriteLineFitBox("|", customer.ToString(), "|", 103);
+                    }
+                }
+
+                Console.WriteLine("|\t\t\t\t\t\t\t\t\t\t\t\t\t|");
+                HelperMethods.WriteColoredText("|\t\t\t\t\t      PRIME CUSTOMERS \t\t\t\t\t\t|", "PRIME CUSTOMERS", ConsoleColor.DarkYellow);
+                Console.WriteLine("|\t\t\t\t\t\t\t\t\t\t\t\t\t|");
+
+                if (primeCustomers.Count == 0)
+                {
+                    Console.WriteLine("|\t\t\tNo prime customers registered yet.\t\t\t|");
+                }
+                else
+                {
+                    foreach (Customer customer in primeCustomers)
+                    {
+                        HelperMethods.WriteLineFitBox("|", customer.ToString(), "|", 103);
+                    }
+                }
+
+                Console.WriteLine("|\t\t\t\t\t\t\t\t\t\t\t\t\t|");
+                Console.WriteLine("|\t\t\t   -----------------------------------------------\t\t\t\t|");
+                Console.WriteLine("|\t\t\t\t\t\t\t\t\t\t\t\t\t|");
+                Console.WriteLine("|\t\t\t\t\t\t\t\t\t\t\t\t\t|");
+                Console.WriteLine("|*******************************************************************************************************|");
+                Console.WriteLine("Press any key to go back to Main Menu");
+                Console.ReadKey();
+                MainMenu.MainMenu_();
+            }
         }
     }
 }

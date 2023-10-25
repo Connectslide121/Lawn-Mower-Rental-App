@@ -22,70 +22,59 @@ namespace Lawn_Mower_Rental_App.Controller
             primeCustomers = LoadPrimeCustomersFromJson();
         }
 
-        public void RegisterNewCustomer(Customer customer)
+        public void RegisterNewCustomer(BasicCustomer basicCustomer)
         {
             NewCustomerForm newCustomerForm = new NewCustomerForm();
 
-            bool customerExists = customer is BasicCustomer
-                ? basicCustomers.Any(item =>
-                    item.FirstName.ToLower() == customer.FirstName.ToLower() &&
-                    item.LastName.ToLower() == customer.LastName.ToLower() &&
-                    item.ContactNumber == customer.ContactNumber)
-                : primeCustomers.Any(item =>
-                    item.FirstName.ToLower() == customer.FirstName.ToLower() &&
-                    item.LastName.ToLower() == customer.LastName.ToLower() &&
-                    item.ContactNumber == customer.ContactNumber);
+            bool customerExists = basicCustomers.Any(item =>
+                item.FirstName.ToLower() == basicCustomer.FirstName.ToLower() &&
+                item.LastName.ToLower() == basicCustomer.LastName.ToLower() &&
+                item.ContactNumber == basicCustomer.ContactNumber);
 
             if (customerExists)
             {
-                newCustomerForm.CustomerExistsMessage(customer);
+                newCustomerForm.CustomerExistsMessage(basicCustomer);
             }
             else
             {
-                if (customer is BasicCustomer)
-                {
-                    basicCustomers.Add(customer as BasicCustomer);
-                    SaveBasicCustomersToJson(basicCustomers);
-                }
-                else if (customer is PrimeCustomer)
-                {
-                    primeCustomers.Add(customer as PrimeCustomer);
-                    SavePrimeCustomersToJson(primeCustomers);
-                }
-                newCustomerForm.CustomerRegisteredMessage(customer);
+                basicCustomers.Add(basicCustomer);
+                SaveBasicCustomersToJson(basicCustomers);
+                newCustomerForm.CustomerRegisteredMessage(basicCustomer);
             }
         }
 
-        public int GetCustomerId(CustomerType customerType)
+        public int GetCustomerId()
         {
-            List<Customer> allCustomers = new List<Customer>();
-
-            if (customerType == CustomerType.Basic)
-            {
-                allCustomers.AddRange(basicCustomers.Cast<Customer>());
-                allCustomers.AddRange(primeCustomers.Cast<Customer>());
-            }
-            else
-            {
-                allCustomers.AddRange(primeCustomers.Cast<Customer>());
-                allCustomers.AddRange(basicCustomers.Cast<Customer>());
-            }
-
-            if (allCustomers.Count == 0)
+            if(basicCustomers.Count == 0 && primeCustomers.Count == 0)
             {
                 return 1;
             }
-
-            int highestID = allCustomers.Max(cust => cust.CustomerId);
-
-            for (int i = 1; i <= highestID + 1; i++)
+            else
             {
-                if (!allCustomers.Any(cust => cust.CustomerId == i))
+                int nextId = 1;
+                bool idInUse;
+
+                do
                 {
-                    return i;
+                    if (basicCustomers.Any(basicCustomer => basicCustomer.CustomerId == nextId))
+                    {
+                        idInUse = true;
+                        nextId++;
+                    }
+                    else if (primeCustomers.Any(primeCustomer => primeCustomer.CustomerId == nextId))
+                    {
+                        idInUse = true;
+                        nextId++;
+                    }
+                    else
+                    {
+                        idInUse = false;
+                    }
                 }
+                while (idInUse == true);
+
+            return nextId;
             }
-            return highestID + 1;
         }
 
         public void DeleteCustomer(string firstName, string lastName, int customerId)
@@ -130,20 +119,9 @@ namespace Lawn_Mower_Rental_App.Controller
             }
         }
 
-        public void ViewListOfCustomers(CustomerType customerType)
+        public void ViewListOfCustomers()
         {
-            List<Customer> allCustomers = new List<Customer>();
-
-            if (customerType == CustomerType.Basic)
-            {
-                allCustomers.AddRange(basicCustomers);
-            }
-            else
-            {
-                allCustomers.AddRange(primeCustomers);
-            }
-
-            CustomerListView.DisplayCustomerList(allCustomers);
+            CustomerListView.DisplayCustomerList(basicCustomers, primeCustomers);
         }
 
         private List<BasicCustomer> LoadBasicCustomersFromJson()
@@ -194,39 +172,56 @@ namespace Lawn_Mower_Rental_App.Controller
             catch { ErrorsExceptions.CustomerFileNotFoundException(); }
         }
 
-        public void FindCustomerById(int customerId, CustomerType customerType)
+        public void FindCustomerById(int customerId)
         {
-            var customers = customerType == CustomerType.Basic
-                ? basicCustomers.Cast<Customer>().ToList()
-                : primeCustomers.Cast<Customer>().ToList();
+            BasicCustomer basicCustomer = basicCustomers.Find(customer => customer.CustomerId == customerId);
 
-            Customer foundCustomer = customers.Find(cust => cust.CustomerId == customerId);
-            if (foundCustomer != null)
+            if (basicCustomer != null)
             {
-                RentLawnMowerForm.RentLawnMowerForm__(foundCustomer);
+                RentLawnMowerForm.RentLawnMowerForm__(basicCustomer);
             }
-            else
+
+            else if (basicCustomer == null)
             {
-                RentLawnMowerForm.CustomerNotFoundMessage(customerId);
+                PrimeCustomer primeCustomer = primeCustomers.Find(customer => customer.CustomerId == customerId);
+
+                if(primeCustomer != null)
+                {
+                    RentLawnMowerForm.RentLawnMowerForm__(primeCustomer);
+                }
+
+                else if(primeCustomer == null)
+                {
+                    RentLawnMowerForm.CustomerNotFoundMessage(customerId);
+                }
             }
         }
 
-        public List<Customer> SearchCustomers(string query, CustomerType customerType)
+        public void SearchCustomers(string query)
         {
             query = query.ToLower();
-            var customers = customerType == CustomerType.Basic
-                ? basicCustomers.Cast<Customer>().ToList()
-                : primeCustomers.Cast<Customer>().ToList();
 
-            return customers.Where(cust =>
-                cust.FirstName.ToLower().Contains(query) ||
-                cust.LastName.ToLower().Contains(query) ||
-                cust.CustomerId.ToString().Contains(query) ||
-                cust.Address.ToLower().Contains(query) ||
-                cust.ContactNumber.ToString().Contains(query) ||
-                cust.DateOfRegistry.ToString().Contains(query)
+            List<BasicCustomer> basicCustomersSearch = basicCustomers.Where(basicCustomer =>
+                basicCustomer.FirstName.ToLower().Contains(query) ||
+                basicCustomer.LastName.ToLower().Contains(query) ||
+                basicCustomer.CustomerId.ToString().Contains(query) ||
+                basicCustomer.Address.ToLower().Contains(query) ||
+                basicCustomer.ContactNumber.ToString().Contains(query) ||
+                basicCustomer.DateOfRegistry.ToString().Contains(query)
             ).ToList();
+
+            List<PrimeCustomer> primeCustomersSearch = primeCustomers.Where(primeCustomer =>
+                primeCustomer.FirstName.ToLower().Contains(query) ||
+                primeCustomer.LastName.ToLower().Contains(query) ||
+                primeCustomer.CustomerId.ToString().Contains(query) ||
+                primeCustomer.Address.ToLower().Contains(query) ||
+                primeCustomer.ContactNumber.ToString().Contains(query) ||
+                primeCustomer.DateOfRegistry.ToString().Contains(query)
+            ).ToList();
+
+            CustomerSearchView.DisplaySearchResult(basicCustomersSearch, primeCustomersSearch);
         }
+
         public void ConvertBasicToPrime(int customerId)
         {
             BasicCustomer basicCustomer = basicCustomers.Find(cust => cust.CustomerId == customerId);
