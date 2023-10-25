@@ -247,7 +247,7 @@ namespace Lawn_Mower_Rental_App.Controller
             }
             else
             {
-               // I'd normally put an error message here, but im leaving that for the view
+                ErrorsExceptions.BasicCustomerNotFoundException();
             }
         }
         public void ConvertPrimeToBasic(int customerId)
@@ -274,7 +274,7 @@ namespace Lawn_Mower_Rental_App.Controller
             }
             else
             {
-                // Error message can go here
+                ErrorsExceptions.PrimeCustomerNotFoundException();
             }
         }
         public void AddBonusPointsToPrimeCustomer(int customerId, int bonusPointsToAdd)

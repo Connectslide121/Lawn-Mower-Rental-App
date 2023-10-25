@@ -117,5 +117,48 @@ namespace Lawn_Mower_Rental_App.View
             Console.ReadKey();
             MainMenu.MainMenu_();
         }
+
+        public static void BasicCustomerNotFoundException()
+        {
+            Console.Clear();
+            Console.WriteLine("|***************************************** LAWN MOWER RENTAL (TM) **************************************|");
+            Console.WriteLine("|\t\t\t\t\t\t\t\t\t\t\t\t\t|");
+            Console.WriteLine("|\t\t\t\t\t\t\t\t\t\t\t\t\t|");
+            Console.WriteLine("|\t\t\t\t\t\t\t\t\t\t\t\t\t|");
+            Console.WriteLine("|\t\t\t\t\t\t\t\t\t\t\t\t\t|");
+            Console.WriteLine("|\t\t\t\t\t\t\t\t\t\t\t\t\t|");
+            HelperMethods.WriteColoredText("|\t\t\t\t\tBasic customer not found  \t\t\t\t\t|", "Basic customer not found", ConsoleColor.Red);
+            Console.WriteLine("|\t\t\t\t\t\t\t\t\t\t\t\t\t|");
+            Console.WriteLine("|\t\t\t\t\t\t\t\t\t\t\t\t\t|");
+            Console.WriteLine("|\t\t\t\t\t\t\t\t\t\t\t\t\t|");
+            Console.WriteLine("|\t\t\t\t\t\t\t\t\t\t\t\t\t|");
+            Console.WriteLine("|\t\t\t\t\t\t\t\t\t\t\t\t\t|");
+            Console.WriteLine("|*******************************************************************************************************|");
+            Console.WriteLine("Press any key to go back to the Main Menu");
+            Console.ReadKey();
+            MainMenu.MainMenu_();
+        }
+
+        public static void PrimeCustomerNotFoundException()
+        {
+            Console.Clear();
+            Console.WriteLine("|***************************************** LAWN MOWER RENTAL (TM) **************************************|");
+            Console.WriteLine("|\t\t\t\t\t\t\t\t\t\t\t\t\t|");
+            Console.WriteLine("|\t\t\t\t\t\t\t\t\t\t\t\t\t|");
+            Console.WriteLine("|\t\t\t\t\t\t\t\t\t\t\t\t\t|");
+            Console.WriteLine("|\t\t\t\t\t\t\t\t\t\t\t\t\t|");
+            Console.WriteLine("|\t\t\t\t\t\t\t\t\t\t\t\t\t|");
+            HelperMethods.WriteColoredText("|\t\t\t\t\Prime customer not found  \t\t\t\t\t|", "Prime customer not found", ConsoleColor.Red);
+            Console.WriteLine("|\t\t\t\t\t\t\t\t\t\t\t\t\t|");
+            Console.WriteLine("|\t\t\t\t\t\t\t\t\t\t\t\t\t|");
+            Console.WriteLine("|\t\t\t\t\t\t\t\t\t\t\t\t\t|");
+            Console.WriteLine("|\t\t\t\t\t\t\t\t\t\t\t\t\t|");
+            Console.WriteLine("|\t\t\t\t\t\t\t\t\t\t\t\t\t|");
+            Console.WriteLine("|*******************************************************************************************************|");
+            Console.WriteLine("Press any key to go back to the Main Menu");
+            Console.ReadKey();
+            MainMenu.MainMenu_();
+
+        }
     }
 }
