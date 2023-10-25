@@ -37,7 +37,7 @@ namespace Lawn_Mower_Rental_App.Controller
                 string jsonData = File.ReadAllText(relativePathElectric);
                 return JsonSerializer.Deserialize<List<ElectricLawnMower>>(jsonData);
             }
-            catch (Exception) { ErrorsExceptions.LawnMowerFileNotFoundException(); } //We should have a specific ElectricLawnMowerNotFound message
+            catch (Exception) { ErrorsExceptions.ElectricLawnMowerFileNotFoundException(); }
             return electricLawnMowers;
         }
 
@@ -48,7 +48,7 @@ namespace Lawn_Mower_Rental_App.Controller
                 string jsonData = File.ReadAllText(relativePathPetrol);
                 return JsonSerializer.Deserialize<List<PetrolLawnMower>>(jsonData);
             }
-            catch (Exception) { ErrorsExceptions.LawnMowerFileNotFoundException(); } //We should have a specific PetrolLawnMowerNotFound message
+            catch (Exception) { ErrorsExceptions.PetrolLawnMowerFileNotFoundException(); }
             return petrolLawnMowers;
         }
 
@@ -97,7 +97,7 @@ namespace Lawn_Mower_Rental_App.Controller
 
                 File.WriteAllText(relativePathElectric, jsonData);
             }
-            catch { ErrorsExceptions.LawnMowerFileNotFoundException(); } //We should have a specific ElectricLawnMowerNotFound message
+            catch { ErrorsExceptions.ElectricLawnMowerFileNotFoundException(); }
         }
 
         public void SavePetrolLawnMowersToJson(List<PetrolLawnMower> petrolLawnMowers)
@@ -111,7 +111,7 @@ namespace Lawn_Mower_Rental_App.Controller
 
                 File.WriteAllText(relativePathPetrol, jsonData);
             }
-            catch { ErrorsExceptions.LawnMowerFileNotFoundException(); } //We should have a specific PetrolLawnMowerNotFound message
+            catch { ErrorsExceptions.PetrolLawnMowerFileNotFoundException(); }
         }
 
         public void RegisterElectricLawnMower(ElectricLawnMower electricLawnMower)

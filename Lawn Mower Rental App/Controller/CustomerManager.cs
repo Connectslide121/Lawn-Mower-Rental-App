@@ -131,7 +131,7 @@ namespace Lawn_Mower_Rental_App.Controller
                 string jsonData = File.ReadAllText(relativePathBasic);
                 return JsonSerializer.Deserialize<List<BasicCustomer>>(jsonData);
             }
-            catch (Exception) { ErrorsExceptions.CustomerFileNotFoundException(); }
+            catch (Exception) { ErrorsExceptions.BasicCustomerFileNotFoundException(); }
             return basicCustomers;
         }
 
@@ -142,7 +142,7 @@ namespace Lawn_Mower_Rental_App.Controller
                 string jsonData = File.ReadAllText(relativePathPrime);
                 return JsonSerializer.Deserialize<List<PrimeCustomer>>(jsonData);
             }
-            catch (Exception) { ErrorsExceptions.CustomerFileNotFoundException(); }
+            catch (Exception) { ErrorsExceptions.PrimeCustomerFileNotFoundException(); }
             return primeCustomers;
         }
 
@@ -156,7 +156,7 @@ namespace Lawn_Mower_Rental_App.Controller
                 });
                 File.WriteAllText(relativePathBasic, jsonData);
             }
-            catch { ErrorsExceptions.CustomerFileNotFoundException(); }
+            catch { ErrorsExceptions.BasicCustomerFileNotFoundException(); }
         }
 
         private void SavePrimeCustomersToJson(List<PrimeCustomer> customers)
@@ -169,7 +169,7 @@ namespace Lawn_Mower_Rental_App.Controller
                 });
                 File.WriteAllText(relativePathPrime, jsonData);
             }
-            catch { ErrorsExceptions.CustomerFileNotFoundException(); }
+            catch { ErrorsExceptions.PrimeCustomerFileNotFoundException(); }
         }
 
         public void FindCustomerById(int customerId)
