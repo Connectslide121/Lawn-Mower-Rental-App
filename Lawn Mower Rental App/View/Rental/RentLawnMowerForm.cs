@@ -179,6 +179,38 @@ namespace Lawn_Mower_Rental_App.View
             TimeSpan rentalPeriod = returnDateValid - rentalDateValid;
             decimal totalPrice = pricePerDay * (decimal)rentalPeriod.TotalDays;
 
+            if (customer is BasicCustomer && rentalPeriod.TotalDays < 7)
+            {
+                Console.Clear();
+                Console.WriteLine("|***************************************** LAWN MOWER RENTAL (TM) **************************************|");
+                Console.WriteLine("|\t\t\t\t\t\t\t\t\t\t\t\t\t|");
+                Console.WriteLine("|\t\t\t\t\t\t\t\t\t\t\t\t\t|");
+                Console.WriteLine("|\t\t\t\t\t\t\t\t\t\t\t\t\t|");
+                HelperMethods.WriteColoredText("|\t\t\t\t\t    RENT A LAWN MOWER \t\t\t\t\t\t|", "RENT A LAWN MOWER", ConsoleColor.Magenta);
+                Console.WriteLine("|\t\t\t\t\t\t\t\t\t\t\t\t\t|");
+                Console.WriteLine("|\t\t\t\t Please enter information as requested: \t\t\t\t|");
+                Console.WriteLine("|\t\t\t\t\t\t\t\t\t\t\t\t\t|");
+                HelperMethods.WriteLineFitBox("|\t\t\t\t\t Customer ID: ", customer.CustomerId.ToString(), "|", 50);
+                Console.WriteLine("|\t\t\t\t\t\t\t\t\t\t\t\t\t|");
+                HelperMethods.WriteLineFitBox("|\t\t\t\t\t Electric or Petrol: ", lawnMowerType, "|", 43);
+                Console.WriteLine("|\t\t\t\t\t\t\t\t\t\t\t\t\t|");
+                Console.WriteLine($"|\t\t\t\t\t Rental Date: {rentalDateValid.ToString("d")}\t\t\t\t\t|");
+                Console.WriteLine("|\t\t\t\t\t\t\t\t\t\t\t\t\t|");
+                Console.WriteLine($"|\t\t\t\t\t Return Date: {returnDateValid.ToString("d")}\t\t\t\t\t|");
+                Console.WriteLine("|\t\t\t\t\t\t\t\t\t\t\t\t\t|");
+                Console.WriteLine("|\t\t\t\t\t Total price: \t\t\t\t\t\t\t|");
+                Console.WriteLine("|\t\t\t\t\t\t\t\t\t\t\t\t\t|");
+                Console.WriteLine($"|\t\t\t     Basic customer must rent for at least 7 days! \t\t\t\t|");
+                Console.WriteLine("|\t\t\t\t\t\t\t\t\t\t\t\t\t|");
+                Console.WriteLine("|\t\t\t\t\t\t\t\t\t\t\t\t\t|");
+                Console.WriteLine("|\t\t\t\t\t\t\t\t\t\t\t\t\t|");
+                Console.WriteLine("|*******************************************************************************************************|");
+                Console.WriteLine("Press any key to go back to Main Menu");
+                HelperMethods.ReadLine();
+                MainMenu.MainMenu_();
+            }
+
+
             bool applyDiscount = false;
 
             if (customer is BasicCustomer basicCustomer && basicCustomer.RemainingDiscounts > 0)
@@ -274,7 +306,7 @@ namespace Lawn_Mower_Rental_App.View
             HelperMethods.WriteLineFitBox("|\t\t\t\t\t Total price: ", $"{rentalToAdd.TotalPrice.ToString()} SEK", "|", 50);
             Console.WriteLine("|\t\t\t\t\t\t\t\t\t\t\t\t\t|");
             Console.WriteLine("|\t\t\t\t\t\t\t\t\t\t\t\t\t|");
-            Console.WriteLine("|\t\t\t\t    Rental created successfully!\t\t\t\t\t|");
+            Console.WriteLine($"|\t\t\t\t    Rental ID {rentalToAdd.RentalId.ToString()} created successfully!\t\t\t\t\t|");
             Console.WriteLine("|\t\t\t\t\t\t\t\t\t\t\t\t\t|");
             Console.WriteLine("|\t\t\t\t\t\t\t\t\t\t\t\t\t|");
             Console.WriteLine("|*******************************************************************************************************|");

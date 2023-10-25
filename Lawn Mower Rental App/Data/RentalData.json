@@ -153,19 +153,19 @@
     "ReturnDate": "2023-10-10T00:00:00",
     "TotalCost": 14071.8,
     "TotalPrice": 28171.8,
-    "IsActive": true
+    "IsActive": false
   },
   {
     "RentalId": 7,
     "LawnMower": {
       "LawnMowerId": 2,
       "Model": "HUSQVARNA LB 448S KLIPPO",
-      "IsAvailable": false,
+      "IsAvailable": true,
       "LastMaintenance": "2023-10-19T11:44:57.67593+02:00",
       "PricePerDay": 99.9,
       "CostPerDay": 49.9,
       "ProfitPerDay": 50.0,
-      "AvailabilityStatus": "In Use"
+      "AvailabilityStatus": "Available"
     },
     "Customer": {
       "CustomerId": 4,
@@ -179,19 +179,19 @@
     "ReturnDate": "2023-10-20T00:00:00",
     "TotalCost": 249.5,
     "TotalPrice": 499.5,
-    "IsActive": true
+    "IsActive": false
   },
   {
     "RentalId": 8,
     "LawnMower": {
       "LawnMowerId": 3,
       "Model": "HUSQVARNA LB 448S KLIPPO",
-      "IsAvailable": false,
+      "IsAvailable": true,
       "LastMaintenance": "2023-10-19T11:45:00.0302297+02:00",
       "PricePerDay": 99.9,
       "CostPerDay": 49.9,
       "ProfitPerDay": 50.0,
-      "AvailabilityStatus": "In Use"
+      "AvailabilityStatus": "Available"
     },
     "Customer": {
       "CustomerId": 11,
@@ -205,19 +205,19 @@
     "ReturnDate": "2023-10-21T00:00:00",
     "TotalCost": 998.0,
     "TotalPrice": 1998.0,
-    "IsActive": true
+    "IsActive": false
   },
   {
     "RentalId": 9,
     "LawnMower": {
       "LawnMowerId": 4,
       "Model": "HUSQVARNA LB 448S KLIPPO",
-      "IsAvailable": false,
+      "IsAvailable": true,
       "LastMaintenance": "2023-10-19T11:45:02.8129983+02:00",
       "PricePerDay": 99.9,
       "CostPerDay": 49.9,
       "ProfitPerDay": 50.0,
-      "AvailabilityStatus": "In Use"
+      "AvailabilityStatus": "Available"
     },
     "Customer": {
       "CustomerId": 7,
@@ -231,19 +231,19 @@
     "ReturnDate": "2023-10-22T00:00:00",
     "TotalCost": 249.5,
     "TotalPrice": 499.5,
-    "IsActive": true
+    "IsActive": false
   },
   {
     "RentalId": 10,
     "LawnMower": {
       "LawnMowerId": 5,
       "Model": "HUSQVARNA LB 448S KLIPPO",
-      "IsAvailable": false,
+      "IsAvailable": true,
       "LastMaintenance": "2023-10-10T00:00:00",
       "PricePerDay": 99.9,
       "CostPerDay": 49.9,
       "ProfitPerDay": 50.0,
-      "AvailabilityStatus": "In Use"
+      "AvailabilityStatus": "Available"
     },
     "Customer": {
       "CustomerId": 6,
@@ -257,7 +257,7 @@
     "ReturnDate": "2023-10-23T00:00:00",
     "TotalCost": 199.6,
     "TotalPrice": 399.6,
-    "IsActive": true
+    "IsActive": false
   },
   {
     "RentalId": 11,
@@ -283,7 +283,7 @@
     "ReturnDate": "2023-10-18T00:00:00",
     "TotalCost": 399.2,
     "TotalPrice": 799.2,
-    "IsActive": true
+    "IsActive": false
   },
   {
     "RentalId": 12,
@@ -518,5 +518,161 @@
     "TotalCost": 49.9,
     "TotalPrice": 74.925,
     "IsActive": true
+  },
+  {
+    "RentalId": 21,
+    "LawnMower": {
+      "LawnMowerId": 13,
+      "Model": "HUSQVARNA LB 448i",
+      "IsAvailable": true,
+      "LastMaintenance": "2023-10-24T15:38:38.9856624+02:00",
+      "PricePerDay": 99.9,
+      "CostPerDay": 49.9,
+      "ProfitPerDay": 50.0,
+      "AvailabilityStatus": "Available"
+    },
+    "Customer": {
+      "CustomerId": 5,
+      "FirstName": "Kjell",
+      "LastName": "Bergstr\u00F6m",
+      "ContactNumber": 1548765,
+      "Address": "Elsa Brandstroms gata 60A, Hagersten",
+      "DateOfRegistry": "2023-10-25T12:14:09.1527756+02:00"
+    },
+    "RentalDate": "2023-11-11T00:00:00",
+    "ReturnDate": "2023-11-12T00:00:00",
+    "TotalCost": 49.9,
+    "TotalPrice": 99.9,
+    "IsActive": true
+  },
+  {
+    "RentalId": 22,
+    "LawnMower": {
+      "LawnMowerId": 8,
+      "Model": "HUSQVARNA LB 448S KLIPPO",
+      "IsAvailable": true,
+      "LastMaintenance": "2023-10-24T15:36:59.4386648+02:00",
+      "PricePerDay": 99.9,
+      "CostPerDay": 49.9,
+      "ProfitPerDay": 50.0,
+      "AvailabilityStatus": "Available"
+    },
+    "Customer": {
+      "CustomerId": 6,
+      "FirstName": "Robert",
+      "LastName": "Current",
+      "ContactNumber": 51351548,
+      "Address": "Morbyvagen 9, Nynashamn",
+      "DateOfRegistry": "2023-10-25T12:14:56.8128257+02:00"
+    },
+    "RentalDate": "2023-11-10T00:00:00",
+    "ReturnDate": "2023-12-12T00:00:00",
+    "TotalCost": 1596.8,
+    "TotalPrice": 2397.600,
+    "IsActive": true
+  },
+  {
+    "RentalId": 23,
+    "LawnMower": {
+      "LawnMowerId": 8,
+      "Model": "HUSQVARNA LB 448S KLIPPO",
+      "IsAvailable": true,
+      "LastMaintenance": "2023-10-24T15:36:59.4386648+02:00",
+      "PricePerDay": 99.9,
+      "CostPerDay": 49.9,
+      "ProfitPerDay": 50.0,
+      "AvailabilityStatus": "Available"
+    },
+    "Customer": {
+      "CustomerId": 2,
+      "FirstName": "Marianne",
+      "LastName": "Jansson",
+      "ContactNumber": 65848512,
+      "Address": "Fleminggatan 73, V\u00E4xj\u00F6",
+      "DateOfRegistry": "2023-10-25T12:07:12.071684+02:00"
+    },
+    "RentalDate": "2023-05-05T00:00:00",
+    "ReturnDate": "2023-11-11T00:00:00",
+    "TotalCost": 9481.0,
+    "TotalPrice": 18981.0,
+    "IsActive": false
+  },
+  {
+    "RentalId": 24,
+    "LawnMower": {
+      "LawnMowerId": 13,
+      "Model": "HUSQVARNA LB 448i",
+      "IsAvailable": true,
+      "LastMaintenance": "2023-10-24T15:38:38.9856624+02:00",
+      "PricePerDay": 99.9,
+      "CostPerDay": 49.9,
+      "ProfitPerDay": 50.0,
+      "AvailabilityStatus": "Available"
+    },
+    "Customer": {
+      "CustomerId": 2,
+      "FirstName": "Marianne",
+      "LastName": "Jansson",
+      "ContactNumber": 65848512,
+      "Address": "Fleminggatan 73, V\u00E4xj\u00F6",
+      "DateOfRegistry": "2023-10-25T12:07:12.071684+02:00"
+    },
+    "RentalDate": "2023-05-05T00:00:00",
+    "ReturnDate": "2023-07-07T00:00:00",
+    "TotalCost": 3143.7,
+    "TotalPrice": 6293.7,
+    "IsActive": false
+  },
+  {
+    "RentalId": 25,
+    "LawnMower": {
+      "LawnMowerId": 13,
+      "Model": "HUSQVARNA LB 448i",
+      "IsAvailable": true,
+      "LastMaintenance": "2023-10-24T15:38:38.9856624+02:00",
+      "PricePerDay": 99.9,
+      "CostPerDay": 49.9,
+      "ProfitPerDay": 50.0,
+      "AvailabilityStatus": "Available"
+    },
+    "Customer": {
+      "CustomerId": 8,
+      "FirstName": "Hans",
+      "LastName": "Abrahamsson",
+      "ContactNumber": 51846541,
+      "Address": "Katarina Bangata 21, Stockholm",
+      "DateOfRegistry": "2023-10-25T12:15:49.1610299+02:00"
+    },
+    "RentalDate": "2023-02-02T00:00:00",
+    "ReturnDate": "2023-04-04T00:00:00",
+    "TotalCost": 3043.9,
+    "TotalPrice": 6093.9,
+    "IsActive": false
+  },
+  {
+    "RentalId": 26,
+    "LawnMower": {
+      "LawnMowerId": 14,
+      "Model": "HUSQVARNA LB 448i",
+      "IsAvailable": true,
+      "LastMaintenance": "2023-10-24T15:38:44.9325822+02:00",
+      "PricePerDay": 99.9,
+      "CostPerDay": 49.9,
+      "ProfitPerDay": 50.0,
+      "AvailabilityStatus": "Available"
+    },
+    "Customer": {
+      "CustomerId": 8,
+      "FirstName": "Hans",
+      "LastName": "Abrahamsson",
+      "ContactNumber": 51846541,
+      "Address": "Katarina Bangata 21, Stockholm",
+      "DateOfRegistry": "2023-10-25T12:15:49.1610299+02:00"
+    },
+    "RentalDate": "2023-06-06T00:00:00",
+    "ReturnDate": "2023-07-07T00:00:00",
+    "TotalCost": 1546.9,
+    "TotalPrice": 3096.9,
+    "IsActive": false
   }
 ]

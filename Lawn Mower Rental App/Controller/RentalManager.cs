@@ -88,6 +88,7 @@ namespace Lawn_Mower_Rental_App.Controller
             TimeSpan rentalPeriod = returnDate - rentalDate;
             decimal totalPrice = pricePerDay * (decimal)rentalPeriod.TotalDays;
 
+
             // If to check if customer is basic here, not in the form
             if (customer is BasicCustomer basicCustomer && applyDiscount)
             {
@@ -97,6 +98,7 @@ namespace Lawn_Mower_Rental_App.Controller
                 CustomerManager customerManager = new CustomerManager();
                 customerManager.AddDiscountsToBasicCustomer(basicCustomer.CustomerId, -1);// Reducing the remaining discounts
             }
+
 
             rental.TotalPrice = totalPrice;
 
@@ -145,7 +147,11 @@ namespace Lawn_Mower_Rental_App.Controller
                 {
                     rental.LawnMower.IsAvailable = false;
                 }
-                else if (DateTime.Today !>= rental.RentalDate && DateTime.Today !<= rental.ReturnDate)
+                else if (DateTime.Today >= rental.RentalDate && DateTime.Today >= rental.ReturnDate && rental.IsActive)
+                {
+                    rental.LawnMower.IsAvailable = false;
+                }
+                else if (DateTime.Today !>= rental.RentalDate)
                 {
                     rental.LawnMower.IsAvailable = true;
                 }
