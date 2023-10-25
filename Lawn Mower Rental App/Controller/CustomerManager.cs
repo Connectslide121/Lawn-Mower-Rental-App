@@ -22,6 +22,7 @@ namespace Lawn_Mower_Rental_App.Controller
         {
             basicCustomers = LoadBasicCustomersFromJson();
             primeCustomers = LoadPrimeCustomersFromJson();
+            rentals = LoadRentalsFromJson();
         }
 
         public void RegisterNewCustomer(BasicCustomer basicCustomer)

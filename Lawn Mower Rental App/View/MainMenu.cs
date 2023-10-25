@@ -14,6 +14,10 @@ namespace Lawn_Mower_Rental_App.View
     {
         public static void MainMenu_()
         {
+            CustomerManager customerManager = new CustomerManager();
+            LawnMowerManager lawnMowerManager = new LawnMowerManager();
+            RentalManager rentalManager = new RentalManager();
+
             Console.Clear();
             Console.WriteLine("|***************************************** LAWN MOWER RENTAL (TM) **************************************|");
             Console.WriteLine("|\t\t\t\t\t\t\t\t\t\t\t\t\t|");
