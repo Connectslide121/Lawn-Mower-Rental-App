@@ -33,6 +33,8 @@ namespace Lawn_Mower_Rental_App.View
             Console.WriteLine("|\t\t\t\t\t\t\t\t\t\t\t\t\t|");
             Console.WriteLine("|\t\t\t\t\t Return Date: \t\t\t\t\t\t\t|");
             Console.WriteLine("|\t\t\t\t\t\t\t\t\t\t\t\t\t|");
+            Console.WriteLine("|\t\t\t\t\t Total price: \t\t\t\t\t\t\t|");
+            Console.WriteLine("|\t\t\t\t\t\t\t\t\t\t\t\t\t|");
             Console.WriteLine("|\t\t\t\t\t\t\t\t\t\t\t\t\t|");
             Console.WriteLine("|\t\t\t\t\t\t\t\t\t\t\t\t\t|");
             Console.WriteLine("|\t\t\t\t\t\t\t\t\t\t\t\t\t|");
@@ -72,6 +74,8 @@ namespace Lawn_Mower_Rental_App.View
             Console.WriteLine("|\t\t\t\t\t Rental Date: \t\t\t\t\t\t\t|");
             Console.WriteLine("|\t\t\t\t\t\t\t\t\t\t\t\t\t|");
             Console.WriteLine("|\t\t\t\t\t Return Date: \t\t\t\t\t\t\t|");
+            Console.WriteLine("|\t\t\t\t\t\t\t\t\t\t\t\t\t|");
+            Console.WriteLine("|\t\t\t\t\t Total price: \t\t\t\t\t\t\t|");
             Console.WriteLine("|\t\t\t\t\t\t\t\t\t\t\t\t\t|");
             Console.WriteLine("|\t\t\t\t\t\t\t\t\t\t\t\t\t|");
             Console.WriteLine("|\t\t\t\t\t\t\t\t\t\t\t\t\t|");
@@ -115,6 +119,8 @@ namespace Lawn_Mower_Rental_App.View
             Console.WriteLine("|\t\t\t\t\t\t\t\t\t\t\t\t\t|");
             Console.WriteLine("|\t\t\t\t\t Return Date: \t\t\t\t\t\t\t|");
             Console.WriteLine("|\t\t\t\t\t\t\t\t\t\t\t\t\t|");
+            Console.WriteLine("|\t\t\t\t\t Total price: \t\t\t\t\t\t\t|");
+            Console.WriteLine("|\t\t\t\t\t\t\t\t\t\t\t\t\t|");
             Console.WriteLine("|\t\t\t\t\t\t\t\t\t\t\t\t\t|");
             Console.WriteLine("|\t\t\t\t\t\t\t\t\t\t\t\t\t|");
             Console.WriteLine("|\t\t\t\t\t\t\t\t\t\t\t\t\t|");
@@ -149,6 +155,8 @@ namespace Lawn_Mower_Rental_App.View
             Console.WriteLine("|\t\t\t\t\t\t\t\t\t\t\t\t\t|");
             Console.WriteLine("|\t\t\t\t\t Return Date: \t\t\t\t\t\t\t|");
             Console.WriteLine("|\t\t\t\t\t\t\t\t\t\t\t\t\t|");
+            Console.WriteLine("|\t\t\t\t\t Total price: \t\t\t\t\t\t\t|");
+            Console.WriteLine("|\t\t\t\t\t\t\t\t\t\t\t\t\t|");
             Console.WriteLine("|\t\t\t\t\t\t\t\t\t\t\t\t\t|");
             Console.WriteLine("|\t\t\t\t\t\t\t\t\t\t\t\t\t|");
             Console.WriteLine("|\t\t\t\t\t\t\t\t\t\t\t\t\t|");
@@ -170,19 +178,53 @@ namespace Lawn_Mower_Rental_App.View
 
             TimeSpan rentalPeriod = returnDateValid - rentalDateValid;
             decimal totalPrice = pricePerDay * (decimal)rentalPeriod.TotalDays;
+
+            bool applyDiscount = false;
+
             if (customer is BasicCustomer basicCustomer && basicCustomer.RemainingDiscounts > 0)
             {
+                Console.Clear();
+                Console.WriteLine("|***************************************** LAWN MOWER RENTAL (TM) **************************************|");
+                Console.WriteLine("|\t\t\t\t\t\t\t\t\t\t\t\t\t|");
+                Console.WriteLine("|\t\t\t\t\t\t\t\t\t\t\t\t\t|");
+                Console.WriteLine("|\t\t\t\t\t\t\t\t\t\t\t\t\t|");
+                HelperMethods.WriteColoredText("|\t\t\t\t\t    RENT A LAWN MOWER \t\t\t\t\t\t|", "RENT A LAWN MOWER", ConsoleColor.Magenta);
+                Console.WriteLine("|\t\t\t\t\t\t\t\t\t\t\t\t\t|");
+                Console.WriteLine("|\t\t\t\t Please enter information as requested: \t\t\t\t|");
+                Console.WriteLine("|\t\t\t\t\t\t\t\t\t\t\t\t\t|");
+                HelperMethods.WriteLineFitBox("|\t\t\t\t\t Customer ID: ", customer.CustomerId.ToString(), "|", 50);
+                Console.WriteLine("|\t\t\t\t\t\t\t\t\t\t\t\t\t|");
+                HelperMethods.WriteLineFitBox("|\t\t\t\t\t Electric or Petrol: ", lawnMowerType, "|", 43);
+                Console.WriteLine("|\t\t\t\t\t\t\t\t\t\t\t\t\t|");
+                Console.WriteLine($"|\t\t\t\t\t Rental Date: {rentalDateValid.ToString("d")}\t\t\t\t\t|");
+                Console.WriteLine("|\t\t\t\t\t\t\t\t\t\t\t\t\t|");
+                Console.WriteLine($"|\t\t\t\t\t Return Date: {returnDateValid.ToString("d")}\t\t\t\t\t|");
+                Console.WriteLine("|\t\t\t\t\t\t\t\t\t\t\t\t\t|");
+                Console.WriteLine("|\t\t\t\t\t Total price: \t\t\t\t\t\t\t|");
+                Console.WriteLine("|\t\t\t\t\t\t\t\t\t\t\t\t\t|");
+                Console.WriteLine($"|\t\t\t\t\t Discounts remaining: {basicCustomer.RemainingDiscounts} \t\t\t\t\t|");
+                Console.WriteLine("|\t\t\t\t\t\t\t\t\t\t\t\t\t|");
+                Console.WriteLine("|\t\t\t\t\t\t\t\t\t\t\t\t\t|");
+                Console.WriteLine("|\t\t\t\t\t\t\t\t\t\t\t\t\t|");
+                Console.WriteLine("|*******************************************************************************************************|");
                 Console.WriteLine("Do you want to apply your available discount? (Y/N)");
-                string applyDiscount = Console.ReadLine();
+                string applyDiscountInput = HelperMethods.ReadLine();
 
-                if (applyDiscount.Trim().Equals("Y", StringComparison.OrdinalIgnoreCase))
+                if (applyDiscountInput.Trim().Equals("Y", StringComparison.OrdinalIgnoreCase))
                 {
                     // Might need to reconsider where this goes, it is only here to function right now. Will test if able.
                     decimal discountAmount = rentalManager.CalculateDiscount(totalPrice);
                     totalPrice -= discountAmount;
-                    basicCustomer.RemainingDiscounts--;
+                    //This here is only affecting the price that will be displayed before creating the Rental object. 
+                    //If the customer has available discounts, it will be applied even if the user says "NO" here.
+                    //I will modify the RentalManager.RentLawnMower() method to take a "bool applyDiscount" as a parameter with the customers decision,
+                    //and if "yes" then we apply the discount. This bool is initiated as false, and the only way to set it to true is if the customer
+                    //is a BasicCustomer with remaining discounts and answers "yes".   JON 
+                    applyDiscount = true;
                 }
             }
+
+
             Console.Clear();
             Console.WriteLine("|***************************************** LAWN MOWER RENTAL (TM) **************************************|");
             Console.WriteLine("|\t\t\t\t\t\t\t\t\t\t\t\t\t|");
@@ -209,7 +251,7 @@ namespace Lawn_Mower_Rental_App.View
             Console.WriteLine("|*******************************************************************************************************|");
             HelperMethods.ReadLine();
 
-            Rental rentalToAdd = rentalManager.RentLawnMower(customer, rentalDateValid, returnDateValid, electric);
+            Rental rentalToAdd = rentalManager.RentLawnMower(customer, rentalDateValid, returnDateValid, electric, applyDiscount);
             rentalManager.AddRentalToList(rentalToAdd);
 
             Console.Clear();

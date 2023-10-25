@@ -165,7 +165,7 @@ namespace Lawn_Mower_Rental_App.Controller
             }
             catch (Exception ex)
             {
-                RentLawnMowerForm.NoLawnMowersAvailableMessage();//We shoudl have a specific message
+                RentLawnMowerForm.NoLawnMowersAvailableMessage();//We shoudl have a specific message*************************************
                 return selectedElectricMower;
             }
         }
@@ -182,7 +182,7 @@ namespace Lawn_Mower_Rental_App.Controller
             }
             catch (Exception ex)
             {
-                RentLawnMowerForm.NoLawnMowersAvailableMessage();//We shoudl have a specific message
+                RentLawnMowerForm.NoLawnMowersAvailableMessage();//We shoudl have a specific message****************************************
                 return selectedPetrolMower;
             }
         }

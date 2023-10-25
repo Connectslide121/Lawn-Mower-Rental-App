@@ -64,7 +64,7 @@ namespace Lawn_Mower_Rental_App.Controller
             catch { ErrorsExceptions.RentalsFileNotFoundException(); }
         }
 
-        public Rental RentLawnMower(Customer customer, DateTime rentalDate, DateTime returnDate, bool electric)
+        public Rental RentLawnMower(Customer customer, DateTime rentalDate, DateTime returnDate, bool electric, bool applyDiscount)
         {
             LawnMowerManager lawnMowerManager = new LawnMowerManager();
             LawnMower lawnMower;
@@ -89,11 +89,13 @@ namespace Lawn_Mower_Rental_App.Controller
             decimal totalPrice = pricePerDay * (decimal)rentalPeriod.TotalDays;
 
             // If to check if customer is basic here, not in the form
-            if (customer is BasicCustomer basicCustomer && basicCustomer.RemainingDiscounts > 0)
+            if (customer is BasicCustomer basicCustomer && applyDiscount)
             {
                 decimal discountAmount = CalculateDiscount(totalPrice);
                 totalPrice -= discountAmount;
-                basicCustomer.RemainingDiscounts--; // Reducing the remaining discounts
+                
+                CustomerManager customerManager = new CustomerManager();
+                customerManager.AddDiscountsToBasicCustomer(basicCustomer.CustomerId, -1);// Reducing the remaining discounts
             }
 
             rental.TotalPrice = totalPrice;
@@ -104,6 +106,7 @@ namespace Lawn_Mower_Rental_App.Controller
 
             return rental;
         }
+
         public decimal CalculateDiscount(decimal totalPrice)
         {
             decimal discountPercentage = 0.25M; // 25% Discount if im right

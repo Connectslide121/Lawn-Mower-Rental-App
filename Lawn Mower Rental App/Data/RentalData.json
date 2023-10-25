@@ -414,5 +414,109 @@
     "TotalCost": 11826.3,
     "TotalPrice": 23676.3,
     "IsActive": false
+  },
+  {
+    "RentalId": 17,
+    "LawnMower": {
+      "LawnMowerId": 13,
+      "Model": "HUSQVARNA LB 448i",
+      "IsAvailable": true,
+      "LastMaintenance": "2023-10-24T15:38:38.9856624+02:00",
+      "PricePerDay": 99.9,
+      "CostPerDay": 49.9,
+      "ProfitPerDay": 50.0,
+      "AvailabilityStatus": "Available"
+    },
+    "Customer": {
+      "CustomerId": 5,
+      "FirstName": "Kjell",
+      "LastName": "Bergstr\u00F6m",
+      "ContactNumber": 1548765,
+      "Address": "Elsa Brandstroms gata 60A, Hagersten",
+      "DateOfRegistry": "2023-10-25T12:14:09.1527756+02:00"
+    },
+    "RentalDate": "2023-11-11T00:00:00",
+    "ReturnDate": "2023-11-12T00:00:00",
+    "TotalCost": 49.9,
+    "TotalPrice": 99.9,
+    "IsActive": true
+  },
+  {
+    "RentalId": 18,
+    "LawnMower": {
+      "LawnMowerId": 13,
+      "Model": "HUSQVARNA LB 448i",
+      "IsAvailable": true,
+      "LastMaintenance": "2023-10-24T15:38:38.9856624+02:00",
+      "PricePerDay": 99.9,
+      "CostPerDay": 49.9,
+      "ProfitPerDay": 50.0,
+      "AvailabilityStatus": "Available"
+    },
+    "Customer": {
+      "CustomerId": 5,
+      "FirstName": "Kjell",
+      "LastName": "Bergstr\u00F6m",
+      "ContactNumber": 1548765,
+      "Address": "Elsa Brandstroms gata 60A, Hagersten",
+      "DateOfRegistry": "2023-10-25T12:14:09.1527756+02:00"
+    },
+    "RentalDate": "2023-11-11T00:00:00",
+    "ReturnDate": "2023-11-12T00:00:00",
+    "TotalCost": 49.9,
+    "TotalPrice": 74.925,
+    "IsActive": true
+  },
+  {
+    "RentalId": 19,
+    "LawnMower": {
+      "LawnMowerId": 8,
+      "Model": "HUSQVARNA LB 448S KLIPPO",
+      "IsAvailable": true,
+      "LastMaintenance": "2023-10-24T15:36:59.4386648+02:00",
+      "PricePerDay": 99.9,
+      "CostPerDay": 49.9,
+      "ProfitPerDay": 50.0,
+      "AvailabilityStatus": "Available"
+    },
+    "Customer": {
+      "CustomerId": 5,
+      "FirstName": "Kjell",
+      "LastName": "Bergstr\u00F6m",
+      "ContactNumber": 1548765,
+      "Address": "Elsa Brandstroms gata 60A, Hagersten",
+      "DateOfRegistry": "2023-10-25T12:14:09.1527756+02:00"
+    },
+    "RentalDate": "2023-11-11T00:00:00",
+    "ReturnDate": "2023-11-12T00:00:00",
+    "TotalCost": 49.9,
+    "TotalPrice": 74.925,
+    "IsActive": true
+  },
+  {
+    "RentalId": 20,
+    "LawnMower": {
+      "LawnMowerId": 13,
+      "Model": "HUSQVARNA LB 448i",
+      "IsAvailable": true,
+      "LastMaintenance": "2023-10-24T15:38:38.9856624+02:00",
+      "PricePerDay": 99.9,
+      "CostPerDay": 49.9,
+      "ProfitPerDay": 50.0,
+      "AvailabilityStatus": "Available"
+    },
+    "Customer": {
+      "CustomerId": 5,
+      "FirstName": "Kjell",
+      "LastName": "Bergstr\u00F6m",
+      "ContactNumber": 1548765,
+      "Address": "Elsa Brandstroms gata 60A, Hagersten",
+      "DateOfRegistry": "2023-10-25T12:14:09.1527756+02:00"
+    },
+    "RentalDate": "2023-11-11T00:00:00",
+    "ReturnDate": "2023-11-12T00:00:00",
+    "TotalCost": 49.9,
+    "TotalPrice": 74.925,
+    "IsActive": true
   }
 ]

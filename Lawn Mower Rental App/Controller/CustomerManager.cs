@@ -254,6 +254,7 @@ namespace Lawn_Mower_Rental_App.Controller
                 ErrorsExceptions.BasicCustomerNotFoundException();
             }
         }
+
         public void ConvertPrimeToBasic(int customerId)
         {
             PrimeCustomer primeCustomer = primeCustomers.Find(cust => cust.CustomerId == customerId);
@@ -281,6 +282,7 @@ namespace Lawn_Mower_Rental_App.Controller
                 ErrorsExceptions.PrimeCustomerNotFoundException();
             }
         }
+
         public void AddBonusPointsToPrimeCustomer(int customerId, int bonusPointsToAdd)
         {
             PrimeCustomer primeCustomer = primeCustomers.Find(cust => cust.CustomerId == customerId);
@@ -291,6 +293,7 @@ namespace Lawn_Mower_Rental_App.Controller
                 SavePrimeCustomersToJson(primeCustomers);
             }
         }
+
         public void AddDiscountsToBasicCustomer(int customerId, int discountsToAdd)
         {
             BasicCustomer basicCustomer = basicCustomers.Find(cust => cust.CustomerId == customerId);
@@ -301,6 +304,7 @@ namespace Lawn_Mower_Rental_App.Controller
                 SaveBasicCustomersToJson(basicCustomers);
             }
         }
+
         private List<Rental> LoadRentalsFromJson()
         {
             try
@@ -311,6 +315,7 @@ namespace Lawn_Mower_Rental_App.Controller
             catch (Exception) { ErrorsExceptions.RentalsFileNotFoundException(); }
             return new List<Rental>();
         }
+
         public void UpdatePrimeCustomerBonusPoints()
         {
             foreach (PrimeCustomer primeCustomer in primeCustomers)
@@ -328,6 +333,7 @@ namespace Lawn_Mower_Rental_App.Controller
                 .Where(rental => rental.Customer.CustomerId == customerId)
                 .Sum(rental => rental.TotalPrice);
         }
+
         public bool TryFindCustomerById(int customerId, out Customer customer) // This is an bad solution, but i could not get the existing FindbyId to work without breaking RentLawnMower.
         {
             Customer foundCustomer = null;
