@@ -22,70 +22,59 @@ namespace Lawn_Mower_Rental_App.Controller
             primeCustomers = LoadPrimeCustomersFromJson();
         }
 
-        public void RegisterNewCustomer(Customer customer)
+        public void RegisterNewCustomer(BasicCustomer basicCustomer)
         {
             NewCustomerForm newCustomerForm = new NewCustomerForm();
 
-            bool customerExists = customer is BasicCustomer
-                ? basicCustomers.Any(item =>
-                    item.FirstName.ToLower() == customer.FirstName.ToLower() &&
-                    item.LastName.ToLower() == customer.LastName.ToLower() &&
-                    item.ContactNumber == customer.ContactNumber)
-                : primeCustomers.Any(item =>
-                    item.FirstName.ToLower() == customer.FirstName.ToLower() &&
-                    item.LastName.ToLower() == customer.LastName.ToLower() &&
-                    item.ContactNumber == customer.ContactNumber);
+            bool customerExists = basicCustomers.Any(item =>
+                item.FirstName.ToLower() == basicCustomer.FirstName.ToLower() &&
+                item.LastName.ToLower() == basicCustomer.LastName.ToLower() &&
+                item.ContactNumber == basicCustomer.ContactNumber);
 
             if (customerExists)
             {
-                newCustomerForm.CustomerExistsMessage(customer);
+                newCustomerForm.CustomerExistsMessage(basicCustomer);
             }
             else
             {
-                if (customer is BasicCustomer)
-                {
-                    basicCustomers.Add(customer as BasicCustomer);
-                    SaveBasicCustomersToJson(basicCustomers);
-                }
-                else if (customer is PrimeCustomer)
-                {
-                    primeCustomers.Add(customer as PrimeCustomer);
-                    SavePrimeCustomersToJson(primeCustomers);
-                }
-                newCustomerForm.CustomerRegisteredMessage(customer);
+                basicCustomers.Add(basicCustomer);
+                SaveBasicCustomersToJson(basicCustomers);
+                newCustomerForm.CustomerRegisteredMessage(basicCustomer);
             }
         }
 
-        public int GetCustomerId(CustomerType customerType)
+        public int GetCustomerId()
         {
-            List<Customer> allCustomers = new List<Customer>();
-
-            if (customerType == CustomerType.Basic)
-            {
-                allCustomers.AddRange(basicCustomers.Cast<Customer>());
-                allCustomers.AddRange(primeCustomers.Cast<Customer>());
-            }
-            else
-            {
-                allCustomers.AddRange(primeCustomers.Cast<Customer>());
-                allCustomers.AddRange(basicCustomers.Cast<Customer>());
-            }
-
-            if (allCustomers.Count == 0)
+            if(basicCustomers.Count == 0 && primeCustomers.Count == 0)
             {
                 return 1;
             }
-
-            int highestID = allCustomers.Max(cust => cust.CustomerId);
-
-            for (int i = 1; i <= highestID + 1; i++)
+            else
             {
-                if (!allCustomers.Any(cust => cust.CustomerId == i))
+                int nextId = 1;
+                bool idInUse;
+
+                do
                 {
-                    return i;
+                    if (basicCustomers.Any(basicCustomer => basicCustomer.CustomerId == nextId))
+                    {
+                        idInUse = true;
+                        nextId++;
+                    }
+                    else if (primeCustomers.Any(primeCustomer => primeCustomer.CustomerId == nextId))
+                    {
+                        idInUse = true;
+                        nextId++;
+                    }
+                    else
+                    {
+                        idInUse = false;
+                    }
                 }
+                while (idInUse == true);
+
+            return nextId;
             }
-            return highestID + 1;
         }
 
         public void DeleteCustomer(string firstName, string lastName, int customerId)

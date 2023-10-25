@@ -19,7 +19,6 @@ namespace Lawn_Mower_Rental_App.Controller
             RentalManager rentalManager = new RentalManager();
             ViewActiveRentalsForm viewActiveRentalsForm = new ViewActiveRentalsForm();
             ViewRentalHistoryForm viewRentalHistoryForm = new ViewRentalHistoryForm();
-            ViewDelayedRentals viewDelayedRentals = new ViewDelayedRentals();
 
             NewLawnMowerForm newLawnMowerForm = new NewLawnMowerForm();
             DeleteLawnMowerForm deleteLawnMowerForm = new DeleteLawnMowerForm();
