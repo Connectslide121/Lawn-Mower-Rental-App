@@ -282,7 +282,26 @@ namespace Lawn_Mower_Rental_App.Controller
                 // Error message can go here
             }
         }
+        public void AddBonusPointsToPrimeCustomer(int customerId, int bonusPointsToAdd)
+        {
+            PrimeCustomer primeCustomer = primeCustomers.Find(cust => cust.CustomerId == customerId);
 
+            if (primeCustomer != null)
+            {
+                primeCustomer.BonusPoints += bonusPointsToAdd;
+                SavePrimeCustomersToJson(primeCustomers);
+            }
+        }
+        public void AddDiscountsToBasicCustomer(int customerId, int discountsToAdd)
+        {
+            BasicCustomer basicCustomer = basicCustomers.Find(cust => cust.CustomerId == customerId);
+
+            if (basicCustomer != null)
+            {
+                basicCustomer.RemainingDiscounts += discountsToAdd;
+                SaveBasicCustomersToJson(basicCustomers);
+            }
+        }
 
     }
 }
