@@ -63,6 +63,7 @@ namespace Lawn_Mower_Rental_App.View
             Console.WriteLine("|\t\t\t\t\t\t\t\t\t\t\t\t\t|");
             Console.WriteLine("|\t\t\t   -----------------------------------------------\t\t\t\t|");
             Console.WriteLine("|\t\t\t\t\t\t\t\t\t\t\t\t\t|");
+
             if (basicCustomers.Count == 0 && primeCustomers.Count == 0)
             {
                 Console.WriteLine("|\t\t\t\t\tNo customers registered yet.\t\t\t\t|");
@@ -70,23 +71,35 @@ namespace Lawn_Mower_Rental_App.View
             else
             {
                 Console.WriteLine("|\t\t\t\t\t\t\t\t\t\t\t\t\t|");
-                HelperMethods.WriteColoredText("|\t\t\t\t\t      BASIC CUSTOMERS \t\t\t\t\t\t|", "BASIC CUSTOMERS", ConsoleColor.DarkYellow);
-                Console.WriteLine("|\t\t\t\t\t\t\t\t\t\t\t\t\t|");
 
-                foreach (Customer customer in basicCustomers)
+                if (basicCustomers.Count > 0)
                 {
-                    HelperMethods.WriteLineFitBox("|", customer.ToString(), "|", 103);
+                    HelperMethods.WriteColoredText("|\t\t\t\t\t      BASIC CUSTOMERS (DISCOUNTS)\t\t\t\t\t\t|", "BASIC CUSTOMERS", ConsoleColor.DarkYellow);
+                    Console.WriteLine("|\t\t\t\t\t\t\t\t\t\t\t\t\t|");
+
+                    foreach (BasicCustomer customer in basicCustomers)
+                    {
+                        HelperMethods.WriteLineFitBox("|", customer.ToString(), "|", 103);
+                    }
                 }
 
-                Console.WriteLine("|\t\t\t\t\t\t\t\t\t\t\t\t\t|");
-                HelperMethods.WriteColoredText("|\t\t\t\t\t      PRIME CUSTOMERS \t\t\t\t\t\t|", "PRIME CUSTOMERS", ConsoleColor.DarkYellow);
-                Console.WriteLine("|\t\t\t\t\t\t\t\t\t\t\t\t\t|");
-
-                foreach (Customer customer in primeCustomers)
+                if (primeCustomers.Count > 0)
                 {
-                    HelperMethods.WriteLineFitBox("|", customer.ToString(), "|", 103);
+                    HelperMethods.WriteColoredText("|\t\t\t\t\t      PRIME CUSTOMERS (BONUS POINTS)\t\t\t\t\t\t|", "PRIME CUSTOMERS", ConsoleColor.DarkYellow);
+                    Console.WriteLine("|\t\t\t\t\t\t\t\t\t\t\t\t\t|");
+
+                    foreach (PrimeCustomer customer in primeCustomers)
+                    {
+                        string customerInfo = customer.ToString();
+                        if (customerInfo.Contains("Discounts"))
+                        {
+                            customerInfo = customerInfo.Replace("Discounts", "Bonus Points");
+                        }
+                        HelperMethods.WriteLineFitBox("|", customerInfo, "|", 103);
+                    }
                 }
             }
+
             Console.WriteLine("|\t\t\t\t\t\t\t\t\t\t\t\t\t|");
             Console.WriteLine("|\t\t\t   -----------------------------------------------\t\t\t\t|");
             Console.WriteLine("|\t\t\t\t\t\t\t\t\t\t\t\t\t|");
@@ -95,8 +108,8 @@ namespace Lawn_Mower_Rental_App.View
             Console.WriteLine("Press any key to go back to the Main Menu.");
             HelperMethods.ReadLine();
             MainMenu.MainMenu_();
-
         }
+
 
         public static void DisplayBasicCustomers(List<BasicCustomer> basicCustomers)
         {
@@ -153,7 +166,7 @@ namespace Lawn_Mower_Rental_App.View
             {
                 foreach (Customer customer in primeCustomers)
                 {
-                    HelperMethods.WriteLineFitBox("|", customer.ToString(), "|", 103);
+                    HelperMethods.WriteLineFitBox("|", customer.ToString().Replace("Discounts", "Bonus Points"), "|", 103);
                 }
             }
             Console.WriteLine("|\t\t\t\t\t\t\t\t\t\t\t\t\t|");
@@ -164,7 +177,6 @@ namespace Lawn_Mower_Rental_App.View
             Console.WriteLine("Press any key to go back to the Main Menu.");
             HelperMethods.ReadLine();
             MainMenu.MainMenu_();
-
         }
     }
 }

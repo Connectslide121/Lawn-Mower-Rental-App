@@ -1,14 +1,5 @@
 [
   {
-    "BonusPoints": 52547,
-    "CustomerId": 2,
-    "FirstName": "Marianne",
-    "LastName": "Jansson",
-    "ContactNumber": 65848512,
-    "Address": "Fleminggatan 73, V\u00E4xj\u00F6",
-    "DateOfRegistry": "2023-10-25T12:07:12.071684+02:00"
-  },
-  {
     "BonusPoints": 6993,
     "CustomerId": 1,
     "FirstName": "Lynus",
@@ -61,5 +52,14 @@
     "ContactNumber": 1548765,
     "Address": "Elsa Brandstroms gata 60A, Hagersten",
     "DateOfRegistry": "2023-10-25T12:14:09.1527756+02:00"
+  },
+  {
+    "BonusPoints": 52547,
+    "CustomerId": 2,
+    "FirstName": "Marianne",
+    "LastName": "Jansson",
+    "ContactNumber": 65848512,
+    "Address": "Fleminggatan 73, V\u00E4xj\u00F6",
+    "DateOfRegistry": "2023-10-25T12:07:12.071684+02:00"
   }
 ]
