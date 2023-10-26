@@ -17,7 +17,7 @@ namespace Lawn_Mower_Rental_App.Model
 
         public override string ToString()
         {
-            return $"ID: {CustomerId} - {FirstName} {LastName} - {ContactNumber} - {Address} - {DateOfRegistry.ToString("d")} - Discounts: {BonusPoints.ToString()}";
+            return $"ID: {CustomerId} - {FirstName} {LastName} - {ContactNumber} - {Address} - {DateOfRegistry.ToString("d")} - Bonus Points: {BonusPoints.ToString()}";
         }
     }
 }

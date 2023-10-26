@@ -166,7 +166,7 @@ namespace Lawn_Mower_Rental_App.View
             {
                 foreach (Customer customer in primeCustomers)
                 {
-                    HelperMethods.WriteLineFitBox("|", customer.ToString().Replace("Discounts", "Bonus Points"), "|", 103);
+                    HelperMethods.WriteLineFitBox("|", customer.ToString(), "|", 103);
                 }
             }
             Console.WriteLine("|\t\t\t\t\t\t\t\t\t\t\t\t\t|");
