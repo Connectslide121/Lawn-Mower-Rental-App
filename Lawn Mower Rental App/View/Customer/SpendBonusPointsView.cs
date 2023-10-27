@@ -15,7 +15,7 @@ namespace Lawn_Mower_Rental_App.View
         {
             CustomerManager customerManager = new CustomerManager();
 
-            while (true)  // Add a loop to allow retry
+            while (true)
             {
                 Console.Clear();
                 Console.WriteLine("|***************************************** LAWN MOWER RENTAL (TM) **************************************|");
@@ -86,7 +86,7 @@ namespace Lawn_Mower_Rental_App.View
 
                         if (continueInput.Equals("X", StringComparison.OrdinalIgnoreCase))
                         {
-                            break;  // Exit the loop to return to the main menu
+                            break;
                         }
                     }
                     else
