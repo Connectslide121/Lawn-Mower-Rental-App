@@ -50,11 +50,13 @@ namespace Lawn_Mower_Rental_App.View
                         Console.WriteLine("|\t\t\t\t\t\t\t\t\t\t\t\t\t|");
                         HelperMethods.WriteColoredText("|\t\t\t\t\t SPEND BONUS POINTS FOR PRIME CUSTOMER \t\t\t\t|", "SPEND BONUS POINTS FOR PRIME CUSTOMER", ConsoleColor.Yellow);
                         Console.WriteLine("|\t\t\t\t\t\t\t\t\t\t\t\t\t|");
-                        Console.WriteLine($"|\t\t\t\t\t   Customer Name: {primeCustomer.FirstName} {primeCustomer.LastName}\t\t\t\t|");
-                        Console.WriteLine($"|\t\t\t\t\t   Current Bonus Points: {primeCustomer.BonusPoints}\t\t\t\t|");
+                        HelperMethods.WriteLineFitBox("|\t\t\t\t\t   ", $"Customer Name: {primeCustomer.FirstName} {primeCustomer.LastName}", "|", 61);
+                        Console.WriteLine("|\t\t\t\t\t\t\t\t\t\t\t\t\t|");
+                        HelperMethods.WriteLineFitBox("|\t\t\t\t\t   ", $"Current Bonus Points: {primeCustomer.BonusPoints}", "|", 61);
                         Console.WriteLine("|\t\t\t\t\t\t\t\t\t\t\t\t\t|");
                         Console.WriteLine("|\t\t\t\t\t\t\t\t\t\t\t\t\t|");
                         Console.WriteLine("|\t\t\t\t\t   Enter Points to Spend: \t\t\t\t\t|");
+                        Console.WriteLine("|\t\t\t\t\t\t\t\t\t\t\t\t\t|");
                         Console.WriteLine("|\t\t\t\t\t\t\t\t\t\t\t\t\t|");
                         Console.WriteLine("|*******************************************************************************************************|");
 
@@ -74,10 +76,13 @@ namespace Lawn_Mower_Rental_App.View
                         Console.WriteLine("|\t\t\t\t\t\t\t\t\t\t\t\t\t|");
                         HelperMethods.WriteColoredText("|\t\t\t\t\t SPEND BONUS POINTS FOR PRIME CUSTOMER \t\t\t\t|", "SPEND BONUS POINTS FOR PRIME CUSTOMER", ConsoleColor.Yellow);
                         Console.WriteLine("|\t\t\t\t\t\t\t\t\t\t\t\t\t|");
-                        Console.WriteLine($"|\t\t\t\t\t   Customer Name: {primeCustomer.FirstName} {primeCustomer.LastName}\t\t\t\t|");
-                        Console.WriteLine($"|\t\t\t\t\t   Current Bonus Points: {primeCustomer.BonusPoints}\t\t\t\t|");
+                        HelperMethods.WriteLineFitBox("|\t\t\t\t\t   ", $"Customer Name: {primeCustomer.FirstName} {primeCustomer.LastName}", "|", 61);
                         Console.WriteLine("|\t\t\t\t\t\t\t\t\t\t\t\t\t|");
-                        Console.WriteLine($"|\t\t\t\t\t   {pointsToSpend} Points Spent Successfully!\t\t\t\t|");
+                        HelperMethods.WriteLineFitBox("|\t\t\t\t\t   ", $"Current Bonus Points: {primeCustomer.BonusPoints}", "|", 61);
+                        Console.WriteLine("|\t\t\t\t\t\t\t\t\t\t\t\t\t|");
+                        Console.WriteLine("|\t\t\t\t\t\t\t\t\t\t\t\t\t|");
+                        HelperMethods.WriteLineFitBox("|\t\t\t\t\t   ", $"{pointsToSpend} Points Spent Successfully!", "|", 61);
+                        Console.WriteLine("|\t\t\t\t\t\t\t\t\t\t\t\t\t|");
                         Console.WriteLine("|\t\t\t\t\t\t\t\t\t\t\t\t\t|");
                         Console.WriteLine("|*******************************************************************************************************|");
 
