@@ -133,6 +133,7 @@ namespace Lawn_Mower_Rental_App.Controller
             CustomerSearchView customerSearchView = new CustomerSearchView();
             AddPointsView addPointsView = new AddPointsView();
             ChangeCustomerView changeCustomerView = new ChangeCustomerView();
+            SpendBonusPointsView spendBonusPointsView = new SpendBonusPointsView();
 
             if (int.TryParse(userInput, out int userInputInt))
             {
@@ -155,6 +156,9 @@ namespace Lawn_Mower_Rental_App.Controller
                         break;
                     case 6:
                         changeCustomerView.ChangeCustomerType();
+                        break;
+                    case 7:
+                        spendBonusPointsView.SpendBonusPointsForPrimeCustomer();
                         break;
                     default:
                         MainMenu.CustomerMenu();

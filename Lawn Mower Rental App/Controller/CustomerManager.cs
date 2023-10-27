@@ -335,19 +335,25 @@ namespace Lawn_Mower_Rental_App.Controller
                 .Sum(rental => rental.TotalPrice);
         }
 
-        public bool TryFindCustomerById(int customerId, out Customer customer) // This is an bad solution, but i could not get the existing FindbyId to work without breaking RentLawnMower.
+        public bool TryFindCustomerById(int customerId, out Customer customer)
         {
-            Customer foundCustomer = null;//THIS METHOD IS NEVER RETURNING TRUE, foundCustomer IS SET TO NULL, SO IT WILL ALWAYS RETURN FALSE.   JON
-            
-            if (foundCustomer != null)
+            BasicCustomer basicCustomer = basicCustomers.Find(customer => customer.CustomerId == customerId);
+            if (basicCustomer != null)
             {
-                customer = foundCustomer;
+                customer = basicCustomer;
                 return true;
             }
+
+            PrimeCustomer primeCustomer = primeCustomers.Find(customer => customer.CustomerId == customerId);
+            if (primeCustomer != null)
+            {
+                customer = primeCustomer;
+                return true;
+            }
+
             customer = null;
             return false;
         }
-
         public void ChangeCustomerTypeById(int customerId)
         {
             ChangeCustomerView changeCustomerView = new ChangeCustomerView();
@@ -385,6 +391,19 @@ namespace Lawn_Mower_Rental_App.Controller
                     {
                         basicCustomer.RemainingDiscounts = 1;
                     }
+                }
+            }
+        }
+        public void WithdrawCustomerBonusPoints(int customerId, int bonusPointsToWithdraw)
+        {
+            PrimeCustomer primeCustomer = primeCustomers.Find(cust => cust.CustomerId == customerId);
+
+            if (primeCustomer != null)
+            {
+                if (primeCustomer.BonusPoints >= bonusPointsToWithdraw)
+                {
+                    primeCustomer.BonusPoints -= bonusPointsToWithdraw;
+                    SavePrimeCustomersToJson(primeCustomers);
                 }
             }
         }
