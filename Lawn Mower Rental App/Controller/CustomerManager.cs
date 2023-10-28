@@ -392,8 +392,10 @@ namespace Lawn_Mower_Rental_App.Controller
                         basicCustomer.RemainingDiscounts = 1;
                     }
                 }
+                SaveBasicCustomersToJson(basicCustomers);
             }
         }
+
         public void WithdrawCustomerBonusPoints(int customerId, int bonusPointsToWithdraw)
         {
             PrimeCustomer primeCustomer = primeCustomers.Find(cust => cust.CustomerId == customerId);
